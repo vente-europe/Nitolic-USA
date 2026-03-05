@@ -1,0 +1,2086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Nitolic — Head Lice US Market Dashboard 2026-03-01</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f1f5f9;color:#1e293b;font-size:13px}
+header{background:#0f2942;color:#fff;padding:18px 32px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:101}
+header h1{font-size:1.2rem}
+header p{font-size:.75rem;opacity:.65;margin-top:3px}
+.tabs{display:flex;background:#fff;border-bottom:2px solid #e2e8f0;padding:0 32px;gap:2px;position:sticky;top:68px;z-index:100}
+.tab{padding:12px 16px;cursor:pointer;font-size:.83rem;font-weight:600;color:#64748b;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap;letter-spacing:.01em}
+.tab:hover{color:#1e3a5f}.tab.active{color:#1e3a5f;border-bottom-color:#2563eb}
+.content{padding:22px 32px}
+.panel{display:none}.panel.active{display:block}
+.kpis{display:grid;grid-template-columns:repeat(auto-fill,minmax(145px,1fr));gap:12px;margin-bottom:20px}
+.kpi{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.kpi-v{font-size:1.15rem;font-weight:700;color:#0f2942;word-break:break-word;line-height:1.2}
+.kpi-l{font-size:.68rem;color:#64748b;margin-top:4px;line-height:1.3}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:18px}
+.g3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:18px;margin-bottom:18px}
+.card{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.07);margin-bottom:18px}
+.card h3{font-size:.83rem;font-weight:600;color:#475569;margin-bottom:12px}
+.cw{position:relative;height:240px}
+table{width:100%;border-collapse:collapse;font-size:.75rem}
+th{background:#f8fafc;text-align:left;padding:6px 7px;font-weight:600;color:#475569;white-space:nowrap;position:sticky;top:0;border-bottom:1px solid #e2e8f0}
+td{padding:5px 7px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+tr:hover td{background:#f8fafc}
+td a{color:#2563eb;text-decoration:none;font-family:monospace;font-size:.72rem}
+td a:hover{text-decoration:underline}
+.tbl-wrap{overflow-x:auto;max-height:480px;overflow-y:auto}
+h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
+.insight{background:#eff6ff;border-left:3px solid #2563eb;padding:10px 14px;border-radius:0 6px 6px 0;margin-bottom:14px;font-size:.8rem;color:#1e40af;line-height:1.5}
+.note{font-size:.72rem;color:#64748b;margin-top:10px;padding:9px 11px;background:#f8fafc;border-radius:5px;border-left:2px solid #cbd5e1;line-height:1.5}
+.badge{display:inline-block;padding:2px 7px;border-radius:10px;font-size:.68rem;font-weight:600}
+.badge-prev{background:#dcfce7;color:#15803d}
+.badge-tx{background:#fee2e2;color:#991b1b}
+.badge-type{background:#eff6ff;color:#1d4ed8}
+.num-right th:not(:first-child),.num-right td:not(:first-child){text-align:right}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1>Head Lice — US Market Analysis Dashboard</h1>
+    <p>Source: Main-Xray_Nitolic_2026-03-01.csv + per-ASIN sales CSVs &nbsp;·&nbsp; Generated: 2026-03-01 &nbsp;·&nbsp; 34 ASINs &nbsp;·&nbsp; 17 Brands &nbsp;·&nbsp; All figures: 12-month (Mar 2025 – Feb 2026)</p>
+  </div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" onclick="show('t1',this)">1 — Main Segments (Total Market)</div>
+  <div class="tab" onclick="show('t2',this)">2 — Market Structure (Prevention)</div>
+  <div class="tab" onclick="show('t3tx',this)">3 — Market Structure (Treatment)</div>
+  <div class="tab" onclick="show('t4meth',this)">4 — Treatment Method</div>
+  <div class="tab" onclick="show('t4rev',this)">5 — Reviews</div>
+</div>
+
+<div class="content">
+
+<!-- ═══════════════════════════════════════════════ TAB 1: Main Segments (Total Market) -->
+<div id="t1" class="panel active">
+<h2>Main Segments — Total Market (12M)</h2>
+
+<!-- Total category KPI -->
+<div class="card" style="border-left:4px solid #1e293b;padding:14px 20px;display:flex;align-items:center;gap:36px;flex-wrap:wrap;margin-bottom:14px">
+  <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#64748b;min-width:120px">Total Category</div>
+  <div>
+    <div style="font-size:1.6rem;font-weight:700;color:#1e293b;line-height:1">$16.4M</div>
+    <div style="font-size:.75rem;color:#64748b;margin-top:3px">Revenue · Last 12M (Mar 2025 – Feb 2026)</div>
+  </div>
+  <div>
+    <div style="font-size:1.6rem;font-weight:700;color:#1e293b;line-height:1">778,443</div>
+    <div style="font-size:.75rem;color:#64748b;margin-top:3px">Units Sold · Last 12M</div>
+  </div>
+</div>
+
+<!-- Per-segment KPI cards -->
+<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:22px">
+  <div class="card" style="border-left:4px solid #16a34a;padding:14px 16px">
+    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#16a34a;margin-bottom:10px">Prevention</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+      <div class="kpi" style="box-shadow:none;background:#f8fafc;padding:8px 10px">
+        <div class="kpi-v" style="font-size:.95rem">340K</div>
+        <div class="kpi-l">Units sold (12M)</div>
+      </div>
+      <div class="kpi" style="box-shadow:none;background:#f8fafc;padding:8px 10px">
+        <div class="kpi-v" style="font-size:.95rem">$5.9M</div>
+        <div class="kpi-l">Segment Value (12M)</div>
+      </div>
+    </div>
+  </div>
+  <div class="card" style="border-left:4px solid #dc2626;padding:14px 16px">
+    <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#dc2626;margin-bottom:10px">Treatment</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
+      <div class="kpi" style="box-shadow:none;background:#f8fafc;padding:8px 10px">
+        <div class="kpi-v" style="font-size:.95rem">438K</div>
+        <div class="kpi-l">Units sold (12M)</div>
+      </div>
+      <div class="kpi" style="box-shadow:none;background:#f8fafc;padding:8px 10px">
+        <div class="kpi-v" style="font-size:.95rem">$10.4M</div>
+        <div class="kpi-l">Segment Value (12M)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="insight">
+  Treatment dominates: <strong>63.9% of revenue ($10.5M) and 56.6% of units (440K)</strong>. Treatment commands a 36% price premium ($23.76 vs $17.51). Fairy Tales and RID are nearly tied for #1 brand ($4.28M vs $4.17M).
+</div>
+
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Revenue by Segment (12M)</h3>
+    <div class="cw" style="height:280px"><canvas id="focusRevPie"></canvas></div>
+    <div class="note">Prevention $5.92M (36.1%) · Treatment $10.47M (63.9%). Revenue figures = 12M units × listed ASIN price. Source: per-ASIN sales CSVs.</div>
+  </div>
+  <div class="card">
+    <h3>Units by Segment (12M)</h3>
+    <div class="cw" style="height:280px"><canvas id="focusUnitsPie"></canvas></div>
+    <div class="note">Prevention 337,981 units (43.4%) · Treatment 440,462 units (56.6%). Treatment dominates volume and value.</div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Segment Summary (12M)</h3>
+  <div class="tbl-wrap"><table class="num-right" id="segSummaryTable">
+    <thead><tr>
+      <th style="text-align:left">Segment</th>
+      <th>Units (12M)</th>
+      <th>Revenue (12M)</th>
+      <th>Unit Share</th>
+      <th>Rev Share</th>
+    </tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="badge badge-prev">Prevention</span></td>
+        <td data-val="337981">337,981</td>
+        <td data-val="5918863">$5,918,863</td>
+        <td data-val="43.4">43.4%</td>
+        <td data-val="36.1">36.1%</td>
+      </tr>
+      <tr>
+        <td><span class="badge badge-tx">Treatment</span></td>
+        <td data-val="440462">440,462</td>
+        <td data-val="10466875">$10,466,875</td>
+        <td data-val="56.6">56.6%</td>
+        <td data-val="63.9">63.9%</td>
+      </tr>
+    </tbody>
+  </table></div>
+  <div class="note">Revenue = 12M units × listed ASIN price (Mar 2025 – Feb 2026). Source: per-ASIN sales CSVs.</div>
+</div>
+
+<!-- ── Brand Share by Segment — Units ───────────────────────────────────────── -->
+<div class="g2" style="align-items:start;margin-top:18px">
+  <div class="card">
+    <h3>Brand Share by Segment — Treatment (Units, 12M)</h3>
+    <div class="cw" style="height:340px"><canvas id="txBrandUnitPie"></canvas></div>
+    <div class="note">Brand unit share within Treatment segment. 440,462 total units (12M). "Others" = Kapow, LADIBUGS, Lice Queen, Lice No More.</div>
+  </div>
+  <div class="card">
+    <h3>Brand Share by Segment — Prevention (Units, 12M)</h3>
+    <div class="cw" style="height:340px"><canvas id="prevBrandUnitPie"></canvas></div>
+    <div class="note">Brand unit share within Prevention segment. 337,981 total units (12M). "Others" = RID (prevention shampoo).</div>
+  </div>
+</div>
+
+<!-- ── Brand Share by Segment — Revenue ─────────────────────────────────────── -->
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Brand Share by Segment — Treatment (Revenue, 12M)</h3>
+    <div class="cw" style="height:340px"><canvas id="txBrandRevPie"></canvas></div>
+    <div class="note">Brand revenue share within Treatment segment. $10.44M total revenue (12M). "Others" = HERKLIN, Mata Piojos, Lice Queen, Lice No More.</div>
+  </div>
+  <div class="card">
+    <h3>Brand Share by Segment — Prevention (Revenue, 12M)</h3>
+    <div class="cw" style="height:340px"><canvas id="prevBrandRevPie"></canvas></div>
+    <div class="note">Brand revenue share within Prevention segment. $5.92M total revenue (12M). "Others" = RID (prevention shampoo).</div>
+  </div>
+</div>
+
+<div class="card" style="margin-top:18px">
+  <h3>% Unit Share — Brand vs. Total (All) (12M)</h3>
+  <div class="cw" style="height:420px"><canvas id="brandShareLineChart"></canvas></div>
+  <div class="note">Monthly unit share per brand as % of total market units (Mar 2025 – Feb 2026). Total units by month: Mar=34.7K · Apr=36.1K · May=38.8K · Jun=52.4K · Jul=61.1K · Aug=81.9K · Sep=75.3K · Oct=87.1K · Nov=91.5K · Dec=70.2K · Jan=71.2K · Feb=78.0K. Click legend to show/hide brand.</div>
+</div>
+
+<!-- ── Monthly Seasonality — by Segment ───────────────────────────────────────── -->
+<h2 style="margin-top:28px">Monthly Seasonality Index by Segment (1.0 = average month)</h2>
+
+<!-- Prevention -->
+<div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr));margin-top:12px">
+  <div class="kpi"><div class="kpi-v" style="color:#15803d">Nov</div><div class="kpi-l">Prevention Peak (1.61×)</div></div>
+  <div class="kpi"><div class="kpi-v" style="color:#dc2626">Mar</div><div class="kpi-l">Prevention Trough (0.25×)</div></div>
+  <div class="kpi"><div class="kpi-v">6.4×</div><div class="kpi-l">Prevention Peak / Trough</div></div>
+</div>
+<div class="card" style="margin-top:10px">
+  <h3>Prevention — Monthly Seasonality Index (1.0 = average month) &nbsp;
+    <span style="font-size:.7rem;color:#16a34a">&#9632; Peak</span>&nbsp;
+    <span style="font-size:.7rem;color:#dc2626">&#9632; Trough</span>
+  </h3>
+  <div class="cw" style="height:200px"><canvas id="prevSeasChart"></canvas></div>
+  <div class="note">17 Prevention ASINs (Mar 2025 – Feb 2026). Highly seasonal — back-to-school drives a 6× swing between trough (Mar) and peak (Nov). Index 1.0 = average month.</div>
+</div>
+
+<!-- Treatment -->
+<div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr));margin-top:18px">
+  <div class="kpi"><div class="kpi-v" style="color:#15803d">Nov</div><div class="kpi-l">Treatment Peak (1.26×)</div></div>
+  <div class="kpi"><div class="kpi-v" style="color:#2563eb">Mar</div><div class="kpi-l">Treatment Trough (0.75×)</div></div>
+  <div class="kpi"><div class="kpi-v">1.7×</div><div class="kpi-l">Treatment Peak / Trough</div></div>
+</div>
+<div class="card" style="margin-top:10px">
+  <h3>Treatment — Monthly Seasonality Index (1.0 = average month) &nbsp;
+    <span style="font-size:.7rem;color:#16a34a">&#9632; Peak</span>&nbsp;
+    <span style="font-size:.7rem;color:#dc2626">&#9632; Trough</span>
+  </h3>
+  <div class="cw" style="height:200px"><canvas id="txSeasChart"></canvas></div>
+  <div class="note">17 Treatment ASINs (Mar 2025 – Feb 2026). Much flatter profile — lice infestations require treatment regardless of season. Modest peak in Oct–Nov, slight dip in Mar–May.</div>
+</div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB 2: Market Structure -->
+<div id="t2" class="panel">
+<h2>Market Structure — Prevention Segment (12M)</h2>
+
+<div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+  <div class="kpi"><div class="kpi-v">39.9%</div><div class="kpi-l">Top 1 ASIN Revenue Share</div></div>
+  <div class="kpi"><div class="kpi-v">66.0%</div><div class="kpi-l">Top 3 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">78.4%</div><div class="kpi-l">Top 5 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">92.2%</div><div class="kpi-l">Top 10 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">72.4%</div><div class="kpi-l">Top Brand Share (Fairy Tales)</div></div>
+</div>
+
+<!-- ── S1: All Types breakdown ──────────────────────────────────────────────── -->
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Type — Unit Share (12M) — Prevention</h3>
+    <div class="cw" style="height:280px"><canvas id="txTypeUnitPie"></canvas></div>
+    <div class="note">Prevention spray 211,405 (62.6%) · Prevention shampoo 78,228 (23.2%) · Treatment + Prevention kit/set 23,955 (7.1%) · Prevention kit/set 19,352 (5.7%) · Prevention conditioner 5,041 (1.5%). Total: 337,981 units.</div>
+  </div>
+  <div class="card">
+    <h3>Type — Revenue Share (12M) — Prevention</h3>
+    <div class="cw" style="height:280px"><canvas id="txTypeRevPie"></canvas></div>
+    <div class="note">Prevention spray $3.38M (57.0%) · Prevention shampoo $1.15M (19.4%) · Treatment + Prevention kit/set $723K (12.2%) · Prevention kit/set $533K (9.0%) · Prevention conditioner $141K (2.4%). Total: $5.92M.</div>
+  </div>
+</div>
+
+<!-- ── S1b: Product Type Summary — Prevention ─────────────────────────────── -->
+<div class="card">
+  <h3>Product Type Summary (12M) — Prevention</h3>
+  <div class="tbl-wrap"><table class="num-right" id="typeSummaryTable">
+    <thead><tr>
+      <th style="text-align:left">Type</th>
+      <th style="cursor:pointer;user-select:none" onclick="sortTbl('typeSummaryTable',1,this)">ASINs ▽</th>
+      <th style="cursor:pointer;user-select:none" onclick="sortTbl('typeSummaryTable',2,this)">Units 12M ▽</th>
+      <th style="cursor:pointer;user-select:none" onclick="sortTbl('typeSummaryTable',3,this)">Unit Share ▽</th>
+      <th style="cursor:pointer;user-select:none" onclick="sortTbl('typeSummaryTable',4,this)">Revenue 12M ▽</th>
+      <th style="cursor:pointer;user-select:none" onclick="sortTbl('typeSummaryTable',5,this)">Rev Share ▽</th>
+      <th style="cursor:pointer;user-select:none" onclick="sortTbl('typeSummaryTable',6,this)">Avg Price ▽</th>
+      <th style="cursor:pointer;user-select:none" onclick="sortTbl('typeSummaryTable',7,this)">Avg Rating ▽</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>Prevention spray</td><td data-val="2">2</td><td data-val="211405">211,405</td><td data-val="62.1">62.1%</td><td data-val="3375511">$3,375,511</td><td data-val="56.8">56.8%</td><td data-val="15.97">$15.97</td><td data-val="4.80">4.80</td></tr>
+      <tr><td>Prevention shampoo</td><td data-val="6">6</td><td data-val="78228">78,228</td><td data-val="23.0">23.0%</td><td data-val="1147090">$1,147,090</td><td data-val="19.3">19.3%</td><td data-val="14.66">$14.66</td><td data-val="4.50">4.50</td></tr>
+      <tr><td>Treatment + Prevention kit/set</td><td data-val="3">3</td><td data-val="23955">23,955</td><td data-val="7.0">7.0%</td><td data-val="722662">$722,662</td><td data-val="12.2">12.2%</td><td data-val="30.17">$30.17</td><td data-val="4.40">4.40</td></tr>
+      <tr><td>Prevention kit/set</td><td data-val="4">4</td><td data-val="19352">19,352</td><td data-val="5.7">5.7%</td><td data-val="532704">$532,704</td><td data-val="9.0">9.0%</td><td data-val="27.53">$27.53</td><td data-val="4.70">4.70</td></tr>
+      <tr><td>Prevention conditioner</td><td data-val="1">1</td><td data-val="5041">5,041</td><td data-val="1.5">1.5%</td><td data-val="140896">$140,896</td><td data-val="2.4">2.4%</td><td data-val="27.95">$27.95</td><td data-val="4.80">4.80</td></tr>
+
+    </tbody>
+  </table></div>
+  <div class="note">Prevention segment only — 16 ASINs across 5 product types. Unit Share and Rev Share = % of total Prevention segment (337,981 units / $5.92M). Revenue = 12M units × listed price. Avg Price = weighted avg. Avg Rating = simple avg (Mar 2025 – Feb 2026).</div>
+</div>
+
+<!-- ── S2: Brand Share by Type — Units ─────────────────────────────────────── -->
+<div class="card">
+  <h3>Brand Share by Type — Units (12M) — Prevention</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px">
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Prevention spray &nbsp;·&nbsp; 211,405 units &nbsp;·&nbsp; 2 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="prevSprayBrandUnitPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Prevention shampoo &nbsp;·&nbsp; 78,228 units &nbsp;·&nbsp; 6 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="prevShampBrandUnitPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment + Prevention kit/set &nbsp;·&nbsp; 23,955 units &nbsp;·&nbsp; 3 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="prevTxKitBrandUnitPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Prevention kit/set &nbsp;·&nbsp; 19,352 units &nbsp;·&nbsp; 4 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="prevKitBrandUnitPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Prevention conditioner &nbsp;·&nbsp; 5,041 units &nbsp;·&nbsp; 1 ASIN</p>
+      <div class="cw" style="height:260px"><canvas id="prevCondBrandUnitPie"></canvas></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">Unit share % by brand within each Prevention product type. All 5 types shown. 12M (Mar 2025 – Feb 2026). Types with a single brand (spray, conditioner, Treatment + Prevention kit/set) reflect full segment dominance — no competition at brand level.</div>
+</div>
+
+<!-- ── S3: Brand Share by Type — Revenue ────────────────────────────────────── -->
+<div class="card">
+  <h3>Brand Share by Type — Revenue (12M) — Prevention</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px">
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Prevention spray &nbsp;·&nbsp; $3.38M &nbsp;·&nbsp; 2 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="prevSprayBrandRevPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Prevention shampoo &nbsp;·&nbsp; $1.15M &nbsp;·&nbsp; 6 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="prevShampBrandRevPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment + Prevention kit/set &nbsp;·&nbsp; $723K &nbsp;·&nbsp; 3 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="prevTxKitBrandRevPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Prevention kit/set &nbsp;·&nbsp; $533K &nbsp;·&nbsp; 4 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="prevKitBrandRevPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Prevention conditioner &nbsp;·&nbsp; $141K &nbsp;·&nbsp; 1 ASIN</p>
+      <div class="cw" style="height:260px"><canvas id="prevCondBrandRevPie"></canvas></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">Revenue share % by brand within each Prevention product type. Revenue = 12M units × listed price. All 5 Prevention types shown. Total Prevention revenue: $5.92M. 12M (Mar 2025 – Feb 2026).</div>
+</div>
+
+<div class="insight">
+  <strong>Kit</strong> is the dominant product type — 36.1% of units (281K) and 38.0% of revenue ($6.23M). <strong>All-in-One</strong> punches above its weight: only 2 ASINs but 23.7% of revenue driven by RID's blockbuster ASIN. <strong>Conditioner</strong> ranks #2 in units (194K) due to Fairy Tales' high-velocity spray — but at the lowest price point ($12.88 avg), it generates only 15.3% of revenue.
+</div>
+
+<div class="card">
+  <h3>Price Positioning — TOP 3 ASINs by 12M Units per Product Type (Prevention)</h3>
+  <div class="cw" style="height:260px"><canvas id="typePriceChartPrev"></canvas></div>
+  <div id="typePriceLegendPrev" style="margin-top:12px;font-size:11px;line-height:1.7;"></div>
+  <div class="note" style="margin-top:8px">Top 3 ASINs ranked by 12M unit sales within each Prevention product type. Price = listed ASIN price from X-Ray export. <strong>Note:</strong> Some product types show fewer than 3 bars — this means one ASIN dominates that segment with no significant competition at ranks #2 or #3.</div>
+</div>
+
+
+
+<!-- ── Brand Summary — Prevention ────────────────────────────────────────────── -->
+<div class="card" style="margin-top:20px">
+  <h3>Brand Summary — Prevention (12M)</h3>
+  <div class="tbl-wrap"><table class="num-right" id="brandTxTable">
+    <thead><tr>
+      <th style="text-align:left">Brand</th>
+      <th>Rev (12M)</th>
+      <th>Share</th>
+      <th>ASINs</th>
+      <th>Avg Price</th>
+      <th>Avg Rating</th>
+      <th>Total Reviews</th>
+    </tr></thead>
+    <tbody id="brandTxTbody"></tbody>
+  </table></div>
+</div>
+
+
+<!-- ── Prevention ASINs — Top 15 ─────────────────────────────────────────────── -->
+<div class="card" style="margin-top:20px">
+  <h3>Top Prevention ASINs — by Revenue (12M)</h3>
+  <div class="tbl-wrap"><table class="num-right" id="prevTop20Table">
+    <thead><tr>
+      <th style="text-align:left">ASIN</th>
+      <th style="text-align:left">Brand</th>
+      <th style="text-align:left">Title</th>
+      <th>Price</th>
+      <th>Revenue (12M)</th>
+      <th>Rev Share</th>
+      <th>Reviews</th>
+      <th>Age</th>
+    </tr></thead>
+    <tbody id="prevTop20Tbody"></tbody>
+  </table></div>
+</div>
+
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB 3: Market Structure (Treatment) -->
+<div id="t3tx" class="panel">
+<h2>Market Structure — Treatment Segment (12M)</h2>
+
+<!-- Treatment KPI box -->
+<div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
+  <div class="kpi"><div class="kpi-v">29.9%</div><div class="kpi-l">Top 1 ASIN Revenue Share</div></div>
+  <div class="kpi"><div class="kpi-v">63.2%</div><div class="kpi-l">Top 3 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">78.8%</div><div class="kpi-l">Top 5 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">95.3%</div><div class="kpi-l">Top 10 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">39.8%</div><div class="kpi-l">Top Brand Share (RID)</div></div>
+</div>
+
+<!-- Type Unit / Revenue share pies — Treatment only -->
+<div class="g2" style="align-items:start;margin-top:18px">
+  <div class="card">
+    <h3>Type — Unit Share (12M) — Treatment</h3>
+    <div class="cw" style="height:280px"><canvas id="txTypeUnitPieTx"></canvas></div>
+    <div class="note">Treatment spray with comb 142,890 (32.4%) · Treatment all-in-one 89,229 (20.3%) · Treatment shampoo with comb 79,999 (18.2%) · Treatment + Prevention kit/set 77,875 (17.7%) · Treatment kit/set 40,709 (9.2%) · Treatment shampoo 7,880 (1.8%) · Treatment lotion 1,880 (0.4%). Treatment segment only — 18 ASINs.</div>
+  </div>
+  <div class="card">
+    <h3>Type — Revenue Share (12M) — Treatment</h3>
+    <div class="cw" style="height:280px"><canvas id="txTypeRevPieTx"></canvas></div>
+    <div class="note">Treatment spray with comb $3.25M (31.1%) · Treatment all-in-one $3.12M (29.8%) · Treatment + Prevention kit/set $1.93M (18.5%) · Treatment shampoo with comb $1.04M (9.9%) · Treatment kit/set $0.88M (8.4%) · Treatment shampoo $0.21M (2.0%) · Treatment lotion $25K (0.2%). Treatment segment only.</div>
+  </div>
+</div>
+
+<!-- Product Type Summary — Treatment -->
+<div class="card">
+  <h3>Product Type Summary (12M) — Treatment</h3>
+  <div class="tbl-wrap"><table class="num-right" id="typeSummaryTreatTable">
+    <thead><tr>
+      <th style="text-align:left">Type</th>
+      <th style="cursor:pointer" onclick="sortTbl('typeSummaryTreatTable',1,this)">ASINs ▽</th>
+      <th style="cursor:pointer" onclick="sortTbl('typeSummaryTreatTable',2,this)">Units 12M ▽</th>
+      <th style="cursor:pointer" onclick="sortTbl('typeSummaryTreatTable',3,this)">Unit Share ▽</th>
+      <th style="cursor:pointer" onclick="sortTbl('typeSummaryTreatTable',4,this)">Revenue 12M ▽</th>
+      <th style="cursor:pointer" onclick="sortTbl('typeSummaryTreatTable',5,this)">Rev Share ▽</th>
+      <th style="cursor:pointer" onclick="sortTbl('typeSummaryTreatTable',6,this)">Avg Price ▽</th>
+      <th style="cursor:pointer" onclick="sortTbl('typeSummaryTreatTable',7,this)">Avg Rating ▽</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>Treatment spray with comb</td><td>4</td><td>142,890</td><td>32.4%</td><td>$3,254,123</td><td>31.1%</td><td>$22.77</td><td>4.45</td></tr>
+      <tr><td>Treatment all-in-one</td><td>1</td><td>89,229</td><td>20.3%</td><td>$3,120,638</td><td>29.8%</td><td>$34.97</td><td>4.50</td></tr>
+      <tr><td>Treatment shampoo with comb</td><td>4</td><td>79,999</td><td>18.2%</td><td>$1,042,004</td><td>9.9%</td><td>$13.03</td><td>4.43</td></tr>
+      <tr><td>Treatment + Prevention kit/set</td><td>3</td><td>77,875</td><td>17.7%</td><td>$1,932,887</td><td>18.5%</td><td>$24.82</td><td>4.47</td></tr>
+      <tr><td>Treatment kit/set</td><td>3</td><td>40,709</td><td>9.2%</td><td>$879,733</td><td>8.4%</td><td>$21.61</td><td>4.50</td></tr>
+      <tr><td>Treatment shampoo</td><td>1</td><td>7,880</td><td>1.8%</td><td>$212,366</td><td>2.0%</td><td>$26.95</td><td>4.40</td></tr>
+      <tr><td>Treatment lotion</td><td>1</td><td>1,880</td><td>0.4%</td><td>$25,124</td><td>0.2%</td><td>$13.36</td><td>4.50</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note">Treatment segment only — 18 ASINs across 7 product types · Total 440,462 units · $10,466,875 revenue</div>
+</div>
+
+<!-- Brand Share by Type — Units — Treatment (7 types) -->
+<div class="card">
+  <h3>Brand Share by Type — Units (12M) — Treatment</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px">
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment spray with comb &nbsp;·&nbsp; 142,890 units &nbsp;·&nbsp; 4 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="txSprayBrandUnitPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment all-in-one &nbsp;·&nbsp; 89,229 units &nbsp;·&nbsp; 1 ASIN</p>
+      <div class="cw" style="height:260px"><canvas id="txAioBrandUnitPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment shampoo with comb &nbsp;·&nbsp; 79,999 units &nbsp;·&nbsp; 4 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="txShampCombBrandUnitPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment + Prevention kit/set &nbsp;·&nbsp; 77,875 units &nbsp;·&nbsp; 3 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="txPrevKitBrandUnitPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment kit/set &nbsp;·&nbsp; 40,709 units &nbsp;·&nbsp; 3 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="txKitBrandUnitPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment shampoo &nbsp;·&nbsp; 7,880 units &nbsp;·&nbsp; 1 ASIN</p>
+      <div class="cw" style="height:260px"><canvas id="txShampBrandUnitPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment lotion &nbsp;·&nbsp; 1,880 units &nbsp;·&nbsp; 1 ASIN</p>
+      <div class="cw" style="height:260px"><canvas id="txLotionBrandUnitPie"></canvas></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">Unit share % by brand within each Treatment product type. All 7 Treatment types from X-Ray shown. 12M (Mar 2025 – Feb 2026). Single-brand types (All-in-One, Shampoo, Lotion) reflect full segment dominance — no competition at brand level.</div>
+</div>
+
+<!-- Brand Share by Type — Revenue — Treatment (7 types) -->
+<div class="card">
+  <h3>Brand Share by Type — Revenue (12M) — Treatment</h3>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:12px">
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment spray with comb &nbsp;·&nbsp; $3.25M &nbsp;·&nbsp; 4 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="txSprayBrandRevPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment all-in-one &nbsp;·&nbsp; $3.12M &nbsp;·&nbsp; 1 ASIN</p>
+      <div class="cw" style="height:260px"><canvas id="txAioBrandRevPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment shampoo with comb &nbsp;·&nbsp; $1.04M &nbsp;·&nbsp; 4 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="txShampCombBrandRevPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment + Prevention kit/set &nbsp;·&nbsp; $1.93M &nbsp;·&nbsp; 3 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="txPrevKitBrandRevPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment kit/set &nbsp;·&nbsp; $880K &nbsp;·&nbsp; 3 ASINs</p>
+      <div class="cw" style="height:260px"><canvas id="txKitBrandRevPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment shampoo &nbsp;·&nbsp; $212K &nbsp;·&nbsp; 1 ASIN</p>
+      <div class="cw" style="height:260px"><canvas id="txShampBrandRevPie"></canvas></div>
+    </div>
+    <div>
+      <p style="text-align:center;font-size:.8rem;font-weight:700;color:#475569;margin:0 0 8px">Treatment lotion &nbsp;·&nbsp; $25K &nbsp;·&nbsp; 1 ASIN</p>
+      <div class="cw" style="height:260px"><canvas id="txLotionBrandRevPie"></canvas></div>
+    </div>
+  </div>
+  <div class="note" style="margin-top:14px">Revenue share % by brand within each Treatment product type. Revenue = 12M units × listed price. All 7 Treatment types from X-Ray shown. Total Treatment revenue: $10.44M. 12M (Mar 2025 – Feb 2026).</div>
+</div>
+
+<!-- Price Positioning — Treatment (moved from Tab 2) -->
+<div class="card">
+  <h3>Price Positioning — TOP 3 ASINs by 12M Units per Product Type (Treatment)</h3>
+  <div class="cw" style="height:320px"><canvas id="typePriceChartTx"></canvas></div>
+  <div id="typePriceLegendTx" style="margin-top:12px;font-size:11px;line-height:1.7;"></div>
+  <div class="note" style="margin-top:8px">Top 3 ASINs ranked by 12M unit sales within each Treatment product type. Price = listed ASIN price from X-Ray export. <strong>Note:</strong> Some product types show fewer than 3 bars — this means one ASIN dominates that segment with no significant competition at ranks #2 or #3.</div>
+</div>
+
+<!-- Brand Summary — Treatment (moved from Tab 2) -->
+<div class="card" style="margin-top:20px">
+  <h3>Brand Summary — Treatment (12M)</h3>
+  <div class="tbl-wrap"><table class="num-right" id="brandTxTreatTable">
+    <thead><tr>
+      <th style="text-align:left">Brand</th>
+      <th>Rev (12M)</th>
+      <th>Share</th>
+      <th>ASINs</th>
+      <th>Avg Price</th>
+      <th>Avg Rating</th>
+      <th>Total Reviews</th>
+    </tr></thead>
+    <tbody id="brandTxTreatTbody"></tbody>
+  </table></div>
+</div>
+
+<!-- Top Treatment ASINs (moved from Tab 2) -->
+<div class="card" style="margin-top:20px">
+  <h3>Top Treatment ASINs — by Revenue (12M)</h3>
+  <div class="tbl-wrap"><table class="num-right" id="txTop20Table">
+    <thead><tr>
+      <th style="text-align:left">ASIN</th>
+      <th style="text-align:left">Brand</th>
+      <th style="text-align:left">Title</th>
+      <th>Price</th>
+      <th>Revenue (12M)</th>
+      <th>Reviews</th>
+      <th>Age</th>
+    </tr></thead>
+    <tbody id="txTop20Tbody"></tbody>
+  </table></div>
+</div>
+
+</div><!-- END TAB 3 Market Structure (Treatment) -->
+
+<!-- ═══════════════════════════════════════════════ TAB 3: Prevention vs Treatment (removed) -->
+<div id="t3" class="panel" style="display:none!important">
+<h2>Prevention vs Treatment — Deep Dive (12M)</h2>
+
+<div class="g2" style="align-items:start">
+  <div class="card" style="border-left:4px solid #16a34a">
+    <h3 style="color:#15803d">Prevention (12M)</h3>
+    <div class="kpis" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0">
+      <div class="kpi" style="padding:10px"><div class="kpi-v">16</div><div class="kpi-l">ASINs</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v">337,981</div><div class="kpi-l">Units (12M)</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v">$5,918,863</div><div class="kpi-l">Revenue (12M)</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v">$17.51</div><div class="kpi-l">Avg Price (weighted)</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v">36.1%</div><div class="kpi-l">Revenue Share</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v">43.4%</div><div class="kpi-l">Unit Share</div></div>
+    </div>
+  </div>
+  <div class="card" style="border-left:4px solid #dc2626">
+    <h3 style="color:#991b1b">Treatment (12M)</h3>
+    <div class="kpis" style="grid-template-columns:1fr 1fr;gap:8px;margin-bottom:0">
+      <div class="kpi" style="padding:10px"><div class="kpi-v">18</div><div class="kpi-l">ASINs</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v">440,462</div><div class="kpi-l">Units (12M)</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v">$10,466,875</div><div class="kpi-l">Revenue (12M)</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v">$23.76</div><div class="kpi-l">Avg Price (weighted)</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v">63.9%</div><div class="kpi-l">Revenue Share</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v">56.6%</div><div class="kpi-l">Unit Share</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Product Types within Prevention (12M)</h3>
+    <div class="cw" style="height:280px"><canvas id="prevTypePie"></canvas></div>
+    <div class="note">Conditioner 194,421 units (57%) · Set 60,592 units (18%) · Shampoo 82,968 units (24%) · Spray 2,294 units (1%). By revenue: Conditioner $2.5M · Set $2.2M · Shampoo $1.2M · Spray $23K.</div>
+  </div>
+  <div class="card">
+    <h3>Product Types within Treatment (12M)</h3>
+    <div class="cw" style="height:280px"><canvas id="txTypePie"></canvas></div>
+    <div class="note">Kit 281,175 units (64%) · All-in-One 129,871 units (30%) · Shampoo 27,122 units (6%). By revenue: Kit $6.23M · All-in-One $3.89M · Shampoo $327K.</div>
+  </div>
+</div>
+
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Top 5 — Prevention ASINs by Revenue (12M)</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Brand</th><th>Product</th><th>Type</th><th style="text-align:right">Rev (12M)</th><th style="text-align:right">Units (12M)</th><th style="text-align:right">Price</th></tr></thead>
+      <tbody>
+        <tr><td>Fairy Tales</td><td><a href="https://www.amazon.com/dp/B000O7JK0A" target="_blank">B000O7JK0A</a> Rosemary Repel Spray</td><td>Conditioner</td><td style="text-align:right">$2,363,462</td><td style="text-align:right">189,380</td><td style="text-align:right">$12.48</td></tr>
+        <tr><td>Fairy Tales</td><td><a href="https://www.amazon.com/dp/B00J8OU8QK" target="_blank">B00J8OU8QK</a> Shampoo &amp; Cond Duo 32oz</td><td>Set</td><td style="text-align:right">$1,012,049</td><td style="text-align:right">22,025</td><td style="text-align:right">$45.95</td></tr>
+        <tr><td>MAYDAY</td><td><a href="https://www.amazon.com/dp/B0F86TJQ76" target="_blank">B0F86TJQ76</a> Daily Lice Routine Bundle</td><td>Set</td><td style="text-align:right">$531,413</td><td style="text-align:right">13,984</td><td style="text-align:right">$37.99</td></tr>
+        <tr><td>Vamousse</td><td><a href="https://www.amazon.com/dp/B0C1KX757N" target="_blank">B0C1KX757N</a> Head Lice Defense Shampoo</td><td>Shampoo</td><td style="text-align:right">$500,570</td><td style="text-align:right">30,356</td><td style="text-align:right">$16.49</td></tr>
+        <tr><td>Fairy Tales</td><td><a href="https://www.amazon.com/dp/B077KWFKZX" target="_blank">B077KWFKZX</a> Star Trio Set</td><td>Set</td><td style="text-align:right">$234,505</td><td style="text-align:right">7,117</td><td style="text-align:right">$32.95</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+  <div class="card">
+    <h3>Top 5 — Treatment ASINs by Revenue (12M)</h3>
+    <div class="tbl-wrap"><table>
+      <thead><tr><th>Brand</th><th>Product</th><th>Type</th><th style="text-align:right">Rev (12M)</th><th style="text-align:right">Units (12M)</th><th style="text-align:right">Price</th></tr></thead>
+      <tbody>
+        <tr><td>RID</td><td><a href="https://www.amazon.com/dp/B0DTN81GNC" target="_blank">B0DTN81GNC</a> One &amp; Done Treatment</td><td>All-in-One</td><td style="text-align:right">$3,120,638</td><td style="text-align:right">89,229</td><td style="text-align:right">$34.97</td></tr>
+        <tr><td>Lice Clinics</td><td><a href="https://www.amazon.com/dp/B073C2685B" target="_blank">B073C2685B</a> Treatment Kit</td><td>Kit</td><td style="text-align:right">$2,436,097</td><td style="text-align:right">91,001</td><td style="text-align:right">$26.77</td></tr>
+        <tr><td>RID</td><td><a href="https://www.amazon.com/dp/B093P2K33Z" target="_blank">B093P2K33Z</a> Super Max Kit</td><td>Kit</td><td style="text-align:right">$1,037,609</td><td style="text-align:right">47,019</td><td style="text-align:right">$22.07</td></tr>
+        <tr><td>Nix</td><td><a href="https://www.amazon.com/dp/B0BH8KD8GN" target="_blank">B0BH8KD8GN</a> Lice Treatment &amp; Prevention Kit</td><td>Kit</td><td style="text-align:right">$863,969</td><td style="text-align:right">29,805</td><td style="text-align:right">$28.98</td></tr>
+        <tr><td>Nix</td><td><a href="https://www.amazon.com/dp/B07NLTJ7N8" target="_blank">B07NLTJ7N8</a> Ultra Superlice All-in-One</td><td>All-in-One</td><td style="text-align:right">$767,321</td><td style="text-align:right">40,642</td><td style="text-align:right">$18.88</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Avg Price by Focus (12M, weighted)</h3>
+  <div class="cw" style="height:200px"><canvas id="focusPriceBar"></canvas></div>
+  <div class="note">Treatment avg $23.76 · Prevention avg $17.51. Treatment commands a 36% price premium, driven by All-in-One ($29.94) and Kit ($22.15) types.</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB 4: removed -->
+<div id="t4" class="panel" style="display:none!important">
+<h2>Brand Analysis (12M)</h2>
+
+<div class="insight">
+  Fairy Tales ($4.28M) and RID ($4.17M) are nearly tied for #1 — fighting for opposite markets (Prevention vs Treatment). Top 4 brands = 81.5% of total revenue. The bottom 13 brands share 18.5% across 26 ASINs.
+</div>
+
+<div class="card">
+  <h3>Top 8 Brands by Revenue (12M)</h3>
+  <div class="cw" style="height:280px"><canvas id="brandRevBar"></canvas></div>
+  <div class="note">Fairy Tales $4.28M · RID $4.17M · Nix $2.46M · Lice Clinics $2.44M · MAYDAY $723K. Top 5 = 85.9% of market revenue (12M).</div>
+</div>
+
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Brand Revenue Share (12M)</h3>
+    <div class="cw" style="height:360px"><canvas id="brandRevPie"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>Brand Unit Share (12M)</h3>
+    <div class="cw" style="height:360px"><canvas id="brandUnitsPie"></canvas></div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Brand Summary — All 17 Brands (12M)
+    <span style="font-size:.72rem;font-weight:400;color:#64748b;margin-left:8px">Click column header to sort</span>
+  </h3>
+  <div class="tbl-wrap"><table class="num-right" id="brandTable">
+    <thead><tr>
+      <th style="text-align:left">Brand</th>
+      <th style="text-align:left">Focus</th>
+      <th onclick="sortTbl('brandTable',2,this)" style="cursor:pointer;user-select:none">ASINs ▽</th>
+      <th onclick="sortTbl('brandTable',3,this)" style="cursor:pointer;user-select:none">Units 12M ▽</th>
+      <th onclick="sortTbl('brandTable',4,this)" style="cursor:pointer;user-select:none">Revenue 12M ▽</th>
+      <th onclick="sortTbl('brandTable',5,this)" style="cursor:pointer;user-select:none">Rev Share ▽</th>
+      <th onclick="sortTbl('brandTable',6,this)" style="cursor:pointer;user-select:none">Avg Price ▽</th>
+      <th onclick="sortTbl('brandTable',7,this)" style="cursor:pointer;user-select:none">Avg Rating ▽</th>
+    </tr></thead>
+    <tbody>
+      <tr><td>Fairy Tales</td><td><span class="badge badge-prev">Prevention</span></td><td data-val="8">8</td><td data-val="242915">242,915</td><td data-val="4283616">$4,283,616</td><td data-val="26.1">26.1%</td><td data-val="17.64">$17.64</td><td data-val="4.74">4.74</td></tr>
+      <tr><td>RID</td><td><span class="badge badge-type">Both</span></td><td data-val="3">3</td><td data-val="137083">137,083</td><td data-val="4169085">$4,169,085</td><td data-val="25.4">25.4%</td><td data-val="30.41">$30.41</td><td data-val="4.43">4.43</td></tr>
+      <tr><td>Nix</td><td><span class="badge badge-tx">Treatment</span></td><td data-val="6">6</td><td data-val="114622">114,622</td><td data-val="2459130">$2,459,130</td><td data-val="15.0">15.0%</td><td data-val="21.45">$21.45</td><td data-val="4.47">4.47</td></tr>
+      <tr><td>Lice Clinics of America</td><td><span class="badge badge-tx">Treatment</span></td><td data-val="1">1</td><td data-val="91001">91,001</td><td data-val="2436097">$2,436,097</td><td data-val="14.9">14.9%</td><td data-val="26.77">$26.77</td><td data-val="4.40">4.40</td></tr>
+      <tr><td>MAYDAY</td><td><span class="badge badge-prev">Prevention</span></td><td data-val="3">3</td><td data-val="23955">23,955</td><td data-val="722662">$722,662</td><td data-val="4.4">4.4%</td><td data-val="30.17">$30.17</td><td data-val="4.40">4.40</td></tr>
+      <tr><td>Vamousse</td><td><span class="badge badge-prev">Prevention</span></td><td data-val="1">1</td><td data-val="30356">30,356</td><td data-val="500570">$500,570</td><td data-val="3.1">3.1%</td><td data-val="16.49">$16.49</td><td data-val="4.50">4.50</td></tr>
+      <tr><td>NitWits</td><td><span class="badge badge-tx">Treatment</span></td><td data-val="1">1</td><td data-val="25394">25,394</td><td data-val="368975">$368,975</td><td data-val="2.3">2.3%</td><td data-val="14.53">$14.53</td><td data-val="4.40">4.40</td></tr>
+      <tr><td>Licefreee Spray!</td><td><span class="badge badge-type">Both</span></td><td data-val="2">2</td><td data-val="20289">20,289</td><td data-val="364414">$364,414</td><td data-val="2.2">2.2%</td><td data-val="17.96">$17.96</td><td data-val="4.55">4.55</td></tr>
+      <tr><td>Kapow</td><td><span class="badge badge-tx">Treatment</span></td><td data-val="1">1</td><td data-val="7880">7,880</td><td data-val="212366">$212,366</td><td data-val="1.3">1.3%</td><td data-val="26.95">$26.95</td><td data-val="4.40">4.40</td></tr>
+      <tr><td>SO COZY</td><td><span class="badge badge-prev">Prevention</span></td><td data-val="1">1</td><td data-val="22120">22,120</td><td data-val="176739">$176,739</td><td data-val="1.1">1.1%</td><td data-val="7.99">$7.99</td><td data-val="4.60">4.60</td></tr>
+      <tr><td>LADIBUGS</td><td><span class="badge badge-tx">Treatment</span></td><td data-val="1">1</td><td data-val="4620">4,620</td><td data-val="161654">$161,654</td><td data-val="1.0">1.0%</td><td data-val="34.99">$34.99</td><td data-val="4.50">4.50</td></tr>
+      <tr><td>HERKLIN</td><td><span class="badge badge-tx">Treatment</span></td><td data-val="1">1</td><td data-val="19135">19,135</td><td data-val="150018">$150,018</td><td data-val="0.9">0.9%</td><td data-val="7.84">$7.84</td><td data-val="4.50">4.50</td></tr>
+      <tr><td>Lice Shield</td><td><span class="badge badge-prev">Prevention</span></td><td data-val="1">1</td><td data-val="12367">12,367</td><td data-val="121320">$121,320</td><td data-val="0.7">0.7%</td><td data-val="9.81">$9.81</td><td data-val="4.50">4.50</td></tr>
+      <tr><td>Mata Piojos</td><td><span class="badge badge-tx">Treatment</span></td><td data-val="1">1</td><td data-val="19242">19,242</td><td data-val="114875">$114,875</td><td data-val="0.7">0.7%</td><td data-val="5.97">$5.97</td><td data-val="4.50">4.50</td></tr>
+      <tr><td>First Botany</td><td><span class="badge badge-prev">Prevention</span></td><td data-val="1">1</td><td data-val="5433">5,433</td><td data-val="103118">$103,118</td><td data-val="0.6">0.6%</td><td data-val="18.98">$18.98</td><td data-val="4.30">4.30</td></tr>
+      <tr><td>Lice Queen</td><td><span class="badge badge-tx">Treatment</span></td><td data-val="1">1</td><td data-val="1051">1,051</td><td data-val="31309">$31,309</td><td data-val="0.2">0.2%</td><td data-val="29.79">$29.79</td><td data-val="4.60">4.60</td></tr>
+      <tr><td>Lice No More</td><td><span class="badge badge-tx">Treatment</span></td><td data-val="1">1</td><td data-val="980">980</td><td data-val="9790">$9,790</td><td data-val="0.1">0.1%</td><td data-val="9.99">$9.99</td><td data-val="4.30">4.30</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note">Revenue 12M = 12M units sold × listed ASIN price. Avg Price = revenue ÷ units (weighted). Avg Rating = simple avg across brand's ASINs (X-Ray snapshot).</div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB 5: removed -->
+<div id="t5" class="panel" style="display:none!important">
+<h2>All Products — 34 ASINs (12M)
+  <span style="font-size:.72rem;font-weight:400;color:#64748b;margin-left:8px">Click column headers to sort · Revenue = 12M units × listed price</span>
+</h2>
+<div class="card">
+  <div class="tbl-wrap"><table id="allTable">
+    <thead><tr>
+      <th>ASIN</th>
+      <th>Brand</th>
+      <th>Type</th>
+      <th>Focus</th>
+      <th onclick="sortTbl('allTable',4,this)" style="cursor:pointer;user-select:none;text-align:right">Price ▽</th>
+      <th onclick="sortTbl('allTable',5,this)" style="cursor:pointer;user-select:none;text-align:right">Units 12M ▽</th>
+      <th onclick="sortTbl('allTable',6,this)" style="cursor:pointer;user-select:none;text-align:right">Revenue 12M ▽</th>
+      <th onclick="sortTbl('allTable',7,this)" style="cursor:pointer;user-select:none;text-align:right">BSR ▽</th>
+      <th onclick="sortTbl('allTable',8,this)" style="cursor:pointer;user-select:none;text-align:right">Rating ▽</th>
+      <th onclick="sortTbl('allTable',9,this)" style="cursor:pointer;user-select:none;text-align:right">Reviews ▽</th>
+      <th onclick="sortTbl('allTable',10,this)" style="cursor:pointer;user-select:none;text-align:right">Age (mo) ▽</th>
+    </tr></thead>
+    <tbody id="allTbody"></tbody>
+  </table></div>
+</div>
+</div>
+
+<!-- ═══════════════════════════════════════════════ TAB 4: Treatment Method -->
+<div id="t4meth" class="panel">
+<h2>Treatment Method — Physical vs Chemical (12M)</h2>
+
+<div class="kpis">
+  <div class="kpi"><div class="kpi-v">$6.18M</div><div class="kpi-l">Physical — 12M Revenue</div></div>
+  <div class="kpi"><div class="kpi-v">280,191</div><div class="kpi-l">Physical — 12M Units</div></div>
+  <div class="kpi"><div class="kpi-v">$4.78M</div><div class="kpi-l">Chemical — 12M Revenue</div></div>
+  <div class="kpi"><div class="kpi-v">190,627</div><div class="kpi-l">Chemical — 12M Units</div></div>
+</div>
+
+<div class="insight">
+  <strong>19 ASINs</strong> with a Treatment Method classification (11 Physical, 8 Chemical). Physical dominates with <strong>59.5%</strong> of units and <strong>56.4%</strong> of revenue ($6.18M). Chemical's higher avg price ($25.10 vs $22.07) narrows the revenue gap, driven by RID One & Done ($34.97, 89K units).
+</div>
+
+<!-- S1: Unit & Revenue Share pies -->
+<div class="g2">
+  <div class="card">
+    <h3>Type — Unit Share (12M) — Physical vs Chemical</h3>
+    <div class="cw"><canvas id="methUnitPie"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>Type — Revenue Share (12M) — Physical vs Chemical</h3>
+    <div class="cw"><canvas id="methRevPie"></canvas></div>
+  </div>
+</div>
+
+<!-- S2: Product Type Summary table -->
+<div class="card">
+  <h3>Product Type Summary by Treatment Method (12M)</h3>
+  <div class="tbl-wrap"><table class="num-right" id="methTypeSummary">
+    <thead><tr>
+      <th style="text-align:left">Product Type</th>
+      <th>Method</th>
+      <th>Units 12M</th>
+      <th>Units Share %</th>
+      <th>Revenue 12M</th>
+      <th>Revenue Share %</th>
+      <th>Avg Price</th>
+    </tr></thead>
+    <tbody>
+      <tr><td style="text-align:left">Treatment spray with comb</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td data-val="142890">142,890</td><td>30.3%</td><td data-val="3254123">$3,254,123</td><td>29.7%</td><td>$22.77</td></tr>
+      <tr><td style="text-align:left">Treatment all-in-one</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td data-val="89229">89,229</td><td>19.0%</td><td data-val="3120638">$3,120,638</td><td>28.5%</td><td>$34.97</td></tr>
+      <tr><td style="text-align:left">Treatment + Prevention kit/set</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td data-val="48070">48,070</td><td>10.2%</td><td data-val="1068918">$1,068,918</td><td>9.7%</td><td>$22.24</td></tr>
+      <tr><td style="text-align:left">Treatment kit/set</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td data-val="40709">40,709</td><td>8.6%</td><td data-val="879733">$879,733</td><td>8.0%</td><td>$21.61</td></tr>
+      <tr><td style="text-align:left">Treatment shampoo with comb</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td data-val="40642">40,642</td><td>8.6%</td><td data-val="767321">$767,321</td><td>7.0%</td><td>$18.88</td></tr>
+      <tr><td style="text-align:left">Treatment shampoo with comb</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td data-val="39357">39,357</td><td>8.4%</td><td data-val="274683">$274,683</td><td>2.5%</td><td>$6.98</td></tr>
+      <tr><td style="text-align:left">Prevention shampoo</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td data-val="30356">30,356</td><td>6.4%</td><td data-val="500570">$500,570</td><td>4.6%</td><td>$16.49</td></tr>
+      <tr><td style="text-align:left">Treatment + Prevention kit/set</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td data-val="29805">29,805</td><td>6.3%</td><td data-val="863969">$863,969</td><td>7.9%</td><td>$28.99</td></tr>
+      <tr><td style="text-align:left">Treatment shampoo</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td data-val="7880">7,880</td><td>1.7%</td><td data-val="212366">$212,366</td><td>1.9%</td><td>$26.95</td></tr>
+      <tr><td style="text-align:left">Treatment lotion</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td data-val="1880">1,880</td><td>0.4%</td><td data-val="25124">$25,124</td><td>0.2%</td><td>$13.36</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<!-- S3: Brand Share — Physical -->
+<div class="g2">
+  <div class="card">
+    <h3>Brand Share — Physical (Units, 12M)</h3>
+    <div class="cw"><canvas id="physBrandUnitPie"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>Brand Share — Chemical (Units, 12M)</h3>
+    <div class="cw"><canvas id="chemBrandUnitPie"></canvas></div>
+  </div>
+</div>
+<div class="g2">
+  <div class="card">
+    <h3>Brand Share — Physical (Revenue, 12M)</h3>
+    <div class="cw"><canvas id="physBrandRevPie"></canvas></div>
+  </div>
+  <div class="card">
+    <h3>Brand Share — Chemical (Revenue, 12M)</h3>
+    <div class="cw"><canvas id="chemBrandRevPie"></canvas></div>
+  </div>
+</div>
+
+<!-- S4: Price Positioning — Top 3 ASINs by 12M Units per Method -->
+<div class="card">
+  <h3>Price Positioning — TOP 3 ASINs by 12M Units per Method</h3>
+  <div class="cw" style="height:320px"><canvas id="methPriceChart"></canvas></div>
+  <div class="note">Top 3 ASINs by 12M unit sales within each treatment method. Price = listed ASIN price from X-Ray export.</div>
+</div>
+
+<!-- S5: Brand Summary table -->
+<div class="card">
+  <h3>Brand Summary — Treatment Method (12M)</h3>
+  <div class="tbl-wrap"><table class="num-right" id="methBrandTable">
+    <thead><tr>
+      <th style="text-align:left">Brand</th>
+      <th>Method</th>
+      <th style="text-align:left">Type</th>
+      <th>Share %</th>
+      <th>ASINs</th>
+      <th>Avg Price</th>
+      <th>Avg Rating</th>
+      <th>Total Reviews</th>
+    </tr></thead>
+    <tbody>
+      <tr><td style="text-align:left"><strong>RID</strong></td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span> <span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td style="text-align:left">All-in-one, Tx+Prev kit/set</td><td>28.9%</td><td>2</td><td>$28.52</td><td>4.5</td><td data-val="3125">3,125</td></tr>
+      <tr><td style="text-align:left"><strong>Nix</strong></td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span> <span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td style="text-align:left">Shamp+comb, Tx+Prev kit, Spray+comb, Kit, Lotion</td><td>24.3%</td><td>6</td><td>$18.71</td><td>4.5</td><td data-val="35496">35,496</td></tr>
+      <tr><td style="text-align:left"><strong>Lice Clinics</strong></td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td style="text-align:left">Spray with comb</td><td>19.3%</td><td>1</td><td>$26.77</td><td>4.4</td><td data-val="10337">10,337</td></tr>
+      <tr><td style="text-align:left"><strong>Vamousse</strong></td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td style="text-align:left">Prevention shampoo</td><td>6.4%</td><td>1</td><td>$16.49</td><td>4.5</td><td data-val="731">731</td></tr>
+      <tr><td style="text-align:left"><strong>NitWits</strong></td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td style="text-align:left">Spray with comb</td><td>5.4%</td><td>1</td><td>$14.53</td><td>4.4</td><td data-val="6469">6,469</td></tr>
+      <tr><td style="text-align:left"><strong>Licefreee</strong></td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td style="text-align:left">Kit/set, Spray with comb</td><td>4.3%</td><td>2</td><td>$14.48</td><td>4.5</td><td data-val="15672">15,672</td></tr>
+      <tr><td style="text-align:left"><strong>Mata Piojos</strong></td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td style="text-align:left">Shampoo with comb</td><td>4.1%</td><td>1</td><td>$5.97</td><td>4.5</td><td data-val="1447">1,447</td></tr>
+      <tr><td style="text-align:left"><strong>HERKLIN</strong></td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td style="text-align:left">Shampoo with comb</td><td>4.1%</td><td>1</td><td>$7.84</td><td>4.5</td><td data-val="635">635</td></tr>
+      <tr><td style="text-align:left"><strong>Kapow</strong></td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td style="text-align:left">Treatment shampoo</td><td>1.7%</td><td>1</td><td>$26.95</td><td>4.4</td><td data-val="648">648</td></tr>
+      <tr><td style="text-align:left"><strong>LADIBUGS</strong></td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td style="text-align:left">Kit/set</td><td>1.0%</td><td>1</td><td>$34.99</td><td>4.5</td><td data-val="997">997</td></tr>
+      <tr><td style="text-align:left"><strong>Lice Queen</strong></td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td style="text-align:left">Tx+Prev kit/set</td><td>0.2%</td><td>1</td><td>$29.79</td><td>4.6</td><td data-val="40">40</td></tr>
+      <tr><td style="text-align:left"><strong>Lice No More</strong></td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td style="text-align:left">Shampoo with comb</td><td>0.2%</td><td>1</td><td>$9.99</td><td>4.3</td><td data-val="58">58</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+<!-- S6: All ASINs table -->
+<div class="card">
+  <h3>All Products — Treatment Method (12M)</h3>
+  <div class="tbl-wrap"><table class="num-right" id="methAllProducts">
+    <thead><tr>
+      <th style="text-align:left">ASIN</th>
+      <th style="text-align:left">Brand</th>
+      <th style="text-align:left">Title</th>
+      <th>Method</th>
+      <th>Price</th>
+      <th>Revenue 12M</th>
+      <th>Reviews</th>
+      <th>Age (mo)</th>
+    </tr></thead>
+    <tbody>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B073C2685B" target="_blank">B073C2685B</a></td><td style="text-align:left">Lice Clinics</td><td style="text-align:left">Lice Clinics Treatment Kit</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$26.77</td><td data-val="2436097">$2,436,097</td><td data-val="10337">10,337</td><td>105</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B0DTN81GNC" target="_blank">B0DTN81GNC</a></td><td style="text-align:left">RID</td><td style="text-align:left">RID One & Done Head Lice Treatment</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td>$34.97</td><td data-val="3120638">$3,120,638</td><td data-val="696">696</td><td>14</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B093P2K33Z" target="_blank">B093P2K33Z</a></td><td style="text-align:left">RID</td><td style="text-align:left">RID Super Max Lice Treatment Kit</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$22.07</td><td data-val="1037609">$1,037,609</td><td data-val="2429">2,429</td><td>59</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B0BH8KD8GN" target="_blank">B0BH8KD8GN</a></td><td style="text-align:left">Nix</td><td style="text-align:left">Nix Lice Treatment & Prevention Kit</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td>$28.98</td><td data-val="863969">$863,969</td><td data-val="3423">3,423</td><td>41</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B07NLTJ7N8" target="_blank">B07NLTJ7N8</a></td><td style="text-align:left">Nix</td><td style="text-align:left">Nix Ultra Superlice All-in-One</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$18.88</td><td data-val="767321">$767,321</td><td data-val="3423">3,423</td><td>85</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B0C1KX757N" target="_blank">B0C1KX757N</a></td><td style="text-align:left">Vamousse</td><td style="text-align:left">Vamousse Head Lice Defense Shampoo</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td>$16.49</td><td data-val="500570">$500,570</td><td data-val="731">731</td><td>36</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B01BU6E7G0" target="_blank">B01BU6E7G0</a></td><td style="text-align:left">Nix</td><td style="text-align:left">Nix Ultra Lice Treatment Hair Solution</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$17.61</td><td data-val="426180">$426,180</td><td data-val="10613">10,613</td><td>121</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B06XGC9SYL" target="_blank">B06XGC9SYL</a></td><td style="text-align:left">Nix</td><td style="text-align:left">Nix Lice Treatment Hair & Home Kit</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$20.81</td><td data-val="376536">$376,536</td><td data-val="10613">10,613</td><td>108</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B01J1ZAMTI" target="_blank">B01J1ZAMTI</a></td><td style="text-align:left">NitWits</td><td style="text-align:left">NitWits All-in-One Lice Treatment Kit</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$14.53</td><td data-val="368975">$368,975</td><td data-val="6469">6,469</td><td>114</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B0786RMP5Y" target="_blank">B0786RMP5Y</a></td><td style="text-align:left">Licefreee</td><td style="text-align:left">Licefreee Head Lice Treatment Kit</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$18.98</td><td data-val="341543">$341,543</td><td data-val="4429">4,429</td><td>108</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B00D9867T8" target="_blank">B00D9867T8</a></td><td style="text-align:left">Kapow</td><td style="text-align:left">Kapow Head Lice Shampoo 8oz</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$26.95</td><td data-val="212366">$212,366</td><td data-val="648">648</td><td>147</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B07BZNQ4J4" target="_blank">B07BZNQ4J4</a></td><td style="text-align:left">LADIBUGS</td><td style="text-align:left">LADIBUGS One & Done Lice Treatment Kit</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$34.99</td><td data-val="161654">$161,654</td><td data-val="997">997</td><td>95</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B09ZVN8SLC" target="_blank">B09ZVN8SLC</a></td><td style="text-align:left">HERKLIN</td><td style="text-align:left">Herklin Lice Treatment Shampoo</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td>$7.84</td><td data-val="150018">$150,018</td><td data-val="635">635</td><td>46</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B001QX9S1M" target="_blank">B001QX9S1M</a></td><td style="text-align:left">Mata Piojos</td><td style="text-align:left">Lice and Nit Treatment Shampoo 2oz</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td>$5.97</td><td data-val="114875">$114,875</td><td data-val="1447">1,447</td><td>175</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B07T9FK5Z1" target="_blank">B07T9FK5Z1</a></td><td style="text-align:left">Lice Queen</td><td style="text-align:left">4-Step Lice Treatment Kit</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$29.79</td><td data-val="31309">$31,309</td><td data-val="40">40</td><td>30</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B003KYNNTS" target="_blank">B003KYNNTS</a></td><td style="text-align:left">Licefreee</td><td style="text-align:left">Licefreee Lice Spray for Kids</td><td><span class="badge" style="background:#dbeafe;color:#1d4ed8">Physical</span></td><td>$9.97</td><td data-val="22871">$22,871</td><td data-val="11243">11,243</td><td>190</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B002OHE7Z6" target="_blank">B002OHE7Z6</a></td><td style="text-align:left">Nix</td><td style="text-align:left">Nix Lice Treatment Family Pack</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td>$14.27</td><td data-val="17367">$17,367</td><td data-val="3712">3,712</td><td>198</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B0FM64BJZT" target="_blank">B0FM64BJZT</a></td><td style="text-align:left">Lice No More</td><td style="text-align:left">Lice Killing Shampoo 4oz with Comb</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td>$9.99</td><td data-val="9790">$9,790</td><td data-val="58">58</td><td>7</td></tr>
+      <tr><td style="text-align:left"><a href="https://www.amazon.com/dp/B002OHE7YW" target="_blank">B002OHE7YW</a></td><td style="text-align:left">Nix</td><td style="text-align:left">Nix Lice Treatment Creme Rinse & Comb</td><td><span class="badge" style="background:#fce7f3;color:#9d174d">Chemical</span></td><td>$11.70</td><td data-val="7757">$7,757</td><td data-val="3712">3,712</td><td>214</td></tr>
+    </tbody>
+  </table></div>
+</div>
+
+</div><!-- END TAB 4 Treatment Method -->
+
+<!-- ═══════════════════════════════════════════════ TAB 5: Reviews -->
+<div id="t4rev" class="panel">
+<h2>Reviews — Market Voice Analysis</h2>
+
+<div class="insight">
+  705 Amazon reviews analysed. Lower-rated (1★+2★+3★): <strong>479 reviews</strong> classified by failure category.
+  Source: review export, March 2026. One review = one primary category (first match wins).
+</div>
+
+<!-- SECTION 0: Star Rating Distribution by Segment -->
+<div class="card">
+  <h3>Star Rating Distribution — Treatment vs. Prevention (avg per ASIN)</h3>
+  <div class="cw" style="height:140px"><canvas id="starDistChart"></canvas></div>
+  <div class="note">Simple average of star % across ASINs per segment. Treatment: 14 ASINs · 54,138 ratings. Prevention: 13 ASINs · 55,604 ratings. Source: lice_niche_US_review_distribution.json.</div>
+</div>
+
+<div class="card">
+  <h3>Avg Rating by Type</h3>
+  <div class="cw" style="height:240px"><canvas id="typeRatingBar"></canvas></div>
+  <div class="note">Prevention Conditioner and Prevention Spray lead at 4.80 — Fairy Tales products dominate both types with 4.7–4.8 ratings. Source: X-Ray export (current snapshot).</div>
+</div>
+
+<!-- SECTION 1+2: Failure charts side by side -->
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h3>Market Unmet Needs — Failure Categories (Combined)</h3>
+    <div class="cw" style="height:300px"><canvas id="unmetNeedsChart"></canvas></div>
+    <div class="note">479 lower-rated reviews (1★+2★+3★). One review = one primary failure category.</div>
+  </div>
+  <div class="card">
+    <h3>Failure Type by Star Rating</h3>
+    <div class="cw" style="height:300px"><canvas id="failByStarChart"></canvas></div>
+    <div class="note">% of each star tier's reviews classified per failure category. 1★: 199 reviews · 2★: 119 reviews · 3★: 161 reviews.</div>
+  </div>
+</div>
+
+<!-- SECTION 3: Narrative Patterns -->
+<h3 style="margin:20px 0 12px;font-size:.95rem;font-weight:700;color:#1e293b">Narrative Patterns — 4 most common customer stories (1★+2★+3★)</h3>
+<div class="g2">
+  <div class="card" style="border-left:3px solid #dc2626">
+    <div style="font-size:.78rem;font-weight:700;color:#dc2626;margin-bottom:8px">PATTERN 1 &nbsp;·&nbsp; "Daily ritual, daily disappointment"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:6px">Used faithfully every morning before school — child still comes home with lice</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Parent hears about a lice outbreak at school and buys prevention product</li>
+      <li>Sprays child's hair religiously each morning, follows all directions</li>
+      <li>Child comes home with lice within days or weeks</li>
+      <li>Parent feels betrayed — writes furious warning review urging others not to buy</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#fef2f2;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "I use this product every time I wash my children's hair and use the detangling spray before school EVERY SINGLE DAY as Lice was a huge FEAR of mine. Well you guessed it, they both got lice." &nbsp;·&nbsp; "Used this EVERYDAY religiously per the instructions and my daughter still got lice from school. It does not work."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#dc2626;margin-top:8px">→ Core category trust issue: daily compliance creates a high expectation — any failure is emotionally devastating</div>
+  </div>
+  <div class="card" style="border-left:3px solid #d97706">
+    <div style="font-size:.78rem;font-weight:700;color:#d97706;margin-bottom:8px">PATTERN 2 &nbsp;·&nbsp; "The smell kills the experience"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:6px">Overwhelming citronella / bug-spray scent makes daily use unbearable</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Customer opens bottle — immediately shocked by pungent herbal/chemical odour</li>
+      <li>Child refuses to use it or complains about smell at school</li>
+      <li>Parent worries child will be teased or can't bear applying it daily</li>
+      <li>Product abandoned or returned — review focuses entirely on scent, not efficacy</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#fffbeb;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "I could smell it before I opened the box! I had to return it." &nbsp;·&nbsp; "Smells like you sprayed pesticide in your hair. Not worth it." &nbsp;·&nbsp; "My daughter holds her breath when I do her hair."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#d97706;margin-top:8px">→ Smell is the #2 failure category (26%) — a neutral or pleasant scent is the single biggest sensory gap</div>
+  </div>
+</div>
+<div class="g2" style="margin-top:0">
+  <div class="card" style="border-left:3px solid #7c3aed">
+    <div style="font-size:.78rem;font-weight:700;color:#7c3aed;margin-bottom:8px">PATTERN 3 &nbsp;·&nbsp; "Broken pump, full bottle"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:6px">Spray nozzle fails after 1–2 uses — full bottle rendered unusable</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Customer receives product and begins daily use</li>
+      <li>Spray pump breaks, clogs, or leaks after the first few uses</li>
+      <li>Entire bottle becomes unusable — customer loses money without getting value</li>
+      <li>Review focuses on packaging quality as unacceptable for the price point</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#faf5ff;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "The spray pump stopped working after one use. Now it spurts out product in a single line." &nbsp;·&nbsp; "All my sprayers on the bottle have broken. All 3 bottles." &nbsp;·&nbsp; "Arrived today open and leaking."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#7c3aed;margin-top:8px">→ Packaging quality accounts for 11% of failures — an industrial-grade pump would eliminate this complaint category</div>
+  </div>
+  <div class="card" style="border-left:3px solid #16a34a">
+    <div style="font-size:.78rem;font-weight:700;color:#16a34a;margin-bottom:8px">PATTERN 4 &nbsp;·&nbsp; "DIY is cheaper and works better"</div>
+    <div style="font-size:.82rem;font-weight:600;color:#1e293b;margin-bottom:6px">Homemade tea tree oil / vinegar spray outperforms premium product</div>
+    <ul style="font-size:.78rem;color:#475569;line-height:1.7;margin:0 0 10px;padding-left:16px">
+      <li>Customer uses product — disappointed by smell, texture, or failed prevention</li>
+      <li>Switches to or compares against homemade alternatives (tea tree, peppermint oil, vinegar)</li>
+      <li>DIY solution delivers equal or better results at a fraction of the cost</li>
+      <li>Leaves review warning others to save money and make their own</li>
+    </ul>
+    <div style="font-size:.73rem;color:#64748b;background:#f0fdf4;border-radius:4px;padding:8px 10px;font-style:italic;line-height:1.5">
+      "Much better results with plain old tea tree oil mixed with water in a spray bottle. Lice free for 3 months." &nbsp;·&nbsp; "Just get hair spray and use that. It's way cheaper anyways. We used this every single day and my daughter still got lice."
+    </div>
+    <div style="font-size:.73rem;font-weight:700;color:#16a34a;margin-top:8px">→ 6% mention DIY — commoditisation pressure is real. A product with clinical proof of efficacy breaks this pattern</div>
+  </div>
+</div>
+
+<!-- SECTION 5: Strategic Metrics -->
+<h3 style="margin:28px 0 12px;font-size:.95rem;font-weight:700;color:#1e293b">Strategic Metrics</h3>
+<div class="g2" style="align-items:start">
+  <div class="card">
+    <h4 style="font-size:.85rem;font-weight:700;margin:0 0 8px">5a. DIY Comparison Rate</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:12px">% of lower-rated reviews mentioning DIY alternatives (tea tree oil, vinegar, dish soap, homemade sprays)</div>
+    <div class="kpis" style="grid-template-columns:1fr 1fr;gap:8px;margin:0">
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.4rem">6%</div><div class="kpi-l">DIY mentions</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.4rem">29</div><div class="kpi-l">of 479 reviews</div></div>
+    </div>
+    <div class="note" style="margin-top:10px">Most common DIY: tea tree oil spray (pure or diluted). Customers self-formulate when commercial product disappoints.</div>
+  </div>
+  <div class="card">
+    <h4 style="font-size:.85rem;font-weight:700;margin:0 0 8px">5b. Trust Damage Phrases</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:12px">% of reviews containing: "waste of money", "never again", "do not buy", "refund", "scam", "gimmick", "save your money"</div>
+    <div class="kpis" style="grid-template-columns:1fr 1fr;gap:8px;margin:0">
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.4rem">8%</div><div class="kpi-l">Trust damage</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.4rem">36</div><div class="kpi-l">of 479 reviews</div></div>
+    </div>
+    <div class="note" style="margin-top:10px">Concentrated in 1★ reviews. Strong rejection language signals broken product-market fit in the efficacy dimension.</div>
+  </div>
+</div>
+<div class="g2" style="align-items:start;margin-top:0">
+  <div class="card">
+    <h4 style="font-size:.85rem;font-weight:700;margin:0 0 8px">5c. Emotional Intensity Score</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:12px">% of lower-rated reviews with high emotional signal (3+ CAPS words or exclamation marks per review)</div>
+    <div class="kpis" style="grid-template-columns:1fr 1fr;gap:8px;margin:0">
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.4rem;color:#dc2626">10%</div><div class="kpi-l">High-emotion reviews</div></div>
+      <div class="kpi" style="padding:10px"><div class="kpi-v" style="font-size:1.4rem">47</div><div class="kpi-l">of 479 reviews</div></div>
+    </div>
+    <div class="note" style="margin-top:10px">Driven by efficacy failures — parents who used the product daily before school and still got lice are the most emotionally intense writers.</div>
+  </div>
+  <div class="card">
+    <h4 style="font-size:.85rem;font-weight:700;margin:0 0 8px">5d. Time-to-Failure</h4>
+    <div style="font-size:.78rem;color:#475569;margin-bottom:8px">When customer reports failure after purchase (90% of reviews don't specify time)</div>
+    <div class="cw" style="height:160px"><canvas id="ttfChart"></canvas></div>
+  </div>
+</div>
+
+<!-- SECTION 6: Strategic Insights -->
+<div class="card" style="margin-top:18px">
+  <h3>Strategic Insights — what these reviews tell us about the market opportunity</h3>
+  <table>
+    <thead><tr><th style="width:44%">Review Observation</th><th>Product Implication</th></tr></thead>
+    <tbody>
+      <tr><td>42% of negative reviews cite offensive smell as the primary failure — the single largest complaint category</td><td>A neutral or pleasantly scented lice prevention formula is the most unaddressed market gap. Scent alone could flip 42% of negative reviews to positive</td></tr>
+      <tr><td>24% of 1★+2★+3★ reviews cite efficacy failure despite daily, religious use</td><td>Clinical efficacy evidence (studies, test data, certifications) in the listing would differentiate from me-too products and justify the price premium</td></tr>
+      <tr><td>Many parents describe using the product for months or years before a failure event</td><td>Long-term users have the highest trust and the highest emotional devastation on failure — subscription programs with a satisfaction guarantee would protect this segment</td></tr>
+      <tr><td>6% mention DIY alternatives (tea tree, peppermint, vinegar) as a substitute</td><td>Price sensitivity and commoditisation are real. A product with a visible performance advantage breaks the "I'll just make my own" exit behaviour</td></tr>
+      <tr><td>Pump / nozzle failures appear repeatedly across 1★, 2★ and 3★ reviews</td><td>Packaging quality (industrial pump, leak-proof cap) signals premium trust at low incremental cost — poor dispensing destroys product perception before first real use</td></tr>
+      <tr><td>Children refuse to use the product because of the smell — the child veto is a silent churn driver</td><td>A kid-approved scent (candy cane, bubblegum, watermelon) would remove the compliance barrier and increase actual daily use adherence</td></tr>
+      <tr><td>Some reviewers report hair drying out or scalp irritation from daily use</td><td>A gentle, moisturising formula that is clinically safe for daily use on children would capture the "whole system" buyer who also wants a conditioner benefit</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- SECTION 7: Positive Review Analysis (4★+5★) -->
+<h3 style="margin:28px 0 12px;font-size:.95rem;font-weight:700;color:#1e293b">Positive Review Analysis — 4★ + 5★ (226 reviews)</h3>
+<div class="insight" style="background:#f0fdf4;border-left-color:#16a34a;color:#166534">
+  226 high-rated reviews analysed (4★: 108 · 5★: 118). Source: review export, March 2026. Themes extracted via keyword matching — a review may count in multiple theme buckets.
+</div>
+
+<!-- Top themes bar chart + table side by side -->
+<div class="g2" style="align-items:start;margin-bottom:18px">
+  <div class="card">
+    <h3>Top Customer-Praised Themes (4★+5★)</h3>
+    <div class="cw" style="height:260px"><canvas id="posThemesChart"></canvas></div>
+    <div class="note">Mentions across 226 positive reviews. One review may match multiple themes.</div>
+  </div>
+  <div class="card">
+    <h3>Theme Mention Rates</h3>
+    <div class="tbl-wrap">
+      <table class="num-right">
+        <thead><tr><th>Theme</th><th>Mentions</th><th>% of 226</th></tr></thead>
+        <tbody>
+          <tr><td>Great smell / scent</td><td>140</td><td>62%</td></tr>
+          <tr><td>Good conditioner / soft hair</td><td>76</td><td>34%</td></tr>
+          <tr><td>Lice-free results</td><td>54</td><td>24%</td></tr>
+          <tr><td>Easy daily use</td><td>26</td><td>12%</td></tr>
+          <tr><td>Value for money</td><td>19</td><td>8%</td></tr>
+          <tr><td>Peace of mind</td><td>15</td><td>7%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="note" style="margin-top:10px">Scent is the #1 delight driver (62%) — the mirror-image of the #2 negative complaint. Getting scent right converts both sides of the market.</div>
+  </div>
+</div>
+
+<!-- CPG Strategic Insights table -->
+<div class="card" style="margin-top:0">
+  <h3>Positive Review Insights — CPG / Amazon Product Strategy</h3>
+  <table>
+    <thead><tr><th style="width:20%">Analysis Type</th><th style="width:40%">Finding (from 4★+5★ reviews)</th><th>Strategic Implication</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Benefit Mining</strong><br><span style="font-size:.68rem;color:#64748b">Extracting customer-perceived benefits</span></td>
+        <td>62% of satisfied customers praise the scent — scent is not just cosmetic, it is the primary product benefit they purchase for. 34% cite conditioning effect as a bonus benefit not found in clinical competitors.</td>
+        <td>Lead with scent and conditioning in copy, titles, and A+ content. "Smells great, works great" is the most credible positioning against clinical-smelling competitors. A dual-benefit claim (lice prevention + hair conditioner) is validated by real customers.</td>
+      </tr>
+      <tr>
+        <td><strong>Value Proposition Discovery</strong><br><span style="font-size:.68rem;color:#64748b">Understanding why customers buy and stay</span></td>
+        <td>Customers buy for peace of mind (7%) and lice-free results (24%) but stay because of the sensory and hair-care experience. The combination of daily ritual + pleasant smell + good hair condition creates a habit loop.</td>
+        <td>Frame the product as a daily hair-care routine enhancer that also prevents lice — not just a lice product. This lifts the product out of the "reactive/medical" shelf position and into "daily grooming" where repeat purchase rates are higher.</td>
+      </tr>
+      <tr>
+        <td><strong>Customer Delight Analysis</strong><br><span style="font-size:.68rem;color:#64748b">Identifying emotional wins</span></td>
+        <td>Scent is the single biggest emotional win for children — parents report their kids actively enjoy getting their hair done. "Peace of mind" reviews show parents feel protected rather than anxious during lice season.</td>
+        <td>Create a kid-appeal visual identity. Use language like "kids love it" and "school-morning routine" in reviews / A+ content. Parent anxiety relief and child compliance are the two key emotional hooks — both are addressable with product positioning.</td>
+      </tr>
+      <tr>
+        <td><strong>Success Driver Analysis</strong><br><span style="font-size:.68rem;color:#64748b">What makes the product work for satisfied customers</span></td>
+        <td>Success stories share a pattern: easy daily routine (12%), pleasant-enough scent for daily compliance, and a visible lice-free result over a school season. The trifecta is routine adherence → prevention efficacy → no-stress season.</td>
+        <td>Build usage instructions and packaging around "the morning routine" narrative. Provide a usage habit guide (how to build the 30-day habit). Success is behavioural, not just chemical — reinforce the "daily = protected" message to drive higher compliance and better results.</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+</div><!-- END TAB 4 Reviews -->
+
+</div><!-- /content -->
+
+<script>
+// ── Tab switching ────────────────────────────────────────────────────────────
+function show(id, tab) {
+  document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  tab.classList.add('active');
+  setTimeout(() => Object.values(Chart.instances).forEach(c => c.resize()), 50);
+}
+
+// ── Table sort ───────────────────────────────────────────────────────────────
+function sortTbl(tblId, col, th) {
+  const tbl = document.getElementById(tblId);
+  const tbody = tbl.querySelector('tbody');
+  const rows = Array.from(tbody.querySelectorAll('tr'));
+  const asc = th.dataset.asc !== 'true';
+  th.dataset.asc = asc;
+  rows.sort((a, b) => {
+    const av = a.cells[col].dataset.val ?? a.cells[col].textContent.replace(/[$,%\s]/g,'');
+    const bv = b.cells[col].dataset.val ?? b.cells[col].textContent.replace(/[$,%\s]/g,'');
+    const an = parseFloat(av.replace(/,/g,''));
+    const bn = parseFloat(bv.replace(/,/g,''));
+    if (!isNaN(an) && !isNaN(bn)) return asc ? an - bn : bn - an;
+    return asc ? String(av).localeCompare(String(bv)) : String(bv).localeCompare(String(av));
+  });
+  rows.forEach(r => tbody.appendChild(r));
+}
+
+// ── Colors ───────────────────────────────────────────────────────────────────
+const C10 = ['#2563eb','#16a34a','#d97706','#dc2626','#7c3aed','#0891b2','#ea580c','#0d9488','#94a3b8'];
+const TYPE_CLR = {
+  'Prevention conditioner':       '#15803d',
+  'Prevention spray':             '#16a34a',
+  'Prevention kit/set':           '#22c55e',
+  'Prevention shampoo':           '#86efac',
+  'Treatment all-in-one':         '#7f1d1d',
+  'Treatment kit/set':            '#b91c1c',
+  'Treatment lotion':             '#dc2626',
+  'Treatment shampoo':            '#f97316',
+  'Treatment shampoo with comb':  '#fb923c',
+  'Treatment spray with comb':    '#ea580c',
+  'Treatment + Prevention kit/set':'#7c3aed'
+};
+const FOC_CLR = ['#16a34a','#dc2626'];
+
+// ── Chart helpers ────────────────────────────────────────────────────────────
+function makePie(id, labels, data, colors, fmtLeg, fmtTip) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const total = data.reduce((a,b) => a+b, 0);
+  new Chart(el, {
+    type: 'pie',
+    plugins: [ChartDataLabels],
+    data: { labels, datasets: [{ data, backgroundColor: colors }] },
+    options: {
+      maintainAspectRatio: false,
+      layout: { padding: { top:10, left:10, right:10, bottom:10 } },
+      plugins: {
+        legend: {
+          display: true, position: 'left',
+          labels: {
+            font: { size: 11 }, boxWidth: 12, padding: 8,
+            generateLabels: chart => {
+              const ds = chart.data.datasets[0].data;
+              return labels.map((lbl, i) => ({
+                text: lbl + ' — ' + fmtLeg(ds[i]) + ' (' + Math.round(ds[i]/total*100) + '%)',
+                fillStyle: colors[i], strokeStyle: colors[i], lineWidth: 0, hidden: false, index: i
+              }));
+            }
+          }
+        },
+        datalabels: {
+          formatter: (v) => { const pct = Math.round(v/total*100); return pct >= 5 ? pct + '%' : null; },
+          color: '#fff', font: { weight: 'bold', size: 11 }
+        },
+        tooltip: { callbacks: { label: ctx => ctx.label + ': ' + fmtTip(ctx.raw) + ' (' + (ctx.raw/total*100).toFixed(1) + '%)' } }
+      }
+    }
+  });
+}
+
+function makeHBar(id, labels, data, colors, fmtTip, tickFmt) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  new Chart(el, {
+    type: 'bar',
+    data: { labels, datasets: [{ data, backgroundColor: colors, borderRadius: 3 }] },
+    options: {
+      indexAxis: 'y', maintainAspectRatio: false,
+      plugins: { legend:{display:false}, datalabels:{display:false}, tooltip:{callbacks:{label:ctx=>fmtTip(ctx.raw)}} },
+      scales: { x:{ticks:{callback:tickFmt,font:{size:10}}}, y:{ticks:{font:{size:11}}} }
+    }
+  });
+}
+
+function makeVBar(id, labels, data, colors, fmtTip, yTickFmt) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  new Chart(el, {
+    type: 'bar',
+    data: { labels, datasets: [{ data, backgroundColor: colors, borderRadius: 3 }] },
+    options: {
+      maintainAspectRatio: false,
+      plugins: { legend:{display:false}, datalabels:{display:false}, tooltip:{callbacks:{label:ctx=>fmtTip(ctx.raw)}} },
+      scales: { y:{ticks:{callback:yTickFmt,font:{size:10}}}, x:{ticks:{font:{size:11}}} }
+    }
+  });
+}
+
+// ── DATA ─────────────────────────────────────────────────────────────────────
+// Type data (12M, from sales-units CSVs × listed price)
+// Order: by revenue desc (for chart readability)
+const TYPES          = ['Prevention spray','Treatment spray with comb','Treatment all-in-one','Treatment + Prevention kit/set','Prevention shampoo','Treatment shampoo with comb','Treatment kit/set','Prevention kit/set','Treatment shampoo','Prevention conditioner','Treatment lotion'];
+const TYPE_UNITS_12M = [211405, 142890, 89229, 101830, 78228, 79999, 40709, 19352, 7880, 5041, 1880];
+const TYPE_REV_12M   = [3375511, 3254123, 3120638, 2655549, 1147090, 1042004, 879733, 532704, 212366, 140896, 25124];
+const TYPE_COLORS_ARR= TYPES.map(t => TYPE_CLR[t]);
+const TYPE_AVG_PRICE = [15.97, 22.77, 34.97, 26.08, 14.66, 13.03, 21.61, 27.53, 26.95, 27.95, 13.36];
+const TYPE_AVG_RATING= [4.80, 4.45, 4.40, 4.47, 4.50, 4.45, 4.53, 4.70, 4.40, 4.80, 4.40];
+
+// Brand data top 8 (12M)
+const BRAND8_LABELS = ['Fairy Tales','RID','Nix','Lice Clinics','MAYDAY','Vamousse','NitWits','Licefreee Spray!'];
+const BRAND8_REV    = [4283616, 4169085, 2459130, 2436097, 722662, 500570, 368975, 364414];
+const BRAND8_UNITS  = [242915, 137083, 114622, 91001, 23955, 30356, 25394, 20289];
+// Others = remaining 9 brands
+const OTHERS_REV   = 16385738 - BRAND8_REV.reduce((a,b)=>a+b,0); // ~$1,080,805
+const OTHERS_UNITS = 778443 - BRAND8_UNITS.reduce((a,b)=>a+b,0); // ~45,823
+
+// All products (12M units from sales CSVs, revenue = units × price)
+const ALL_PRODUCTS = [
+  // [asin, title, type, focus, brand, price, units12m, rev12m, bsr, rating, reviews, age]
+  ['B0DTN81GNC','RID One & Done Head Lice Treatment','Treatment all-in-one','Treatment','RID',34.97,89229,3120638,4629,4.4,696,14],
+  ['B000O7JK0A','Fairy Tales Rosemary Repel Spray','Prevention spray','Prevention','Fairy Tales',12.48,189380,2363462,1302,4.8,18017,244],
+  ['B073C2685B','Lice Clinics Treatment Kit','Treatment spray with comb','Treatment','Lice Clinics of America',26.77,91001,2436097,7776,4.4,10337,105],
+  ['B093P2K33Z','RID Super Max Lice Treatment Kit','Treatment + Prevention kit/set','Treatment','RID',22.07,47019,1037609,11094,4.5,2429,59],
+  ['B00J8OU8QK','Fairy Tales Shampoo & Cond Duo 32oz','Prevention spray','Prevention','Fairy Tales',45.95,22025,1012049,20379,4.8,1859,186],
+  ['B07NLTJ7N8','Nix Ultra Superlice All-in-One','Treatment shampoo with comb','Treatment','Nix',18.88,40642,767321,4431,4.5,3423,85],
+  ['B0BH8KD8GN','Nix Lice Treatment & Prevention Kit','Treatment + Prevention kit/set','Treatment','Nix',28.98,29805,863969,4431,4.5,3423,41],
+  ['B0F86TJQ76','MAYDAY Daily Lice Routine Bundle 12oz','Treatment + Prevention kit/set','Prevention','MAYDAY',37.99,13984,531413,11034,4.4,295,10],
+  ['B0C1KX757N','Vamousse Head Lice Defense Shampoo','Prevention shampoo','Prevention','Vamousse',16.49,30356,500570,23800,4.5,731,36],
+  ['B01BU6E7G0','Nix Ultra Lice Treatment Hair Solution','Treatment spray with comb','Treatment','Nix',17.61,24201,426180,5499,4.5,10613,121],
+  ['B01J1ZAMTI','NitWits All-in-One Lice Treatment Kit','Treatment spray with comb','Treatment','NitWits',14.53,25394,368975,17340,4.4,6469,114],
+  ['B0786RMP5Y','Licefreee Head Lice Treatment Kit','Treatment kit/set','Treatment','Licefreee Spray!',18.98,17995,341543,26885,4.6,4429,108],
+  ['B077KWFKZX','Fairy Tales Star Trio Set','Prevention shampoo','Prevention','Fairy Tales',32.95,7117,234505,7699,4.7,2752,100],
+  ['B002OJDJ6M','Fairy Tales Rosemary Repel Shampoo 32oz','Prevention kit/set','Prevention','Fairy Tales',27.95,7900,220805,15038,4.7,4094,207],
+  ['B00D9867T8','Kapow Head Lice Shampoo 8oz','Treatment shampoo','Treatment','Kapow',26.95,7880,212366,43350,4.4,648,147],
+  ['B06XGC9SYL','Nix Lice Treatment Hair & Home Kit','Treatment kit/set','Treatment','Nix',20.81,18094,376536,5499,4.5,10613,108],
+  ['B08T21MR8H','SoCozy Boo! Lice Scaring Shampoo','Prevention shampoo','Prevention','SO COZY',7.99,22120,176739,4719,4.6,4763,48],
+  ['B09ZVN8SLC','Herklin Lice Treatment Shampoo','Treatment shampoo with comb','Treatment','HERKLIN',7.84,19135,150018,22123,4.5,635,46],
+  ['B001NQIPMU','Fairy Tales Rosemary Repel Conditioner 32oz','Prevention conditioner','Prevention','Fairy Tales',27.95,5041,140896,28908,4.8,1724,207],
+  ['B0046KL4SW','Fairy Tales Shampoo & Cond Duo 12oz','Prevention kit/set','Prevention','Fairy Tales',23.95,6434,154094,9392,4.7,3531,186],
+  ['B07BZNQ4J4','LADIBUGS One & Done Lice Treatment Kit','Treatment kit/set','Treatment','LADIBUGS',34.99,4620,161654,59502,4.5,997,95],
+  ['B001QX9S1M','Lice and Nit Treatment Shampoo 2oz','Treatment shampoo with comb','Treatment','Mata Piojos',5.97,19242,114875,26837,4.5,1447,175],
+  ['B0C466MC9W','First Botany Tea Tree Oil Shampoo','Prevention shampoo','Prevention','First Botany',18.98,5433,103118,44409,4.3,332,98],
+  ['B0F86J7FW4','MAYDAY Shampoo & Cond Bundle 3.4oz','Treatment + Prevention kit/set','Prevention','MAYDAY',17.99,6014,108192,11034,4.4,295,10],
+  ['B003GTUXTU','Lice Shield Shampoo & Conditioner 2in1','Prevention shampoo','Prevention','Lice Shield',9.81,12367,121320,32363,4.5,3751,191],
+  ['B0F87B6QGP','MAYDAY Lice Prevention Shampoo 12oz','Treatment + Prevention kit/set','Prevention','MAYDAY',20.99,3957,83057,11032,4.4,295,10],
+  ['B07HQXF3SW','Fairy Tales Shampoo 32oz Pack of 2','Prevention kit/set','Prevention','Fairy Tales',45.95,1854,85191,70935,4.7,647,95],
+  ['B01MCWCHR8','Fairy Tales Shampoo & Spray Duo','Prevention kit/set','Prevention','Fairy Tales',22.95,3164,72614,20315,4.7,3000,113],
+  ['B07T9FK5Z1','4-Step Lice Treatment Kit','Treatment + Prevention kit/set','Treatment','Lice Queen',29.79,1051,31309,146045,4.6,40,30],
+  ['B003KYNNTS','Licefreee Lice Spray for Kids','Treatment spray with comb','Treatment','Licefreee Spray!',9.97,2294,22871,9076,4.5,11243,190],
+  ['B002OHE7Z6','Nix Lice Treatment Family Pack','Treatment lotion','Treatment','Nix',14.27,1217,17367,29085,4.4,3712,198],
+  ['B093NTGW9H','RID Daily Defense Lice Shampoo','Prevention shampoo','Prevention','RID',12.98,835,10838,34324,4.4,1759,59],
+  ['B0FM64BJZT','Lice Killing Shampoo 4oz with Comb','Treatment shampoo with comb','Treatment','Lice No More',9.99,980,9790,44035,4.3,58,7],
+  ['B002OHE7YW','Nix Lice Treatment Creme Rinse & Comb','Treatment lotion','Treatment','Nix',11.70,663,7757,29081,4.4,3712,214]
+];
+
+
+// ── TAB 1 Charts ─────────────────────────────────────────────────────────────
+makePie('focusRevPie', ['Prevention','Treatment'], [5918863, 10466875], FOC_CLR,
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+makePie('focusUnitsPie', ['Prevention','Treatment'], [337981, 440462], FOC_CLR,
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// ── TAB 2 Charts ─────────────────────────────────────────────────────────────
+// ── Price Positioning — Prevention ──────────────────────────────────────────
+(function() {
+  const el = document.getElementById('typePriceChartPrev');
+  if (!el) return;
+
+  const TYPE_LABELS = ['Prev Cond.','Prev Spray','Prev Kit','Prev Shampoo'];
+
+  const top3 = {
+    'Prev Cond.':   ['Fairy Tales'],
+    'Prev Spray':   ['Fairy Tales'],
+    'Prev Kit':     ['Fairy Tales'],
+    'Prev Shampoo': ['Vamousse','SO COZY','Lice Shield']
+  };
+
+  const prices = {
+    'Fairy Tales': {'Prev Cond.':27.95,'Prev Spray':15.97,'Prev Kit':27.53},
+    'Vamousse':    {'Prev Shampoo':16.49},
+    'SO COZY':     {'Prev Shampoo':7.99},
+    'Lice Shield': {'Prev Shampoo':9.81}
+  };
+
+  const CLR = {
+    'Fairy Tales':'#16a34a','Vamousse':'#0891b2',
+    'SO COZY':'#f97316','Lice Shield':'#94a3b8'
+  };
+
+  const mkDataset = rank => ({
+    label: `#${rank + 1}`,
+    data: TYPE_LABELS.map(t => { const b = top3[t][rank]; return b ? (prices[b][t] ?? null) : null; }),
+    backgroundColor: TYPE_LABELS.map(t => { const b = top3[t][rank]; return b ? CLR[b] : 'transparent'; }),
+    brandNames: TYPE_LABELS.map(t => top3[t][rank] || ''),
+    barPercentage: 1.0,
+    categoryPercentage: 0.85
+  });
+
+  new Chart(el, {
+    type: 'bar',
+    plugins: [ChartDataLabels],
+    data: { labels: TYPE_LABELS, datasets: [mkDataset(0), mkDataset(1), mkDataset(2)] },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: {
+          display: ctx => ctx.raw != null,
+          formatter: (v, ctx) => [ctx.dataset.brandNames[ctx.dataIndex], '$' + v.toFixed(2)],
+          anchor: 'center', align: 'center', textAlign: 'center',
+          color: '#fff', font: { size: 9, weight: 'bold' }
+        },
+        tooltip: { callbacks: { label: ctx => ctx.raw != null ? ctx.dataset.brandNames[ctx.dataIndex] + ': $' + ctx.raw.toFixed(2) : '' } }
+      },
+      scales: {
+        x: { ticks: { font: { size: 11 }, maxRotation: 30 } },
+        y: {
+          beginAtZero: true,
+          ticks: { callback: v => '$' + v.toFixed(0) },
+          title: { display: true, text: 'Listed Price ($)', font: { size: 10 } }
+        }
+      }
+    }
+  });
+
+  const leg = document.getElementById('typePriceLegendPrev');
+  if (!leg) return;
+  const rows = [
+    { b:'Fairy Tales', segs:'Prev Cond. (#1), Prev Spray (#1), Prev Kit (#1)', price:'$15.97–$27.95', note:'dominates prevention — #1 in 3 of 4 segments' },
+    { b:'Vamousse',    segs:'Prev Shampoo (#1)',                                price:'$16.49',        note:'price leader in Prev Shampoo' },
+    { b:'SO COZY',     segs:'Prev Shampoo (#2)',                                price:'$7.99',         note:'cheapest in segment' },
+    { b:'Lice Shield', segs:'Prev Shampoo (#3)',                                price:'$9.81',         note:'budget tier' }
+  ];
+  leg.innerHTML = rows.map(r =>
+    `<div style="margin-bottom:3px"><span style="color:${CLR[r.b]};font-size:14px;line-height:1">●</span> <strong>${r.b}</strong> — segments: ${r.segs} | price: ${r.price} | ${r.note}</div>`
+  ).join('') +
+  `<div style="margin-top:10px;padding-top:8px;border-top:1px solid #e5e7eb;font-size:10.5px;color:#374151;line-height:1.9">
+    🏆 <strong>Range leader:</strong> Fairy Tales (#1 in 3 of 4 segments)<br>
+    💰 <strong>Price leader:</strong> Fairy Tales ($27.95 in Prev Conditioner)<br>
+    🎯 <strong>Competitive segment:</strong> Prev Shampoo — 3 brands between $7.99–$16.49, open for disruption
+  </div>`;
+})();
+
+// ── Price Positioning — Treatment ───────────────────────────────────────────
+(function() {
+  const el = document.getElementById('typePriceChartTx');
+  if (!el) return;
+
+  const TYPE_LABELS = ['Treatment all-in-one','Treatment kit/set','Treatment lotion','Treatment shampoo','Treatment shampoo with comb','Treatment spray with comb','Treatment + Prevention kit/set'];
+
+  const top3 = {
+    'Treatment all-in-one':             ['RID'],
+    'Treatment kit/set':                ['Nix','Licefreee','LADIBUGS'],
+    'Treatment lotion':                 ['Nix'],
+    'Treatment shampoo':                ['Kapow'],
+    'Treatment shampoo with comb':      ['Nix','Mata Piojos','HERKLIN'],
+    'Treatment spray with comb':        ['Lice Clinics','NitWits','Nix'],
+    'Treatment + Prevention kit/set':   ['RID','Nix','MAYDAY']
+  };
+
+  const prices = {
+    'RID':          {'Treatment all-in-one':34.97,'Treatment + Prevention kit/set':22.07},
+    'Nix':          {'Treatment kit/set':20.81,'Treatment lotion':13.36,'Treatment shampoo with comb':18.88,'Treatment spray with comb':17.61,'Treatment + Prevention kit/set':28.98},
+    'Licefreee':    {'Treatment kit/set':18.98},
+    'LADIBUGS':     {'Treatment kit/set':34.99},
+    'Kapow':        {'Treatment shampoo':26.95},
+    'Mata Piojos':  {'Treatment shampoo with comb':5.97},
+    'HERKLIN':      {'Treatment shampoo with comb':7.84},
+    'Lice Clinics': {'Treatment spray with comb':26.77},
+    'NitWits':      {'Treatment spray with comb':14.53},
+    'MAYDAY':       {'Treatment + Prevention kit/set':30.17}
+  };
+
+  const CLR = {
+    'RID':'#dc2626','Nix':'#2563eb','Licefreee':'#be185d',
+    'LADIBUGS':'#ec4899','Kapow':'#9333ea','Mata Piojos':'#64748b',
+    'HERKLIN':'#b45309','Lice Clinics':'#7c3aed','NitWits':'#ea580c','MAYDAY':'#d97706'
+  };
+
+  const mkDataset = rank => ({
+    label: `#${rank + 1}`,
+    data: TYPE_LABELS.map(t => { const b = top3[t][rank]; return b ? (prices[b][t] ?? null) : null; }),
+    backgroundColor: TYPE_LABELS.map(t => { const b = top3[t][rank]; return b ? CLR[b] : 'transparent'; }),
+    brandNames: TYPE_LABELS.map(t => top3[t][rank] || ''),
+    barPercentage: 1.0,
+    categoryPercentage: 0.85
+  });
+
+  new Chart(el, {
+    type: 'bar',
+    plugins: [ChartDataLabels],
+    data: { labels: TYPE_LABELS, datasets: [mkDataset(0), mkDataset(1), mkDataset(2)] },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: {
+          display: ctx => ctx.raw != null,
+          formatter: (v, ctx) => [ctx.dataset.brandNames[ctx.dataIndex], '$' + v.toFixed(2)],
+          anchor: 'center', align: 'center', textAlign: 'center',
+          color: '#fff', font: { size: 8, weight: 'bold' }
+        },
+        tooltip: { callbacks: { label: ctx => ctx.raw != null ? ctx.dataset.brandNames[ctx.dataIndex] + ': $' + ctx.raw.toFixed(2) : '' } }
+      },
+      scales: {
+        x: { ticks: { font: { size: 10 }, maxRotation: 40 } },
+        y: {
+          beginAtZero: true,
+          ticks: { callback: v => '$' + v.toFixed(0) },
+          title: { display: true, text: 'Listed Price ($)', font: { size: 10 } }
+        }
+      }
+    }
+  });
+
+  const leg = document.getElementById('typePriceLegendTx');
+  if (!leg) return;
+  const rows = [
+    { b:'Nix',         segs:'Treatment kit/set (#1), Treatment lotion (#1), Treatment shampoo with comb (#1), Treatment spray with comb (#3), Treatment + Prevention kit/set (#2)', price:'$13.36–$28.98', note:'widest reach — top 3 in 5 segments' },
+    { b:'RID',         segs:'Treatment all-in-one (#1), Treatment + Prevention kit/set (#1)',                                                                                        price:'$22.07–$34.97', note:'most expensive in All-in-One' },
+    { b:'Licefreee',   segs:'Treatment kit/set (#2)',                                                                                                                               price:'$18.98',        note:'mid-range alternative in kits' },
+    { b:'LADIBUGS',    segs:'Treatment kit/set (#3)',                                                                                                                               price:'$34.99',        note:'premium option in kits' },
+    { b:'Kapow',       segs:'Treatment shampoo (#1)',                                                                                                                               price:'$26.95',        note:'sole player in Treatment shampoo' },
+    { b:'Lice Clinics',segs:'Treatment spray with comb (#1)',                                                                                                                       price:'$26.77',        note:'premium spray+comb leader' },
+    { b:'NitWits',     segs:'Treatment spray with comb (#2)',                                                                                                                       price:'$14.53',        note:'mid-range spray option' },
+    { b:'Mata Piojos', segs:'Treatment shampoo with comb (#2)',                                                                                                                     price:'$5.97',         note:'cheapest brand across all segments' },
+    { b:'HERKLIN',     segs:'Treatment shampoo with comb (#3)',                                                                                                                     price:'$7.84',         note:'budget tier' },
+    { b:'MAYDAY',      segs:'Treatment + Prevention kit/set (#3)',                                                                                                                  price:'$30.17',        note:'premium combo kit' }
+  ];
+  leg.innerHTML = rows.map(r =>
+    `<div style="margin-bottom:3px"><span style="color:${CLR[r.b]};font-size:14px;line-height:1">●</span> <strong>${r.b}</strong> — segments: ${r.segs} | price: ${r.price} | ${r.note}</div>`
+  ).join('') +
+  `<div style="margin-top:10px;padding-top:8px;border-top:1px solid #e5e7eb;font-size:10.5px;color:#374151;line-height:1.9">
+    🏆 <strong>Range leader:</strong> Nix (top 3 in 5 of 7 segments)<br>
+    💰 <strong>Price leader:</strong> RID / LADIBUGS ($34.97 / $34.99)<br>
+    🎯 <strong>Price gap:</strong> Treatment lotion — only 1 player (Nix, $13.36) → opportunity or dead segment
+  </div>`;
+})();
+
+// ── TAB 2 — S1: Prevention type breakdown ──────────────────────────────────────
+const PRV_TYPES  = ['Prevention spray','Prevention shampoo','Treatment + Prevention kit/set','Prevention kit/set','Prevention conditioner'];
+const PRV_UNITS  = [211405, 78228, 23955, 19352, 5041];
+const PRV_REV    = [3375511, 1147090, 722662, 532704, 140896];
+const PRV_COLORS = ['#16a34a','#86efac','#7c3aed','#22c55e','#15803d'];
+
+makePie('txTypeUnitPie', PRV_TYPES, PRV_UNITS, PRV_COLORS,
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+makePie('txTypeRevPie', PRV_TYPES, PRV_REV, PRV_COLORS,
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+// ── TAB 2 — S2: Brand Share by Type — Units — Prevention (6 types from X-Ray) ──
+// Prevention spray: Fairy Tales 211405 — B000O7JK0A (189380) + B00J8OU8QK (22025)
+makePie('prevSprayBrandUnitPie',
+  ['Fairy Tales'],
+  [211405],
+  ['#16a34a'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Prevention shampoo: 6 ASINs — Vamousse 30356 · SO COZY 22120 · Lice Shield 12367 · Fairy Tales 7117 · First Botany 5433 · RID 835
+makePie('prevShampBrandUnitPie',
+  ['Vamousse','SO COZY','Lice Shield','Fairy Tales','First Botany','RID'],
+  [30356, 22120, 12367, 7117, 5433, 835],
+  ['#0891b2','#f97316','#94a3b8','#16a34a','#7c3aed','#dc2626'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Tx + Prevention kit/set: MAYDAY 23955 — B0F86TJQ76 (13984) + B0F86J7FW4 (6014) + B0F87B6QGP (3957)
+makePie('prevTxKitBrandUnitPie',
+  ['MAYDAY'],
+  [23955],
+  ['#d97706'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Prevention kit/set: Fairy Tales 19352 — 4 ASINs (B002OJDJ6M 7900 + B0046KL4SW 6434 + B01MCWCHR8 3164 + B07HQXF3SW 1854)
+makePie('prevKitBrandUnitPie',
+  ['Fairy Tales'],
+  [19352],
+  ['#16a34a'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Prevention conditioner: Fairy Tales 5041 — B001NQIPMU
+makePie('prevCondBrandUnitPie',
+  ['Fairy Tales'],
+  [5041],
+  ['#16a34a'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// ── TAB 2 — S3: Brand Share by Type — Revenue — Prevention (5 types) ─
+// Prevention spray: Fairy Tales $3,375,511 — B000O7JK0A ($2,363,462) + B00J8OU8QK ($1,012,049)
+makePie('prevSprayBrandRevPie',
+  ['Fairy Tales'],
+  [3375511],
+  ['#16a34a'],
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+// Prevention shampoo: Fairy Tales $234,505 · Vamousse $500,570 · SO COZY $176,739 · Lice Shield $121,320 · First Botany $103,118 · RID $10,838
+makePie('prevShampBrandRevPie',
+  ['Vamousse','Fairy Tales','SO COZY','Lice Shield','First Botany','RID'],
+  [500570, 234505, 176739, 121320, 103118, 10838],
+  ['#0891b2','#16a34a','#f97316','#94a3b8','#7c3aed','#dc2626'],
+  v => '$' + Math.round(v/1000) + 'K', v => '$' + v.toLocaleString());
+
+// Tx + Prevention kit/set: MAYDAY $722,662 — B0F86TJQ76 ($531,413) + B0F86J7FW4 ($108,192) + B0F87B6QGP ($83,057)
+makePie('prevTxKitBrandRevPie',
+  ['MAYDAY'],
+  [722662],
+  ['#d97706'],
+  v => '$' + Math.round(v/1000) + 'K', v => '$' + v.toLocaleString());
+
+// Prevention kit/set: Fairy Tales $532,704 — B002OJDJ6M ($220,805) + B0046KL4SW ($154,094) + B07HQXF3SW ($85,191) + B01MCWCHR8 ($72,614)
+makePie('prevKitBrandRevPie',
+  ['Fairy Tales'],
+  [532704],
+  ['#16a34a'],
+  v => '$' + Math.round(v/1000) + 'K', v => '$' + v.toLocaleString());
+
+// Prevention conditioner: Fairy Tales $140,896 — B001NQIPMU
+makePie('prevCondBrandRevPie',
+  ['Fairy Tales'],
+  [140896],
+  ['#16a34a'],
+  v => '$' + Math.round(v/1000) + 'K', v => '$' + v.toLocaleString());
+
+// ── TAB 2 — S4: Brand Share by Focus — Units ──────────────────────────────────
+makePie('txBrandUnitPie',
+  ['RID','Nix','Lice Clinics','NitWits','Mata Piojos','HERKLIN','Licefreee','Others'],
+  [136248, 114622, 91001, 25394, 19242, 19135, 17995, 14531],
+  ['#dc2626','#2563eb','#7c3aed','#0891b2','#64748b','#ea580c','#d97706','#94a3b8'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+makePie('prevBrandUnitPie',
+  ['Fairy Tales','Vamousse','MAYDAY','SO COZY','Lice Shield','First Botany','Others'],
+  [242915, 30356, 23955, 22120, 12367, 5433, 3129],
+  ['#16a34a','#2563eb','#d97706','#ea580c','#0891b2','#7c3aed','#94a3b8'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// ── TAB 2 — S4: Brand Share by Focus — Revenue ────────────────────────────────
+makePie('txBrandRevPie',
+  ['RID','Nix','Lice Clinics','NitWits','Licefreee','Kapow','LADIBUGS','Others'],
+  [4158247, 2459130, 2436097, 368975, 341543, 212366, 161654, 305992],
+  ['#dc2626','#2563eb','#7c3aed','#0891b2','#d97706','#be185d','#0d9488','#94a3b8'],
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+makePie('prevBrandRevPie',
+  ['Fairy Tales','MAYDAY','Vamousse','SO COZY','Lice Shield','First Botany','Others'],
+  [4283616, 722662, 500570, 176739, 121320, 103118, 33709],
+  ['#16a34a','#d97706','#2563eb','#ea580c','#0891b2','#7c3aed','#94a3b8'],
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+// ── TAB 2 — S5: Monthly brand unit share line chart ───────────────────────────
+(function() {
+  const el = document.getElementById('brandShareLineChart');
+  if (!el) return;
+  const months = ["Mar'25","Apr'25","May'25","Jun'25","Jul'25","Aug'25","Sep'25","Oct'25","Nov'25","Dec'25","Jan'26","Feb'26"];
+  const ds = [
+    { label:'Fairy Tales', data:[4.8,4.6,5.1,23.0,29.7,40.6,37.8,37.1,37.7,31.7,35.9,39.6], borderColor:'#16a34a', borderWidth:2.5 },
+    { label:'RID',         data:[11.1,18.9,21.4,16.9,16.2,14.1,16.3,17.2,19.1,22.5,18.8,17.9], borderColor:'#dc2626', borderWidth:2.5 },
+    { label:'Nix',         data:[19.7,18.4,22.8,19.5,12.3,11.2,13.0,12.9,12.0,15.6,15.0,15.0], borderColor:'#2563eb', borderWidth:2.5 },
+    { label:'Lice Clinics',data:[27.3,23.2,19.5,14.5,14.1,10.0,10.3,9.9,9.6,8.6,7.2,6.2], borderColor:'#7c3aed', borderWidth:2.0 },
+    { label:'MAYDAY',      data:[0.0,0.0,0.0,0.1,1.8,2.9,3.6,3.2,4.5,5.3,5.2,4.4], borderColor:'#d97706', borderWidth:1.8 },
+    { label:'Vamousse',    data:[5.8,4.8,4.5,4.7,5.2,5.1,4.5,4.8,3.2,2.3,2.2,1.8], borderColor:'#0891b2', borderWidth:1.8 },
+    { label:'NitWits',     data:[5.9,4.5,4.5,3.9,5.0,3.3,2.9,2.1,2.5,2.4,3.3,2.2], borderColor:'#ea580c', borderWidth:1.8, borderDash:[5,3] },
+    { label:'Licefreee',   data:[3.2,3.4,3.6,4.0,3.1,2.3,2.2,1.6,1.7,2.0,1.8,4.3], borderColor:'#be185d', borderWidth:1.5, borderDash:[5,3], hidden:true }
+  ];
+  ds.forEach(d => { d.backgroundColor = 'transparent'; d.tension = 0.3; d.pointRadius = 3; d.pointHoverRadius = 5; });
+  new Chart(el, {
+    type: 'line',
+    data: { labels: months, datasets: ds },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position:'bottom', labels:{ font:{size:11}, padding:12, boxWidth:20 } },
+        datalabels: { display:false },
+        tooltip: { mode:'index', intersect:false, callbacks:{ label: ctx => ' ' + ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(1) + '%' } }
+      },
+      scales: {
+        y: { min:0, max:50, ticks:{ callback: v => v + '%', stepSize:10 }, grid:{ color:'#e2e8f0' } },
+        x: { grid:{ display:false } }
+      }
+    }
+  });
+})();
+
+// ── TAB 2 — Brand Summary — Treatment ─────────────────────────────────────────
+(function() {
+  const TOTAL_TX_REV = 10466875;
+  const map = {};
+  ALL_PRODUCTS.filter(p => p[3] === 'Treatment').forEach(p => {
+    const [,,,, brand, price, units, rev,, rating, reviews] = p;
+    if (!map[brand]) map[brand] = { asins: 0, units: 0, rev: 0, ratingSum: 0, reviews: 0 };
+    map[brand].asins++;
+    map[brand].units += units;
+    map[brand].rev += rev;
+    map[brand].ratingSum += rating;
+    map[brand].reviews += reviews;
+  });
+  const rows = Object.entries(map)
+    .map(([brand, d]) => ({ brand, ...d, avgPrice: d.rev / d.units, avgRating: d.ratingSum / d.asins }))
+    .sort((a, b) => b.rev - a.rev);
+  const tbody = document.getElementById('brandTxTreatTbody');
+  rows.forEach(r => {
+    const share = (r.rev / TOTAL_TX_REV * 100).toFixed(1);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td style="text-align:left">${r.brand}</td>
+      <td>$${r.rev.toLocaleString()}</td>
+      <td>${share}%</td>
+      <td>${r.asins}</td>
+      <td>$${r.avgPrice.toFixed(2)}</td>
+      <td>${r.avgRating.toFixed(2)}</td>
+      <td>${r.reviews.toLocaleString()}</td>`;
+    tbody.appendChild(tr);
+  });
+})();
+
+// ── TAB 2 — Brand Summary — Prevention ────────────────────────────────────────
+(function() {
+  const TOTAL_TX_REV = 5918863;
+  const map = {};
+  ALL_PRODUCTS.filter(p => p[3] === 'Prevention').forEach(p => {
+    const [,,,, brand, price, units, rev,, rating, reviews] = p;
+    if (!map[brand]) map[brand] = { asins: 0, units: 0, rev: 0, ratingSum: 0, reviews: 0 };
+    map[brand].asins++;
+    map[brand].units += units;
+    map[brand].rev += rev;
+    map[brand].ratingSum += rating;
+    map[brand].reviews += reviews;
+  });
+  const rows = Object.entries(map)
+    .map(([brand, d]) => ({ brand, ...d, avgPrice: d.rev / d.units, avgRating: d.ratingSum / d.asins }))
+    .sort((a, b) => b.rev - a.rev);
+  const tbody = document.getElementById('brandTxTbody');
+  rows.forEach(r => {
+    const share = (r.rev / TOTAL_TX_REV * 100).toFixed(1);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td style="text-align:left">${r.brand}</td>
+      <td>$${r.rev.toLocaleString()}</td>
+      <td>${share}%</td>
+      <td>${r.asins}</td>
+      <td>$${r.avgPrice.toFixed(2)}</td>
+      <td>${r.avgRating.toFixed(2)}</td>
+      <td>${r.reviews.toLocaleString()}</td>`;
+    tbody.appendChild(tr);
+  });
+})();
+
+// ── TAB 2 — Treatment ASINs Top 10 by Revenue ─────────────────────────────────
+(function() {
+  const rows = ALL_PRODUCTS.filter(p => p[3] === 'Treatment').sort((a, b) => b[7] - a[7]).slice(0, 15);
+  const tbody = document.getElementById('txTop20Tbody');
+  rows.forEach(p => {
+    const [asin, title,,, brand, price,, rev,,, reviews, age] = p;
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td style="text-align:left"><a href="https://www.amazon.com/dp/${asin}" target="_blank">${asin}</a></td>
+      <td style="text-align:left">${brand}</td>
+      <td style="text-align:left">${title}</td>
+      <td>$${price.toFixed(2)}</td>
+      <td>$${rev.toLocaleString()}</td>
+      <td>${reviews.toLocaleString()}</td>
+      <td>${age}mo</td>`;
+    tbody.appendChild(tr);
+  });
+})();
+
+// ── TAB 2 — Prevention ASINs Top 20 by Revenue ────────────────────────────────
+(function() {
+  const TOTAL_PREV_REV = 5918863;
+  const rows = ALL_PRODUCTS.filter(p => p[3] === 'Prevention').sort((a, b) => b[7] - a[7]).slice(0, 15);
+  const tbody = document.getElementById('prevTop20Tbody');
+  rows.forEach(p => {
+    const [asin, title,,, brand, price,, rev,,, reviews, age] = p;
+    const share = (rev / TOTAL_PREV_REV * 100).toFixed(1);
+    const tr = document.createElement('tr');
+    tr.innerHTML = `<td style="text-align:left"><a href="https://www.amazon.com/dp/${asin}" target="_blank">${asin}</a></td>
+      <td style="text-align:left">${brand}</td>
+      <td style="text-align:left">${title}</td>
+      <td>$${price.toFixed(2)}</td>
+      <td>$${rev.toLocaleString()}</td>
+      <td>${share}%</td>
+      <td>${reviews.toLocaleString()}</td>
+      <td>${age}mo</td>`;
+    tbody.appendChild(tr);
+  });
+})();
+
+// ── TAB 3 Treatment — Type Unit / Revenue pies ───────────────────────────────
+const TX_TYPES_T3  = ['Treatment spray with comb','Treatment all-in-one','Treatment shampoo with comb','Treatment + Prevention kit/set','Treatment kit/set','Treatment shampoo','Treatment lotion'];
+const TX_UNITS_T3  = [142890, 89229, 79999, 77875, 40709, 7880, 1880];
+const TX_REV_T3    = [3254123, 3120638, 1042004, 1932887, 879733, 212366, 25124];
+const TX_COLORS_T3 = ['#ea580c','#7f1d1d','#fb923c','#7c3aed','#b91c1c','#f97316','#dc2626'];
+
+makePie('txTypeUnitPieTx', TX_TYPES_T3, TX_UNITS_T3, TX_COLORS_T3,
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+makePie('txTypeRevPieTx', TX_TYPES_T3, TX_REV_T3, TX_COLORS_T3,
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+// ── TAB 3 Treatment — Brand Share by Type — Units (7 types) ─────────────────
+// Tx spray+comb: Lice Clinics 91001 · NitWits 25394 · Nix 24201 · Licefreee 2294
+makePie('txSprayBrandUnitPie',
+  ['Lice Clinics','NitWits','Nix','Licefreee Spray!'],
+  [91001, 25394, 24201, 2294],
+  ['#7c3aed','#ea580c','#2563eb','#be185d'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Tx all-in-one: RID 89229
+makePie('txAioBrandUnitPie',
+  ['RID'], [89229], ['#dc2626'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Tx shampoo+comb: Nix 40642 · Mata Piojos 19242 · HERKLIN 19135 · Lice No More 980
+makePie('txShampCombBrandUnitPie',
+  ['Nix','Mata Piojos','HERKLIN','Lice No More'],
+  [40642, 19242, 19135, 980],
+  ['#2563eb','#64748b','#b45309','#94a3b8'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Tx+Prev kit/set (Treatment focus): RID 47019 · Nix 29805 · Lice Queen 1051
+makePie('txPrevKitBrandUnitPie',
+  ['RID','Nix','Lice Queen'],
+  [47019, 29805, 1051],
+  ['#dc2626','#2563eb','#22c55e'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Tx kit/set: Nix 18094 · Licefreee 17995 · LADIBUGS 4620
+makePie('txKitBrandUnitPie',
+  ['Nix','Licefreee','LADIBUGS'],
+  [18094, 17995, 4620],
+  ['#2563eb','#be185d','#ec4899'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Tx shampoo: Kapow 7880
+makePie('txShampBrandUnitPie',
+  ['Kapow'], [7880], ['#9333ea'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Tx lotion: Nix 1880
+makePie('txLotionBrandUnitPie',
+  ['Nix'], [1880], ['#2563eb'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// ── TAB 3 Treatment — Brand Share by Type — Revenue (7 types) ───────────────
+// Tx spray+comb: Lice Clinics $2,436,097 · Nix $426,180 · NitWits $368,975 · Licefreee $22,871
+makePie('txSprayBrandRevPie',
+  ['Lice Clinics','Nix','NitWits','Licefreee Spray!'],
+  [2436097, 426180, 368975, 22871],
+  ['#7c3aed','#2563eb','#ea580c','#be185d'],
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+// Tx all-in-one: RID $3,120,638
+makePie('txAioBrandRevPie',
+  ['RID'], [3120638], ['#dc2626'],
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+// Tx shampoo+comb: Nix $767,321 · HERKLIN $150,018 · Mata Piojos $114,875 · Lice No More $9,790
+makePie('txShampCombBrandRevPie',
+  ['Nix','HERKLIN','Mata Piojos','Lice No More'],
+  [767321, 150018, 114875, 9790],
+  ['#2563eb','#b45309','#64748b','#94a3b8'],
+  v => '$' + Math.round(v/1000) + 'K', v => '$' + v.toLocaleString());
+
+// Tx+Prev kit/set (Treatment focus): RID $1,037,609 · Nix $863,969 · Lice Queen $31,309
+makePie('txPrevKitBrandRevPie',
+  ['RID','Nix','Lice Queen'],
+  [1037609, 863969, 31309],
+  ['#dc2626','#2563eb','#22c55e'],
+  v => '$' + Math.round(v/1000) + 'K', v => '$' + v.toLocaleString());
+
+// Tx kit/set: Nix $376,536 · Licefreee $341,543 · LADIBUGS $161,654
+makePie('txKitBrandRevPie',
+  ['Nix','Licefreee','LADIBUGS'],
+  [376536, 341543, 161654],
+  ['#2563eb','#be185d','#ec4899'],
+  v => '$' + Math.round(v/1000) + 'K', v => '$' + v.toLocaleString());
+
+// Tx shampoo: Kapow $212,366
+makePie('txShampBrandRevPie',
+  ['Kapow'], [212366], ['#9333ea'],
+  v => '$' + Math.round(v/1000) + 'K', v => '$' + v.toLocaleString());
+
+// Tx lotion: Nix $25,124
+makePie('txLotionBrandRevPie',
+  ['Nix'], [25124], ['#2563eb'],
+  v => '$' + Math.round(v/1000) + 'K', v => '$' + v.toLocaleString());
+
+// ── TAB 1 — Monthly Seasonality Index by Segment ─────────────────────────────
+(function() {
+  const labels = ['Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb'];
+  function makeSeasChart(id, idx, yMax) {
+    const el = document.getElementById(id);
+    if (!el) return;
+    const colors = idx.map(v => v >= 1.3 ? '#16a34a' : v <= 0.6 ? '#dc2626' : '#2563eb');
+    new Chart(el, {
+      type: 'bar',
+      data: { labels, datasets: [{ data: idx, backgroundColor: colors, label: 'Index' }] },
+      plugins: [ChartDataLabels],
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          datalabels: {
+            anchor: 'end', align: 'end',
+            formatter: v => v.toFixed(2) + '×',
+            color: '#334155', font: { size: 10, weight: '600' }
+          }
+        },
+        scales: {
+          y: { min: 0, max: yMax, ticks: { callback: v => v.toFixed(1) + '×' }, grid: { color: '#e2e8f0' } }
+        }
+      }
+    });
+  }
+  const prevIdx = [0.25,0.26,0.249,0.612,0.9,1.529,1.319,1.554,1.606,1.063,1.191,1.467];
+  const txIdx   = [0.754,0.786,0.868,0.96,0.973,1.059,1.041,1.18,1.262,1.097,1.023,0.996];
+  makeSeasChart('prevSeasChart', prevIdx, 2.0);
+  makeSeasChart('txSeasChart',   txIdx,   1.5);
+})();
+
+// ── TAB 4 — Treatment Method charts ──────────────────────────────────────────
+const METH_CLR = ['#2563eb','#dc2626'];
+makePie('methUnitPie', ['Physical','Chemical'], [280191, 190627], METH_CLR,
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+makePie('methRevPie', ['Physical','Chemical'], [6182461, 4784984], METH_CLR,
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+// Brand Share — Physical (Units)
+makePie('physBrandUnitPie',
+  ['Lice Clinics','Nix','RID','NitWits','Licefreee','Kapow','LADIBUGS','Lice Queen'],
+  [91001,82937,47019,25394,20289,7880,4620,1051],
+  ['#2563eb','#16a34a','#dc2626','#ea580c','#be185d','#9333ea','#0d9488','#d97706'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Brand Share — Chemical (Units)
+makePie('chemBrandUnitPie',
+  ['RID','Nix','Vamousse','Mata Piojos','HERKLIN','Lice No More'],
+  [89229,31685,30356,19242,19135,980],
+  ['#dc2626','#16a34a','#0891b2','#64748b','#b45309','#94a3b8'],
+  v => v.toLocaleString(), v => v.toLocaleString() + ' units');
+
+// Brand Share — Physical (Revenue)
+makePie('physBrandRevPie',
+  ['Lice Clinics','Nix','RID','NitWits','Licefreee','Kapow','LADIBUGS','Lice Queen'],
+  [2436097,1570037,1037609,368975,364414,212366,161654,31309],
+  ['#2563eb','#16a34a','#dc2626','#ea580c','#be185d','#9333ea','#0d9488','#d97706'],
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+// Brand Share — Chemical (Revenue)
+makePie('chemBrandRevPie',
+  ['RID','Nix','Vamousse','HERKLIN','Mata Piojos','Lice No More'],
+  [3120638,889093,500570,150018,114875,9790],
+  ['#dc2626','#16a34a','#0891b2','#b45309','#64748b','#94a3b8'],
+  v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
+
+// Price Positioning — Top 3 ASINs per Method
+(function() {
+  const el = document.getElementById('methPriceChart');
+  if (!el) return;
+  const LABELS = ['Physical','Chemical'];
+  const top3 = {
+    'Physical': ['Lice Clinics Kit','RID Super Max','Nix Ultra Superlice'],
+    'Chemical': ['RID One & Done','Vamousse Shampoo','Nix Tx & Prev Kit']
+  };
+  const prices = {
+    'Lice Clinics Kit':      {'Physical':26.77},
+    'RID Super Max':         {'Physical':22.07},
+    'Nix Ultra Superlice':   {'Physical':18.88},
+    'RID One & Done':        {'Chemical':34.97},
+    'Vamousse Shampoo':      {'Chemical':16.49},
+    'Nix Tx & Prev Kit':     {'Chemical':28.98}
+  };
+  const CLR = {
+    'Lice Clinics Kit':'#2563eb','RID Super Max':'#dc2626','Nix Ultra Superlice':'#16a34a',
+    'RID One & Done':'#dc2626','Vamousse Shampoo':'#0891b2','Nix Tx & Prev Kit':'#16a34a'
+  };
+  const mkDs = rank => ({
+    label: `#${rank+1}`,
+    data: LABELS.map(m => { const b = top3[m][rank]; return b ? (prices[b][m] ?? null) : null; }),
+    backgroundColor: LABELS.map(m => { const b = top3[m][rank]; return b ? CLR[b] : 'transparent'; }),
+    brandNames: LABELS.map(m => top3[m][rank] || ''),
+    barPercentage: 1.0, categoryPercentage: 0.7
+  });
+  new Chart(el, {
+    type: 'bar', plugins: [ChartDataLabels],
+    data: { labels: LABELS, datasets: [mkDs(0), mkDs(1), mkDs(2)] },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: {
+          display: ctx => ctx.raw != null,
+          formatter: (v, ctx) => [ctx.dataset.brandNames[ctx.dataIndex], '$' + v.toFixed(2)],
+          anchor: 'center', align: 'center', textAlign: 'center',
+          color: '#fff', font: { size: 10, weight: 'bold' }
+        },
+        tooltip: { callbacks: { label: ctx => ctx.raw != null ? ctx.dataset.brandNames[ctx.dataIndex] + ': $' + ctx.raw.toFixed(2) : '' } }
+      },
+      scales: {
+        x: { ticks: { font: { size: 12 } } },
+        y: { beginAtZero: true, ticks: { callback: v => '$' + v }, title: { display: true, text: 'Price ($)', font: { size: 10 } } }
+      }
+    }
+  });
+})();
+
+// ── TAB 5 — Reviews charts ────────────────────────────────────────────────────
+(function() {
+  // Star Rating Distribution — Treatment vs Prevention
+  const elStar = document.getElementById('starDistChart');
+  if (elStar) {
+    new Chart(elStar, {
+      type: 'bar',
+      plugins: [ChartDataLabels],
+      data: {
+        labels: [
+          'Treatment  (4.5★ avg · 14 ASINs · 54,138 ratings)',
+          'Prevention  (4.6★ avg · 13 ASINs · 55,604 ratings)'
+        ],
+        datasets: [
+          { label: '5★', data: [76, 79], backgroundColor: '#16a34a' },
+          { label: '4★', data: [11, 10], backgroundColor: '#84cc16' },
+          { label: '3★', data: [6,  5],  backgroundColor: '#f59e0b' },
+          { label: '2★', data: [3,  2],  backgroundColor: '#f97316' },
+          { label: '1★', data: [5,  3],  backgroundColor: '#dc2626' }
+        ]
+      },
+      options: {
+        maintainAspectRatio: false, indexAxis: 'y',
+        plugins: {
+          legend: { position: 'bottom', labels: { font: { size: 11 }, boxWidth: 14, padding: 10 } },
+          datalabels: {
+            display: ctx => ctx.dataset.data[ctx.dataIndex] >= 5,
+            formatter: v => v + '%',
+            color: '#fff', font: { weight: 'bold', size: 11 }
+          },
+          tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.raw + '%' } }
+        },
+        scales: {
+          x: { stacked: true, max: 100, ticks: { callback: v => v + '%' }, grid: { color: '#e2e8f0' } },
+          y: { stacked: true }
+        }
+      }
+    });
+  }
+
+  // Avg Rating by Type
+  makeVBar('typeRatingBar', TYPES, TYPE_AVG_RATING, TYPE_COLORS_ARR,
+    v => v.toFixed(2), v => v.toFixed(2));
+
+  const CATS   = ['Offensive Smell','Efficacy Failure','Hair / Texture Issue','Defective / Packaging','DIY Alternatives','Other'];
+  const COUNTS = [126, 129, 37, 54, 12, 121];
+  const TOTAL  = 479;
+  const COLORS = ['#d97706','#dc2626','#7c3aed','#0891b2','#16a34a','#94a3b8'];
+
+  // 1. Combined horizontal bar — Market Unmet Needs
+  const el1 = document.getElementById('unmetNeedsChart');
+  if (el1) {
+    new Chart(el1, {
+      type: 'bar',
+      data: {
+        labels: CATS,
+        datasets: [{ data: COUNTS, backgroundColor: COLORS, label: 'Reviews' }]
+      },
+      options: {
+        indexAxis: 'y',
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          datalabels: {
+            anchor: 'end', align: 'end',
+            formatter: (v) => v + ' (' + Math.round(v/TOTAL*100) + '%)',
+            color: '#334155', font: { size: 10, weight: '600' }
+          }
+        },
+        scales: {
+          x: { max: 150, ticks: { callback: v => v }, grid: { color: '#e2e8f0' } },
+          y: { ticks: { font: { size: 11 } } }
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+  }
+
+  // 2. Failure type by star rating — grouped bar
+  const el2 = document.getElementById('failByStarChart');
+  if (el2) {
+    // % within each star tier (order: Smell, Efficacy, Hair, Packaging, DIY, Other)
+    const s1 = [13, 39, 7,  13, 2, 27];  // 1★ (199 reviews)
+    const s2 = [29, 29, 5,  12, 2, 24];  // 2★ (119 reviews)
+    const s3 = [41, 11, 11,  9, 4, 24];  // 3★ (161 reviews)
+    new Chart(el2, {
+      type: 'bar',
+      data: {
+        labels: CATS,
+        datasets: [
+          { label: '1★', data: s1, backgroundColor: '#dc262699' },
+          { label: '2★', data: s2, backgroundColor: '#d9770699' },
+          { label: '3★', data: s3, backgroundColor: '#2563eb99' }
+        ]
+      },
+      options: {
+        indexAxis: 'y',
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { position: 'top', labels: { font: { size: 11 }, boxWidth: 12 } },
+          datalabels: { display: false }
+        },
+        scales: {
+          x: { max: 50, ticks: { callback: v => v + '%' }, grid: { color: '#e2e8f0' } },
+          y: { ticks: { font: { size: 11 } } }
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+  }
+
+  // 0b. Positive themes bar (4★+5★)
+  const elPos = document.getElementById('posThemesChart');
+  if (elPos) {
+    const posLabels = ['Great smell / scent','Good conditioner / soft hair','Lice-free results','Easy daily use','Value for money','Peace of mind'];
+    const posCounts = [140, 76, 54, 26, 19, 15];
+    const posColors = ['#16a34a','#2563eb','#d97706','#7c3aed','#0891b2','#ea580c'];
+    new Chart(elPos, {
+      type: 'bar',
+      data: {
+        labels: posLabels,
+        datasets: [{ data: posCounts, backgroundColor: posColors, label: 'Mentions' }]
+      },
+      options: {
+        indexAxis: 'y',
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          datalabels: {
+            anchor: 'end', align: 'end',
+            formatter: (v) => v + ' (' + Math.round(v/226*100) + '%)',
+            color: '#334155', font: { size: 10, weight: '600' }
+          }
+        },
+        scales: {
+          x: { max: 165, ticks: { callback: v => v }, grid: { color: '#e2e8f0' } },
+          y: { ticks: { font: { size: 11 } } }
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+  }
+
+  // 3. Time-to-failure bar
+  const el3 = document.getElementById('ttfChart');
+  if (el3) {
+    new Chart(el3, {
+      type: 'bar',
+      data: {
+        labels: ['< 1 week','Weeks / 1 month','Months / year+','Not specified'],
+        datasets: [{ data: [1, 1, 8, 90], backgroundColor: ['#dc2626','#d97706','#7c3aed','#94a3b8'], label: '%' }]
+      },
+      options: {
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          datalabels: {
+            anchor: 'end', align: 'end',
+            formatter: v => v + '%',
+            color: '#334155', font: { size: 10, weight: '600' }
+          }
+        },
+        scales: {
+          y: { max: 100, ticks: { callback: v => v + '%' }, grid: { color: '#e2e8f0' } }
+        }
+      },
+      plugins: [ChartDataLabels]
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
