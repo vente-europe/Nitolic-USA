@@ -205,13 +205,13 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
     <span style="font-size:.7rem;color:#dc2626">&#9632; Trough</span>
   </h3>
   <div class="cw" style="height:200px"><canvas id="prevSeasChart"></canvas></div>
-  <div class="note">22 Prevention ASINs (Mar 2025 – Feb 2026). Highly seasonal — back-to-school drives a 6.4× swing between trough (May) and peak (Nov). Index 1.0 = average month.</div>
+  <div class="note">17 Prevention ASINs with daily sales data (Mar 2025 – Feb 2026). Highly seasonal — back-to-school drives a 6.4× swing between trough (May) and peak (Nov). Index 1.0 = average month.</div>
 </div>
 
 <!-- Treatment -->
 <div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr));margin-top:18px">
   <div class="kpi"><div class="kpi-v" style="color:#15803d">Nov</div><div class="kpi-l">Treatment Peak (1.26×)</div></div>
-  <div class="kpi"><div class="kpi-v" style="color:#2563eb">Mar</div><div class="kpi-l">Treatment Trough (0.76×)</div></div>
+  <div class="kpi"><div class="kpi-v" style="color:#2563eb">Mar</div><div class="kpi-l">Treatment Trough (0.75×)</div></div>
   <div class="kpi"><div class="kpi-v">1.7×</div><div class="kpi-l">Treatment Peak / Trough</div></div>
 </div>
 <div class="card" style="margin-top:10px">
@@ -220,7 +220,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
     <span style="font-size:.7rem;color:#dc2626">&#9632; Trough</span>
   </h3>
   <div class="cw" style="height:200px"><canvas id="txSeasChart"></canvas></div>
-  <div class="note">38 Treatment ASINs (Mar 2025 – Feb 2026). Much flatter profile — lice infestations require treatment regardless of season.</div>
+  <div class="note">17 Treatment ASINs with daily sales data (Mar 2025 – Feb 2026). Much flatter profile — lice infestations require treatment regardless of season. 8 new sales files added but ASINs not in X-Ray — excluded from calculation.</div>
 </div>
 
 </div>
@@ -1400,8 +1400,8 @@ makePie('prevBrandRevPie',
 // ── TAB 1 Seasonality Charts ────────────────────────────────────────────────
 (function() {
   const months = ['Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec','Jan','Feb'];
-  const prevIdx = [0.252,0.261,0.251,0.613,0.901,1.527,1.317,1.552,1.603,1.063,1.192,1.466];
-  const treatIdx = [0.756,0.787,0.869,0.960,0.973,1.058,1.040,1.179,1.260,1.097,1.024,0.997];
+  const prevIdx = [0.252,0.261,0.250,0.613,0.914,1.510,1.315,1.550,1.601,1.062,1.191,1.481];
+  const treatIdx = [0.754,0.786,0.867,0.958,0.978,1.049,1.038,1.177,1.258,1.095,1.022,1.015];
   const prevPeakI = prevIdx.indexOf(Math.max(...prevIdx));
   const prevTroughI = prevIdx.indexOf(Math.min(...prevIdx));
   const treatPeakI = treatIdx.indexOf(Math.max(...treatIdx));
