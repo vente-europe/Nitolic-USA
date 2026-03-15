@@ -1872,19 +1872,26 @@ function buildSVKPIs(seg) {
   const last = d.months.length - 1;
   const compLatest = d.composite[last];
   const totalLatest = d.totalSV[last];
-  const totalYoY = last >= 12 && d.totalSV[last-12] > 0 ? ((totalLatest - d.totalSV[last-12]) / d.totalSV[last-12] * 100).toFixed(1) : 'N/A';
+  // 12M vs prior 12M total SV
+  let totalYoY = 'N/A';
+  let yoyLabel = 'YoY Growth · 12M vs prior 12M';
+  if (last >= 23) {
+    const last12 = d.totalSV.slice(last - 11, last + 1).reduce((a, b) => a + b, 0);
+    const prev12 = d.totalSV.slice(last - 23, last - 11).reduce((a, b) => a + b, 0);
+    if (prev12 > 0) totalYoY = ((last12 - prev12) / prev12 * 100).toFixed(1);
+    const MN = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+    const s = d.months[last-11].split('-'); const e = d.months[last].split('-');
+    yoyLabel = MN[parseInt(s[1])] + ' ' + s[0].slice(2) + '–' + MN[parseInt(e[1])] + ' ' + e[0].slice(2) + ' vs prior 12M';
+  }
   const topKWShare = Math.max(...d.kwNames.map(kw => d.sov[kw][last]));
   const topKWSharePrev = last >= 12 ? Math.max(...d.kwNames.map(kw => d.sov[kw][last-12])) : null;
   const topKWDir = topKWSharePrev !== null ? (topKWShare > topKWSharePrev ? 'up' : 'down') + ' from ' + topKWSharePrev.toFixed(1) + '%' : '';
-  const lastMonth = d.months[last];
-  const [ly, lm] = lastMonth.split('-');
-  const mName = ['','Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][parseInt(lm)];
 
   const container = document.getElementById('svKpis_' + seg);
   container.innerHTML = `
     <div class="kpi"><div class="kpi-v">${compLatest.toFixed(0)}</div><div class="kpi-l">Composite Index · vs 100 in Jan 2019</div></div>
     <div class="kpi"><div class="kpi-v">${totalLatest.toLocaleString()}</div><div class="kpi-l">Total SV · all 4 keywords</div></div>
-    <div class="kpi"><div class="kpi-v" style="color:${parseFloat(totalYoY)>=0?'#16a34a':'#dc2626'}">${totalYoY !== 'N/A' ? (parseFloat(totalYoY)>0?'+':'') + totalYoY + '%' : 'N/A'}</div><div class="kpi-l">YoY Growth · ${mName} vs ${mName} -1y</div></div>
+    <div class="kpi"><div class="kpi-v" style="color:${parseFloat(totalYoY)>=0?'#16a34a':'#dc2626'}">${totalYoY !== 'N/A' ? (parseFloat(totalYoY)>0?'+':'') + totalYoY + '%' : 'N/A'}</div><div class="kpi-l">${yoyLabel}</div></div>
     <div class="kpi"><div class="kpi-v">${topKWShare.toFixed(1)}%</div><div class="kpi-l">Top KW Share · ${topKWDir}</div></div>
   `;
 }
