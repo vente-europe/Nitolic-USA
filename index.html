@@ -911,9 +911,11 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 function show(id, tab) {
   document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-  document.getElementById(id).classList.add('active');
+  const panel = document.getElementById(id);
+  panel.classList.add('active');
   tab.classList.add('active');
-  setTimeout(() => Object.values(Chart.instances).forEach(c => c.resize()), 50);
+  void panel.offsetHeight;
+  Object.values(Chart.instances).forEach(c => c.resize());
 }
 
 // ── Table sort ───────────────────────────────────────────────────────────────
@@ -1722,7 +1724,16 @@ makePie('chemBrandRevPie',
   }
 })();
 
-
+// ── Fix: hidden panels render at 0×0 ─────────────────────────────────────────
+window.addEventListener('load', function() {
+  setTimeout(function() {
+    var panels = document.querySelectorAll('.panel');
+    panels.forEach(function(p) { p.style.display = 'block'; });
+    void document.body.offsetHeight;
+    Object.values(Chart.instances).forEach(function(c) { c.resize(); });
+    panels.forEach(function(p) { p.style.display = ''; });
+  }, 100);
+});
 
 </script>
 </body>
