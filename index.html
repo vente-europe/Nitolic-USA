@@ -1020,8 +1020,58 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 
 </div><!-- end svPanel_general -->
 
-<div class="note" style="margin-top:18px">
-  <strong>Methodology:</strong> Raw weekly SV from Helium 10, averaged into calendar months. Index base 100 = Jan 2019 for each keyword individually. Composite = equal-weight average (not volume-weighted, which would ≈ "lice treatment" alone at 65–90% share). YoY = (current − same month prior year) ÷ prior year × 100.
+<div class="card" style="margin-top:24px;border-left:3px solid #2563eb">
+  <h3 style="margin-bottom:12px">Metodologia — jak czytać tę zakładkę</h3>
+  <div style="font-size:.8rem;color:#334155;line-height:1.8">
+
+  <p style="margin-bottom:12px"><strong>Źródło danych:</strong> Helium 10 — tygodniowe dane Search Volume (SV) dla Amazon US, od stycznia 2019 do marca 2026. Każdy plik CSV zawiera ~372 punktów danych (jeden na tydzień).</p>
+
+  <p style="font-weight:700;margin-bottom:6px">Karty KPI (górny rząd):</p>
+  <ul style="padding-left:18px;margin-bottom:14px">
+    <li><strong>Composite Index</strong> — średnia arytmetyczna (równa waga) indeksów wszystkich 4 keywordów w danym segmencie. Wartość 100 = styczeń 2019. Jeśli indeks wynosi np. 350, oznacza to, że średni wzrost SV keywordów w tym segmencie to 3.5× od stycznia 2019.</li>
+    <li><strong>Total SV</strong> — suma Search Volume wszystkich 4 keywordów za ostatni dostępny miesiąc (średnia z tygodni w tym miesiącu).</li>
+    <li><strong>YoY Growth</strong> — porównanie <strong>sumy SV z ostatnich 12 miesięcy</strong> vs <strong>suma SV z poprzednich 12 miesięcy</strong>. Np. jeśli ostatni miesiąc to marzec 2026, porównujemy kwiecień 2025–marzec 2026 vs kwiecień 2024–marzec 2025. To daje stabilniejszy obraz niż porównanie pojedynczych miesięcy.</li>
+    <li><strong>Top KW Share</strong> — udział % największego keywordu w segmencie (jego SV / suma SV wszystkich 4 keywordów). Pokazuje koncentrację — im wyższy %, tym bardziej segment zależy od jednego keywordu.</li>
+  </ul>
+
+  <p style="font-weight:700;margin-bottom:6px">Category Growth Index (wykres liniowy):</p>
+  <ul style="padding-left:18px;margin-bottom:14px">
+    <li>Każdy keyword jest <strong>indeksowany do samego siebie</strong> — wartość 100 = jego własny SV w styczniu 2019.</li>
+    <li>Dzięki temu widzimy <strong>relatywny wzrost każdego keywordu</strong> niezależnie od skali. Keyword z SV 500 rosnący do 1500 pokaże indeks 300 — tak samo jak keyword z SV 14,000 rosnący do 42,000.</li>
+    <li><strong>Dlaczego nie surowe wartości?</strong> Bo "lice treatment" (14K–33K) zdominowałoby wykres, a wzrost mniejszych keywordów (np. "lice treatment for adults" z 500 do 1500) byłby niewidoczny.</li>
+    <li><strong>Composite (gruba linia)</strong> = średnia arytmetyczna 4 indeksów. Odpowiada na pytanie: "Czy keywordy w tym segmencie rosną średnio?"</li>
+    <li><strong>Dlaczego równa waga, a nie ważona wolumenem?</strong> Bo ważona = praktycznie sam "lice treatment" (65–90% udziału). Równa waga lepiej pokazuje trendy w długim ogonie.</li>
+    <li><strong>Uwaga:</strong> "head lice treatment kit" miał SV = 0 w latach 2021–2023, potem gwałtowny wzrost do 1000+. Jego indeks sięga 1300+, co zawyża composite. Warto to uwzględnić przy interpretacji.</li>
+  </ul>
+
+  <p style="font-weight:700;margin-bottom:6px">Share of Voice (wykres stacked area):</p>
+  <ul style="padding-left:18px;margin-bottom:14px">
+    <li>Pokazuje <strong>udział % każdego keywordu w łącznym SV segmentu</strong> w każdym miesiącu.</li>
+    <li>Sumuje się do 100% — widać, jak zmienia się mix keywordów w czasie.</li>
+    <li>Jeśli jeden keyword rośnie kosztem innego, widać to jako zmianę proporcji obszarów.</li>
+    <li>Przydatne do identyfikacji: czy rynek się dywersyfikuje (więcej keywordów zyskuje), czy koncentruje (jeden dominuje coraz bardziej).</li>
+  </ul>
+
+  <p style="font-weight:700;margin-bottom:6px">YoY Growth Heatmap (tabela):</p>
+  <ul style="padding-left:18px;margin-bottom:14px">
+    <li>Każda komórka = <strong>zmiana % rok do roku</strong> dla danego keywordu w danym miesiącu. Np. wartość +25% w październiku 2025 oznacza: SV w październiku 2025 jest o 25% wyższy niż w październiku 2024.</li>
+    <li><strong>Zielone komórki</strong> = wzrost YoY. Im ciemniejszy zielony, tym silniejszy wzrost.</li>
+    <li><strong>Czerwone komórki</strong> = spadek YoY. Im ciemniejszy czerwony, tym silniejszy spadek.</li>
+    <li><strong>Wiersz "Total"</strong> = zmiana YoY dla sumy SV wszystkich 4 keywordów.</li>
+    <li>Ostatnie 18 miesięcy — daje perspektywę 1.5 roku trendów.</li>
+  </ul>
+
+  <p style="font-weight:700;margin-bottom:6px">Przetwarzanie danych (pipeline):</p>
+  <ol style="padding-left:18px;margin-bottom:8px">
+    <li>Wczytanie tygodniowych CSV z Helium 10 (4 pliki na segment)</li>
+    <li><strong>Agregacja miesięczna:</strong> średnia wartości tygodniowych w danym miesiącu kalendarzowym</li>
+    <li><strong>Indeksowanie:</strong> indeks = (SV_miesiąc / SV_styczeń_2019) × 100</li>
+    <li><strong>Composite:</strong> średnia arytmetyczna 4 indeksów (równa waga)</li>
+    <li><strong>Share of Voice:</strong> SV_keyword / suma_SV_wszystkich_keywordów × 100</li>
+    <li><strong>YoY:</strong> (SV_miesiąc − SV_ten_sam_miesiąc_rok_wcześniej) / SV_rok_wcześniej × 100</li>
+  </ol>
+
+  </div>
 </div>
 
 </div><!-- END TAB 6 SV -->
