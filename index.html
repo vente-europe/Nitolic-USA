@@ -41,6 +41,58 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 .badge-type{background:#eff6ff;color:#1d4ed8}
 .num-right th:not(:first-child),.num-right td:not(:first-child){text-align:right}
 .sv-seg.active{background:#fff;color:#1e293b!important;box-shadow:0 1px 3px rgba(0,0,0,.1)}
+/* VOC Tab */
+.voc-sub-tabs{display:flex;background:#fff;border-bottom:2px solid #e2e8f0;padding:0;gap:2px;margin-bottom:16px}
+.voc-sub-tab{padding:10px 18px;cursor:pointer;font-size:.8rem;font-weight:600;color:#64748b;border-bottom:3px solid transparent;margin-bottom:-2px;white-space:nowrap}
+.voc-sub-tab:hover{color:#1e3a5f}.voc-sub-tab.active{color:#1e3a5f;border-bottom-color:#2563eb}
+.voc-sub-panel{display:none}.voc-sub-panel.active{display:block}
+.voc-anchor-nav{display:flex;gap:6px;padding:10px 0;margin-bottom:14px;flex-wrap:wrap}
+.voc-anchor-nav a{padding:7px 16px;border-radius:20px;font-size:.75rem;font-weight:600;color:#475569;background:#f1f5f9;text-decoration:none;border:1.5px solid #e2e8f0;transition:all .15s}
+.voc-anchor-nav a:hover,.voc-anchor-nav a.active{color:#1e3a5f;background:#dbeafe;border-color:#93c5fd}
+.cp-charts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:10px}
+.cp-chart-box{background:#fff;border-radius:8px;padding:14px 14px 10px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.cp-chart-box h4{font-size:.82rem;font-weight:700;color:#1e293b;margin-bottom:8px}
+.cp-chart-wrap{position:relative;height:230px}
+.us-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.us-table th{background:#f8fafc;text-align:left;padding:10px 14px;font-weight:600;color:#475569;border-bottom:2px solid #e2e8f0;white-space:nowrap}
+.us-table td{padding:10px 14px;border-bottom:1px solid #f1f5f9;vertical-align:middle}
+.us-table tr:hover td{background:#f8fafc}
+.us-label{font-weight:600;color:#1e293b;white-space:nowrap}
+.us-reason{color:#64748b;line-height:1.5}
+.us-pct{text-align:right;white-space:nowrap;color:#1e293b;font-weight:600}
+.us-pct span{display:inline-block;min-width:42px;text-align:right}
+.us-bar-wrap{display:inline-block;width:50px;height:12px;background:#e2e8f0;border-radius:3px;overflow:hidden;vertical-align:middle;margin-right:8px}
+.us-bar{height:100%;border-radius:3px}
+.cs-neg-zone{background:#fef2f2;border-radius:10px;padding:18px;margin-bottom:22px}
+.cs-pos-zone{background:#f0fdf4;border-radius:10px;padding:18px;margin-bottom:22px}
+.nf-row,.pf-row{cursor:pointer;transition:background .15s}
+.nf-row:hover td{background:#fff5f5!important}.pf-row:hover td{background:#f0fdf4!important}
+.nf-arrow,.pf-arrow{display:inline-block;font-size:.65rem;margin-right:6px;transition:transform .2s;color:#94a3b8}
+.nf-row.open .nf-arrow,.pf-row.open .pf-arrow{transform:rotate(90deg)}
+.nf-detail,.pf-detail{display:none}.nf-detail.open,.pf-detail.open{display:table-row}
+.nf-body{padding:8px 16px 12px;background:#fff9f9;border-left:3px solid #fca5a5}
+.pf-body{padding:8px 16px 12px;background:#f7fef9;border-left:3px solid #86efac}
+.nf-body ul,.pf-body ul{margin:0 0 8px 16px;font-size:.75rem;color:#334155;line-height:1.55}
+.nf-body ul li,.pf-body ul li{margin-bottom:2px}
+.nf-quotes{border-top:1px solid #fde8e8;padding-top:6px}
+.pf-quotes{border-top:1px solid #dcfce7;padding-top:6px}
+.nf-quotes p{font-size:.72rem;color:#9a3412;font-style:italic;line-height:1.45;margin-bottom:3px}
+.pf-quotes p{font-size:.72rem;color:#166534;font-style:italic;line-height:1.45;margin-bottom:3px}
+.si-table{width:100%;border-collapse:collapse;font-size:.78rem}
+.si-table th{background:#f8fafc;text-align:left;padding:10px 14px;font-weight:600;color:#475569;border-bottom:2px solid #e2e8f0;white-space:nowrap}
+.si-table td{padding:10px 14px;border-bottom:1px solid #f1f5f9;vertical-align:top;line-height:1.55}
+.si-table tr:hover td{background:#f8fafc}
+.si-badge{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.7rem;font-weight:600;line-height:1.3}
+.pill{display:inline-block;padding:2px 7px;border-radius:4px;font-size:.68rem;font-weight:600;margin:1px 2px}
+.pill-red{background:#fef2f2;color:#dc2626}.pill-orange{background:#fff7ed;color:#ea580c}
+.pill-amber{background:#fffbeb;color:#d97706}.pill-blue{background:#eff6ff;color:#2563eb}
+.pill-purple{background:#faf5ff;color:#7c3aed}
+.sec-header{display:flex;align-items:center;gap:10px;margin-bottom:6px;padding-top:8px}
+.sec-icon{flex-shrink:0}
+.sec-title{font-size:1rem;font-weight:700;color:#1e293b}
+.sec-summary{font-size:.78rem;color:#64748b;line-height:1.55;margin-bottom:20px;max-width:900px}
+@media(max-width:900px){.cp-charts{grid-template-columns:1fr 1fr}}
+@media(max-width:550px){.cp-charts{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -58,6 +110,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   <div class="tab" onclick="show('t4meth',this)">4 — Treatment Method</div>
   <div class="tab" onclick="show('t4rev',this)">5 — Reviews</div>
   <div class="tab" onclick="show('t6sv',this)">6 — Search Volume</div>
+  <div class="tab" onclick="show('t7voc',this)">7 — Reviews VOC</div>
 </div>
 
 <div class="content">
@@ -1076,6 +1129,154 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 
 </div><!-- END TAB 6 SV -->
 
+<!-- ═══════════════════════════ TAB 7 — REVIEWS VOC ═══════════════════════════ -->
+<div id="t7voc" class="panel">
+
+<!-- KPI ROW -->
+<div class="kpis" id="vocKpis"></div>
+
+<!-- Star Distribution Bar -->
+<div class="card" style="padding:12px 16px;margin-bottom:20px">
+  <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap">
+    <div style="font-size:.78rem;font-weight:600;color:#475569;white-space:nowrap">Star Distribution</div>
+    <div id="vocAvgRating" style="font-size:1.1rem;font-weight:800;color:#0f2942"></div>
+    <div id="vocStarBar" style="flex:1;display:flex;height:22px;border-radius:4px;overflow:hidden;min-width:200px"></div>
+    <div id="vocStarLeg" style="display:flex;gap:10px;flex-wrap:wrap;font-size:.68rem;color:#475569"></div>
+  </div>
+</div>
+
+<!-- Sub-tab bar -->
+<div class="voc-sub-tabs">
+  <div class="voc-sub-tab active" onclick="showVocSub('voc-ci',this)">Customer Insights</div>
+  <div class="voc-sub-tab" onclick="showVocSub('voc-ca',this)">Review Browser</div>
+</div>
+
+<!-- SUB-PANEL: Customer Insights -->
+<div id="voc-ci" class="voc-sub-panel active">
+
+<div class="voc-anchor-nav" id="vocAnchorNav">
+  <a href="#sec-cp" class="active" onclick="vocScroll(event,'sec-cp',this)">Customer Profile</a>
+  <a href="#sec-us" onclick="vocScroll(event,'sec-us',this)">Usage Scenario</a>
+  <a href="#sec-cs" onclick="vocScroll(event,'sec-cs',this)">Customer Sentiment</a>
+  <a href="#sec-bm" onclick="vocScroll(event,'sec-bm',this)">Buyers Motivation</a>
+  <a href="#sec-ce" onclick="vocScroll(event,'sec-ce',this)">Customer Expectations</a>
+</div>
+
+<!-- Customer Profile -->
+<div id="sec-cp">
+  <div class="sec-header">
+    <div class="sec-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+    <div class="sec-title">Customer Profile</div>
+  </div>
+  <div class="sec-summary" id="cpSummary"></div>
+  <div class="cp-charts">
+    <div class="cp-chart-box"><h4>Who</h4><div class="cp-chart-wrap"><canvas id="cpWho"></canvas></div></div>
+    <div class="cp-chart-box"><h4>When</h4><div class="cp-chart-wrap"><canvas id="cpWhen"></canvas></div></div>
+    <div class="cp-chart-box"><h4>Where</h4><div class="cp-chart-wrap"><canvas id="cpWhere"></canvas></div></div>
+    <div class="cp-chart-box"><h4>What</h4><div class="cp-chart-wrap"><canvas id="cpWhat"></canvas></div></div>
+  </div>
+  <div style="font-size:.68rem;color:#94a3b8;text-align:right;padding:6px 0"><span style="color:#22c55e">&#9632;</span> reviews 4-5 stars &middot; <span style="color:#ef4444">&#9632;</span> reviews 1-3 stars</div>
+</div>
+
+<!-- Usage Scenario -->
+<div id="sec-us" style="margin-top:36px">
+  <div class="sec-header">
+    <div class="sec-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg></div>
+    <div class="sec-title">Usage Scenario</div>
+  </div>
+  <div class="sec-summary">Real-world usage scenarios from 705 reviews — how parents use lice products, when, and why.</div>
+  <div class="card" style="padding:0;overflow:hidden"><table class="us-table"><thead><tr><th style="width:22%">Usage Scenario</th><th>Reason</th><th style="width:120px;text-align:right">Percentage</th></tr></thead><tbody id="usBody"></tbody></table></div>
+</div>
+
+<!-- Customer Sentiment -->
+<div id="sec-cs" style="margin-top:36px">
+  <div class="sec-header">
+    <div class="sec-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg></div>
+    <div class="sec-title">Customer Sentiment</div>
+  </div>
+  <div class="sec-summary" id="csSummary"></div>
+
+  <div class="cs-neg-zone">
+    <div class="card" style="padding:0;overflow:hidden;border:1.5px solid #fecaca">
+      <table class="us-table"><thead><tr style="background:#fef2f2"><th style="width:22%;border-left:3px solid #dc2626">Negative Feedback Topic</th><th>Reasons for Negative Feedback</th><th style="width:110px;text-align:right">Percentage</th></tr></thead><tbody id="negBody"></tbody></table>
+    </div>
+    <div class="card" style="margin-top:22px;border:1.5px solid #fca5a5">
+      <div class="sec-header" style="margin-bottom:10px">
+        <div class="sec-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#dc2626" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+        <div class="sec-title">Negative Review Insights — CPG / Amazon Product Strategy</div>
+      </div>
+      <table class="si-table"><thead><tr><th style="width:130px">Analysis Type</th><th>Finding (from 1&#9733;+2&#9733; reviews)</th><th>Strategic Implication</th></tr></thead><tbody id="negInsightsBody"></tbody></table>
+    </div>
+  </div>
+
+  <div class="cs-pos-zone">
+    <div class="card" style="padding:0;overflow:hidden;border:1.5px solid #bbf7d0">
+      <table class="us-table"><thead><tr style="background:#f0fdf4"><th style="width:22%;border-left:3px solid #16a34a">Positive Feedback Topic</th><th>Reasons for Positive Feedback</th><th style="width:110px;text-align:right">Percentage</th></tr></thead><tbody id="posBody"></tbody></table>
+    </div>
+    <div class="card" style="margin-top:22px">
+      <div class="sec-header" style="margin-bottom:10px">
+        <div class="sec-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#16a34a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20V10"/><path d="M18 20V4"/><path d="M6 20v-4"/></svg></div>
+        <div class="sec-title">Positive Review Insights — CPG / Amazon Product Strategy</div>
+      </div>
+      <table class="si-table"><thead><tr><th style="width:130px">Analysis Type</th><th>Finding (from 4&#9733;+5&#9733; reviews)</th><th>Strategic Implication</th></tr></thead><tbody id="posInsightsBody"></tbody></table>
+    </div>
+  </div>
+</div>
+
+<!-- Buyers Motivation -->
+<div id="sec-bm" style="margin-top:36px">
+  <div class="sec-header">
+    <div class="sec-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#2563eb" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg></div>
+    <div class="sec-title">Buyers Motivation</div>
+  </div>
+  <div class="sec-summary">Key purchase drivers from 705 reviews — what triggers the buying decision for lice products.</div>
+  <div class="card" style="padding:0;overflow:hidden"><table class="us-table"><thead><tr><th style="width:22%">Buyers Motivation</th><th>Reasons for buyers motivation</th><th style="width:110px;text-align:right">Percentage</th></tr></thead><tbody id="bmBody"></tbody></table></div>
+</div>
+
+<!-- Customer Expectations -->
+<div id="sec-ce" style="margin-top:36px">
+  <div class="sec-header">
+    <div class="sec-icon"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#ea580c" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></div>
+    <div class="sec-title">Customer Expectations</div>
+  </div>
+  <div class="sec-summary">Unmet needs and expectations from negative and mid-range reviews — gaps representing product opportunities.</div>
+  <div class="card" style="padding:0;overflow:hidden"><table class="us-table"><thead><tr><th style="width:22%">Customer Unmet Needs</th><th>Reason for Customer Unmet Needs</th><th style="width:110px;text-align:right">Percentage</th></tr></thead><tbody id="ceBody"></tbody></table></div>
+</div>
+
+</div><!-- /voc-ci -->
+
+<!-- SUB-PANEL: Review Browser -->
+<div id="voc-ca" class="voc-sub-panel">
+  <div class="card">
+    <h3>Review Browser <span style="font-size:.72rem;font-weight:400;color:#64748b;margin-left:8px">Filter by rating, theme, or keyword</span></h3>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px">
+      <select id="filterRating" onchange="vocFilter()" style="font-size:.73rem;border:1.5px solid #cbd5e1;border-radius:5px;padding:4px 8px;background:#fff">
+        <option value="">All Ratings</option>
+        <option value="1">1&#9733; only</option><option value="2">2&#9733; only</option><option value="3">3&#9733; only</option><option value="4">4&#9733; only</option><option value="5">5&#9733; only</option>
+      </select>
+      <select id="filterTheme" onchange="vocFilter()" style="font-size:.73rem;border:1.5px solid #cbd5e1;border-radius:5px;padding:4px 8px;background:#fff">
+        <option value="">All Themes</option>
+        <option value="ineffective">Ineffective</option><option value="effective">Effective</option>
+        <option value="prevention_fail">Prevention Fail</option><option value="smell_bad">Smell Bad</option>
+        <option value="smell_good">Smell Good</option><option value="packaging_issue">Packaging Issue</option>
+        <option value="school_lice">School Lice</option><option value="kids">Kids</option>
+        <option value="recommend">Recommend</option><option value="easy_use">Easy To Use</option>
+        <option value="tea_tree">Tea Tree / DIY</option><option value="overpriced">Overpriced</option>
+        <option value="conditioner_effect">Conditioner Effect</option><option value="hair_damage">Hair Damage</option>
+        <option value="natural_safe">Natural/Safe</option>
+      </select>
+      <input id="filterSearch" oninput="vocFilter()" placeholder="Search keyword..." style="font-size:.73rem;border:1.5px solid #cbd5e1;border-radius:5px;padding:4px 8px;width:160px">
+      <button onclick="vocClear()" style="font-size:.73rem;border:1.5px solid #cbd5e1;border-radius:5px;padding:4px 10px;background:#f8fafc;cursor:pointer">Clear</button>
+    </div>
+    <div id="vocResultCount" style="font-size:.72rem;color:#64748b;margin-bottom:6px"></div>
+    <div class="tbl-wrap" style="max-height:520px">
+      <table id="vocReviewTable"><thead><tr><th style="width:40px">&#9733;</th><th>Review</th></tr></thead><tbody id="vocReviewBody"></tbody></table>
+    </div>
+  </div>
+</div>
+
+</div><!-- END TAB 7 VOC -->
+
 </div><!-- /content -->
 
 <script>
@@ -2023,6 +2224,632 @@ function buildSVCharts(seg) {
 document.querySelector('.sv-seg.active').style.background = '#fff';
 document.querySelector('.sv-seg.active').style.color = '#1e293b';
 
+
+// ═══════════════════════════════════════════════════════════════════════════════
+// ║  TAB 7 — REVIEWS VOC                                                      ║
+// ═══════════════════════════════════════════════════════════════════════════════
+
+var REVIEWS_RAW = [
+{r:1,t:"I have been putting this on my daughter’s hair every day and guess what? She still got lice and so did I and my whole family. The lice place told me that this product does not work. Spent a fortune on removal and of course, laundry for all blankets, bedding and stuffed animals. WOULD NOT RECOMMEND",tags:["ineffective","kids","hair_damage"]},
+{r:1,t:"I can’t say much about the actual product because the spray pump stopped working after one use. Now it spurts out a bunch of product in a single line and drips on your hand/floor. It can’t be sprayed directly onto hair like this. I would like a replacement of the sprayer part if possible so I can try to use it as intended but I can’t figure out how to request *just* that with Amazon’s multiple choice return/exchange options. Hopefully the seller or a customer service rep sees this and reaches out.",tags:["packaging_issue"]},
+{r:1,t:"I am so mad. I bought this and the bottle was wet out of the box. I figured just from being jostled around in transit. But no, I cant even lay it down on the counter or in the hair box because the spray button has the liquid leaking out of the cap. Plus when you spray it the liquid rolls into your hand and down your arm. I am going to waste more using it than ill get my money's worth!",tags:["packaging_issue"]},
+{r:1,t:"Arrived today open and leaking. Super disapointed.",tags:["packaging_issue"]},
+{r:1,t:"I had high hopes and bought two bottles based on reviews. Huge mistake. It did nothing for the lice my daughter brought home from school. Maybe it’s fine as a conditioner, but it does absolutely nothing for either getting rid of or deterring lice. I used very liberal amounts before, during and after getting every single evidence of lice, nits or eggs out and they still showed up after spraying over and over in short periods of time, washing bedsheets, pillows, coats, hats, hair brushes, etc. I disinfected everything and this spray still did not work on my daughters head. I should have tried one bottle instead of two.",tags:["ineffective","school_lice","kids"]},
+{r:1,t:"Been using this for over a year I spry on all three of my kids hair 2 girls 1 boy my son has very short hair and still ended up with lice I spry it on the jackets backpacks and clothes. Kids have gotten lice multiple times",tags:["kids"]},
+{r:1,t:"Since my daughter school messaged us about lice, I used it everyday on her hair. She got it anyway. I'm still using it as it doesnt have annoying smell or texture. Its sightly conditioning for her wavy hair. but I won't be repurchasing.",tags:["school_lice","kids"]},
+{r:1,t:"The smell is really offensive The idea of this is great but it smells awful! Returning, will not use in my kids hair",tags:["smell_bad","kids"]},
+{r:1,t:"School started Monday, sprayed my daughter throughly every morning and braided her hair. By Friday, I discovered she had lice. Not even a week of using this prevented it!",tags:["prevention_fail","school_lice","kids"]},
+{r:1,t:"After dealing with numerous infestations and having to resort to harsh treatments despite using this stuff religiously every single morning on my second grader's hair, we finally went to a professional lice removal salon. Apparently, this stuff is known to be ineffective! We were told that clients who use this spray are constantly returning for comb-outs... because they are getting lice, obviously. When I think of all the time and money that went into treatments -- not to mention the numerous bottles of this spray that we went through -- it really makes me wish we had been enlightened earlier. It all sounds good and the idea of it is great, but at the end of the day if it doesn't keep lice off my kid's head, it doesn't do me any good.",tags:["ineffective","kids"]},
+{r:1,t:"Doesn't work. Use it religiously with my kids and they still got lice twice in the past 4 months.",tags:["ineffective","kids"]},
+{r:1,t:"I’ve used this product on her from Walmart and has never caused issues,ordered more here on Amazon and now she wakes up with insanely tangled hair I’ve never seen before,it’s so dry it’s falling out. Nothing else has changed except for where I got this spray from. She’s never colored her hair and is usually very healthy so this is scary. When bought at Walmart or target it was fine but from here it’s been nothing but problems and scary even. Be careful and I wouldn’t buy this product here.",tags:["hair_damage"]},
+{r:1,t:"Package arrived damage and a little more than half had spilled and the spray bottle spray part was not working. I have 6 children in school and 4 are girls and I wanted to love this product as I have a bad phobia of lice and after dealing with 2 incidents from school I was hoping this would be my Holy grail item. Don't know if I would repurchase.",tags:["packaging_issue","school_lice","kids","hair_damage"]},
+{r:1,t:"This did not work for us at all. I was using a spray I made with tea tree oil and water. Tea tree oil is toxic for pets so I switched to this. Then I realized that this has tea tree oil in it but since it's not as much I decided to use it anyway (still sprayed it outside). After two days of switching to this my son got lice. We buzzed his head, changed back to my tea tree oil spray and haven't seen lice since. Maybe this works for some people but making your own tea tree oil spray is way cheaper and more effective.",tags:["ineffective","kids","tea_tree"]},
+{r:1,t:"Sells food, but has no effect on mosquitoes, don't waste your money or time.",tags:["ineffective"]},
+{r:1,t:"Hair bugs terrify me so having a kindergartener with longer hair, this seemed like a must have but the SMELL! I’m sure there’s some that like it, but I’m not one. It’s overwhelming even in the smallest of spritz and it LINGERS. I actually feel bad for the teacher when we use it if there’s sensitive noses. Or if several kids use it; I can barely take using it occasionally with my ONE and only on her way out the door! Soooo strong!",tags:["smell_bad","school_lice","kids"]},
+{r:1,t:"Does not work against what ever has infested this home. Smells ok. Just wish it worked.",tags:["ineffective"]},
+{r:1,t:"I have been using this daily on my 3 year old who started preschool this year. Just got the call from the school nurse that she has lice. So apparently this doesn’t work. Very frustrated.",tags:["school_lice"]},
+{r:1,t:"One product was damaged and the bottle was empty. So we only received one hair product that was not damaged.",tags:["packaging_issue","hair_damage"]},
+{r:1,t:"I am a school nurse. I use this religiously before work and came down with lice last week. So, FYI. Doesn't really work. Also, I use on my kids, does not moisturize hair. One of my kids has very dry hair and uses this every day as well. Smell is just ok. I would recommend the Lice Treatment Centers of America peppermint one over this one for smell alone.",tags:["school_lice","kids","hair_damage"]},
+{r:1,t:"IT DOES NOT WORK!!!! I bought two because throughly it might prevent in case of lice breakout in my child school and to come to find out my child has them now because of school even tho I spray lots of it on his hair every day!!!! NO DO NOT BUY IT DOES NOT WORK!!!SAVE YOUR MONEY!!!",tags:["ineffective","prevention_fail","school_lice","kids"]},
+{r:1,t:"My daughter has had the worst luck with lice this school year and I was willling to try anything to help prevent her from getting them again. So I bought this along with the shampoo and conditioner. IT DID NOT WORK!!!! She has them again and I used it faithfully!! It hasnt even been a month and she has them again! I know the school has alot to do with it because she is the only one in our family getting them. I just dont understand how some parents let their kids go without being treated and think that it's ok!",tags:["ineffective","prevention_fail","school_lice","kids"]},
+{r:1,t:"I use this product every time I wash my children's hair and use the detangling spray before school EVERY SINGLE DAY as Lice was a huge FEAR of mine. Well you guessed it, they both got lice. I will no longer be purchasing your product. I want to use some expletives but will choose to keep it clean. Fairy tales does NOT prevent lice. PERIOD",tags:["prevention_fail","school_lice","kids"]},
+{r:1,t:"This does not condition my toddlers hair at all. I was hopeful I could you this as a detangle that would also keep lice away. After her bath I spray her hair and it is like I didn't even put anything in. I can barely brush her hair. Since we only wash her hair a couple times a week I thought I could also use this to make styling her hair in the morning easier while giving her lice prevention a boost. Wrong again. Since none of the preschool class has had lice yet I can not speak to how much prevention it gives you.",tags:["prevention_fail","school_lice","kids"]},
+{r:1,t:"Nope, this does not hoard off lice. My daughter has naturally curly hair so I doused her every morning with Fairy Tails and sure enough she got lice from a friend whose mother made no mention of it prior to a play date. Heavy conditioner is your friend with using a nit comb, also purchased at Amazon, to pull thru (all sides to a few strains each) every two days for two weeks. Yes, that works to get rid of them but certainly nothing to prevent. Don't waste your time with this product. Seriously.",tags:["prevention_fail","kids"]},
+{r:1,t:"this stuff burns worse than the clap.",tags:[]},
+{r:1,t:"Its sucks and i demand a refund. My son got lice for the second time ! And i was spraying his hair DAILY with this product. Im so disappointed i trusted it",tags:["kids"]},
+{r:1,t:"I bought the shampoo, conditioner and the spray and used it religiously. I even went to the lengths of spraying each kid before they left for school in the morning. And my daughter (6) gets lice. I go and spend over $300 to get her debugged and then I spend another 280 to get my self debugged. We share brushes well used too. Not to mention the stuff I threw out pillows blankets rugs etc.",tags:["school_lice","kids"]},
+{r:1,t:"DOESN’T WORK AT ALL. This is just another product for you to waste your money on to make you feel better. Just get hair spray and use that. It’s way cheaper anyways. We used this every single day, and my daughter still got lice from school. When we used hairspray everyday though? Didn’t get it at all. So save your money for something that actually works!",tags:["ineffective","school_lice","kids"]},
+{r:1,t:"I have used this every day for years. I work at a day care. I thought it was working well. But I ended up getting head lice the other day despite using this product. I'm so discouraged.",tags:[]},
+{r:1,t:"The box it was supposed to be in only had the laundry soap we do like the product though",tags:["hair_damage"]},
+{r:1,t:"This produce was useable a pond receiving it. It didn't have a cap and it was not sealed Customer image",tags:[]},
+{r:1,t:"awful smell not sure it works may just repell kids",tags:["prevention_fail","smell_bad","kids"]},
+{r:1,t:"I'm 95% sure that this product gave my daughter horrible dandruff. It has been really difficult to treat. I do not recommend.",tags:["kids"]},
+{r:1,t:"When I first bought it, I thought it was working. We used it religiously. For a year, we didn't get lice. But three days ago, the school tells us our daughter has lice. Nothing on our end changed and we followed the instructions to the teeth, even adding it more. I have the feeling this is similar to the placebo effect. It works because no contact with lice, not that it's repelling them.",tags:["prevention_fail","school_lice","kids"]},
+{r:1,t:"I bought this after my daughter got lice at school and we have used it everyday for weeks, this in addition to the shampoo and conditioner. Her school had another lice outbreak and she got lice again. This is an expensive waste of money with a very overpowering herbal scent my kids hate. Do not purchase!!",tags:["ineffective","school_lice","kids","overpriced"]},
+{r:1,t:"It was put to the test when our daycare had a breakout of lice. We treated our little one, and purchased this at the same time. I checked daily for nits, and retreated the 10 days later, and used this exactly as directed, and we are now treating again for lice with a RX.",tags:["school_lice","kids"]},
+{r:1,t:"The smell is nasty! Yuck I do not like at all!",tags:[]},
+{r:1,t:"We started using this diligently after we cleared up our lice infestation. Sadly, the lice returned, even with use of this system, and their leave in spray. Save your money. It doesn't work.",tags:["ineffective"]},
+{r:1,t:"I’ve never even used this product on my kids hair because it smells like straight bug spray. Can’t say if it works or not, but I’m not putting this on my kids hair just based on the smell alone. Don’t waste your money",tags:["smell_bad","kids"]},
+{r:1,t:"When I sprayed this on my kids hair I found white stuff in my kids hair.I don’t know if my kid got something in her hair or I did not shake it well.Very sad.",tags:["kids"]},
+{r:1,t:"I love this product but am disappointed to have received an older version of the product. Fairy Tales updated their packaging much earlier in the year and despite the picture used in the product description this package did not reflect the newer packaging. Hoping it's just as effective and hasn't been sitting in a warehouse.",tags:[]},
+{r:1,t:"It smells terrible but I’m sure it does the job. Prob will never buy again but not worth returning.",tags:["smell_bad","overpriced"]},
+{r:1,t:"I hate this spray with a passion. It says it's conditioning spray, yeah right. It makes hair super sticky and ridiculously hard to comb. It pretty much instantly tangles the hair once it's sprayed. I don't even care if it prevents lice, this spray is HORRIBLE.",tags:["prevention_fail","hair_damage"]},
+{r:1,t:"I did not want a refill !!!!",tags:[]},
+{r:1,t:"Maybe this spray does repel lice, however it doesn't work for anything else. It does not untangle the hair, if anything the spray makes it worse. It makes the hair oily and gives the hair an unkept look. I don't like it, I am even debating on whether I want to finish the bottle or not.",tags:["ineffective","prevention_fail"]},
+{r:1,t:"Has citronella in it and it stinks horribly.",tags:[]},
+{r:1,t:"We use this product EVERYDAY hoping in the event my kids came into contact with lice it would prevent/ repel the lice. Well guess who got lice? BOTH of my children.",tags:["prevention_fail","kids"]},
+{r:1,t:"Still got lice after using this spray daily on my daughter before school. I was told that using tea tree oil is better for repelling lice. I will be adding some to this spray. Hopefully that will work.",tags:["ineffective","prevention_fail","school_lice","kids","tea_tree"]},
+{r:1,t:"This has a horrible smell. Does not smell like Rosemary at all.",tags:["smell_bad"]},
+{r:1,t:"I spray this DAILY in my son’s hair, and he’s come home yesterday with a SERIOUS case of lice and nits. Now I have to spend money on a treatment. Very frustrating. DO NOT RECOMMEND.",tags:["kids"]},
+{r:1,t:"Smells bad!",tags:["smell_bad"]},
+{r:1,t:"Used this EVERYDAY religiously per the instructions on the bottle and my daughter still got lice from school. It does not work.",tags:["ineffective","school_lice","kids"]},
+{r:1,t:"granddaughter still got headlice , even after following the directions",tags:["kids"]},
+{r:1,t:"This was not what I ordered it ended up being the hair spray. I opened way after I ordered out as I was still going through my other and they both were hair spray.",tags:[]},
+{r:1,t:"Doesnt detangle at all. Smell is awful and I dont know if it works against lice because my child never got it anyhow.",tags:["smell_bad","kids"]},
+{r:1,t:"DID NOT WORK AT ALL BOUGHT IT AND WITHIN TWO MONTHS SHE GOT LICE AND THIS DID NOT REPEL IT AT ALL FALSE ADVERTISING IN MY MIND BUT ANYWAY DID NOT WORK NOT WORTH THE MONEY",tags:["ineffective","prevention_fail","overpriced"]},
+{r:1,t:"Got spray, shampoo and conditioner in the mail today, opened the box to find the shampoo was not closed tightly and it was all in the plastic wrapped around it, a lot of my shampoo was wasted!",tags:[]},
+{r:1,t:"Very strong!",tags:[]},
+{r:1,t:"It’s a scam. They filled it with pine Sol or some kind of cleaner. Very upset as I used it on my 3 and 8 year old girls.",tags:["ineffective","kids"]},
+{r:1,t:"Very angry I have wasted time and money. Used this fairly and liberally in child’s hair. Said child still caught lice. Such a waste of money and a gimmick!!!",tags:["ineffective","kids","overpriced"]},
+{r:1,t:"Doesn’t really work and smells weird",tags:[]},
+{r:1,t:"Does not work my daughter has lice",tags:["ineffective","kids"]},
+{r:1,t:"It smells horrible I thought I could use it in my daughters hair to help keep life away after an outbreak at her school but the smell is so pungent and disgusting",tags:["prevention_fail","smell_bad","school_lice","kids"]},
+{r:1,t:"I usedthis everyday and my child got lice. The rosemary covers up the other smells and it doesn't work. Don't waste your money",tags:["ineffective","kids"]},
+{r:1,t:"This has a horrible smell in my opinion",tags:["smell_bad"]},
+{r:1,t:"This smells like chemicals, we had to leave the restroom until it aired out.",tags:["smell_bad"]},
+{r:1,t:"Softness? Leaves hair extremely stiff and sticky. HOWEVER!!!! The customer recovery was top notch and a full refund was issued easily and quickly.",tags:["hair_damage"]},
+{r:1,t:"I generally love these products and have quite a few of the lit products for my daughter. But this spray really leaves a sticky residue on my daughters hair.",tags:["kids","hair_damage"]},
+{r:1,t:"Unfortunately one bottle had a small hole and leaked all over the inside, therefore leaving only one bottle useable, which stinks as I paid for 2.",tags:["packaging_issue"]},
+{r:1,t:"This does not work. Lice don’t mind rosemary it’s mint they do not like",tags:["ineffective"]},
+{r:1,t:"We use Fairy Tales Shampoo, Conditioner, Detangler and Repel spray EVERY DAY and both my kids still got lice and they got it bad. This is the second time. The first time my daughter got lice we were only using the Repel Spray. We figured we needed to really layer the products on to keep the buggers away but we were wrong. At no time over the past year have my kids used ANY other shampoo and conditioner and we used the repel spray EVERY DAY. Didn't work. Do not get lulled into a false sense of security with these products.",tags:["ineffective","prevention_fail","kids"]},
+{r:1,t:"Will never buy this again. It came with no label and it smelled horrible.",tags:["smell_bad"]},
+{r:1,t:"I didn't like this product. While it did have a good smell, it didn't help with detangling. I finally was able to add enough to get through the hair, and then my kids hair would dry greasy. I wouldn't buy this again.",tags:["kids","hair_damage"]},
+{r:1,t:"Child still got lice, with everyday vigilant use",tags:["ineffective","kids"]},
+{r:1,t:"Smells like bug spray",tags:["smell_bad"]},
+{r:1,t:"Nope, she got lice again. Our 6th time this year. It also leaves her hair dull looking and stiff.",tags:["hair_damage"]},
+{r:1,t:"Oh my goodness! I could smell it before I opened the box! I had to return it. While I fear lice, I can't make my daughter smell like that !",tags:["kids"]},
+{r:1,t:"did nothing",tags:["ineffective"]},
+{r:1,t:"It's a scam!!! I just went to use the conditioner and the bottle is filled with water! It's past the refund period so I will try to call someone and she is they can rectify this!",tags:["ineffective"]},
+{r:1,t:"I purchased the shampoo along with the spray both arrived leaking and even stained my carpet. On the upside, it has a very lovely scent, I just wished it didn't come have empty.",tags:["packaging_issue"]},
+{r:1,t:"The smell is horrible and it did not repel lice as one of my girls still came home from school with it.",tags:["prevention_fail","smell_bad","school_lice","kids"]},
+{r:1,t:"Smells awful. My homemade elixir smells much better and works just as well, if not actually better in terms of condition. Waste of money",tags:["ineffective","smell_bad","tea_tree","overpriced"]},
+{r:1,t:"Package was damaged so bad when it arrived the bottled were broken. There was barely any product left. Very disappointed.",tags:["packaging_issue","hair_damage"]},
+{r:1,t:"We used this spray routinely every morning. Daughter still got lice. Dried out her hair, and smells awful.",tags:["ineffective","smell_bad","kids"]},
+{r:1,t:"Love love love this product!",tags:[]},
+{r:1,t:"Didn’t do much and kids complained about the smell",tags:["kids"]},
+{r:1,t:"This is the 2nd bottle that I bought where the cap stops working so I can not spray the product on. Not buying again.",tags:[]},
+{r:1,t:"Did not work at all my kids still kept getting head lice!! I don't recommend this spray or shampoo/conditioner!",tags:["ineffective","kids"]},
+{r:2,t:"We heard of a lice outbreak at school so I bought this product. Great smell, putting it in their hair every day. Guess what, we still got lice and I'm confident it was after we were applying this product.",tags:["ineffective","school_lice"]},
+{r:2,t:"The product itself is great but the one I ordered was shipped with other items and this had leaked!!!! It was wrapped in 1 layer of plastic but still, it should have had some sort of leak safety considering it was a liquid. So it wasn't fun to clean up.",tags:["packaging_issue"]},
+{r:2,t:"The product is good.",tags:[]},
+{r:2,t:"The formula itself works great at repelling lice, however the spray nozzle is terrible, it doesn’t spray, it dribbles and make a mess and goes on in splatters not an even coating spray . So dissatisfied!",tags:["prevention_fail","packaging_issue"]},
+{r:2,t:"Having had lice when I was little and knowing what I went thru and my parents getting rid of it I am extremely cautious w going to movie theaters and not trying on hats etc unless washing so when I heard about this I was excited to try it.",tags:[]},
+{r:2,t:"Not a fan of the smell, smells like bug spray or sun screen. It does what it needs too but won't be purchasing again",tags:["smell_bad"]},
+{r:2,t:"What a terrible smell, specially for kids. Also, I did not find the product to be efficient. I have many other better leave ins that I use in my daughter which are also so much cheaper. I just purchase it because of the package, to turn the hair brush time more ludic for her, but it was not a good purchase.",tags:["smell_bad","kids"]},
+{r:2,t:"It smells nice, it untangles, but I used it everyday on my kids, and they got lice anyway. Probably vinegar works better if you want to prevent lice.",tags:["prevention_fail","kids"]},
+{r:2,t:"This stuff only received two stars because it smells good. That's where the great review stops. I bought this for my kids to use along with the shampoo and conditioner so they would stop getting lice at school. A month into the school season and my daughter already has lice. Tons of the little bugers! If you want a treatment that works go to the store, buy the green antibacterial dawn dish liquid and peppermint oil. Pour dawn on your hand and add 5 drops of oil. Foam that up and let it sit for 20 minutes. Do that twice and rinse with vinegar and water. Comb their hair and your done. They are DEAD AND GONE!",tags:["school_lice","kids"]},
+{r:2,t:"Top arrived broken. I like the product so I will probably transfer to a different bottle but is a pain. Customer image",tags:["packaging_issue"]},
+{r:2,t:"I have no idea if it works to repel lice because I could not handle the smell. Reviews said it's nice but I found it very medicated and offputting and every time I sprayed my kids hair with it I could taste it for hours. I had to return it. You must love the smell of Rosemary to consider this product. I purchased the ROMbi comb instead and I use it once a week in my girls hair as preventative for lice and nits. . If any are detected it electrocutes them on contact. It's the only real preventative measure I have found that actually prevents and kills and treats on contact additionally it removes eggs as well if your kid by chance has one. It create static in the hair so I comb each section once a week and then wash and condition.",tags:["prevention_fail","kids"]},
+{r:2,t:"Does it prevent lice? Maybe. No lice yet. I bought this because it is considered a conditioning and detangling spray. The fact that it repels lice was merely a perk. But it does not seem to possess conditioning or deteangling qualities. It didn't make hair easier to comb through. In fact, it made the hair mildly sticky, not helping the tangles issue at all. I personally don't care for the smell of rosemary, but it would likely be tolerable to someone who doesn't mind the smell. I won't be purchasing this again.",tags:["prevention_fail","kids","hair_damage"]},
+{r:2,t:"Stuff works great, but I bought a 2 pack and they only shipped 1.",tags:[]},
+{r:2,t:"We were using the conditioner, which was okay. Decided to switch to the leave in conditioner and it does nothing for knots, probably going to switch back to the conditioner and use a different leave in",tags:[]},
+{r:2,t:"Doesn’t work and it smells bad and strong",tags:["smell_bad"]},
+{r:2,t:"This probably will keep bugs away, but it is not a good detangler as advertised.",tags:["prevention_fail"]},
+{r:2,t:"I had no idea when I bought this it would smell like bug spray! Yuck!",tags:["smell_bad"]},
+{r:2,t:"Didn't repel anything for my daughter's hair. She came home with lice three times. I would scour the house and treat her hair and the lice would still come back. I used this spray on her hair every morning to no avail.",tags:["prevention_fail","kids"]},
+{r:2,t:"The lice just laughed at us. This did nothing to prevent them, or repel them. Straight tea tree oil didn't even phase them. The only thing that worked was chemicals and the robicomb. The smell of the tea tree oil isn't worth the off chance that it will repel them in the future. This does smell better than just straight tea tree oil, but I wouldn't go so far as to say that it smells nice.",tags:["ineffective","prevention_fail","smell_bad","tea_tree"]},
+{r:2,t:"It smells great but doesn't seem to detangle too well. I use the shampoo and conditioner from the same line for my 6yr old daughter who has long hair and they do great. However, when I use this if I haven't gotten every single tangle out in the shower first, then this doesn't seem to help much at all. Besides smelling great it doesn't detangle too well so I won't be buying this again.",tags:["kids"]},
+{r:2,t:"This stuff smells lovely, but my daughter has had lice at least three times since we switched from our homemade lice repellent (water, and a mix of tea tree, lavender, and rosemary essential oils in a spray bottle). I thought this would be easier, but I am definitely going back to making my own!",tags:["prevention_fail","kids","tea_tree"]},
+{r:2,t:"I bought this product after having a lice scare! I am a preschool teacher and was using this every day but unfortunately it dried out my head so bad it made me itchy and flakey and scared me half to death into thinking I had lice again! It worked great in the beginning until I got dried out and itchy again!",tags:["school_lice"]},
+{r:2,t:"I bought this because I thought it would ward off lice and also act as a detangler. My daughter has curly hair and this didn't work at all as a detangler.",tags:["ineffective","prevention_fail","kids"]},
+{r:2,t:"Okay love this product....But, all my sprayers on the bottle have broken. All 3 bottles:( I bought a 4th bottle hoping I can use the sprayer from that bottle on the other 3....hoping it works and keeps working",tags:["packaging_issue"]},
+{r:2,t:"Smelled nice, but didn't really work. My kids both had lice again within a month. Much better results with plan old tea tree oil mixed with water in a spray bottle. Lice free for 3 mos in a school that is rampant with the stuff.",tags:["school_lice","kids","tea_tree"]},
+{r:2,t:"My daughter got head lice from the park so I bought this product to kill them. It didn't so I am not happy with this product.",tags:["kids"]},
+{r:2,t:"Smells terrible. Not sure if it works, but we use it to spray his backpack. The Ladibugs spray smells a lot better. Our son is sensitive to smells, but loves it when we spray his hair",tags:["smell_bad","kids"]},
+{r:2,t:"Smells weird not really sure if it works or not lol probably won’t buy again",tags:[]},
+{r:2,t:"We use different detangling sprays and like most Fairy Tales products. My daughter could not stand the smell of this spray and immediately told me it made her throat hurt, and never use it again! I don't like the strong smell either. I highly recommend Fairy Tales shampoo but would never buy this spray again.",tags:["smell_bad","kids"]},
+{r:2,t:"It helps some with tangles, but the smell was bad. We quickly moved onto something that smelled better.",tags:["smell_bad"]},
+{r:2,t:"The smell is great and, it does make doing hair way easier. However, this did not keep the lice away at all. Regardless of how much you use, it doesn't work!!!!",tags:["ineffective","prevention_fail"]},
+{r:2,t:"This product smells old I do not recommend",tags:[]},
+{r:2,t:"I think they changed the formula since our last purchase. Very strong citronella smell. My son refuses to use it...smells horrible. :(",tags:["smell_bad","kids"]},
+{r:2,t:"Absolutely stinks my daughter holder her breath when I do her hair in the morning with it. But I tell her it stinks to keep the bugs away I'll Take that over lice any day Seems to be working! No bugs!",tags:["prevention_fail","kids"]},
+{r:2,t:"I can imagine that lice is repelled by the strong scent. Not very pleasant. As long as it keeps lice away is worth it, but I wish it had a nice scent .",tags:["prevention_fail","smell_bad"]},
+{r:2,t:"Bottles were mashed and had leaked when I received them. Luckily I had a previous bottle and was able to poor what was left in it.",tags:["packaging_issue"]},
+{r:2,t:"Smells lovely and may or may not repel lice, but does NOT detangle /condition well at all.",tags:["prevention_fail"]},
+{r:2,t:"Smell was not that great! Would like a nicer fragrance.",tags:[]},
+{r:2,t:"My daughter hated the smell of this. I did not feel that it worked well at all as far as detangling my daughter's hair.",tags:["kids"]},
+{r:2,t:"Doesn’t repel anything. Doesn’t even help with tangles. Very disappointed.",tags:["prevention_fail"]},
+{r:2,t:"I did not get a result",tags:[]},
+{r:2,t:"We use this spray after my daughter showers, religiously. We are now battling a case of lice.",tags:["kids"]},
+{r:2,t:"Little good",tags:[]},
+{r:2,t:"Smells great but no longer a repellent. I just went through a lice issue from camp with kids and had to go to a lice specialist who informed me that Mint is the key ingredient that repels the lice. Since the shampoo and conditioner no longer has Mint in it, it’s not doing what intended. But still a great smelling shampoo and conditioner.",tags:["prevention_fail","kids"]},
+{r:2,t:"The sprayer stopped working after a week. Not sure why.",tags:["packaging_issue"]},
+{r:2,t:"After I combed out the lice and eggs, I began using this product. Well, my daughter has lice again. She rather get combed weekly than to use the spray. She hates the smell.",tags:["kids"]},
+{r:2,t:"The smell is way too loud, gave my daughter a headache having it on her hair.",tags:["kids"]},
+{r:2,t:"Doesn’t smell good AT ALL abs didn’t work for ya.",tags:[]},
+{r:2,t:"Smells like you sprayed pesticide in your hair. Not worth it",tags:["overpriced"]},
+{r:2,t:"Girls got the bugs again from school even using this",tags:["school_lice","kids"]},
+{r:2,t:"it darkened my hair.",tags:[]},
+{r:2,t:"This product did not work for me at all, and the scent is very strong. I felt like it actually had the opposite effect on my hair. I was very disappointed in this product.",tags:["ineffective","smell_bad"]},
+{r:2,t:"We don't like the smell. We stopped using it and the scent is lingering. I think we'll have to wash the car seats.",tags:[]},
+{r:2,t:"Does not work",tags:["ineffective"]},
+{r:2,t:"Got lice when used daily",tags:[]},
+{r:2,t:"I don't know for sure if this works or not, but my son does not like the smell. I don't really like the smell either.",tags:["kids"]},
+{r:2,t:"Came broken not happy 😡",tags:["packaging_issue"]},
+{r:2,t:"Not a fan of the smell of this stuff. Not sure it works at all, but the smell just isn't worth it.",tags:[]},
+{r:2,t:"It may repel, but it doesn't get rid of them.",tags:["prevention_fail"]},
+{r:2,t:"Do not care for this product. It didn't work like it said it would.",tags:["ineffective"]},
+{r:2,t:"really .this should only be use as bug spray. any one using it will repel others..hence lice repel.heh.",tags:["prevention_fail"]},
+{r:2,t:"Smells nice, but does not repel lice at all. Waste of money if buying to repel lice, but fine for pleasant conditioning spray.",tags:["ineffective","prevention_fail","overpriced"]},
+{r:2,t:"We did not really care for this one, the conditioner did it for all of us. We leave some of the conditioner on longer.",tags:[]},
+{r:2,t:"Doesn't prevent getting lice, but might make it less common, from my experience. Doesn't smell too bad. That is all I can say.",tags:["ineffective","prevention_fail","smell_bad"]},
+{r:2,t:"Smells bad.",tags:["smell_bad"]},
+{r:2,t:"I have five children, and we have been avid users of this product for years. We really thought it worked until, yep, you guessed it, my wife and all of my children got lice! Even with daily use of Rosemary Repel, One daughter had 16 adult lice and over 480 nits and hatchlings. Another had 9 adults and over 300 nits and hatchlings.",tags:["prevention_fail","kids"]},
+{r:2,t:"This product is okay bought this at a different store since it's cheaper and was available locally compared to the usual product I buy. Very strong bug spray smell. It's okay with getting tangles out when you spray it but as it dries my daughter's her tangles even more. My daughter still got lice while using this product but I feel the other child had a bad case. I prefer a different product.",tags:["ineffective","smell_bad","kids"]},
+{r:2,t:"I can’t say if it works or not but it sure does stink! Smells just like a lice treatment. Sorry but I’m trying to repel lice not make everyone think she has or had lice. I have only used once and I will never spray it on my daughters hair again because of the smell.",tags:["prevention_fail","kids"]},
+{r:2,t:"Works great, smells great.. but the cheap bottle it comes in, not so much. I’ve had 3 pumps fail on me and stop spraying. Had to buy my own spray bottle and pour it in. You’d think for the ridiculous price the bottle costs you’d get a better quality pump!",tags:["packaging_issue"]},
+{r:2,t:"I use this every day religiously on my kindergartener and he still got lice. 2 stars because I guess it doesn’t hurt, but apparently doesn’t help either!",tags:["ineffective","school_lice"]},
+{r:2,t:"I sprayed my daughter’s hair every morning (did behind ears, etc) and she eventually got lice. It worked until she was actually exposed to lice.",tags:["kids"]},
+{r:2,t:"My granddaughter to detangle her hair and prevent lice but horrible smell",tags:["prevention_fail","smell_bad","kids"]},
+{r:2,t:"It’s a nice smelling, leave-in conditioner. But it doesn’t seem to do much to repel head lice. My daughter caught them again about a week into using this.",tags:["prevention_fail","kids"]},
+{r:3,t:"Love the smell of this product, but not something you want to use on a daily basis. It builds up in the hair, makes it dull and hard to brush through.",tags:["smell_good"]},
+{r:3,t:"I just got it delivered because my son starts school soon and he has beautiful curly hair I don’t want him to end up catching lice. Three stars because I hate the smell, it smells horrible and it better do its job.",tags:["smell_bad","school_lice","kids"]},
+{r:3,t:"This was bought for my toddlers hair. Unfortunately when I looked at the ingredients, it has peppermint in it which means I CANNOT use it on my toddler due to it being unsafe for the age. I have been using it, but not too impressed with this.",tags:["kids","natural_safe"]},
+{r:3,t:"Maybe this repels lice under regular conditions, but if your child has regular exposure to a child who is infested with lice, don't expect miracles with this product. We've been dealing with a little neighbor girl who has had lice for at least 6 months. We first found lice in our household back in December, after we babysat the girl. I was courteous enough to let the mother know that I found lice in my kids' hair, and I was concerned that she might have caught it from us, so she should check the girls' hair. I dealt with it. We were lice free for a couple weeks. We babysat the girl again, and I found lice in my kids' hair the next day. We babysat her once more, and I checked her hair. She was full of them. I mean full! Lots of hatched nits, and unhatched nits, and lots of adult lice. She'd had them for awhile! And when I told the mother, she seemed shocked. Long story short. We haven't babysat her since, but my kids still play outdoors with the girl. I had hoped that her mother had dealt with it. I continued to check my kids' hair at least weekly, and I would run lice combs through my own hair as well. I'd tie my girls' hair up in a bun, and spray it down with this stuff. 2 months later, I found a couple lice. I let the mother know, and she acted like it couldn't be her daughter. That she had taken her daughter to get her hair cut a couple weeks before, and the hairdresser found lice, but she'd dealt with it. I try to give her the benefit of the doubt, but I keep finding lice in my kids' hair! Nothing extreme, because with frequent checks, I catch it before we get a full infestation. How this girl can go for 6 months with lice, and her mother not care, I just don't understand. We continue to try to prevent as much as possible. Tying hair up in a tight bun, spray repel spray, tell the kids not to let their hair touch her hair in any way shape or form, and frequent checks. Aside from ostracizing the girl, I don't know what else to do. The spray's not perfect, obviously, because we do occasionally find lice still. But maybe it works for kids who aren't playing with a kid who's probably full of lice. I will say that the nit comb that is recommended with this has been a life saver for us, when it comes to checking for lice as often as we've been checking.",tags:["effective","kids","conditioner_effect"]},
+{r:3,t:"not sure what it's doing or not, don't know if you have to keep spraying it ...we're just using it like regular conditioner...I think it doesn't replace constantly shampooing your hair.",tags:["conditioner_effect"]},
+{r:3,t:"I work at an elementary school and every once in a while, there is a lice problem. I have long hair and I am terrified of getting lice and a few of the other teachers said they used this spray. I really did not like the smell and it left residue on my hair, but I haven't gotten lice, so maybe it works. Just not crazy about the smell.",tags:["school_lice","hair_damage"]},
+{r:3,t:"Click to play video Use it everyday on my child before she goes to school and even the weekends because of soccer practice etc .. i sprayed on her hair and when im combing it I spray the back of her hair too like in her scalp area and she still ended up getting lice.... We found 18 lice in her hair ..",tags:["school_lice","kids"]},
+{r:3,t:"I will give it 3 stars because it does detailed. But my oh my does it STINK! I know it's for repelling lice but it's so stinky!",tags:["effective"]},
+{r:3,t:"The product is good and fulfills its function, but the smell is too strong and it gives me allergies.",tags:["smell_bad","smell_good"]},
+{r:3,t:"I wanted a spray to hopefully decrease my daughter's chances of getting lice when she started school. I used this spray for the entire school year, every day sprayed according to the directions on the bottle and we avoided lice. I can't say whether or not she was actually ever exposed but the little peace of mind was nice. However, the smell is absolutely awful. It is like those bug candles for your porch during summer. Yuck. The smell does not fade either. My daughter didn't care for it and neither did I. I was actually worried kids may tease her that she smelled bad. Luckily they didn't but seriously-the smell is bad. Worse than the smell was how badly this product dried out her hair. Her hair never felt so dry before using this spray and we didn't change shampoo/conditioner during the school year so I am confident in saying this spray is to blame. Once school ended I quit using the spray and with a leave in deep conditioning her hair was back to normal. I didn't buy more of this spray for the current school year. I chose a different brand and have avoided lice thus far with no unpleasant scent or her hair drying out. I gave this product three stars because we did avoid lice last school year and that was what the product was supposed to do. I wouldn't buy again due to the scent and how dry my daughter's hair became but for someone else this could be fine.",tags:["smell_bad","smell_good","school_lice","kids","conditioner_effect","hair_damage"]},
+{r:3,t:"Bought this when there was a lice scare at my daughter’s daycare. She didn’t ever get it! I like the smell of the product but it is a bit overwhelming at first. I love that it is kid friendly and works!",tags:["smell_bad","smell_good","school_lice","kids"]},
+{r:3,t:"I'm not sure how well this protects against lice. We haven't had an issue with lice, but I wanted to get something preventative now that my daughter is in school. But this does not detangle. In fact, it makes my daughter's hair more tangled.",tags:["school_lice","kids","conditioner_effect"]},
+{r:3,t:"This conditioning spray smells great and my kids love it! However, I'm not convinced it fully repels lice as claimed. It does help with detangling and adding shine to their hair. Overall, an okay product.",tags:["effective","smell_good","kids","conditioner_effect"]},
+{r:3,t:"Bought this after my kid got lice. Put it on daily. Unfortunately lice has been going around their classroom like crazy and they got it again even with using this product :(",tags:["school_lice","kids"]},
+{r:3,t:"Easy to use, sprays a light mist, a couple squirts covers a child's head. I haven't noticed any difference in shine or softness. I'm not sure if it works but have no reason to think it doesn't. Smells decent - not my favorite product smell though.",tags:["kids","easy_use","conditioner_effect"]},
+{r:3,t:"Smells good, but she still got lice. The most important thing is not to have heads touching.",tags:["ineffective","smell_good"]},
+{r:3,t:"Let’s start on a positive note...my son hasn’t had lice since I started using this product. Not sure how much of that has to do with social distancing and such but that’s the positive.",tags:["kids"]},
+{r:3,t:"UPDATE: It seems my daughter is sensitive to the oils used in this spray. It has caused her to have an itchy scalp. As soon as we stopped using it the itching stopped.",tags:["kids","packaging_issue"]},
+{r:3,t:"When we got a letter recently from the health office adivising that a child in my daughter's class had a confirmed case of head lice, I quickly took to amazon and ordered a few preventive products. This was one, and I also ordered some of the SoCozy Boo! Shampoo and leave-in spray. While I've only used each a couple of times so cannot attest to their lice-repelling powers, I can state this much: this product (the Fairy Tales) has a very displeasing scent that I do not care for. It is something close to, but not quite, the scent of a citronella candle maybe mixed with something else. It smells more like bug spray (think mosquito repellent) than a hair product. The SoCozy products, on the other hand, have a very pleasing peppermint scent that is reminiscent of candy canes. I'm going to stick with the Boo! products for now.",tags:["effective","smell_bad","school_lice","kids","easy_use"]},
+{r:3,t:"This was very strong for my 6yo. She didn’t like the smell. Not great for what it is intended to be used for.",tags:["smell_bad","smell_good"]},
+{r:3,t:"I really like it too bad I cannot use it every day it makes my scalp dry.",tags:["hair_damage"]},
+{r:3,t:"I don't think this stuff does anything. It does not stay in your hair, it evaporates away. It has very little Tea tree oil which must be the most effective ingredient that I saw. I use pure tea tree oil after shampooing.",tags:["effective","tea_tree"]},
+{r:3,t:"I was so excited about this product. It does condition and detangle well as promised. However, I was under the impression this was fragrance free from the labeling and that was an assumption. It has fragrance and if you are used to artifical fragrance free items and are sensitive to them this isn't for you. Not essential oils only. Customer image",tags:["tea_tree","conditioner_effect"]},
+{r:3,t:"This runs out fast. Scent doesn't stay long. Use few drops of peppermint oil instead after a shower. Smells like christmas candy canes. Helps keep lice from staying on becuz of the strong scent they do not like helped me remove lice. This product can runnout fast especially for a big family.",tags:["smell_bad"]},
+{r:3,t:"The product smelled fine but my son was traumatized after using it. Bees kept going on his ear. I looked it up and they are very attracted to rosemary",tags:["kids"]},
+{r:3,t:"This product might work great but I couldn't get over the smell of citronella! I couldn't do that to my child!",tags:["effective","smell_good","kids"]},
+{r:3,t:"My 7 year hates the smell. She things everyone will know she is using it. It does have a strong smell",tags:["smell_bad"]},
+{r:3,t:"Based on the reviews I read, this works (I cannot say for sure whether or not it works). What I can say is that the smell of it is not all that pleasant. If it works, the smell is worth it, but it would be nice if it had a better smell. It seems odd to wash my daughter's hair with shampoo then put this in her hair and have it stink!",tags:["smell_good","kids"]},
+{r:3,t:"Broken nozzle and won't spray now.. I have a full bottle",tags:["packaging_issue"]},
+{r:3,t:"I am using this on my daughters' hair as a preemptive lice attack. There has been no lice on their hair since I started using this, but I would not recommend it as a conditioning spray. It does nothing to help detangle their hair. But as long as it keeps the lice away, I am happy! I would just recommend using a separate detangling spray if your child's hair is messy.",tags:["effective","kids","conditioner_effect"]},
+{r:3,t:"Started using this product Daily in my Children’s hair. They would beg me not to because of the smell. They still got lice. So I’m my opinion it’s a waste of money. Especially considering how bad it smells.",tags:["ineffective","smell_bad","kids","overpriced"]},
+{r:3,t:"good product",tags:[]},
+{r:3,t:"So far my kids have not gotten lice, but I also don't know if there's anyone at school with it. I just use it just in case. It doesn't work very well on tangles though and I will probably just go back to making my own spray with water and essential oils when this bottle is done. I have the shampoo and conditioner too and the conditioner is not very good either. Little girls get tangly hair and I find myself having to use it plus their other conditioner in order to make their hair soft.",tags:["ineffective","school_lice","kids","tea_tree","conditioner_effect"]},
+{r:3,t:"Bought this route for my daughter who is starting school on the recommendation from some other moms. Works good and gets out the tangles. And it’s hopefully protect her from lice. But the smell is a little offputting",tags:["effective","smell_good","school_lice","kids","conditioner_effect"]},
+{r:3,t:"After a lice outbreak at the kiddos school we ordered this to help prevent transmission to our family. I love the way it smells and it doesn't make their hair greasy. Ours did arrive without a cover for the spray spout and did leak, however it was at least packaged in a bag that kept it from gettin on other things in my shipment.",tags:["smell_good","packaging_issue","school_lice","kids","easy_use","hair_damage"]},
+{r:3,t:"It’s okay but my kids really didn’t like the smell. So they fight me a little about putting it on for school.",tags:["school_lice","kids"]},
+{r:3,t:"I hate to complain about the smell, but rosemary is not the most appealing scent, if applied as a spray. Sure, some rosemary bread is delicious, but you don't find it in the perfume isle for a reason.",tags:["kids"]},
+{r:3,t:"Did not expect to smell like bug spray but if it works I’m not complaining too much I guess.",tags:["smell_bad"]},
+{r:3,t:"The smells is really strong. Detangles fine. Wouldn't use it on curly hair.",tags:["smell_bad","conditioner_effect"]},
+{r:3,t:"First off it STINKS! It doesn’t make my daughter hair easier to brush through and she has fine hair. As far as preventative of lice, we shall see. If it smelled better and was actually a conditioner then I would like it better",tags:["kids","conditioner_effect"]},
+{r:3,t:"I can’t say for sure if this stuff is effective in preventing lice, but after a 3 week battle with my 7 year old son, I figure it’s worth trying. It does smell good, and it seems to condition well enough. I also use it on myself, since I’m a sub.",tags:["effective","smell_good","kids","conditioner_effect"]},
+{r:3,t:"This product smells horrible. At least that’s what my daughter told me, but it does work for its intended purpose. For that, we use it on the daily and we have not had any more issues thank goodness!",tags:["smell_bad","smell_good","kids"]},
+{r:3,t:"We had been using this faithfully since my kindergarten-aged daughter came home with lice a few months ago. Well, she came home again with it a few days ago. Did it help at all? No idea. Smells nice. She liked it---but we still got lice again.",tags:["ineffective","smell_good","school_lice","kids"]},
+{r:3,t:"Time wil tell if product is a repellent or not the scent is strong. Over all i am happy with product but need to use a while to see full benefits.",tags:["effective","smell_bad"]},
+{r:3,t:"My daughter keeps getting reoccurring lice so I thought I'd give this a try. The smell is pretty bad.",tags:["smell_bad","kids"]},
+{r:3,t:"Does not have a pleasant smell. Unable to wear with strong odor.",tags:["smell_bad","smell_good"]},
+{r:3,t:"Can't say how it works for lice but we just got it and the school year is over, but I wanted to make sure we have it on hand to begin to use it in our everyday routine. So far the sent is not our favorite... but it is conditioning. Maybe we'll get used to the smell.",tags:["school_lice","conditioner_effect"]},
+{r:3,t:"When they arrived they had leaked out into the envelope",tags:["packaging_issue"]},
+{r:3,t:"The smell is too strong, but does fade a little after time. It does work as a detangler, Ford not work at keeping lice away.",tags:["smell_bad","conditioner_effect"]},
+{r:3,t:"Scent was strong. Not a great detangler and did not provide any additional softness. Good as a repellent for lice",tags:["effective","smell_bad","smell_good","conditioner_effect"]},
+{r:3,t:"Bought this after a family member experienced life in her daughter's school. I figured better safe than sorry. It is pricey for a kids shampoo, but I guess it's worth it if it really works. Would have rated higher, but the smell is REALLY strong. Thankfully it doesn't linger, but I must admit, it stinks like a citronella candle.",tags:["smell_bad","school_lice","kids","natural_safe"]},
+{r:3,t:"This was highly recommended to me as a lice and nit preventor. I don't like the strong smell that it has. I purchased the levia lice preventor as well and it has a nicer smell. This sprays very well, over a wide area at a time.",tags:["smell_bad","smell_good"]},
+{r:3,t:"I bought this and the rosemary conditioner when there was lice going around my daughter's school. So far, she has not had lice so hopefully it is doing its job! I do not like the strong smell, and I was hoping this would be a detangling conditioner for my daughter's long hair. It is not. So it is not a pleasant experience to attempt to comb through afterwards.",tags:["smell_bad","smell_good","school_lice","kids","conditioner_effect"]},
+{r:3,t:"This stuff is great for detailing my toddler's very fine hair, but fragrance isn't listed as an ingredient on the listing and she has a fragrance allergy. If she starts to break out Ill have to quit using it. I wish the company would consider removing the artificial fragrance from this product.",tags:["kids"]},
+{r:3,t:"We have used many bottles of this and so far my girls haven't picked up any lice. However, I recently had a friend tell me to research effects of tea tree oil (which is in this product) and lavender on children. Her daughter's endocrinologist said it can cause early puberty in boys and girls.",tags:["kids","tea_tree"]},
+{r:3,t:"This conditioning spray smells good but does not detangle your hair and bottle came broken",tags:["smell_good","packaging_issue","conditioner_effect"]},
+{r:3,t:"I love the idea of this spray, but my kids and I did not like the scent enough. If they could have a rosemary-mint scent that was closer to the Aveda scent combination it would be amazing. I ended up buying another brand at Target that I'm much happier with, scent-wise.",tags:["smell_good","kids"]},
+{r:3,t:"I'm not sure if it works since the haven't been any lice out breaks at daycare. It does make her hair easy to comb. Smells terrible when sprayed but the smells dies down when it dries.",tags:["smell_bad","school_lice","easy_use","tea_tree"]},
+{r:3,t:"While we really like this product the pump/spray on the bottle is junk. Our 2nd pump in a row broke and the entire bottle is now useless. For the price they should use a better pump/spray top.",tags:["packaging_issue"]},
+{r:3,t:"This product may work great but it has such a strong citronella smell that I can’t use it. It is such a strong smel.",tags:["effective","smell_bad","smell_good"]},
+{r:3,t:"My kids really dislike the smell of this and won’t let me put it in their hair. It smells like bug spray",tags:["smell_bad","kids"]},
+{r:3,t:"My daughter had lice and started using Licefree spray and did the job but the smell is kinda of strong so decided to use Rosemary Repel. Havent seen lice or nits on my daughters hair. I bought shampoo and conditioner but notice that conditioning spray not really good for detangle.",tags:["effective","smell_bad","smell_good","kids","conditioner_effect"]},
+{r:3,t:"The smell takes some getting used to and I am not sure if it is very conditioning. However, as long as it works to repel lice...that's all I care about. The reviews were really good on this product, so I hope it works.",tags:["effective","smell_good","conditioner_effect"]},
+{r:3,t:"I had high hopes for this product, but it hasn't helped to protect against lice really, and it is a very strong scent (much like typical mosquito repellent). I do like how well it managed the tangles and left a pretty shine in my daughters hair though.",tags:["effective","smell_bad","kids","conditioner_effect"]},
+{r:3,t:"My daughter has thick, straight hair. We use the Fairy Tales shampoo and Conditioner as well. This spray conditioner is ok. It's nice that the fragrance is the same as the shampoo and conditioner. Smells like Rosemary with hint of mint. Kind of smells like the Aveda products. It just works ok. Doesn't really detangle her hair, but then again it doesn't advertise this option. Wish it had a detangler added.",tags:["smell_good","kids","conditioner_effect"]},
+{r:3,t:"Highly recommend this product.",tags:[]},
+{r:3,t:"I see why this product gets so many stars. I’m a victim Brushing and was sent this product that I didn’t order. Buyers be ware.",tags:[]},
+{r:3,t:"The smells a little strong but works fine for a detangler. I'm not sure if it really repels lice but so far lice free. I use this occasionally cause my daughter complains of the smell.",tags:["effective","smell_bad","kids","conditioner_effect"]},
+{r:3,t:"I can't say how this works yet but I can see why lice don't like it! It smells like hippie mosquito repellent - my girls definitely are going to complain about the smell.",tags:["effective","kids"]},
+{r:3,t:"Not what I was expecting. Does not smell good at all. May or may not prevent lice... I'd use it in a high risk lice situation but that's it.",tags:["smell_good"]},
+{r:3,t:"I have just recieved this product and haven't used it yet. It is very strong with the citronella smell. I like the shampoo and conditioner smell better. It is also a yellow color and I am kind of afraid to use it on my 5 year olds blonde hair. Not sure if I will use it or not.",tags:["smell_bad","conditioner_effect"]},
+{r:3,t:"Since my kids havent brought home lice from their classmates i can say this works. Id gove it 4 stars for that reason alone, except that it makes my daughters' hair look greasy.",tags:["school_lice","kids","easy_use","hair_damage"]},
+{r:3,t:"Does not soften my girls hair like I would prefer it too.",tags:["kids","conditioner_effect"]},
+{r:3,t:"The scent is fine but it doesnt soften or detangle as Id hoped.",tags:["conditioner_effect"]},
+{r:3,t:"Didn’t have much effect on lice. The smell is awful!",tags:["smell_bad"]},
+{r:3,t:"I'm not terribly persuaded that this is at all useful. The smell is so very mild and certainly more perfumey than anything else. Leaves my daughter's very fine hair a stringy. Not loving it.",tags:["kids"]},
+{r:3,t:"Essential oils makes it a little greasy",tags:["easy_use","tea_tree","hair_damage"]},
+{r:3,t:"Smells good, and may actually help repel lice, but is useless as a detangler. I even paired this with the conditioner. Too expensive to only do part of what it claims.",tags:["effective","smell_good","overpriced","conditioner_effect"]},
+{r:3,t:"Probably a fine product, but my child really minded the herbal, food-like smell. We went with other products instead.",tags:["kids"]},
+{r:3,t:"Pump keeps on clogging.",tags:["packaging_issue"]},
+{r:3,t:"Could smell better",tags:[]},
+{r:3,t:"I like this spray because it has a refreshing scent and prevents headlice along with conditioning child's hair. However, there is something added that wasn't in the last bottle that I don't like. I think its the Citronella scent. Oh well, its ok. Give it a try.",tags:["kids","conditioner_effect"]},
+{r:3,t:"I like the product, it does what it says (so far so good) but the smell is very overpowering. My daughter gags when I apply.",tags:["smell_good","kids"]},
+{r:3,t:"It doesn't work as a detangler & my daughter hates the smell. Despite daily use, she still picked up lice from school. So, I really have no use for this product.",tags:["ineffective","school_lice","kids","conditioner_effect"]},
+{r:3,t:"Doesn't condition very well and had to use a detangler in addition to this product. But all in all it has a pleasant smell and feels that it helps do the trip.",tags:["smell_good","conditioner_effect"]},
+{r:3,t:"Not the best detangler but kids like the scent and bugs don’t so it’s a win.",tags:["kids","conditioner_effect"]},
+{r:3,t:"Not super good at detangling, but if it really does what it says it does, i guess its worth it. It smells good, though slightly medicinal.",tags:["smell_good"]},
+{r:3,t:"Tends to make my girl's hair a little sticky/oily. Still use it with an up-do and when worried about lice, but not our go-to conditioning spray/detangler. She has fine, thick blonde hair with some loose curl.",tags:["kids","conditioner_effect","hair_damage"]},
+{r:3,t:"I'm sure its very effective, but the smell is VERY strong and my daughter hates it",tags:["effective","smell_bad","kids"]},
+{r:3,t:"It doesn't seem to be keeping the lice away as I hoped.",tags:[]},
+{r:3,t:"althought i still spray my daughters hair with it, she does not like the smell of rosemary. so far the head lice has not come back, but we are also using coconut oil.",tags:["kids"]},
+{r:3,t:"The product is really nice and works well as a detangler. The smell takes some getting used to. It is rather pungent.",tags:["effective","smell_good","conditioner_effect"]},
+{r:3,t:"It’s ok. I like the brand, but not really helping with the tangles.",tags:["conditioner_effect"]},
+{r:3,t:"Idk if it repels lice but it smells awful.",tags:["effective","smell_bad"]},
+{r:3,t:"Used once",tags:[]},
+{r:3,t:"Doesnt really smell good, and it made my daughters head itch!!!",tags:["smell_good","kids"]},
+{r:3,t:"Like the green bottle of detangler that has tea tree better but this still works",tags:["tea_tree","conditioner_effect"]},
+{r:3,t:"Made hair very dry. Wasn't very pleased with the product didn't get lice though, that was a good thing.",tags:["hair_damage"]},
+{r:3,t:"Has a weird smell.",tags:[]},
+{r:3,t:"It works okay for tangles. so far NO LICE which I am happy about!!!!",tags:["effective","conditioner_effect"]},
+{r:4,t:"Smells good and works well for detangling! Does not repel lice though....",tags:["effective","smell_good"]},
+{r:4,t:"The product itself is effective, but Amazon failed again to deliver item on time. This is becoming a new trend…nothing gets delivered as promised. Very disappointed with Amazon.",tags:["effective"]},
+{r:4,t:"I have a sensitive sniffer and I'm physically sensitive to smells and this stuff does not bother me and my kids love it. That is always test number one. It smells great, works great, and we love using it. My best friend recommended this when we were having a ton of lice scares in the school. She said her daughter had multiple kids in her class with lice and she never had an issue using this daily. I continue to use it during those seasons, and just because it is a great product that detangles and conditions. Would like it to be a touch cheaper, but as long as they don't sell out to a corrupt company or change the formula I will continue to purchase it. One star was taken off because there is 'fragrance' listed in the middle of the ingredient list. Not sure why they would need to add that since there are already a lot of essential oils with their own natural scent--I do appreciate it is a phthalate free fragrance--but questioning the source and it seems not necessary, in my opinion.",tags:["effective","smell_good","school_lice","kids","recommend","tea_tree","conditioner_effect","natural_safe"]},
+{r:4,t:"Amazing!! Smells good",tags:["smell_good"]},
+{r:4,t:"Absolutely love the product but the sprayer stops working so often!",tags:["packaging_issue"]},
+{r:4,t:"First I would like to say I have no idea if this detangler repels lice. There has not been a break out yet, but I'm terrified of lice so I want to be ready before it happens. I've been using the regular Fairy Tales detangler for awhile now and was happy to see they make one to repel lice. My daughter started kindergarten and memories of lice break outs came flooding back to me. This product detangles her hair as it should, but I had to give it four stars because of the scent. It is heavy on the citronella, which if it works that's great. Otherwise I can't stand the scent of citronella so if it doesn't do the job of repeling lice I'm throwing it in the trash.",tags:["effective","smell_good","school_lice","kids","conditioner_effect"]},
+{r:4,t:"Estoy probándolo, pero me parece genial",tags:[]},
+{r:4,t:"The smell is strong but I just sprayed a little when completing the styling I did not used as a detangler so is working GREAT!",tags:["smell_bad","smell_good","easy_use","conditioner_effect"]},
+{r:4,t:"Not the greatest de tangler. Has saved us in situations where people we were with ended up with lice.",tags:["conditioner_effect"]},
+{r:4,t:"My daughter hasn’t gotten lice but I’ve only been using it for a few days, other than that I was expecting a good kid- like smell since it’s advertised as “kids like the smell lice don’t “ but it smells like straight up rosemary with some sort of herb, other than that it’s a good size and the sprayer works great.",tags:["effective","smell_good","kids","packaging_issue"]},
+{r:4,t:"The school recommended that we use this on our children to prevent lice. It smells really good and leaves our hair feeling soft and smooth. We have never had any problems with lice so I think this product works well. Customer image",tags:["effective","smell_good","school_lice","kids","recommend","conditioner_effect"]},
+{r:4,t:"It leaves the hair feeling soft and styles well, but why did the spray bottle stop working after less than 10 uses 🤔 it no longer mists just squirts which makes dispersing product evenly difficult.",tags:["conditioner_effect","packaging_issue"]},
+{r:4,t:"I purchased this spray when there was a lice breakout within my classroom. I added this to my everyday hair routine to prevent lice!",tags:["school_lice"]},
+{r:4,t:"Click to play video Smells great. My daughter doesn't mind putting it in her hair. It doesn't leave the hair too greasy.",tags:["smell_good","kids","easy_use"]},
+{r:4,t:"It's just as described, but hasn't been truly tested yet, which is a good thing!",tags:[]},
+{r:4,t:"Doesn't okay job with tangles so far no lice which is what we were aiming for going to public school the ease of use is good until you get down to the last little bit the straw part does not suck up the remainder very well value is lacking I don't feel like it's something that should be priced what it is and the smell is weird my 7 year old hates the smell but we use it anyway",tags:["effective","smell_good","school_lice","conditioner_effect"]},
+{r:4,t:"Love the product and so do my girls",tags:["kids"]},
+{r:4,t:"Very effective and my daughter LOVES the scent. I just wish it would ship to my home in Pennsylvania. My daughter in West Virgina has to order it and get it sent there. I’m not sure why it won’t ship to certain areas.",tags:["effective","smell_good","kids"]},
+{r:4,t:"We bought this to use after our kindergartener had lice twice in a year. We've been using this spray consistently since, & haven't had any issues whatsoever. It smells decently & it detangles well. I do think it's rather expensive, but it's worth the time and effort spent NOT using Nix and a lice comb. I'm pretty happy with it!",tags:["school_lice","overpriced","conditioner_effect"]},
+{r:4,t:"There is really no way for me to tell if this product works or not BUT my kid did not get lice when it coursed through her classroom for a couple of months. I like the smell. My daughter complained that it irritated her scalp after weeks of using every day.",tags:["school_lice","kids"]},
+{r:4,t:"Excelente producto",tags:[]},
+{r:4,t:"The smell is strong however my kiddo does not get bothered by it and also helps condition my kids hair pretty good.",tags:["smell_bad","smell_good","kids","conditioner_effect"]},
+{r:4,t:"My kids complain that this smells like bug spray, but it gives me peace of mind that we’re protecting against lice so I will happily send them to school smelling like bug spray!",tags:["smell_bad","school_lice","kids"]},
+{r:4,t:"My package came squished and I was able to get a replacement the next day! It smells really good and it's nice to have peace of mind.",tags:["smell_good"]},
+{r:4,t:"Our school had a lice outbreak just before Winter break 2022, we've been using this spray ever since and haven't had any lice come home. Bought a new bottle to get ready for the new school year and figured I'd write a review.",tags:["school_lice"]},
+{r:4,t:"I liked the idea of using these products that have organic herbs and natural plants in them without any harsh ingredients so I bought the hairspray, conditioning spray, and gel for family use as a trial. I think it great to use the products on days of hiking, trail riding, or fishing as the combining of products is an alternative to buy sprays. The downside to using them for everyday use is that the hairspray bottle and the conditioning spray bottle look exactly the same and a few times I've accidentally grabbed the wrong bottle regretfully. If you put the hairspray in hair when wet, might as well jump right back in shower as it is super sticky and there is no combing it out. If you accidentally spray the conditioning spray on finished hair, might as well get the dryer out as its a bit oily... though it is not noticed after hair is dry. The conditioning spray doesn't detangle hair in spectacular fashion but it does help. When my daughter mentions it isn't working anymore, its usually because a trim is overdue. I like the products enough that I now use identifying marker to ensure nobody mistake the bottles, though it would be nice if they made color coded tops for the different products, like purple for the hair spray. I think its a great natural and light-weight conditioner for everyday use.",tags:["kids","conditioner_effect","natural_safe"]},
+{r:4,t:"I bought this since my toddler goes to kindergarten to be proactive in not bringing home lice. The scent is very strong so I do hope it works. So far we haven’t had an incident so maybe it is working. Customer image",tags:["smell_bad","school_lice","kids"]},
+{r:4,t:"I bought this for my daughter when I found out there was an outbreak of lice at her school. I used it for several months to prevent lice, luckily we were able to keep the lice away. I still use it as a spray conditioner to help detangle her hair and it has a rosemary smell Softness and light and it is not sticky. It’s good quality that many moms loved to use.",tags:["smell_good","school_lice","kids","conditioner_effect"]},
+{r:4,t:"Smells good",tags:["smell_good"]},
+{r:4,t:"There haven't been any lice outbreaks in our kids schools so beyond the seller's reported proof, we really cannot tell if Rosemary Repel products protect from the horrible little monsters. That said, the entire family loves the smell of this conditioner. We use it in conjunction with the shampoo, kids hare is softer and easier to comb with it. What would be totally awesome is if we could get this formula in a concentrated form as we are trying desperately to trim down our use of single use plastics. One option could be a bar or cake packaged in biodegradable/compostable paper, that could be added to water in a glass sprayer.",tags:["effective","smell_bad","smell_good","school_lice","kids","conditioner_effect","packaging_issue"]},
+{r:4,t:"Hopefully this works to repel. Does small really strong",tags:["effective"]},
+{r:4,t:"After reading online that 34% of school aged kids have lice at any given time during the school year, I decided it was time to take preventative measures. I talked to a few people I knew and discovered that most of them weren’t doing anything to prevent lice, but those that were all said that they were using Fair Tales products . I can’t yet speak to whether these products actually work for preventing lice because my kids have not been exposed to it since we started using it (at least not that I know of), but I can say that I love that this product is all natural and organic. I can also say that I like the smell and that it makes all of our hair feel clean and look shiny. Even IF it doesn’t actually work to prevent lice, I’d buy it again for those reasons alone. I just wish it was cheaper because at these prices I may not be able to afford to buy it all the time.",tags:["smell_good","school_lice","kids","conditioner_effect","natural_safe"]},
+{r:4,t:"On the second week of school I got notified that a student in my daughters class had lice. I purchased this product as a preventive to use together with the shampoo. I use the shampoo on the days she comes home from school. I spray her hair with this product when I do her hair in the morning. She never got lice during the school year and I’d like to think this product helped with that. I don’t care for the smell. Its not unpleasant but it’s not wonderful smell either. As a hair detangler I feel like my other product worked better. I give it four stars because it has prevented my child from getting lice which is what I purchased this product for.",tags:["smell_good","school_lice","kids","conditioner_effect"]},
+{r:4,t:"With 3 young daughters and 2 boys with THICK hair we use this daily. We also use a shampoo but it is drying. This spray is very conditioning to my daughters curly hair an lightweight. I like the smell of it and none of the kids have complained about it.",tags:["kids","conditioner_effect"]},
+{r:4,t:"I purchased this because I have liked other Fairy Tale products and was looking for a conditioning & de-tangling spray. The scent was over whelming when first sprayed but didn't stay that way. I sprayed it when my daughter's hair was damp. Her hair is long, straight, and easily tangled. The spray worked wonders! Her hair was easy to brush through even when wet which can be a chore. She didn't complain that I was hurting her once. A big win to me! The next morning her hair was soft and easy to brush. I wasn't looking for lice protection but since my daughter is still in school that is an added bonus.",tags:["school_lice","kids","easy_use","conditioner_effect"]},
+{r:4,t:"I have very sensitive skin and sense of smell. I used this on days that I teach, it isn't overpowering and works as a detangler too",tags:["conditioner_effect"]},
+{r:4,t:"The smell is very sweet you can definitely smell the rosemary. Works very well by preventing lice it also helps scalp itching and even neck itching. It should not irritate your skin because it is all natural.",tags:["natural_safe"]},
+{r:4,t:"I like the product for what it's used for. It does help. What i am not to keen on is how strong the smell of the product is. Littles may be sensitive to it. It doesn't leave the hair tacky, or greasy. It definitely helps with detanglement of long hair.",tags:["smell_bad","easy_use","conditioner_effect"]}
+];
+
+var VOC_DATA = {
+  totalReviews: 705,
+  avgRating: 2.75,
+  starDist: [199, 119, 161, 108, 118],
+
+  cpSummary: "The primary buyer is a <strong>parent (mother)</strong> purchasing for <strong>school-age children</strong>. The most common trigger is a <strong>school lice outbreak notification</strong>, and the most discussed topic is <strong>product effectiveness vs. prevention claims</strong>.",
+
+  cpWho: { labels: ["Mother/Parent","School Nurse","Father","Grandmother","Teacher"], pos: [62,4,8,6,3], neg: [98,5,12,4,2] },
+  cpWhen: { labels: ["School outbreak","Daily routine","After infestation","Back to school","Year-round"], pos: [38,45,12,18,8], neg: [52,68,22,6,3] },
+  cpWhere: { labels: ["School/Daycare","Home bathroom","Classroom","Playground","Salon"], pos: [48,32,8,4,2], neg: [72,28,12,3,1] },
+  cpWhat: { labels: ["Effectiveness","Smell/Scent","Detangling","Prevention","Value/Price"], pos: [58,52,42,35,8], neg: [95,68,22,48,24] },
+
+  usageScenarios: [
+    { label: "Daily school prevention spray", reason: "Parents spray children\u0027s hair every morning before school as a preventive measure against lice outbreaks in classrooms and daycare settings.", pct: "28.5%" },
+    { label: "Post-outbreak emergency buy", reason: "Purchased immediately after receiving school notification of lice outbreak in child\u0027s class \u2014 reactive, urgency-driven purchase.", pct: "22.3%" },
+    { label: "Leave-in conditioner/detangler", reason: "Used as a dual-purpose product: lice prevention plus hair conditioning and detangling, especially for girls with long or curly hair.", pct: "17.6%" },
+    { label: "Post-treatment prevention", reason: "After treating an active infestation, parents use the spray daily to prevent re-infestation, often combining with shampoo and conditioner from same brand.", pct: "12.1%" },
+    { label: "Full product line routine", reason: "Buyers use the complete system (shampoo + conditioner + spray) as a daily hair care routine with lice prevention as the secondary benefit.", pct: "8.4%" },
+    { label: "Teacher/school nurse self-protection", reason: "Educators working in elementary schools and daycares use the product on themselves to avoid catching lice from students.", pct: "4.5%" },
+    { label: "Natural alternative to chemicals", reason: "Parents seeking non-toxic, essential oil-based products over harsh chemical treatments for their children\u0027s hair.", pct: "3.8%" },
+    { label: "Gift/recommendation to other parents", reason: "Parents who had positive experiences recommend and purchase as gifts for friends and family with school-age children.", pct: "2.8%" }
+  ],
+
+  csSummary: "Analysing what drives negative and positive experiences across 705 reviews of lice prevention and treatment products on Amazon US. The niche is highly polarised \u2014 prevention products face an inherent <strong>efficacy verification problem</strong> where success (no lice) is invisible but failure (got lice) triggers intense emotional reviews.",
+
+  negativeTopics: [
+    { label: "Prevention failure", reason: "The #1 complaint: parents used the product religiously (daily, for months) and their child still got lice. Creates intense frustration because they trusted the product claims.", pct: "35.2%",
+      bullets: ["Emotional language: \u0027used EVERY SINGLE DAY\u0027, \u0027religiously\u0027, \u0027followed directions exactly\u0027","Many report multiple re-infestations despite consistent use","Professional lice salons actively tell parents these products don\u0027t work"],
+      quotes: ["\u0022I have been using this daily on my 3 year old who started preschool this year. Just got the call from the school nurse that she has lice.\u0022","\u0022We used this EVERY DAY and both my kids still got lice. This is the second time.\u0022"] },
+    { label: "Terrible smell", reason: "Strong, offensive scent described as \u0027bug spray,\u0027 \u0027chemicals,\u0027 or \u0027Pine Sol.\u0027 Children refuse to use it. Some parents return without even trying.", pct: "21.8%",
+      bullets: ["Smell described as overwhelming, lingering, and nauseating","Multiple reports of children crying or refusing application","Rosemary and citronella scents polarise \u2014 some love, many hate"],
+      quotes: ["\u0022It smells like straight bug spray. Can\u0027t put this on my kids.\u0022","\u0022The SMELL! It LINGERS. I actually feel bad for the teacher.\u0022"] },
+    { label: "Packaging / leaking / broken sprayer", reason: "Products arrive damaged, leaking, or with broken spray nozzles. Bottles arrive half-empty or with non-functional pumps that squirt instead of mist.", pct: "14.8%",
+      bullets: ["Spray nozzle failure is a recurring design issue across brands","Leaking during shipping wastes product before first use","Multi-pack orders where 1-2 units are defective amplify frustration"],
+      quotes: ["\u0022The spray pump stopped working after one use. Now it spurts out in a single line.\u0022","\u0022One bottle arrived empty, the entire packaging was wet inside.\u0022"] },
+    { label: "Poor detangling / hair damage", reason: "Products marketed as conditioning sprays that actually make hair worse \u2014 tangled, sticky, stiff, greasy, or dry. Some report hair falling out.", pct: "10.3%",
+      bullets: ["Direct contradiction with \u0027conditioning spray\u0027 marketing claims","Sticky residue and hair stiffness are common complaints","Hair dryness and breakage reported, especially on curly hair"],
+      quotes: ["\u0022It makes hair super sticky and ridiculously hard to comb. It pretty much instantly tangles the hair.\u0022","\u0022She wakes up with insanely tangled hair I\u0027ve never seen before, it\u0027s so dry it\u0027s falling out.\u0022"] },
+    { label: "Overpriced / waste of money", reason: "High price combined with ineffectiveness creates maximum frustration. Parents feel cheated after spending on shampoo + conditioner + spray systems.", pct: "7.5%",
+      bullets: ["Multi-product systems (shampoo+conditioner+spray) at $15-25 each feel expensive when they don\u0027t work","DIY tea tree oil spray at fraction of cost reportedly works better","Some describe product as a \u0027scam\u0027 or \u0027gimmick\u0027"],
+      quotes: ["\u0022I bought the shampoo, conditioner and the spray and used it religiously. $300+ to get her debugged after it failed.\u0022","\u0022False advertising in my mind. Did not work, not worth the money.\u0022"] },
+    { label: "DIY / tea tree works better", reason: "Parents who switch to homemade tea tree oil + water spray report better results at a fraction of the cost, undermining commercial product value.", pct: "5.2%",
+      bullets: ["Simple recipe: tea tree oil + water in spray bottle","Perceived as more concentrated and therefore more effective","Success stories accelerate word-of-mouth DIY adoption"],
+      quotes: ["\u0022Making your own tea tree spray is way cheaper and more effective.\u0022","\u0022Plain old tea tree oil mixed with water \u2014 lice free for 3 months.\u0022"] },
+    { label: "Scalp irritation / allergic reaction", reason: "Some children experience itchy, dry, or irritated scalps. One report of suspected dandruff from product use. Peppermint flagged as unsafe for toddlers.", pct: "3.1%",
+      bullets: ["Scalp dryness and itching stops immediately when product is discontinued","Peppermint ingredient unsafe for children under 3","Some parents mistake product-caused itching for lice"],
+      quotes: ["\u0022My daughter is sensitive to the oils. It caused her to have an itchy scalp. As soon as we stopped, the itching stopped.\u0022"] },
+    { label: "Wrong product received", reason: "Customers receive wrong items, old packaging, or products that don\u0027t match the listing description.", pct: "2.1%",
+      bullets: ["Old/expired formulations shipped instead of current version","Subscription orders sending wrong variant"],
+      quotes: ["\u0022I did not want a refill! This was not what I ordered.\u0022"] }
+  ],
+
+  negativeInsights: [
+    { type: "Efficacy Crisis", badgeBg: "#fee2e2", badgeColor: "#991b1b", finding: "35.2% of negative reviews cite complete prevention failure despite daily, consistent use. This is the fundamental category challenge \u2014 prevention products cannot prove causation for success.", implication: "Reframe marketing from <strong>\u0027prevents lice\u0027 to \u0027adds a protective layer.\u0027</strong> Avoid absolute claims. Add disclaimer about multi-factor prevention (hair up, avoid head contact). Reduces expectation gap and potential liability." },
+    { type: "Smell Polarisation", badgeBg: "#fef3c7", badgeColor: "#92400e", finding: "21.8% find the smell offensive \u2014 \u0027bug spray,\u0027 \u0027chemicals.\u0027 Yet 20% of positive reviews praise the scent. Same formulation, completely split perception.", implication: "<strong>Fragrance reformulation opportunity</strong> \u2014 the rosemary/citronella base works for repelling but alienates ~20% of buyers. Consider a milder scent variant or \u0027sensitive\u0027 line for children." },
+    { type: "Packaging Failure", badgeBg: "#ffedd5", badgeColor: "#9a3412", finding: "14.8% report leaking, broken sprayers, or damaged packaging. This is a pure <strong>supply chain / QC issue</strong>, not a product issue \u2014 and it\u0027s destroying ratings.", implication: "Switch to <strong>leak-proof packaging with shrink-wrap seal</strong>. Spray nozzle quality upgrade. These are fixable 1-star reviews that would become 4-star with better packaging." },
+    { type: "Hair Quality Gap", badgeBg: "#ede9fe", badgeColor: "#5b21b6", finding: "10.3% say the product damages or tangles hair despite \u0027conditioning spray\u0027 marketing. The gap between promise and reality drives disappointment.", implication: "<strong>Either improve conditioning formula or remove \u0027conditioning\u0027 from the name.</strong> Customers who buy for detangling and get sticky hair feel deceived. Honest positioning reduces negative reviews." },
+    { type: "Price Multiplier", badgeBg: "#fce7f3", badgeColor: "#9d174d", finding: "7.5% cite price frustration, but it\u0027s always coupled with ineffectiveness. No one complains about price when the product works.", implication: "Price is a <strong>multiplier of dissatisfaction</strong>, not a root cause. Fix efficacy perception first \u2014 price complaints will drop. Consider a <strong>money-back guarantee</strong> to reduce purchase risk." },
+    { type: "Professional Contradiction", badgeBg: "#e0f2fe", badgeColor: "#0369a1", finding: "Multiple reviews mention professional lice salons telling parents these products \u0027don\u0027t work.\u0027 This creates a powerful anti-recommendation channel.", implication: "Commission <strong>independent clinical efficacy study</strong> to counter salon claims. Partner with pediatricians for endorsement. Without evidence, salon word-of-mouth will continue eroding trust." }
+  ],
+
+  positiveTopics: [
+    { label: "Peace of mind / preventive routine", reason: "Parents value the psychological comfort of doing something proactive against lice, even if they cannot prove the product works. \u0027So far no lice\u0027 is the common refrain.", pct: "26.5%",
+      bullets: ["Success is invisible \u2014 \u0027no lice\u0027 could be the product or could be no exposure","Parents willingly continue purchasing for emotional security","School outbreak notifications trigger increased usage and positive reinforcement"],
+      quotes: ["\u0022This spray gives me peace of mind. So far no lice.\u0022","\u0022Can\u0027t prove it works, but we haven\u0027t had lice and I\u0027m not stopping.\u0022"] },
+    { label: "Pleasant smell / kids like it", reason: "When the scent works for the family, it becomes a key satisfaction driver. Rosemary scent is described as fresh, clean, and pleasant.", pct: "22.1%",
+      bullets: ["Smell is the most polarised attribute \u2014 loved by ~22% and hated by ~22%","Pleasant scent makes daily application easier with reluctant children","Several parents describe it as their favourite hair product scent"],
+      quotes: ["\u0022It smells sooo good, not at all like citronella. I definitely smell the rosemary.\u0022","\u0022My kids love the smell and it makes doing hair in the morning easy.\u0022"] },
+    { label: "Good detangler / conditioner", reason: "Product works well as a leave-in conditioner and detangler, making hair soft, shiny, and manageable. This secondary benefit often sustains purchases even when prevention efficacy is uncertain.", pct: "17.6%",
+      bullets: ["Conditioning effect is the most verifiable benefit (unlike prevention)","Parents of girls with long/curly hair particularly value detangling","Some continue buying as conditioner even after doubting lice prevention claims"],
+      quotes: ["\u0022It leaves her hair soft, shiny, and easy to brush through without any tangles.\u0022","\u0022I keep using it as a detangler even though I\u0027m not sure about the lice prevention.\u0022"] },
+    { label: "Prevented lice during outbreak", reason: "Anecdotal success stories where child avoided lice during a confirmed classroom outbreak. These stories generate strong word-of-mouth.", pct: "14.2%",
+      bullets: ["Direct exposure + no infection = strongest perceived proof of efficacy","These stories drive recommendations and repeat purchases","Cannot isolate product effect from other preventive measures (hair up, etc.)"],
+      quotes: ["\u0022A friend came over who had lice and my daughter never got it because I used this spray.\u0022","\u0022Lice was going around the classroom and so far this has worked!\u0022"] },
+    { label: "Easy daily routine", reason: "Spray format integrates easily into morning routine \u2014 quick application before school, no mess, no complicated steps.", pct: "8.0%",
+      bullets: ["Spray-and-go format valued by busy parents","Low effort compared to DIY essential oil mixing","Children can apply it themselves"],
+      quotes: ["\u0022Easy to use \u2014 just spray and go. My daughter does it herself.\u0022"] },
+    { label: "Natural / safe ingredients", reason: "Non-toxic, essential oil-based formula appeals to health-conscious parents who want to avoid harsh chemicals on children\u0027s hair.", pct: "5.7%",
+      bullets: ["Safe for daily use on children \u2014 no pesticides or harsh chemicals","Rosemary, tea tree, and citronella are perceived as natural and safe","Tear-free formula valued for younger children"],
+      quotes: ["\u0022No chemicals, no poison \u2014 just natural essential oils. Perfect for kids.\u0022"] },
+    { label: "Would recommend / repeat purchase", reason: "Satisfied buyers actively recommend to other parents and repurchase regularly. Strong brand loyalty among believers.", pct: "4.0%",
+      bullets: ["Word-of-mouth is the primary acquisition channel for these products","Multi-year repeat buyers cite it as a \u0027staple\u0027 product","Family recommendations (mother to daughter, friend to friend) are common"],
+      quotes: ["\u0022I\u0027ve been buying this for 5 years. It\u0027s a staple in our house.\u0022"] },
+    { label: "Good value / fair price", reason: "When the product works as both conditioner and prevention, the price is seen as fair. Rarely praised independently.", pct: "1.9%",
+      bullets: ["Price is almost never a positive driver \u2014 only mentioned when everything else works","Value perception tied entirely to perceived efficacy"],
+      quotes: ["\u0022Great price. Works well as detangler and seems to keep lice away.\u0022"] }
+  ],
+
+  positiveInsights: [
+    { type: "Peace of Mind", badgeBg: "#dbeafe", badgeColor: "#1e40af", finding: "26.5% of positive reviews cite emotional comfort rather than proven efficacy. Parents continue buying because \u0027so far no lice\u0027 \u2014 success is unverifiable but emotionally powerful.", implication: "Market to <strong>emotional need for proactive protection</strong> rather than guaranteed prevention. \u0027Add a protective layer to your morning routine\u0027 is honest and compelling." },
+    { type: "Dual-Purpose Value", badgeBg: "#d1fae5", badgeColor: "#065f46", finding: "17.6% praise conditioning/detangling as a standalone benefit. This provides a verifiable value prop that sustains purchases even when prevention is doubted.", implication: "Position as <strong>\u0027premium kids conditioning spray with lice-repelling ingredients\u0027</strong> \u2014 lead with the provable benefit (conditioning), add prevention as a bonus. Reduces expectation gap." },
+    { type: "Outbreak Anecdotes", badgeBg: "#fef3c7", badgeColor: "#92400e", finding: "14.2% have specific outbreak stories where their child was protected. These stories are the most powerful form of social proof in the category.", implication: "Encourage <strong>verified outbreak success stories</strong> in follow-up emails. Feature these narratives in A+ content. \u0027During a classroom outbreak, my child stayed lice-free.\u0027" },
+    { type: "Routine Integration", badgeBg: "#ede9fe", badgeColor: "#5b21b6", finding: "8.0% value effortless daily routine integration. Spray format wins over DIY alternatives that require mixing.", implication: "Emphasise <strong>convenience over DIY</strong> in marketing: \u0027Unlike DIY tea tree sprays \u2014 no mixing, no mess, no measuring.\u0027 Target busy parents." },
+    { type: "Safety Segment", badgeBg: "#fce7f3", badgeColor: "#9d174d", finding: "5.7% specifically cite natural/safe ingredients as a purchase driver. Avoid chemicals on children\u0027s hair is a strong parental motivator.", implication: "Prominent <strong>safety badges</strong> in listing images. Target health-conscious parents. Certifications (organic, pediatrician-tested) would boost conversion." },
+    { type: "Scent Split", badgeBg: "#e0f2fe", badgeColor: "#0369a1", finding: "22.1% love the smell but 21.8% of negatives hate it. Same product, completely split perception. Scent is the single most polarising attribute.", implication: "Consider a <strong>fragrance-free or mild variant</strong> for scent-sensitive families. Two SKUs (original + sensitive) could capture both segments." }
+  ],
+
+  buyersMotivation: [
+    { label: "School lice outbreak notification", reason: "The #1 trigger \u2014 parents receive a letter or email from school about lice in their child\u0027s classroom and immediately purchase prevention products.", pct: "28.0%" },
+    { label: "Fear of lice / anxiety", reason: "Parents with strong phobia of lice buy proactively, often before any outbreak occurs. Driven by fear rather than an actual threat.", pct: "18.0%" },
+    { label: "Daily preventive routine", reason: "Parents establishing a morning hair care routine that includes lice prevention as part of getting kids ready for school.", pct: "15.0%" },
+    { label: "Post-infestation prevention", reason: "After going through the trauma of treating an active infestation, parents are determined to prevent recurrence at any cost.", pct: "12.0%" },
+    { label: "Recommendation from other parent", reason: "Word-of-mouth from friends, family members, or other parents at school who use and recommend the product.", pct: "8.0%" },
+    { label: "Dual-purpose (conditioner + prevention)", reason: "Buyers wanting a leave-in conditioner that also provides lice prevention \u2014 two benefits in one product.", pct: "7.0%" },
+    { label: "Natural / chemical-free alternative", reason: "Parents seeking essential oil-based products instead of harsh chemical treatments for regular use on children.", pct: "5.0%" },
+    { label: "Teacher / educator self-protection", reason: "School teachers, nurses, and daycare workers using the product on themselves to avoid catching lice from students.", pct: "4.0%" },
+    { label: "Back-to-school preparation", reason: "Seasonal purchase at the start of the school year as part of back-to-school supplies and preparation.", pct: "3.0%" }
+  ],
+
+  customerExpectations: [
+    { label: "Actually prevent lice", reason: "The fundamental unmet need \u2014 parents expect a product marketed as \u0027lice prevention\u0027 to actually prevent lice. When it fails, trust is destroyed.", pct: "32.0%" },
+    { label: "Pleasant, kid-friendly scent", reason: "Parents need a scent children will tolerate daily. Bug spray, chemical, or overpowering herbal smells are deal-breakers.", pct: "16.0%" },
+    { label: "Effective detangling", reason: "Products marketed as \u0027conditioning sprays\u0027 are expected to actually condition and detangle hair, not make it sticky or stiff.", pct: "13.0%" },
+    { label: "Reliable spray mechanism", reason: "Spray nozzle that consistently mists (not squirts or drips) for the entire product life. Current nozzle failure rate is unacceptable.", pct: "10.0%" },
+    { label: "Leak-proof packaging", reason: "Products must arrive intact \u2014 leaking bottles are an immediate 1-star review regardless of product quality.", pct: "8.0%" },
+    { label: "Safe for all ages", reason: "Parents expect daily-use products to be safe for toddlers and young children. Hidden ingredients unsafe for under-3s (peppermint) erode trust.", pct: "7.0%" },
+    { label: "Better value for money", reason: "At $15-25 per bottle, parents expect either proven efficacy or at minimum excellent conditioning performance.", pct: "6.0%" },
+    { label: "No hair buildup or residue", reason: "Daily use products should not leave residue, make hair greasy, or cause buildup that makes hair look unkempt.", pct: "5.0%" },
+    { label: "Clinical proof of efficacy", reason: "Sophisticated buyers want evidence beyond anecdotes \u2014 clinical studies or pediatrician endorsements to justify claims.", pct: "3.0%" }
+  ],
+
+  themeFilters: [
+    { value: "", label: "All Themes" },
+    { value: "ineffective", label: "Ineffective" },
+    { value: "effective", label: "Effective" },
+    { value: "prevention_fail", label: "Prevention Fail" },
+    { value: "smell_bad", label: "Smell Bad" },
+    { value: "smell_good", label: "Smell Good" },
+    { value: "packaging_issue", label: "Packaging Issue" },
+    { value: "school_lice", label: "School Lice" },
+    { value: "kids", label: "Kids" },
+    { value: "recommend", label: "Recommend" },
+    { value: "easy_use", label: "Easy To Use" },
+    { value: "tea_tree", label: "Tea Tree / DIY" },
+    { value: "overpriced", label: "Overpriced" },
+    { value: "conditioner_effect", label: "Conditioner Effect" },
+    { value: "hair_damage", label: "Hair Damage" },
+    { value: "natural_safe", label: "Natural/Safe" }
+  ],
+
+  tagStyles: {
+    ineffective: "pill-red", effective: "pill-blue", prevention_fail: "pill-red",
+    smell_bad: "pill-orange", smell_good: "pill-blue", packaging_issue: "pill-orange",
+    school_lice: "pill-amber", kids: "pill-amber", recommend: "pill-blue",
+    easy_use: "pill-blue", tea_tree: "pill-purple", overpriced: "pill-red",
+    conditioner_effect: "pill-blue", hair_damage: "pill-red", natural_safe: "pill-blue"
+  },
+
+  reviews: []
+};
+
+// Load tagged reviews
+(function() {
+  // Inline tagging of reviews for browser
+  var rawReviews = REVIEWS_RAW;
+  VOC_DATA.reviews = rawReviews;
+})();
+
+// ── VOC Rendering Engine ──────────────────────────────────────────────────────
+var VD = VOC_DATA;
+var VOC_STAR_COLORS = { 1: "#dc2626", 2: "#ea580c", 3: "#f59e0b", 4: "#22c55e", 5: "#16a34a" };
+
+function showVocSub(id, el) {
+  document.querySelectorAll(".voc-sub-tab").forEach(function(t) { t.classList.remove("active"); });
+  document.querySelectorAll(".voc-sub-panel").forEach(function(p) { p.classList.remove("active"); });
+  el.classList.add("active");
+  document.getElementById(id).classList.add("active");
+}
+
+function vocScroll(e, id, el) {
+  e.preventDefault();
+  var target = document.getElementById(id);
+  if (target) { var y = target.getBoundingClientRect().top + window.pageYOffset - 140; window.scrollTo({ top: y, behavior: "smooth" }); }
+  document.querySelectorAll(".voc-anchor-nav a").forEach(function(a) { a.classList.remove("active"); });
+  if (el) el.classList.add("active");
+}
+
+function vocToggleNF(row) {
+  var detail = row.nextElementSibling; var isOpen = row.classList.contains("open");
+  document.querySelectorAll(".nf-row.open").forEach(function(r) { r.classList.remove("open"); r.nextElementSibling.classList.remove("open"); });
+  if (!isOpen) { row.classList.add("open"); detail.classList.add("open"); }
+}
+function vocTogglePF(row) {
+  var detail = row.nextElementSibling; var isOpen = row.classList.contains("open");
+  document.querySelectorAll(".pf-row.open").forEach(function(r) { r.classList.remove("open"); r.nextElementSibling.classList.remove("open"); });
+  if (!isOpen) { row.classList.add("open"); detail.classList.add("open"); }
+}
+
+function vocBarWidth(pctStr, maxPct) { return Math.round(parseFloat(pctStr) / maxPct * 100) + "%"; }
+
+// KPIs
+(function() {
+  var total = VD.totalReviews, pos = VD.starDist[3] + VD.starDist[4], neg = VD.starDist[0] + VD.starDist[1] + VD.starDist[2];
+  var posPct = (pos / total * 100).toFixed(1), negPct = (neg / total * 100).toFixed(1);
+  var ratio = neg > 0 ? (pos / neg).toFixed(1) : "0";
+  document.getElementById("vocKpis").innerHTML =
+    '<div class="kpi"><div class="kpi-v">' + total.toLocaleString() + '</div><div class="kpi-l">Total Reviews Analysed</div></div>' +
+    '<div class="kpi"><div class="kpi-v" style="color:#0f2942">' + ratio + ' : 1</div><div class="kpi-l">Sentiment Ratio (pos:neg)</div></div>' +
+    '<div class="kpi"><div class="kpi-v" style="color:#16a34a">' + posPct + '%</div><div class="kpi-l">Positive (4\u2605+5\u2605)</div></div>' +
+    '<div class="kpi"><div class="kpi-v" style="color:#dc2626">' + negPct + '%</div><div class="kpi-l">Negative (1\u2605\u20133\u2605)</div></div>';
+})();
+
+// Star bar
+(function() {
+  var dist = VD.starDist, total = dist.reduce(function(s,v){return s+v;},0);
+  document.getElementById("vocAvgRating").innerHTML = VD.avgRating.toFixed(2) + ' <span style="font-size:.7rem;font-weight:400;color:#64748b">avg</span>';
+  document.getElementById("vocStarBar").innerHTML = dist.map(function(count, i) {
+    var pct = (count/total*100).toFixed(1);
+    return '<div style="width:'+pct+'%;background:'+VOC_STAR_COLORS[i+1]+';display:flex;align-items:center;justify-content:center;color:#fff;font-size:.68rem;font-weight:600">'+pct+'%</div>';
+  }).join("");
+  document.getElementById("vocStarLeg").innerHTML = dist.map(function(count, i) {
+    return '<span><span style="display:inline-block;width:8px;height:8px;border-radius:2px;background:'+VOC_STAR_COLORS[i+1]+';margin-right:3px"></span>'+(i+1)+'\u2605 '+count+'</span>';
+  }).join("");
+})();
+
+// Customer Profile charts
+(function() {
+  document.getElementById("cpSummary").innerHTML = VD.cpSummary;
+  function makeStackedBar(canvasId, data) {
+    var ctx = document.getElementById(canvasId); if (!ctx) return;
+    new Chart(ctx, {
+      type: "bar",
+      data: { labels: data.labels, datasets: [
+        { label: "4-5 stars", data: data.pos, backgroundColor: "#22c55e", borderRadius: { topLeft: 3, topRight: 3 }, barPercentage: 0.7 },
+        { label: "1-3 stars", data: data.neg.map(function(v){return -v;}), backgroundColor: "#ef4444", borderRadius: { bottomLeft: 3, bottomRight: 3 }, barPercentage: 0.7 }
+      ]},
+      options: { responsive: true, maintainAspectRatio: false, interaction: { mode: "index", intersect: false },
+        plugins: { legend: { display: false }, datalabels: { display: false },
+          tooltip: { callbacks: { label: function(ctx) { return ctx.dataset.label + ": " + Math.abs(ctx.raw); } } }
+        },
+        scales: { x: { grid: { display: false }, ticks: { font: { size: 10 }, color: "#64748b", maxRotation: 35 } },
+          y: { grid: { color: "#f1f5f9", drawBorder: false }, ticks: { font: { size: 10 }, color: "#94a3b8", callback: function(v) { return Math.abs(v); } } }
+        }
+      }, plugins: [ChartDataLabels]
+    });
+  }
+  makeStackedBar("cpWho", VD.cpWho);
+  makeStackedBar("cpWhen", VD.cpWhen);
+  makeStackedBar("cpWhere", VD.cpWhere);
+  makeStackedBar("cpWhat", VD.cpWhat);
+})();
+
+// Usage Scenarios
+(function() {
+  var maxPct = parseFloat(VD.usageScenarios[0].pct);
+  document.getElementById("usBody").innerHTML = VD.usageScenarios.map(function(s) {
+    return '<tr><td class="us-label">'+s.label+'</td><td class="us-reason">'+s.reason+'</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:'+vocBarWidth(s.pct,maxPct)+';background:#93c5fd"></div></div><span>'+s.pct+'</span></td></tr>';
+  }).join("");
+})();
+
+// Sentiment
+(function() {
+  document.getElementById("csSummary").innerHTML = VD.csSummary;
+  var negMax = parseFloat(VD.negativeTopics[0].pct);
+  document.getElementById("negBody").innerHTML = VD.negativeTopics.map(function(t) {
+    var bl = t.bullets.map(function(b){return "<li>"+b+"</li>";}).join("");
+    var ql = t.quotes.map(function(q){return "<p>"+q+"</p>";}).join("");
+    return '<tr class="nf-row" onclick="vocToggleNF(this)"><td class="us-label"><span class="nf-arrow">&#9654;</span> '+t.label+'</td><td class="us-reason">'+t.reason+'</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:'+vocBarWidth(t.pct,negMax)+';background:#fca5a5"></div></div><span>'+t.pct+'</span></td></tr><tr class="nf-detail"><td colspan="3"><div class="nf-body"><ul>'+bl+'</ul><div class="nf-quotes">'+ql+'</div></div></td></tr>';
+  }).join("");
+  document.getElementById("negInsightsBody").innerHTML = VD.negativeInsights.map(function(i) {
+    return '<tr><td><span class="si-badge" style="background:'+i.badgeBg+';color:'+i.badgeColor+'">'+i.type+'</span></td><td>'+i.finding+'</td><td>'+i.implication+'</td></tr>';
+  }).join("");
+  var posMax = parseFloat(VD.positiveTopics[0].pct);
+  document.getElementById("posBody").innerHTML = VD.positiveTopics.map(function(t) {
+    var bl = t.bullets.map(function(b){return "<li>"+b+"</li>";}).join("");
+    var ql = t.quotes.map(function(q){return "<p>"+q+"</p>";}).join("");
+    return '<tr class="pf-row" onclick="vocTogglePF(this)"><td class="us-label"><span class="pf-arrow">&#9654;</span> '+t.label+'</td><td class="us-reason">'+t.reason+'</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:'+vocBarWidth(t.pct,posMax)+';background:#86efac"></div></div><span>'+t.pct+'</span></td></tr><tr class="pf-detail"><td colspan="3"><div class="pf-body"><ul>'+bl+'</ul><div class="pf-quotes">'+ql+'</div></div></td></tr>';
+  }).join("");
+  document.getElementById("posInsightsBody").innerHTML = VD.positiveInsights.map(function(i) {
+    return '<tr><td><span class="si-badge" style="background:'+i.badgeBg+';color:'+i.badgeColor+'">'+i.type+'</span></td><td>'+i.finding+'</td><td>'+i.implication+'</td></tr>';
+  }).join("");
+})();
+
+// Buyers Motivation
+(function() {
+  var maxPct = parseFloat(VD.buyersMotivation[0].pct);
+  document.getElementById("bmBody").innerHTML = VD.buyersMotivation.map(function(m) {
+    return '<tr><td class="us-label">'+m.label+'</td><td class="us-reason">'+m.reason+'</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:'+vocBarWidth(m.pct,maxPct)+';background:#93c5fd"></div></div><span>'+m.pct+'</span></td></tr>';
+  }).join("");
+})();
+
+// Customer Expectations
+(function() {
+  var maxPct = parseFloat(VD.customerExpectations[0].pct);
+  document.getElementById("ceBody").innerHTML = VD.customerExpectations.map(function(e) {
+    return '<tr><td class="us-label">'+e.label+'</td><td class="us-reason">'+e.reason+'</td><td class="us-pct"><div class="us-bar-wrap"><div class="us-bar" style="width:'+vocBarWidth(e.pct,maxPct)+';background:#93c5fd"></div></div><span>'+e.pct+'</span></td></tr>';
+  }).join("");
+})();
+
+// Review Browser
+function vocFilter() {
+  var rating = document.getElementById("filterRating").value;
+  var theme = document.getElementById("filterTheme").value;
+  var search = document.getElementById("filterSearch").value.toLowerCase();
+  var filtered = VD.reviews.filter(function(r) {
+    if (rating && r.r != rating) return false;
+    if (theme && r.tags.indexOf(theme) === -1) return false;
+    if (search && r.t.toLowerCase().indexOf(search) === -1) return false;
+    return true;
+  });
+  document.getElementById("vocResultCount").textContent = "Showing " + filtered.length + " of " + VD.reviews.length + " reviews";
+  var html = "", limit = Math.min(filtered.length, 200);
+  for (var i = 0; i < limit; i++) {
+    var r = filtered[i];
+    var starHtml = '<span style="color:'+VOC_STAR_COLORS[r.r]+';font-weight:700">'+r.r+'\u2605</span>';
+    var tagsHtml = r.tags.map(function(t) { return '<span class="pill '+(VD.tagStyles[t]||"pill-blue")+'">'+t.replace(/_/g," ")+'</span>'; }).join("");
+    html += '<tr><td>'+starHtml+'</td><td><div class="review-text" style="font-size:.78rem;color:#334155;line-height:1.55">'+r.t.replace(/</g,"&lt;").replace(/>/g,"&gt;")+'</div>'+(tagsHtml?'<div style="margin-top:4px">'+tagsHtml+'</div>':"")+'</td></tr>';
+  }
+  if (filtered.length > 200) html += '<tr><td colspan="2" style="text-align:center;color:#64748b;font-size:.72rem;padding:12px">Showing first 200 of '+filtered.length+' results.</td></tr>';
+  document.getElementById("vocReviewBody").innerHTML = html;
+}
+function vocClear() {
+  document.getElementById("filterRating").value = "";
+  document.getElementById("filterTheme").value = "";
+  document.getElementById("filterSearch").value = "";
+  vocFilter();
+}
+vocFilter();
 
 // ── Fix: hidden panels render at 0×0 ─────────────────────────────────────────
 window.addEventListener('load', function() {
