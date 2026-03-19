@@ -180,6 +180,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   <div class="tab" onclick="show('tlc',this)">8 — Listing Communication</div>
   <div class="tab" onclick="show('t9kw',this)">9 — KW Analysis</div>
   <div class="tab" onclick="show('tis',this)">10 — Strategia Zdjęć</div>
+  <div class="tab" onclick="show('tcb',this)">11 — Copy Brief</div>
 </div>
 
 <div class="content">
@@ -1966,7 +1967,13 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div id="tis" class="panel">
 <h2>Strategia Zdjęć — 7-Image Stack Brief</h2>
 <div id="is-root"></div>
-</div><!-- END TAB 10 -->
+</div><!-- END TAB 10 --
+<!-- TAB 11 Copy Brief -->
+<div id="tcb" class="panel">
+<h2>Listing Copy Brief — Tytuł & Bullet Points</h2>
+<div id="cb-root"></div>
+</div><!-- END TAB 11 -->
+>
 >
 >
 
@@ -4388,6 +4395,341 @@ var IMAGE_STRATEGY_DATA = {
   h += '</div>';
 
   // ── Methodology ──
+  h += '<div class="note" style="margin-top:22px">' + D.methodology + '</div>';
+
+  root.innerHTML = h;
+})();
+
+
+// Copy Brief
+var COPY_BRIEF_DATA = {
+
+  category: "Lice Treatment & Prevention",
+  market: "US",
+  competitorCount: 5,
+  reviewCount: 705,
+  keywordCount: 312,
+
+  insight: "<strong>Brief oparty na danych.</strong> Rekomendacje dotycz\u0105ce tytu\u0142u i bullet points oparte na: analizie tytu\u0142\u00f3w 5 konkurent\u00f3w (Tab 8), luk komunikacyjnych (Gap Analysis), niezaspokojonych potrzeb klient\u00f3w z 705 recenzji (Tab 7 \u2014 Reviews VOC) oraz 312 s\u0142\u00f3w kluczowych z Helium 10 Niche (Tab 9). S\u0142owa kluczowe oznaczone s\u0105 search volume (SV).",
+
+  titleDescription: "Tytu\u0142 powinien mie\u015bci\u0107 si\u0119 w 150\u2013200 znak\u00f3w. Poni\u017csza tabela pokazuje rekomendowane sk\u0142adniki, ich funkcj\u0119 oraz sugerowane s\u0142owa kluczowe do wykorzystania. Kolejno\u015b\u0107 ma znaczenie \u2014 Amazon indeksuje mocniej pocz\u0105tek tytu\u0142u.",
+
+  titleComponents: [
+    {
+      color: "#7F77DD",
+      component: "Brand",
+      content: "Nazwa marki na pocz\u0105tku",
+      keywords: [{ text: "[Twoja marka]", sv: null, note: null }],
+      rationale: "Wszyscy 5 konkurent\u00f3w (RID, Nix, Fairy Tales, Lice Clinics, MAYDAY) zaczynaj\u0105 od brandu."
+    },
+    {
+      color: "#1D9E75",
+      component: "Product Type",
+      content: "G\u0142\u00f3wna kategoria produktu z kluczowym keyword",
+      keywords: [
+        { text: "Lice Treatment", sv: "45,943", note: null },
+        { text: "Lice Shampoo", sv: "27,093", note: null },
+        { text: "Head Lice Treatment Kit", sv: "2,316", note: "je\u015bli kit" }
+      ],
+      rationale: "Najwy\u017cszy SV keyword w kategorii. RID u\u017cywa \u201eHead Lice Treatment\u201d, Nix \u201eLice Treatment Shampoo\u201d."
+    },
+    {
+      color: "#D85A30",
+      component: "Target Audience",
+      content: "Dla kogo \u2014 dzieci i/lub doro\u015bli",
+      keywords: [
+        { text: "for Kids", sv: "17,608", note: "\u201elice treatment for kids\u201d" },
+        { text: "for Children & Adults", sv: null, note: "RID u\u017cywa tego zwrotu" }
+      ],
+      rationale: "<strong>34.7%</strong> recenzji dotyczy dzieci w wieku szkolnym. \u201efor kids\u201d dodaje 17K SV."
+    },
+    {
+      color: "#378ADD",
+      component: "Key Benefit / USP",
+      content: "G\u0142\u00f3wna korzy\u015b\u0107 wyr\u00f3\u017cniaj\u0105ca na tle konkurencji",
+      keywords: [
+        { text: "Kills Lice & Eggs", sv: null, note: "38.2% oczekuje skuteczno\u015bci za 1 razem" },
+        { text: "One Treatment", sv: null, note: "GAP: tylko RID komunikuje" },
+        { text: "No Nit Combing Required", sv: null, note: "USP RID \u2014 do zaadaptowania" }
+      ],
+      rationale: "<strong>BIGGEST GAP:</strong> Tylko RID komunikuje \u201eone treatment, no combing.\u201d 42.1% narzeka na nieskuteczno\u015b\u0107 \u2014 silny claim skuteczno\u015bci jest krytyczny."
+    },
+    {
+      color: "#D4537E",
+      component: "Differentiator",
+      content: "Co wyr\u00f3\u017cnia od konkurencji",
+      keywords: [
+        { text: "Non-Toxic", sv: null, note: "GAP: Fairy Tales jedyny naturalny" },
+        { text: "Gentle Formula", sv: null, note: "21.8% narzeka na zapach/chemikalia" },
+        { text: "10-Minute Treatment", sv: null, note: "szybko\u015b\u0107 = okazja" }
+      ],
+      rationale: "<strong>Smell = untapped gap.</strong> 21.8% narzeka na zapach. \u017baden konkurent nie komunikuje \u201epleasant scent\u201d jako USP. Okazja do wyr\u00f3\u017cnienia."
+    },
+    {
+      color: "#BA7517",
+      component: "Format / Scent",
+      content: "Forma produktu + opcjonalnie zapach",
+      keywords: [
+        { text: "Shampoo", sv: "27,093", note: null },
+        { text: "Spray", sv: "7,964", note: "\u201elice spray\u201d" },
+        { text: "Conditioning Spray", sv: null, note: "Fairy Tales format" }
+      ],
+      rationale: "Format w tytule pomaga klientowi szybko zidentyfikowa\u0107 typ produktu. Shampoo vs. Spray vs. Kit = r\u00f3\u017cne intencje zakupowe."
+    }
+  ],
+
+  titleExample: "[Brand] Lice Treatment Shampoo for Kids & Adults \u2014 Kills Lice & Eggs in One 10-Minute Treatment \u2014 Non-Toxic, Gentle Formula, No Nit Combing Required \u2014 Head Lice Shampoo with Pleasant Scent",
+  titleExampleNote: "~185 znak\u00f3w (limit 200). Zawiera: 3 top keywords (SV 45K + 27K + 17K), one-treatment USP, safety + scent differentiators.",
+
+  bulletsDescription: "Ka\u017cdy bullet point powinien adresowa\u0107 konkretny temat z Gap Analysis lub Unmet Customer Needs. Poni\u017cej rekomendacje co powinno znale\u017a\u0107 si\u0119 w ka\u017cdym z 5 bullet\u00f3w, jakie s\u0142owa kluczowe wykorzysta\u0107 i jakie dane z recenzji to uzasadniaj\u0105.",
+
+  bullets: [
+    {
+      color: "#1D9E75",
+      number: 1,
+      heading: "KILLS LICE & EGGS IN ONE TREATMENT",
+      items: [
+        "Konkretny claim: \u201ekills lice and eggs (nits) in a single application\u201d",
+        "Czas dzia\u0142ania: \u201ejust 10 minutes \u2014 no repeat treatments needed\u201d",
+        "Brak czesania: \u201eno tedious nit combing required\u201d",
+        "Skuteczno\u015b\u0107 na super wszy: \u201eworks on permethrin-resistant super lice\u201d"
+      ],
+      keywords: [
+        { text: "lice treatment", sv: "45,943", rel: null },
+        { text: "lice shampoo that kills eggs and lice", sv: "5,795", rel: "0.92" }
+      ],
+      rationale: "<strong style=\"color:#dc2626\">42.1%</strong> recenzji: \u201enie dzia\u0142a / wszy wr\u00f3ci\u0142y\u201d \u2014 bullet #1 musi natychmiast budowa\u0107 zaufanie.<br><strong style=\"color:#16a34a\">38.2%</strong> oczekuje skuteczno\u015bci za pierwszym razem.<br><strong>GAP:</strong> Tylko RID komunikuje \u201eone & done\u201d i \u201eno combing.\u201d"
+    },
+    {
+      color: "#378ADD",
+      number: 2,
+      heading: "SAFE & GENTLE FOR KIDS",
+      items: [
+        "Bezpiecze\u0144stwo: \u201egentle enough for children ages 2 and up\u201d",
+        "Formu\u0142a: \u201eno harsh chemicals, dermatologist tested\u201d",
+        "Zapach: \u201epleasant, kid-friendly scent \u2014 no chemical odor\u201d",
+        "Rekomendacja: \u201epediatrician recommended\u201d (je\u015bli dotyczy)"
+      ],
+      keywords: [
+        { text: "lice treatment for kids", sv: "17,608", rel: "1.00" },
+        { text: "lice shampoo for kids", sv: "4,115", rel: "1.00" }
+      ],
+      rationale: "<strong style=\"color:#dc2626\">21.8%</strong> narzeka na zapach / chemikalia.<br><strong style=\"color:#16a34a\">34.7%</strong> szuka rozwi\u0105za\u0144 dla dzieci szkolnych.<br><strong>GAP:</strong> \u017baden konkurent nie komunikuje \u201epleasant scent\u201d jako USP."
+    },
+    {
+      color: "#f97316",
+      number: 3,
+      heading: "PREVENTION & DAILY PROTECTION",
+      items: [
+        "Codzienne u\u017cycie: \u201edaily conditioning spray to repel lice\u201d",
+        "Sk\u0142adniki: \u201enatural essential oils \u2014 rosemary, tea tree, citronella\u201d",
+        "Kontekst: \u201eperfect for school season and lice outbreaks\u201d",
+        "Podw\u00f3jna funkcja: \u201edetangles while protecting against lice\u201d"
+      ],
+      keywords: [
+        { text: "lice prevention spray", sv: "10,366", rel: "0.83" },
+        { text: "lice prevention", sv: "2,108", rel: "1.00" },
+        { text: "lice repellent spray for kids", sv: "3,965", rel: "0.58" }
+      ],
+      rationale: "<strong>Prevention = 45% rynku.</strong> Fairy Tales dominuje segment z \u201eRosemary Repel.\u201d<br>Sezon szkolny = g\u0142\u00f3wny wyzwalacz zakupu.<br><strong>GAP:</strong> Treatment brands nie oferuj\u0105 prevention \u2014 okazja na bundle."
+    },
+    {
+      color: "#7F77DD",
+      number: 4,
+      heading: "COMPLETE KIT \u2014 EVERYTHING YOU NEED",
+      items: [
+        "Zawarto\u015b\u0107: \u201eincludes treatment shampoo + nit comb + instruction guide\u201d",
+        "Warto\u015b\u0107: \u201etreats 2-3 heads per bottle\u201d",
+        "Por\u00f3wnanie: \u201eprofessional-strength formula at a fraction of salon cost ($150+)\u201d",
+        "Instrukcja: \u201esimple 3-step process: apply, wait 10 minutes, rinse\u201d"
+      ],
+      keywords: [
+        { text: "lice kit", sv: "1,522", rel: "0.75" },
+        { text: "head lice treatment kit", sv: "2,316", rel: "0.83" },
+        { text: "lice removal kit", sv: "548", rel: "0.83" }
+      ],
+      rationale: "<strong style=\"color:#dc2626\">15.3%</strong> skar\u017cy si\u0119 na trudno\u015b\u0107 aplikacji.<br>Kit = wy\u017csza postrzegana warto\u015b\u0107 (grzebie\u0144 decyduje o zakupie).<br>Salon visit = $150+ \u2014 silne przeramowanie warto\u015bci."
+    },
+    {
+      color: "#639922",
+      number: 5,
+      heading: "TRUSTED BY PARENTS \u2014 PROVEN RESULTS",
+      items: [
+        "Social proof: \u201etrusted by thousands of parents nationwide\u201d",
+        "Rekomendacja: \u201epediatrician and school nurse recommended\u201d",
+        "Gwarancja: \u201e100% satisfaction guarantee\u201d (je\u015bli oferujesz)",
+        "Spos\u00f3b dzia\u0142ania: kr\u00f3tkie wyja\u015bnienie mechanizmu (dimetykon/iwermektyna)"
+      ],
+      keywords: [
+        { text: "nix lice treatment", sv: "7,484", rel: "0.75" },
+        { text: "rid lice treatment", sv: "2,055", rel: "0.83" },
+        { text: "strongest lice killer", sv: "1,056", rel: "0.75" }
+      ],
+      rationale: "<strong style=\"color:#dc2626\">42.1%</strong> negatywnych: \u201enie dzia\u0142a\u201d \u2014 trust signals s\u0105 krytyczne.<br>Branded keywords (Nix 7.4K, RID 2K) = klienci szukaj\u0105 marek, kt\u00f3rym ufaj\u0105.<br><strong>GAP:</strong> Mechanizm dzia\u0142ania poruszany tylko przez 2/5 konkurent\u00f3w."
+    }
+  ],
+
+  keywordMapDescription: "Najwa\u017cniejsze s\u0142owa kluczowe i rekomendowane miejsce ich umieszczenia. Priorytet: tytu\u0142 > bullet points > backend keywords.",
+
+  keywordMap: [
+    { keyword: "lice treatment", sv: 45943, rel: 0.83, place: { title: true, bullets: true, backend: false } },
+    { keyword: "lice shampoo", sv: 27093, rel: 0.92, place: { title: true, bullets: true, backend: false } },
+    { keyword: "lice treatment for kids", sv: 17608, rel: 1.00, place: { title: true, bullets: true, backend: false } },
+    { keyword: "fairy tales lice prevention", sv: 12176, rel: 0.83, place: { title: false, bullets: false, backend: true } },
+    { keyword: "lice prevention spray", sv: 10366, rel: 0.83, place: { title: false, bullets: true, backend: true } },
+    { keyword: "lice spray", sv: 7964, rel: 0.58, place: { title: false, bullets: true, backend: true } },
+    { keyword: "nix lice treatment", sv: 7484, rel: 0.75, place: { title: false, bullets: false, backend: true } },
+    { keyword: "lice shampoo that kills eggs and lice", sv: 5795, rel: 0.92, place: { title: false, bullets: true, backend: true } },
+    { keyword: "lice shampoo for kids", sv: 4115, rel: 1.00, place: { title: false, bullets: true, backend: false } },
+    { keyword: "lice treatment for adults", sv: 3875, rel: 0.67, place: { title: false, bullets: true, backend: true } },
+    { keyword: "lice repellent spray for kids", sv: 3965, rel: 0.58, place: { title: false, bullets: true, backend: true } },
+    { keyword: "head lice treatment kit", sv: 2316, rel: 0.83, place: { title: false, bullets: true, backend: true } },
+    { keyword: "lice prevention", sv: 2108, rel: 1.00, place: { title: false, bullets: true, backend: false } },
+    { keyword: "strongest lice killer", sv: 1056, rel: 0.75, place: { title: false, bullets: true, backend: true } }
+  ],
+
+  methodology: "<strong>Metodologia:</strong> Rekomendacje oparte na: (1) analizie tytu\u0142\u00f3w i bullet points 5 konkurent\u00f3w z Amazon SP-API (Tab 8 \u2014 Listing Communication), (2) Gap Analysis \u2014 tematy nieporuszane przez konkurencj\u0119 (Pleasant Scent 0/5, One Treatment 1/5, Mechanism 2/5), (3) Unmet Customer Needs z 705 recenzji (Tab 7 \u2014 Reviews VOC), (4) 312 s\u0142\u00f3w kluczowych z Helium 10 Niche Analysis (Tab 9) posortowanych wg Search Volume i Relevancy Score. Forma bezosobowa."
+
+};
+
+
+(function() {
+  var D = COPY_BRIEF_DATA;
+  var root = document.getElementById('cb-root');
+
+  // ── Helper: keyword pill ──
+  function kwPill(kw, bgColor) {
+    var bg = bgColor || '#dcfce7';
+    var html = '<span style="background:' + bg + ';padding:2px 6px;border-radius:4px;font-weight:600">' + esc(kw.text) + '</span>';
+    if (kw.sv) html += ' <span style="color:#94a3b8;font-size:.68rem">SV ' + kw.sv + '</span>';
+    if (kw.rel) html += ' <span style="color:#94a3b8;font-size:.68rem">rel ' + kw.rel + '</span>';
+    if (kw.note) html += ' <span style="color:#94a3b8;font-size:.68rem">' + kw.note + '</span>';
+    return html;
+  }
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  // Color to light background
+  var colorToBg = {
+    '#7F77DD': '#ede9fe', '#1D9E75': '#dcfce7', '#BA7517': '#fef9c3',
+    '#378ADD': '#dbeafe', '#D85A30': '#ffedd5', '#D4537E': '#fce7f3',
+    '#639922': '#ecfccb'
+  };
+
+  // ── Dot indicators ──
+  var dotOn  = '<span style="color:#16a34a;font-weight:700;font-size:1rem">&#9679;</span>';
+  var dotOff = '<span style="color:#d4d4d4;font-size:1rem">&#9675;</span>';
+
+  // ── Build HTML ──
+  var h = '';
+
+  // Insight
+  h += '<div class="insight" style="background:#eff6ff;border-left-color:#2563eb;color:#1e40af">' + D.insight + '</div>';
+
+  // ═══ TITLE ═══
+  h += '<h2 style="margin-top:22px">Struktura tytułu</h2>';
+  h += '<p style="font-size:.78rem;color:#64748b;margin-bottom:14px;line-height:1.5">' + D.titleDescription + '</p>';
+  h += '<div class="card"><table style="width:100%;border-collapse:collapse;font-size:.78rem">';
+  h += '<thead><tr style="background:#f8fafc">';
+  h += '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:140px">Składnik</th>';
+  h += '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:180px">Co powinno zawierać</th>';
+  h += '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700">Słowa kluczowe do użycia</th>';
+  h += '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:200px">Uzasadnienie</th>';
+  h += '</tr></thead><tbody>';
+
+  D.titleComponents.forEach(function(c) {
+    var bg = colorToBg[c.color] || '#f1f5f9';
+    h += '<tr>';
+    h += '<td style="padding:10px 12px;border-bottom:1px solid #f1f5f9;font-weight:600;color:' + c.color + '">' + esc(c.component) + '</td>';
+    h += '<td style="padding:10px 12px;border-bottom:1px solid #f1f5f9">' + esc(c.content) + '</td>';
+    h += '<td style="padding:10px 12px;border-bottom:1px solid #f1f5f9">';
+    c.keywords.forEach(function(kw, i) {
+      if (i > 0) h += '<br>';
+      h += kwPill(kw, bg);
+    });
+    h += '</td>';
+    h += '<td style="padding:10px 12px;border-bottom:1px solid #f1f5f9;font-size:.72rem;color:#64748b">' + c.rationale + '</td>';
+    h += '</tr>';
+  });
+
+  h += '</tbody></table>';
+
+  // Title example
+  if (D.titleExample) {
+    h += '<div class="note" style="margin-top:14px">';
+    h += '<strong>Przykładowa struktura:</strong> ' + esc(D.titleExample) + '<br>';
+    h += '<strong>Znaki:</strong> ' + D.titleExampleNote;
+    h += '</div>';
+  }
+  h += '</div>';
+
+  // ═══ BULLETS ═══
+  h += '<h2 style="margin-top:28px">Struktura Bullet Points</h2>';
+  h += '<p style="font-size:.78rem;color:#64748b;margin-bottom:14px;line-height:1.5">' + D.bulletsDescription + '</p>';
+  h += '<div class="card"><table style="width:100%;border-collapse:collapse;font-size:.78rem">';
+  h += '<thead><tr style="background:#f8fafc">';
+  h += '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:50px">#</th>';
+  h += '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:160px">Temat (nagłówek)</th>';
+  h += '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700">Co powinno zawierać</th>';
+  h += '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:180px">Słowa kluczowe</th>';
+  h += '<th style="padding:10px 12px;text-align:left;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:200px">Uzasadnienie (dane)</th>';
+  h += '</tr></thead><tbody>';
+
+  D.bullets.forEach(function(b) {
+    var bg = colorToBg[b.color] || '#f1f5f9';
+    h += '<tr style="border-left:4px solid ' + b.color + '">';
+    h += '<td style="padding:10px 12px;border-bottom:1px solid #f1f5f9;font-weight:800;color:' + b.color + ';font-size:.95rem">' + b.number + '</td>';
+    h += '<td style="padding:10px 12px;border-bottom:1px solid #f1f5f9;font-weight:700;color:' + b.color + '">' + esc(b.heading) + '</td>';
+    h += '<td style="padding:10px 12px;border-bottom:1px solid #f1f5f9"><ul class="is-bullets" style="margin:0">';
+    b.items.forEach(function(item) { h += '<li>' + esc(item) + '</li>'; });
+    h += '</ul></td>';
+    h += '<td style="padding:10px 12px;border-bottom:1px solid #f1f5f9">';
+    b.keywords.forEach(function(kw, i) {
+      if (i > 0) h += '<br>';
+      h += '<span style="background:' + bg + ';padding:2px 6px;border-radius:4px;font-weight:600;font-size:.72rem">' + esc(kw.text) + '</span>';
+      if (kw.sv) h += ' <span style="color:#94a3b8;font-size:.65rem">SV ' + kw.sv + '</span>';
+      if (kw.rel) h += ' <span style="color:#94a3b8;font-size:.65rem">rel ' + kw.rel + '</span>';
+    });
+    h += '</td>';
+    h += '<td style="padding:10px 12px;border-bottom:1px solid #f1f5f9;font-size:.72rem;color:#64748b">' + b.rationale + '</td>';
+    h += '</tr>';
+  });
+
+  h += '</tbody></table></div>';
+
+  // ═══ KEYWORD MAP ═══
+  h += '<h2 style="margin-top:28px">Mapa integracji słów kluczowych</h2>';
+  h += '<p style="font-size:.78rem;color:#64748b;margin-bottom:14px;line-height:1.5">' + D.keywordMapDescription + '</p>';
+  h += '<div class="card"><table style="width:100%;border-collapse:collapse;font-size:.78rem">';
+  h += '<thead><tr style="background:#f8fafc">';
+  h += '<th style="padding:8px 12px;text-align:left;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700">Słowo kluczowe</th>';
+  h += '<th style="padding:8px 12px;text-align:right;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:80px">SV</th>';
+  h += '<th style="padding:8px 12px;text-align:center;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:60px">Rel.</th>';
+  h += '<th style="padding:8px 12px;text-align:center;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:70px">Tytuł</th>';
+  h += '<th style="padding:8px 12px;text-align:center;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:70px">Bullets</th>';
+  h += '<th style="padding:8px 12px;text-align:center;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:700;width:70px">Backend</th>';
+  h += '</tr></thead><tbody>';
+
+  D.keywordMap.forEach(function(kw) {
+    var relStyle = kw.rel >= 0.8 ? 'font-weight:600;color:#16a34a' : '';
+    var svStyle = kw.sv >= 10000 ? 'font-weight:700;color:#0f2942' : '';
+    h += '<tr>';
+    h += '<td style="padding:7px 12px;border-bottom:1px solid #f1f5f9;font-weight:600">' + esc(kw.keyword) + '</td>';
+    h += '<td style="padding:7px 12px;border-bottom:1px solid #f1f5f9;text-align:right;' + svStyle + '">' + kw.sv.toLocaleString() + '</td>';
+    h += '<td style="padding:7px 12px;border-bottom:1px solid #f1f5f9;text-align:center;' + relStyle + '">' + kw.rel.toFixed(2) + '</td>';
+    h += '<td style="padding:7px 12px;border-bottom:1px solid #f1f5f9;text-align:center">' + (kw.place.title ? dotOn : dotOff) + '</td>';
+    h += '<td style="padding:7px 12px;border-bottom:1px solid #f1f5f9;text-align:center">' + (kw.place.bullets ? dotOn : dotOff) + '</td>';
+    h += '<td style="padding:7px 12px;border-bottom:1px solid #f1f5f9;text-align:center">' + (kw.place.backend ? dotOn : dotOff) + '</td>';
+    h += '</tr>';
+  });
+
+  h += '</tbody></table>';
+  h += '<div class="note" style="margin-top:12px">';
+  h += '<strong>Legenda:</strong> ' + dotOn + ' = należy umieścić &nbsp;|&nbsp; ' + dotOff + ' = nie jest konieczne (pokryte wyżej lub niska relevancy)<br>';
+  h += '<strong>Zasada:</strong> Tytuł powinien zawierać 2–3 top keywords (SV > 15K). Bullet points powinny naturalnie wplatać secondary keywords. Backend keywords służą do pokrycia long-tail i synonimów.';
+  h += '</div></div>';
+
+  // ═══ METHODOLOGY ═══
   h += '<div class="note" style="margin-top:22px">' + D.methodology + '</div>';
 
   root.innerHTML = h;
