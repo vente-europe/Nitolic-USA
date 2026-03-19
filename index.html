@@ -117,6 +117,10 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 .cc .ig-slot img{width:100%;aspect-ratio:1;object-fit:contain;display:block;height:auto}
 .cc .ig-badge{font-size:.58rem;padding:2px 5px;border-radius:3px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.3px}
 .cc .ig-var{font-size:.62rem;color:#94a3b8;padding:2px 0;text-align:center}
+.lc-subtabs{display:flex;gap:8px;margin-bottom:16px}
+.lc-stab{padding:6px 14px;border:1.5px solid #cbd5e1;border-radius:20px;cursor:pointer;font-size:.75rem;font-weight:600;color:#475569;background:#fff;transition:all .15s}
+.lc-stab.active{background:#2563eb;color:#fff;border-color:#2563eb}
+.lc-sp{display:none}.lc-sp.active{display:block}
 .cl-badge{display:inline-block;font-size:.65rem;font-weight:500;padding:2px 7px;border-radius:10px;margin:2px;white-space:nowrap}
 .ts-tag{display:inline-block;font-size:.68rem;padding:2px 6px;border-radius:4px;margin:2px}
 
@@ -1311,6 +1315,55 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   <strong>Audyt listing&#243;w konkurencji.</strong> Zdj&#281;cia i atrybuty pobrane z Amazon SP-API Catalog Items API (2026-03-19). Tematy claims i klasyfikacja obraz&#243;w na podstawie bullet points i tre&#347;ci listingu. 5 top konkurent&#243;w por&#243;wnanych.
 </div>
 
+<div style="display:flex;gap:8px;margin-bottom:16px;margin-top:12px">
+  <div class="lc-stab active" onclick="showLA('la_listing',this)">Listing Communication</div>
+  <div class="lc-stab" onclick="showLA('la_bench',this)">Competitive Benchmark</div>
+</div>
+
+<div id="la_listing" class="lc-sp active">
+
+<div class="kpis" style="margin-bottom:18px">
+  <div class="kpi"><div class="kpi-v">$25.21</div><div class="kpi-l">Avg price<br>across 5 listings</div></div>
+  <div class="kpi"><div class="kpi-v">4.5 ★</div><div class="kpi-l">Avg rating<br>across 5 listings</div></div>
+  <div class="kpi"><div class="kpi-v">7,045</div><div class="kpi-l">Avg reviews<br>across 5 listings</div></div>
+  <div class="kpi"><div class="kpi-v">5/5</div><div class="kpi-l">Have A+ Content</div></div>
+  <div class="kpi"><div class="kpi-v">3/5</div><div class="kpi-l">Have listing video</div></div>
+  <div class="kpi"><div class="kpi-v">6.2</div><div class="kpi-l">Avg image slots<br>per listing</div></div>
+</div>
+
+<div class="card">
+  <h3>Claim Theme Coverage</h3>
+  <p style="font-size:.72rem;color:#64748b;margin-bottom:10px">Tematy komunikacyjne poruszane przez konkurencj&#281; w bullet points i tytu&#322;ach listing&#243;w</p>
+  <div style="overflow-x:auto">
+  <table style="font-size:.73rem;min-width:600px"><thead><tr>
+    <th>Theme</th>
+    <th>RID<br><span style="font-weight:400;font-size:.62rem;color:#94a3b8">One &amp; Done</span></th>
+    <th>Fairy Tales<br><span style="font-weight:400;font-size:.62rem;color:#94a3b8">Conditioning Spray</span></th>
+    <th>Fairy Tales<br><span style="font-weight:400;font-size:.62rem;color:#94a3b8">Star Trio</span></th>
+    <th>Lice Clinics<br><span style="font-weight:400;font-size:.62rem;color:#94a3b8">Treatment Kit</span></th>
+    <th>Nix<br><span style="font-weight:400;font-size:.62rem;color:#94a3b8">Ultra Shampoo</span></th>
+  </tr></thead><tbody>
+    <tr><td style="font-weight:500">Effectiveness / Kill claim</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td></tr>
+    <tr><td style="font-weight:500">Super lice / resistant lice</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td></tr>
+    <tr><td style="font-weight:500">One application / speed</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td></tr>
+    <tr><td style="font-weight:500">No combing required</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td></tr>
+    <tr><td style="font-weight:500">Safe / non-toxic</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td></tr>
+    <tr><td style="font-weight:500">Pediatrician recommended</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td></tr>
+    <tr><td style="font-weight:500">Natural / essential oils</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td></tr>
+    <tr><td style="font-weight:500">Conditioning / detangling</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td></tr>
+    <tr><td style="font-weight:500">Daily prevention use</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td></tr>
+    <tr><td style="font-weight:500">Pleasant scent</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td></tr>
+    <tr><td style="font-weight:500">Complete kit / system</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td></tr>
+    <tr><td style="font-weight:500">Free-from claims</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td></tr>
+    <tr><td style="font-weight:500">Guarantee / satisfaction</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td><td style="text-align:center;color:#1D9E75;font-size:.85rem">&#9679;</td><td style="text-align:center;color:#d4d4d4;font-size:.85rem">&#9675;</td></tr>
+  </tbody></table>
+  </div>
+  <div class="note" style="margin-top:8px">
+    <strong>Legenda:</strong> <span style="color:#1D9E75;font-size:.85rem;font-weight:700">&#9679;</span> = temat poruszany w listingu &nbsp;|&nbsp; <span style="color:#d4d4d4;font-size:.85rem">&#9675;</span> = temat nieobecny<br>
+    <strong>Metodologia:</strong> Kategorie zdefiniowane na podstawie najcz&#281;&#347;ciej powtarzaj&#261;cych si&#281; temat&#243;w komunikacyjnych w bullet points i tytu&#322;ach listing&#243;w konkurencji w segmencie lice na Amazon US. Dane pobrane z Amazon SP-API (Catalog Items &#8594; attributes &#8594; bullet_point).
+  </div>
+</div>
+
 <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
   <h3 style="margin:0;font-size:.88rem;font-weight:700;color:#1e293b">Szczeg&#243;&#322;y listing&#243;w konkurencji</h3>
   <div style="display:flex;gap:6px">
@@ -1323,7 +1376,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div class="cc"><div class="cc-hdr" onclick="toggleComp('B0DTN81GNC')" style="border-left-color:#dc2626">
   <div style="flex:1;min-width:0">
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
-      <span style="font-weight:600;font-size:.88rem;color:#0f2942">RID</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #1 Lice Shampoos &amp; Rinses</span> <span style="border:1px solid #dc2626;color:#dc2626;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Treatment</span>
+      <span style="font-weight:600;font-size:.88rem;color:#0f2942">RID</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #1 Lice Shampoos &amp; Rinses</span> <span style="border:1px solid #dc2626;color:#dc2626;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Treatment</span> <span style="border:1px solid #7F77DD;color:#7F77DD;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">A+</span> <span style="border:1px solid #D4537E;color:#D4537E;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Video</span>
     </div>
     <p style="font-size:.73rem;color:#64748b;margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">RID One &amp; Done, Just One Application Head Lice Treatment, No Combing Required, Prescription Strength Ivermectin Lotion for Children &amp; Adults, Eliminates Super Lice &amp; Renders Eggs Non Viable</p>
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -1420,7 +1473,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div class="cc"><div class="cc-hdr" onclick="toggleComp('B000O7JK0A')" style="border-left-color:#16a34a">
   <div style="flex:1;min-width:0">
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
-      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Fairy Tales</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #1 Lice Treatment Sprays</span> <span style="border:1px solid #16a34a;color:#16a34a;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Prevention</span>
+      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Fairy Tales</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #1 Lice Treatment Sprays</span> <span style="border:1px solid #16a34a;color:#16a34a;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Prevention</span> <span style="border:1px solid #7F77DD;color:#7F77DD;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">A+</span>
     </div>
     <p style="font-size:.73rem;color:#64748b;margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fairy Tales Rosemary Repel Daily Kids Conditioning Spray &#8211; Kids Like the Smell, Lice Do Not, 8 fl oz. (Pack of 1)</p>
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -1502,7 +1555,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div class="cc"><div class="cc-hdr" onclick="toggleComp('B077KWFKZX')" style="border-left-color:#16a34a">
   <div style="flex:1;min-width:0">
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
-      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Fairy Tales</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #104 Shampoo Sets</span> <span style="border:1px solid #16a34a;color:#16a34a;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Prevention</span>
+      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Fairy Tales</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #104 Shampoo Sets</span> <span style="border:1px solid #16a34a;color:#16a34a;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Prevention</span> <span style="border:1px solid #7F77DD;color:#7F77DD;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">A+</span>
     </div>
     <p style="font-size:.73rem;color:#64748b;margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fairy Tales Rosemary Repel Daily Kids Shampoo, 12 fl oz., Conditioner, 8 fl oz. &amp; Conditioning Spray, 8 fl oz. Star Trio</p>
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -1583,7 +1636,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div class="cc"><div class="cc-hdr" onclick="toggleComp('B073C2685B')" style="border-left-color:#dc2626">
   <div style="flex:1;min-width:0">
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
-      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Lice Clinics of America</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #2 Lice Shampoos</span> <span style="border:1px solid #dc2626;color:#dc2626;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Treatment</span>
+      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Lice Clinics of America</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #2 Lice Shampoos</span> <span style="border:1px solid #dc2626;color:#dc2626;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Treatment</span> <span style="border:1px solid #7F77DD;color:#7F77DD;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">A+</span> <span style="border:1px solid #D4537E;color:#D4537E;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Video</span>
     </div>
     <p style="font-size:.73rem;color:#64748b;margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Lice Treatment Kit by Lice Clinics-Guaranteed Cure for Super Lice-Safe, Non-Toxic</p>
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -1671,7 +1724,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div class="cc"><div class="cc-hdr" onclick="toggleComp('B07NLTJ7N8')" style="border-left-color:#dc2626">
   <div style="flex:1;min-width:0">
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
-      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Nix</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #1 Lice Treatment Kits</span> <span style="border:1px solid #dc2626;color:#dc2626;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Treatment</span>
+      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Nix</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #1 Lice Treatment Kits</span> <span style="border:1px solid #dc2626;color:#dc2626;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Treatment</span> <span style="border:1px solid #7F77DD;color:#7F77DD;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">A+</span> <span style="border:1px solid #D4537E;color:#D4537E;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Video</span>
     </div>
     <p style="font-size:.73rem;color:#64748b;margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Nix Ultra Superlice Treatment, All-in-One Shampoo, 4 Fl Oz &amp; Lice Removal Comb</p>
     <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
@@ -1753,6 +1806,110 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
     </div>
   </div>
 </div></div>
+
+</div><!-- end la_listing -->
+
+<div id="la_bench" class="lc-sp">
+
+<div class="card">
+  <h3>How Do These Listings Compare?</h3>
+  <p style="font-size:.72rem;color:#64748b;margin-bottom:14px">Analiza 6 kluczowych wymiar&#243;w listingu &#8212; wzorce lider&#243;w vs. rekomendacje</p>
+
+  <div style="background:#f8fafc;border-radius:8px;padding:14px;margin-bottom:12px">
+    <h4 style="font-size:.8rem;color:#1e293b;margin-bottom:8px">Title structure</h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div><div style="font-size:.68rem;font-weight:600;color:#16a34a;margin-bottom:4px">Leader pattern</div><div style="font-size:.73rem;color:#475569;line-height:1.5">RID: Brand + Treatment Type + Key Benefit (One Application) + Active Ingredient + Target (Children &amp; Adults). Nix: Brand + Superlice + All-in-One + Included Comb.</div></div>
+      <div><div style="font-size:.68rem;font-weight:600;color:#2563eb;margin-bottom:4px">Recommendation</div><div style="font-size:.73rem;color:#475569;line-height:1.5;background:#eff6ff;padding:8px;border-radius:6px">Umie&#347;ci&#263; kluczowy wyr&#243;&#380;nik w pierwszych 80 znakach tytu&#322;u. Doda&#263; target group (kids/adults) i form&#281; produktu. Unika&#263; generycznych okre&#347;le&#324;.</div></div>
+    </div>
+  </div>
+
+  <div style="background:#f8fafc;border-radius:8px;padding:14px;margin-bottom:12px">
+    <h4 style="font-size:.8rem;color:#1e293b;margin-bottom:8px">Key claims</h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div><div style="font-size:.68rem;font-weight:600;color:#16a34a;margin-bottom:4px">Leader pattern</div><div style="font-size:.73rem;color:#475569;line-height:1.5">RID wyr&#243;&#380;nia si&#281; claimem '10 minut' i 'bez czesania'. Nix &#8212; '#1 pediatrician recommended' z &#378;r&#243;d&#322;em. Fairy Tales &#8212; 'lab studies' + wolne od 6 alergen&#243;w.</div></div>
+      <div><div style="font-size:.68rem;font-weight:600;color:#2563eb;margin-bottom:4px">Recommendation</div><div style="font-size:.73rem;color:#475569;line-height:1.5;background:#eff6ff;padding:8px;border-radius:6px">Ka&#380;dy claim musi by&#263; mierzalny (czas, procent, &#378;r&#243;d&#322;o). Unika&#263; 'effective' bez dowodu. Rekomendacja pediatry lub badanie kliniczne = najsilniejszy sygna&#322; zaufania.</div></div>
+    </div>
+  </div>
+
+  <div style="background:#f8fafc;border-radius:8px;padding:14px;margin-bottom:12px">
+    <h4 style="font-size:.8rem;color:#1e293b;margin-bottom:8px">Hero message</h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div><div style="font-size:.68rem;font-weight:600;color:#16a34a;margin-bottom:4px">Leader pattern</div><div style="font-size:.73rem;color:#475569;line-height:1.5">RID: One &amp; Done + Prescription Strength. Lice Clinics: Guaranteed Cure + Expert backing. Nix: #1 Pediatrician Recommended. Ka&#380;dy lider ma 1 wyra&#378;ny wyr&#243;&#380;nik.</div></div>
+      <div><div style="font-size:.68rem;font-weight:600;color:#2563eb;margin-bottom:4px">Recommendation</div><div style="font-size:.73rem;color:#475569;line-height:1.5;background:#eff6ff;padding:8px;border-radius:6px">Wybra&#263; JEDEN hero differentiator i uczyni&#263; go pierwsz&#261; rzecz&#261;, kt&#243;r&#261; kupuj&#261;cy widzi. Unika&#263; generycznego 'effective and safe'.</div></div>
+    </div>
+  </div>
+
+  <div style="background:#f8fafc;border-radius:8px;padding:14px;margin-bottom:12px">
+    <h4 style="font-size:.8rem;color:#1e293b;margin-bottom:8px">Image strategy</h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div><div style="font-size:.68rem;font-weight:600;color:#16a34a;margin-bottom:4px">Leader pattern</div><div style="font-size:.73rem;color:#475569;line-height:1.5">RID: 7 slot&#243;w. Lice Clinics: 7 slot&#243;w. Nix: 6 slot&#243;w. Fairy Tales: 5 slot&#243;w. &#346;rednia: 6.2 sloty. Wszystkie maj&#261; infografiki i lifestyle.</div></div>
+      <div><div style="font-size:.68rem;font-weight:600;color:#2563eb;margin-bottom:4px">Recommendation</div><div style="font-size:.73rem;color:#475569;line-height:1.5;background:#eff6ff;padding:8px;border-radius:6px">Wype&#322;ni&#263; wszystkie 7-9 slot&#243;w. Must-have: hero, before/after, infografika (jak dzia&#322;a), lifestyle (mama + dziecko), comparison vs. alternatywy.</div></div>
+    </div>
+  </div>
+
+  <div style="background:#f8fafc;border-radius:8px;padding:14px;margin-bottom:12px">
+    <h4 style="font-size:.8rem;color:#1e293b;margin-bottom:8px">Content assets</h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div><div style="font-size:.68rem;font-weight:600;color:#16a34a;margin-bottom:4px">Leader pattern</div><div style="font-size:.73rem;color:#475569;line-height:1.5">5/5 ma A+ Content. 3/5 ma wideo (RID, Lice Clinics, Nix). Fairy Tales nie ma wideo mimo najwy&#380;szej sprzeda&#380;y prewencyjnej.</div></div>
+      <div><div style="font-size:.68rem;font-weight:600;color:#2563eb;margin-bottom:4px">Recommendation</div><div style="font-size:.73rem;color:#475569;line-height:1.5;background:#eff6ff;padding:8px;border-radius:6px">A+ Content = standard. Wideo 30-60s z demo produktu znacz&#261;co podnosi konwersj&#281;. Priorytet: wideo instruktarzowe dla rodzic&#243;w.</div></div>
+    </div>
+  </div>
+
+  <div style="background:#f8fafc;border-radius:8px;padding:14px;margin-bottom:12px">
+    <h4 style="font-size:.8rem;color:#1e293b;margin-bottom:8px">Safety messaging</h4>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div><div style="font-size:.68rem;font-weight:600;color:#16a34a;margin-bottom:4px">Leader pattern</div><div style="font-size:.73rem;color:#475569;line-height:1.5">Wszystkie 5 listing&#243;w komunikuje bezpiecze&#324;stwo (safe, non-toxic, free-from). RID: 'child-safe 6mo+'. Nix: 'hypoallergenic'. Fairy Tales: 6x free-from claims.</div></div>
+      <div><div style="font-size:.68rem;font-weight:600;color:#2563eb;margin-bottom:4px">Recommendation</div><div style="font-size:.73rem;color:#475569;line-height:1.5;background:#eff6ff;padding:8px;border-radius:6px">Bezpiecze&#324;stwo to table stakes w niszy dziecięcej. Wymagane: jasna informacja od jakiego wieku, certyfikaty, brak alergen&#243;w. Hypoallergenic = silne wyróżnienie.</div></div>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h3>Key Gaps &amp; Opportunities</h3>
+  <p style="font-size:.72rem;color:#64748b;margin-bottom:10px">Zidentyfikowane s&#322;abo&#347;ci i niewykorzystane okazje w listingach konkurencji</p>
+  <div style="display:grid;grid-template-columns:110px 1fr 140px 70px;gap:8px;padding:8px 0;border-bottom:.5px solid #f1f5f9;align-items:center;font-size:.75rem">
+    <span style="font-weight:600;color:#475569">Czas dzia&#322;ania</span>
+    <span style="color:#1e293b">Tylko RID komunikuje konkretny czas (10 minut). Pozosta&#322;e listingi nie podaj&#261; czasu ekspozycji &#8212; silna luka.</span>
+    <span style="color:#94a3b8;font-size:.68rem">Fairy Tales, Lice Clinics, Nix</span>
+    <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:.65rem;font-weight:600;background:#fee2e2;color:#991b1b">high</span>
+  </div>
+  <div style="display:grid;grid-template-columns:110px 1fr 140px 70px;gap:8px;padding:8px 0;border-bottom:.5px solid #f1f5f9;align-items:center;font-size:.75rem">
+    <span style="font-weight:600;color:#475569">Zapach</span>
+    <span style="color:#1e293b">21.8% negatywnych recenzji dotyczy zapachu. Tylko Lice Clinics komunikuje &#8216;pleasant scent&#8217; &#8212; pozosta&#322;e milcz&#261;.</span>
+    <span style="color:#94a3b8;font-size:.68rem">RID, Fairy Tales Trio, Nix</span>
+    <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:.65rem;font-weight:600;background:#fee2e2;color:#991b1b">high</span>
+  </div>
+  <div style="display:grid;grid-template-columns:110px 1fr 140px 70px;gap:8px;padding:8px 0;border-bottom:.5px solid #f1f5f9;align-items:center;font-size:.75rem">
+    <span style="font-weight:600;color:#475569">Wiek dziecka</span>
+    <span style="color:#1e293b">Tylko RID podaje minimalny wiek (6 miesi&#281;cy). Rodzice potrzebuj&#261; jasnej informacji od jakiego wieku bezpieczny.</span>
+    <span style="color:#94a3b8;font-size:.68rem">Fairy Tales, Lice Clinics, Nix</span>
+    <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:.65rem;font-weight:600;background:#fef3c7;color:#92400e">medium</span>
+  </div>
+  <div style="display:grid;grid-template-columns:110px 1fr 140px 70px;gap:8px;padding:8px 0;border-bottom:.5px solid #f1f5f9;align-items:center;font-size:.75rem">
+    <span style="font-weight:600;color:#475569">Wideo</span>
+    <span style="color:#1e293b">Fairy Tales (BSR #1 Prevention) nie ma listing video mimo 18,017 recenzji &#8212; du&#380;a luka konwersyjna.</span>
+    <span style="color:#94a3b8;font-size:.68rem">Fairy Tales (oba)</span>
+    <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:.65rem;font-weight:600;background:#fef3c7;color:#92400e">medium</span>
+  </div>
+  <div style="display:grid;grid-template-columns:110px 1fr 140px 70px;gap:8px;padding:8px 0;border-bottom:.5px solid #f1f5f9;align-items:center;font-size:.75rem">
+    <span style="font-weight:600;color:#475569">Gwarancja</span>
+    <span style="color:#1e293b">Tylko Lice Clinics oferuje gwarancj&#281; satysfakcji. Pozosta&#322;e 4 listingi nie maj&#261; &#8212; potencjalny wyr&#243;&#380;nik.</span>
+    <span style="color:#94a3b8;font-size:.68rem">RID, Fairy Tales, Nix</span>
+    <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:.65rem;font-weight:600;background:#f1f5f9;color:#475569">low</span>
+  </div>
+  <div style="display:grid;grid-template-columns:110px 1fr 140px 70px;gap:8px;padding:8px 0;border-bottom:.5px solid #f1f5f9;align-items:center;font-size:.75rem">
+    <span style="font-weight:600;color:#475569">Prewencja vs. leczenie</span>
+    <span style="color:#1e293b">Brak listing&#243;w &#322;&#261;cz&#261;cych prewencj&#281; i leczenie w jednym produkcie &#8212; luka rynkowa.</span>
+    <span style="color:#94a3b8;font-size:.68rem">Wszyscy</span>
+    <span style="display:inline-block;padding:2px 8px;border-radius:10px;font-size:.65rem;font-weight:600;background:#f1f5f9;color:#475569">low</span>
+  </div>
+</div>
+
+<div class="note" style="margin-top:18px">
+  <strong>&#377;r&#243;d&#322;a danych:</strong> Amazon SP-API Catalog Items API (zdj&#281;cia, tytu&#322;y, bullet points, product types) &middot; Helium 10 X-Ray (BSR, szacunkowy przych&#243;d, recenzje) &middot; Analiza manualna (tematy claim&#243;w, klasyfikacja obraz&#243;w, hero messages).
+</div>
+
+</div><!-- end la_bench -->
 
 </div><!-- /voc-la -->
 
@@ -4386,6 +4543,13 @@ function vocClear() {
   vocFilter();
 }
 vocFilter();
+
+function showLA(id, el) {
+  document.querySelectorAll('.lc-sp').forEach(function(p) { p.classList.remove('active'); });
+  document.querySelectorAll('.lc-stab').forEach(function(t) { t.classList.remove('active'); });
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+}
 
 function toggleComp(asin) {
   var body = document.getElementById('comp_body_' + asin);
