@@ -3940,27 +3940,27 @@ var KW_ANALYSIS_DATA = {
   h += '<div class="sec-header" style="margin-bottom:12px"><div class="sec-title">Master Keyword List</div></div>';
   h += '<div class="card" style="padding:0;overflow:hidden"><div style="overflow-x:auto;max-height:650px;overflow-y:auto">';
   h += '<table class="kw-table" id="kwTable"><thead><tr>';
-  h += '<th style="position:sticky;left:0;z-index:3;background:#0f2942;text-align:left;padding:8px 10px;min-width:220px;width:30%;cursor:pointer" onclick="kwSort(\'t\')" id="kwH_t">Keyword \u25B2\u25BC</th>';
-  h += '<th style="width:60px;cursor:pointer" onclick="kwSort(\'sv\')" id="kwH_sv">SV \u25B2\u25BC</th>';
-  h += '<th style="width:40px;cursor:pointer" onclick="kwSort(\'rl\')" id="kwH_rl">Rel. \u25B2\u25BC</th>';
+  h += '<th style="position:sticky;left:0;z-index:3;background:#0f2942;text-align:left;padding:8px 10px;min-width:200px;max-width:280px;cursor:pointer" onclick="kwSort(\'t\')" id="kwH_t">Keyword \u25B2\u25BC</th>';
+  h += '<th style="width:70px;cursor:pointer;text-align:right;padding-right:10px" onclick="kwSort(\'sv\')" id="kwH_sv">Search Vol \u25B2\u25BC</th>';
+  h += '<th style="width:50px;cursor:pointer" onclick="kwSort(\'rl\')" id="kwH_rl">Relev. \u25B2\u25BC</th>';
 
   comps.forEach(function(c) {
-    h += '<th style="min-width:44px;max-width:52px;cursor:pointer;padding:6px 2px" onclick="kwSort(\'r_' + c.asin + '\')">';
-    h += '<img src="' + c.image + '" alt="' + esc(c.brand) + '" style="width:30px;height:30px;object-fit:contain;border-radius:3px;background:#fff;display:block;margin:0 auto 2px">';
-    h += '<span style="font-size:.48rem;line-height:1.1;display:block">' + esc(c.brand) + '</span>';
-    h += '<span style="opacity:.4;font-size:.42rem">' + c.asinShort + '</span></th>';
+    h += '<th style="cursor:pointer;text-align:center;width:50px;font-size:.58rem;line-height:1.2" onclick="kwSort(\'r_' + c.asin + '\')" title="' + c.asin + '">';
+    h += '<img src="' + c.image + '" alt="' + esc(c.brand) + '" style="width:42px;height:42px;object-fit:contain;border-radius:3px;background:#fff;display:block;margin:0 auto 3px">';
+    h += esc(c.brand) + '<br>';
+    h += '<span style="opacity:.6;font-weight:400">' + c.asinShort + '</span></th>';
   });
   h += '</tr></thead><tbody id="kwBody"></tbody></table></div>';
 
   // Legend
   h += '<div class="kw-legend">';
-  h += '<span><i style="background:#16a34a"></i> 1\u201310</span>';
-  h += '<span><i style="background:#22c55e"></i> 11\u201320</span>';
-  h += '<span><i style="background:#86efac"></i> 21\u201350</span>';
-  h += '<span><i style="background:#fde68a"></i> 51\u2013100</span>';
-  h += '<span><i style="background:#fca5a5"></i> 101\u2013200</span>';
-  h += '<span><i style="background:#ef4444"></i> 201\u2013306</span>';
-  h += '<span><i style="background:#f1f5f9;border:1px solid #e2e8f0"></i> Not ranked</span>';
+  h += '<span><i style="background:#166534"></i> 1\u20135 (Top)</span>';
+  h += '<span><i style="background:#22c55e"></i> 6\u201310</span>';
+  h += '<span><i style="background:#86efac"></i> 11\u201320</span>';
+  h += '<span><i style="background:#fde68a"></i> 21\u201350</span>';
+  h += '<span><i style="background:#fdba74"></i> 51\u2013100</span>';
+  h += '<span><i style="background:#fca5a5"></i> 100+</span>';
+  h += '<span><i style="background:#f8fafc;border:1px solid #e2e8f0"></i> Not ranked</span>';
   h += '</div></div>';
 
   root.innerHTML = h;
@@ -3969,14 +3969,14 @@ var KW_ANALYSIS_DATA = {
   var KW = D.keywords;
   var sortCol = 'sv', sortDir = -1;
 
-  function rankColor(rank) {
-    if (!rank || rank <= 0 || rank > 305) return { bg: '#f8fafc', fg: '#cbd5e1' };
-    if (rank <= 10) return { bg: '#16a34a', fg: '#fff' };
-    if (rank <= 20) return { bg: '#22c55e', fg: '#fff' };
-    if (rank <= 50) return { bg: '#86efac', fg: '#064e3b' };
-    if (rank <= 100) return { bg: '#fde68a', fg: '#78350f' };
-    if (rank <= 200) return { bg: '#fca5a5', fg: '#7f1d1d' };
-    return { bg: '#ef4444', fg: '#fff' };
+  function rankColor(r) {
+    if (r === null || r === undefined || !r || r <= 0 || r > 305) return ['#f8fafc','#cbd5e1'];
+    if (r <= 5) return ['#166534','#fff'];
+    if (r <= 10) return ['#22c55e','#fff'];
+    if (r <= 20) return ['#86efac','#166534'];
+    if (r <= 50) return ['#fde68a','#92400e'];
+    if (r <= 100) return ['#fdba74','#9a3412'];
+    return ['#fca5a5','#991b1b'];
   }
 
   function renderKW() {
@@ -4000,14 +4000,18 @@ var KW_ANALYSIS_DATA = {
     var html = '';
     sorted.forEach(function(kw) {
       html += '<tr>';
-      html += '<td style="position:sticky;left:0;background:#fff;z-index:1;text-align:left;padding:6px 10px;font-weight:500;white-space:nowrap;border-bottom:1px solid #f1f5f9">' + kw.t + '</td>';
-      html += '<td style="font-weight:700;color:#0f2942;border-bottom:1px solid #f1f5f9">' + kw.sv.toLocaleString() + '</td>';
-      var relStyle = kw.rl >= 0.8 ? 'font-weight:700;color:#16a34a' : 'color:#64748b';
-      html += '<td style="border-bottom:1px solid #f1f5f9;' + relStyle + '">' + kw.rl.toFixed(2) + '</td>';
+      html += '<td style="position:sticky;left:0;background:#fff;z-index:1;text-align:left;padding:5px 10px;color:#334155;max-width:280px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-bottom:1px solid #f1f5f9">' + kw.t + '</td>';
+      html += '<td style="font-weight:600;text-align:right;padding-right:10px;color:#1e293b;border-bottom:1px solid #f1f5f9">' + kw.sv.toLocaleString() + '</td>';
+      var relPct = Math.round(kw.rl * 100) + '%';
+      var relStyle = kw.rl >= 0.8 ? 'font-weight:700;color:#166534' : 'color:#64748b';
+      html += '<td style="text-align:center;border-bottom:1px solid #f1f5f9;' + relStyle + '">' + relPct + '</td>';
       kw.r.forEach(function(rank) {
         var c = rankColor(rank);
-        var label = (!rank || rank <= 0 || rank > 305) ? '–' : rank;
-        html += '<td style="border-bottom:1px solid #f1f5f9;padding:3px 1px"><span style="display:inline-block;min-width:22px;padding:1px 3px;border-radius:3px;font-weight:600;font-size:.6rem;background:' + c.bg + ';color:' + c.fg + '">' + label + '</span></td>';
+        if (!rank || rank <= 0 || rank > 305) {
+          html += '<td style="text-align:center;color:#cbd5e1;font-size:.72rem;border-bottom:1px solid #f1f5f9">\u2014</td>';
+        } else {
+          html += '<td style="text-align:center;background:' + c[0] + ';color:' + c[1] + ';font-weight:600;font-size:.72rem;padding:4px 2px;border-bottom:1px solid #f1f5f9">' + rank + '</td>';
+        }
       });
       html += '</tr>';
     });
