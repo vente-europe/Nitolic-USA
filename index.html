@@ -135,6 +135,30 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 .sec-summary{font-size:.78rem;color:#64748b;line-height:1.55;margin-bottom:20px;max-width:900px}
 .sec-header{display:flex;align-items:center;gap:10px;margin-bottom:6px;padding-top:8px}
 .sec-title{font-size:1rem;font-weight:700;color:#1e293b}
+.is-insights-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:12px;margin-bottom:22px}
+.is-insight-card{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07);border-top:4px solid #e2e8f0;text-align:center}
+.is-pct{font-size:1.6rem;font-weight:800;line-height:1.1}
+.is-label{font-size:.72rem;color:#64748b;margin-top:6px;line-height:1.4}
+.is-slot-card{background:#fff;border-radius:10px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.08);margin-bottom:18px;border-left:5px solid #2563eb;position:relative;overflow:hidden}
+.is-slot-num{position:absolute;top:14px;right:18px;font-size:2.2rem;font-weight:900;color:#e2e8f0;line-height:1}
+.is-slot-title{font-size:1rem;font-weight:700;color:#0f2942;margin-bottom:2px}
+.is-slot-purpose{font-size:.78rem;color:#64748b;margin-bottom:14px;line-height:1.4}
+.is-section{margin-bottom:12px}
+.is-section-label{font-size:.68rem;font-weight:700;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+.is-bullets{list-style:none;padding:0;margin:0}
+.is-bullets li{font-size:.78rem;color:#1e293b;padding:3px 0 3px 16px;position:relative;line-height:1.5}
+.is-bullets li::before{content:'\2022';position:absolute;left:0;color:#2563eb;font-weight:700}
+.is-copy-box{background:#eff6ff;border-radius:6px;padding:10px 14px;font-size:.8rem;color:#1e40af;font-style:italic;line-height:1.5;margin-top:4px}
+.is-do-dont{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:6px}
+.is-do{background:#f0fdf4;border-radius:6px;padding:10px 12px;border-left:3px solid #16a34a}
+.is-dont{background:#fef2f2;border-radius:6px;padding:10px 12px;border-left:3px solid #dc2626}
+.is-do h5,.is-dont h5{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:4px}
+.is-do h5{color:#16a34a}.is-dont h5{color:#dc2626}
+.is-do li,.is-dont li{font-size:.72rem;line-height:1.5}
+.is-compliance-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.is-compliance-card{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.is-compliance-card h4{font-size:.85rem;font-weight:700;color:#0f2942;margin-bottom:8px}
+@media(max-width:700px){.is-do-dont,.is-compliance-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -155,6 +179,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   <div class="tab" onclick="show('t7voc',this)">7 — Reviews VOC</div>
   <div class="tab" onclick="show('tlc',this)">8 — Listing Communication</div>
   <div class="tab" onclick="show('t9kw',this)">9 — KW Analysis</div>
+  <div class="tab" onclick="show('tis',this)">10 — Strategia Zdjęć</div>
 </div>
 
 <div class="content">
@@ -1936,7 +1961,13 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div id="t9kw" class="panel">
 <h2>Keyword Analysis — Competitor Landscape</h2>
 <div id="kwa-root"></div>
-</div><!-- END TAB 9 -->
+</div><!-- END TAB 9 --
+<!-- TAB 10 Image Strategy -->
+<div id="tis" class="panel">
+<h2>Strategia Zdjęć — 7-Image Stack Brief</h2>
+<div id="is-root"></div>
+</div><!-- END TAB 10 -->
+>
 >
 
 <script>
@@ -4029,6 +4060,337 @@ var KW_ANALYSIS_DATA = {
   } else {
     setTimeout(renderKW, 50);
   }
+})();
+
+
+// Image Strategy
+var IMAGE_STRATEGY_DATA = {
+
+  insight: "<strong>Brief oparty na danych.</strong> Strategia oparta na analizie 705 recenzji konkurencji (Tab 7 \u2014 Reviews VOC), audycie listing\u00f3w 5 konkurent\u00f3w (Tab 8 \u2014 Listing Communication) z danymi z Amazon SP-API, analizie luk komunikacyjnych oraz frameworku \u201eConversion-First\u201d 7-Image Stack. Wszystkie procenty odnosz\u0105 si\u0119 do rzeczywistych danych z recenzji klient\u00f3w w kategorii lice treatment & prevention na Amazon US.",
+
+  insightCards: [
+    { pct: "42.1%", label: "\u201eDidn\u2019t work / lice came back\u201d<br>Najwi\u0119ksze wyzwanie wizualne", color: "#dc2626" },
+    { pct: "21.8%", label: "\u201eTerrible smell / chemical odor\u201d<br>Odstraszaj\u0105cy czynnik \u2014 szansa na wyr\u00f3\u017cnienie", color: "#f97316" },
+    { pct: "34.7%", label: "Szukaj\u0105 rozwi\u0105zania dla dzieci szkolnych<br>G\u0142\u00f3wna grupa docelowa", color: "#16a34a" },
+    { pct: "38.2%", label: "Oczekuj\u0105 skuteczno\u015bci za pierwszym razem<br>Konieczno\u015b\u0107 udowodnienia wizualnie", color: "#d97706" },
+    { pct: "7\u20139", label: "Rekomendowane sloty zdj\u0119\u0107<br>Pe\u0142ny stack = 32% wy\u017cszy CVR", color: "#2563eb" },
+    { pct: "54.9%", label: "Treatment > Prevention<br>Segment treatment dominuje rynek", color: "#7c3aed" }
+  ],
+
+  slotsHeading: "Stack 7 Zdj\u0119\u0107 \u2014 Briefy slot\u00f3w",
+  slotsDescription: "Ka\u017cdy slot opisany jest jako kompletny brief fotograficzny: cel, co pokaza\u0107, sugerowany copy, zalecenia i antyrekomendacje. Kolejno\u015b\u0107 slot\u00f3w odpowiada frameworkowi \u201eConversion-First\u201d (hero \u2192 korzy\u015bci \u2192 por\u00f3wnanie \u2192 skala \u2192 lifestyle \u2192 dow\u00f3d \u2192 warto\u015b\u0107).",
+
+  slots: [
+    {
+      number: 1, color: "#dc2626",
+      title: "Zdj\u0119cie g\u0142\u00f3wne (CTR Driver)",
+      purpose: "Miniaturka widoczna w wynikach wyszukiwania. Musi maksymalizowa\u0107 CTR w\u015br\u00f3d produkt\u00f3w lice treatment.",
+      objective: "Produkt powinien zajmowa\u0107 85%+ kadru na czystym bia\u0142ym tle. Opakowanie z wyra\u017anie widocznym claimem \u201eKills Lice & Eggs\u201d lub \u201ePrevention Spray\u201d wydrukowanym na produkcie.",
+      showItems: [
+        "Produkt pod k\u0105tem 30\u201345\u00b0 \u2014 etykieta frontowa z claimami widoczna",
+        "Opakowanie z fizycznie wydrukowanymi kluczowymi claimami",
+        "Je\u015bli zestaw (kit) \u2014 pokaza\u0107 wszystkie elementy: szampon + grzebie\u0144 + spray",
+        "Kolorystyka wyra\u017anie odr\u00f3\u017cniaj\u0105ca Prevention (ziele\u0144/b\u0142\u0119kit) od Treatment (czerwie\u0144/pomara\u0144cz)",
+        "Czyste, ostre cienie \u2014 bez ostrego o\u015bwietlenia studyjnego"
+      ],
+      copy: "Brak cyfrowych nak\u0142adek tekstowych. Ca\u0142y przekaz musi by\u0107 fizycznie wydrukowany na produkcie/opakowaniu: brand name, \u201eKills Lice & Eggs\u201d, \u201eNon-Toxic\u201d, \u201e10-Minute Treatment\u201d.",
+      doItems: [
+        "Wype\u0142ni\u0107 85%+ powierzchni zdj\u0119cia produktem",
+        "U\u017cy\u0107 prawdziwego opakowania z wydrukowanymi claimami",
+        "Pokaza\u0107 zawarto\u015b\u0107 ca\u0142ego zestawu (je\u015bli kit)",
+        "Rozdzielczo\u015b\u0107 2000\u20133000px JPEG",
+        "Przetestowa\u0107 vs miniaturki RID, Nix, Fairy Tales (PickFu)"
+      ],
+      dontItems: [
+        "Cyfrowe nak\u0142adki tekstowe (AI Amazona blokuje w ci\u0105gu 1h)",
+        "Badge\u2019e, wst\u0105\u017cki, grafiki promocyjne",
+        "Rekwizyty niedo\u0142\u0105czone do zakupu (np. w\u0142osy, grzebienie)",
+        "Znaki wodne ani cyfrowo dodane logo",
+        "Zdj\u0119cia dziecka z wszawic\u0105 \u2014 szokuj\u0105ce i naruszaj\u0105ce TOS"
+      ]
+    },
+    {
+      number: 2, color: "#2563eb",
+      title: "Infografika korzy\u015bci (\u201eThe Hook\u201d)",
+      purpose: "Pierwsze zdj\u0119cie dodatkowe. 3 g\u0142\u00f3wne korzy\u015bci w poni\u017cej 3 sekund (skanowalne na telefonie).",
+      objective: "Pokaza\u0107 REZULTAT: dziecko z czystymi, zdrowymi w\u0142osami po zabiegu. Na\u0142o\u017cy\u0107 3\u20135 kluczowych korzy\u015bci z ikonami.",
+      showItems: [
+        "Centralny obraz: szcz\u0119\u015bliwe dziecko z czystymi w\u0142osami (~40% kadru)",
+        "Korzy\u015b\u0107 #1: \u201eKills Lice & Eggs in One Treatment\u201d \u2014 ikona checkmark (38.2% oczekuje skuteczno\u015bci za 1 razem)",
+        "Korzy\u015b\u0107 #2: \u201eGentle & Safe for Kids 2+\u201d \u2014 ikona tarcza/dziecko (34.7% g\u0142\u00f3wna grupa)",
+        "Korzy\u015b\u0107 #3: \u201eNo Harsh Chemical Smell\u201d \u2014 ikona li\u015b\u0107/kwiat (21.8% narzeka na zapach)",
+        "Opcjonalnie #4: \u201e10-Minute Application\u201d \u2014 ikona zegar (wygoda stosowania)",
+        "Opcjonalnie #5: \u201ePediatrician Recommended\u201d \u2014 ikona stetoskop (claim Nix/RID)"
+      ],
+      copy: "\u201eKills Lice & Eggs in One Treatment\u201d \u2022 \u201eGentle & Safe for Kids 2+\u201d \u2022 \u201eNo Harsh Chemical Smell\u201d \u2022 \u201e10-Minute Application\u201d",
+      doItems: [
+        "Maksymalnie 5 korzy\u015bci \u2014 mniej = lepiej",
+        "Czcionka min. 32px nag\u0142\u00f3wki, 16px podtekst",
+        "Ikony uniwersalne (tarcza, li\u015b\u0107, zegar, checkmark)",
+        "Skupi\u0107 si\u0119 na REZULTACIE: \u201elice-free hair\u201d nie \u201econtains permethrin\u201d"
+      ],
+      dontItems: [
+        "Wymienianie sk\u0142adnik\u00f3w chemicznych (odstraszaj\u0105ce, techniczne)",
+        "Wi\u0119cej ni\u017c 25 s\u0142\u00f3w \u0142\u0105cznie na zdj\u0119ciu",
+        "Zdj\u0119cia wszy/gnid (obrzydliwe dla kupuj\u0105cych \u2014 konwersja spada)",
+        "Zat\u0142aczanie \u2014 klient musi z\u0142apa\u0107 warto\u015b\u0107 w 3 sekundy"
+      ]
+    },
+    {
+      number: 3, color: "#f97316",
+      title: "My vs. Oni \u2014 Por\u00f3wnanie metod",
+      purpose: "Odpowied\u017a na kluczowy problem: 42.1% recenzji twierdzi \u201enie dzia\u0142a.\u201d Trzeba pokaza\u0107 dlaczego nasz produkt jest inny.",
+      objective: "Por\u00f3wnanie obok siebie: tradycyjne metody (czesanie godzinami, wielokrotne aplikacje) vs. nasz produkt (jedna aplikacja, 10 minut).",
+      showItems: [
+        "LEWA strona: tradycyjna metoda \u2014 zm\u0119czony rodzic czesz\u0105cy w\u0142osy dziecka godzinami, obok wiele butelek r\u00f3\u017cnych produkt\u00f3w",
+        "PRAWA strona: nasz produkt \u2014 jedna butelka, szybka aplikacja, u\u015bmiechni\u0119te dziecko",
+        "Wiersze por\u00f3wnania: Czas leczenia \u2713/\u2717, Liczba aplikacji \u2713/\u2717, Czesanie wymagane \u2713/\u2717, Skuteczno\u015b\u0107 na jaja \u2713/\u2717",
+        "Opcjonalnie: o\u015b czasu \u2014 tradycyjne = 2-3 tygodnie, nasz = jednorazowo"
+      ],
+      copy: "\u201eStop spending hours combing and re-treating. One 10-minute application kills lice AND eggs \u2014 no repeat treatments needed.\u201d",
+      doItems: [
+        "Kontrast DRAMATYCZNY \u2014 zm\u0119czenie vs. \u0142atwo\u015b\u0107",
+        "U\u017cy\u0107 generycznego \u201etraditional methods\u201d nie nazw konkurent\u00f3w",
+        "Pokaza\u0107 oszcz\u0119dno\u015b\u0107 czasu (konkretna metryka: 10 min vs. 2+ godziny)",
+        "Do\u0142\u0105czy\u0107 claim: \u201eKills eggs too \u2014 no nit combing\u201d"
+      ],
+      dontItems: [
+        "Podawanie nazw konkurencyjnych marek (naruszenie TOS Amazon)",
+        "Pokazywanie prawdziwych wszy/gnid (odstraszaj\u0105ce)",
+        "Zbyt z\u0142o\u017cone por\u00f3wnanie \u2014 maks. 4 wiersze",
+        "Claim\u2019y kt\u00f3rych nie mo\u017cna potwierdzi\u0107 klinicznie"
+      ]
+    },
+    {
+      number: 4, color: "#3b82f6",
+      title: "Rozmiar produktu i instrukcja u\u017cycia",
+      purpose: "15.3% recenzji skar\u017cy si\u0119 na trudno\u015b\u0107 aplikacji. Wizualna instrukcja zmniejsza zwroty i negatywne recenzje.",
+      objective: "Jasna, 3-4 krokowa infografika stosowania produktu. Pokaza\u0107 dok\u0142adne wymiary opakowania obok znanych przedmiot\u00f3w.",
+      showItems: [
+        "Krok 1: Na\u0142o\u017cy\u0107 produkt na suche w\u0142osy (ikona butelki + w\u0142osy)",
+        "Krok 2: Odczeka\u0107 10 minut (ikona zegara z 10 min)",
+        "Krok 3: Wyp\u0142uka\u0107 (ikona wody/prysznica)",
+        "Krok 4: Grzebie\u0144 do\u0142\u0105czony do zestawu (je\u015bli kit)",
+        "Wymiary butelki obok smartfona lub szczotki do w\u0142os\u00f3w (referencja rozmiaru)"
+      ],
+      copy: "\u201eSimple 3-step process: Apply \u2192 Wait 10 minutes \u2192 Rinse. Everything you need included in the box.\u201d",
+      doItems: [
+        "Numerowane kroki z du\u017cymi ikonami (czytelne na mobile)",
+        "Poda\u0107 dok\u0142adne wymiary ze strza\u0142kami",
+        "Pokaza\u0107 ilo\u015b\u0107 produktu potrzebn\u0105 na jedn\u0105 aplikacj\u0119",
+        "Zaznaczy\u0107 ile aplikacji z jednej butelki (warto\u015b\u0107)"
+      ],
+      dontItems: [
+        "Zbyt wiele krok\u00f3w (maks. 4 \u2014 musi by\u0107 proste)",
+        "Ma\u0142y tekst nieczytelny na telefonie",
+        "Realistyczne zdj\u0119cia g\u0142owy z wszami (u\u017cy\u0107 ilustracji)",
+        "Pomijanie czasu dzia\u0142ania \u2014 klienci chc\u0105 wiedzie\u0107 \u201ejak d\u0142ugo\u201d"
+      ]
+    },
+    {
+      number: 5, color: "#16a34a",
+      title: "Lifestyle \u2014 Powr\u00f3t do szko\u0142y bez stresu",
+      purpose: "34.7% recenzji dotyczy kontekstu szkolnego. G\u0142\u00f3wny moment zakupu: powiadomienie ze szko\u0142y o epidemii wszy.",
+      objective: "Realistyczna scena: pewne siebie dziecko gotowe do szko\u0142y z czystymi, zdrowymi w\u0142osami. Rodzic spokojny, bez stresu.",
+      showItems: [
+        "Dziecko (6-12 lat) z plecakiem, u\u015bmiechni\u0119te, gotowe do szko\u0142y",
+        "W\u0142osy: czyste, b\u0142yszcz\u0105ce, zadbane (kontrast z problemem)",
+        "Rodzic w tle \u2014 spokojny, pewny siebie (nie zestresowany)",
+        "Produkt widoczny dyskretnie w \u0142azience/na p\u00f3\u0142ce (nie centralny)",
+        "Ciep\u0142e, naturalne o\u015bwietlenie \u2014 domowa atmosfera"
+      ],
+      copy: "\u201eBack to school, lice-free. Trusted by parents for fast, gentle treatment that lets kids be kids again.\u201d",
+      doItems: [
+        "Model odzwierciedlaj\u0105cy grup\u0119 docelow\u0105 (dziecko 6-12 lat)",
+        "Kontekst \u201eback to school\u201d \u2014 g\u0142\u00f3wny wyzwalacz zakupu",
+        "Ciep\u0142e, naturalne o\u015bwietlenie",
+        "Produkt widoczny ale nie dominuj\u0105cy (kontekst jest przekazem)"
+      ],
+      dontItems: [
+        "Zdj\u0119cia dzieci z widocznymi wszami/gnidami (szokuj\u0105ce)",
+        "Dziecko p\u0142acz\u0105ce lub zestresowane (negatywne skojarzenia)",
+        "Produkt jako centrum uwagi (powinien by\u0107 cz\u0119\u015bci\u0105 sceny)",
+        "Zimne/kliniczne o\u015bwietlenie (powinno by\u0107 ciep\u0142e, bezpieczne)"
+      ]
+    },
+    {
+      number: 6, color: "#7c3aed",
+      title: "Dow\u00f3d skuteczno\u015bci \u2014 Kliniczny claim",
+      purpose: "Odpowied\u017a na temat negatywny #1: 42.1% twierdzi \u201enie dzia\u0142a.\u201d Wizualny dow\u00f3d skuteczno\u015bci jest krytyczny.",
+      objective: "Infografika z danymi klinicznymi lub wynikami bada\u0144. Pokaza\u0107 mechanizm dzia\u0142ania \u2014 JAK produkt zabija wszy i jaja.",
+      showItems: [
+        "Diagram mechanizmu dzia\u0142ania (np. iwermektyna/dimetykon \u2014 jak dzia\u0142a na wszy)",
+        "Statystyka kliniczna: \u201e99% skuteczno\u015bci w jednej aplikacji\u201d (je\u015bli potwierdzona)",
+        "O\u015b czasu: \u201e10 minut \u2192 wszy gin\u0105, jaja nieaktywne\u201d",
+        "Infografika: tradycyjny permethrin (oporno\u015b\u0107!) vs. nowa formu\u0142a",
+        "Badge: \u201ePediatrician Recommended\u201d / \u201eFDA Approved\u201d (je\u015bli dotyczy)"
+      ],
+      copy: "\u201eClinically proven to kill lice AND eggs in a single 10-minute treatment. Powered by prescription-strength ivermectin \u2014 no resistance, no re-treatment.\u201d",
+      doItems: [
+        "U\u017cy\u0107 danych klinicznych (konkretne procenty, badania)",
+        "Pokaza\u0107 mechanizm dzia\u0142ania wizualnie (schemat, nie tekst)",
+        "Odnie\u015b\u0107 si\u0119 do problemu oporno\u015bci na permethrin (super lice)",
+        "Do\u0142\u0105czy\u0107 \u201eAAP recommended\u201d je\u015bli dotyczy (silny trust signal)"
+      ],
+      dontItems: [
+        "Realistyczne mikroskopowe zdj\u0119cia wszy (odstraszaj\u0105ce)",
+        "Nieudokumentowane claim\u2019y (\u201e100% effective\u201d bez \u017ar\u00f3d\u0142a)",
+        "\u017bargon medyczny bez wyja\u015bnienia (klienci to rodzice, nie lekarze)",
+        "Zbyt du\u017co tekstu \u2014 infografika > paragraf"
+      ]
+    },
+    {
+      number: 7, color: "#d97706",
+      title: "Wszystko w zestawie / Warto\u015b\u0107",
+      purpose: "Por\u00f3wnanie cen: od $12.48 (Fairy Tales spray) do $45.95. Klient musi zobaczy\u0107 co dok\u0142adnie dostaje za swoje pieni\u0105dze.",
+      objective: "Flat lay z ca\u0142\u0105 zawarto\u015bci\u0105 opakowania. Zwi\u0119kszenie postrzeganej warto\u015bci przez pokazanie wszystkiego co klient otrzymuje.",
+      showItems: [
+        "Flat lay: butelka/spray + grzebien do gnid + instrukcja (je\u015bli w zestawie)",
+        "Ka\u017cdy element podpisany: \u201eTreatment Lotion\u201d, \u201eNit Comb\u201d, \u201eQuick Guide\u201d",
+        "Informacja o ilo\u015bci aplikacji: \u201eTreats 2-3 heads per bottle\u201d",
+        "Przeramowanie warto\u015bci: \u201eLess than $12/treatment vs. $150+ salon visit\u201d",
+        "Opcjonalnie: tabela por\u00f3wnania \u2014 koszt salonu vs. produkt domowy"
+      ],
+      copy: "\u201eEverything you need to treat the whole family. Professional-strength formula at a fraction of salon cost. One bottle treats 2-3 heads.\u201d",
+      doItems: [
+        "Roz\u0142o\u017cy\u0107 WSZYSTKIE elementy \u2014 postrzegana warto\u015b\u0107 ro\u015bnie",
+        "Poda\u0107 liczb\u0119 aplikacji na butelk\u0119 (warto\u015b\u0107 per head)",
+        "Por\u00f3wna\u0107 z kosztem salonu ($150+) \u2014 przeramowanie warto\u015bci",
+        "Podpisa\u0107 ka\u017cdy sk\u0142adnik wyra\u017anie"
+      ],
+      dontItems: [
+        "Elementy u\u0142o\u017cone w stos (zmniejsza postrzegan\u0105 ilo\u015b\u0107)",
+        "Pomijanie informacji o ilo\u015bci aplikacji",
+        "Elementy lifestyle (tu chodzi o WARTO\u0106\u0106, nie kontekst)",
+        "Ukrywanie grzebienia/akcesori\u00f3w (cz\u0119sto decyduj\u0105 o zakupie kitu vs. samego szamponu)"
+      ]
+    }
+  ],
+
+  complianceHeading: "Zgodno\u015b\u0107 techniczna z Amazon (2025\u20132026)",
+  complianceCards: [
+    {
+      title: "Zasady zdj\u0119cia g\u0142\u00f3wnego", color: "#dc2626",
+      items: [
+        "Czyste bia\u0142e t\u0142o: <strong>RGB 255, 255, 255</strong>",
+        "Produkt zajmuje <strong>85%+</strong> kadru",
+        "Brak cyfrowych nak\u0142adek tekstowych (AI blokuje w ci\u0105gu 1h)",
+        "Brak badge\u2019\u00f3w, wst\u0105\u017cek, grafik promocyjnych",
+        "Brak rekwizyt\u00f3w niedo\u0142\u0105czonych do zakupu",
+        "Brak zdj\u0119\u0107 dzieci z widocznymi wszami (TOS + szokuj\u0105ce)",
+        "<strong>Luka w opakowaniu jest martwa</strong> \u2014 AI Amazona wykrywa cyfrowe dodatki vs. druk"
+      ]
+    },
+    {
+      title: "Specyfikacja techniczna", color: "#2563eb",
+      items: [
+        "Rozdzielczo\u015b\u0107: <strong>1600\u20133000px</strong> (umo\u017cliwia zoom)",
+        "Format: <strong>JPEG</strong> preferowany (szybsze \u0142adowanie)",
+        "Proporcje: <strong>1:1</strong> (kwadrat, 2000\u00d72000 idealnie)",
+        "Rozmiar pliku: poni\u017cej 10MB",
+        "Pierwsze 7 zdj\u0119\u0107 widocznych domy\u015blnie na desktopie",
+        "Nale\u017cy zawsze sprawdzi\u0107 na <strong>telefonie</strong> przed wgraniem"
+      ]
+    },
+    {
+      title: "Testy A/B (Manage Your Experiments)", color: "#16a34a",
+      items: [
+        "Najpierw testowa\u0107 zdj\u0119cie g\u0142\u00f3wne (najwi\u0119kszy wp\u0142yw na CTR)",
+        "Prowadzi\u0107 testy 6\u20138 tygodni dla istotno\u015bci statystycznej",
+        "Wersje musz\u0105 si\u0119 <strong>istotnie r\u00f3\u017cni\u0107</strong> (nie tylko zmiana k\u0105ta)",
+        "Nie testowa\u0107 podczas Prime Day / Black Friday",
+        "Jeden element naraz (tylko zdj\u0119cie, nie zdj\u0119cie + tytu\u0142)",
+        "Przypadek: jedna zmiana zdj\u0119cia = <strong>32% wzrost konwersji</strong>"
+      ]
+    },
+    {
+      title: "Optymalizacja mobilna", color: "#d97706",
+      items: [
+        "Czcionki czytelne <strong>bez powi\u0119kszania</strong>",
+        "Kluczowe detale wyeksponowane bez zat\u0142oczenia",
+        "Uk\u0142ad pionowy preferowany dla before/after (nie obok siebie)",
+        "Testowa\u0107 na ekranie 5\u2033 przed wgraniem",
+        "AI Amazona \u201eczyta\u201d zawarto\u015b\u0107 zdj\u0119\u0107 \u2014 metadane musz\u0105 pasowa\u0107 do wizuali"
+      ]
+    }
+  ],
+
+  methodology: "<strong>Metodologia:</strong> Strategia oparta na danych z: (1) 705 recenzji klient\u00f3w Amazon w kategorii lice treatment & prevention (Tab 7 \u2014 Reviews VOC), (2) audytu listing\u00f3w 5 konkurent\u00f3w z danymi z Amazon SP-API (Tab 8 \u2014 Listing Communication), (3) analizy luk komunikacyjnych (VoC vs. listing), (4) best practices Amazon 2025\u20132026, (5) frameworku \u201eConversion-First\u201d 7-Image Stack. Wszystkie procenty odnosz\u0105 si\u0119 do rzeczywistych danych z recenzji. J\u0119zyk bezosobowy stosowany zgodnie z konwencj\u0105 brief\u00f3w kreatywnych."
+
+};
+
+
+(function() {
+  var D = IMAGE_STRATEGY_DATA;
+  var root = document.getElementById('is-root');
+  var h = '';
+
+  // ── Insight ──
+  h += '<div class="insight" style="background:#eff6ff;border-left-color:#2563eb;color:#1e40af">' + D.insight + '</div>';
+
+  // ── Insight cards grid ──
+  h += '<div class="is-insights-grid">';
+  D.insightCards.forEach(function(c) {
+    h += '<div class="is-insight-card" style="border-top-color:' + c.color + '">';
+    h += '<div class="is-pct" style="color:' + c.color + '">' + c.pct + '</div>';
+    h += '<div class="is-label">' + c.label + '</div>';
+    h += '</div>';
+  });
+  h += '</div>';
+
+  // ── Slots heading ──
+  h += '<h2 style="margin-top:28px">' + D.slotsHeading + '</h2>';
+  h += '<p style="font-size:.78rem;color:#64748b;margin-bottom:18px;line-height:1.5">' + D.slotsDescription + '</p>';
+
+  // ── Slot cards ──
+  D.slots.forEach(function(s) {
+    h += '<div class="is-slot-card" style="border-left-color:' + s.color + '">';
+    h += '<div class="is-slot-num">#' + s.number + '</div>';
+    h += '<div class="is-slot-title">' + s.title + '</div>';
+    h += '<div class="is-slot-purpose">' + s.purpose + '</div>';
+
+    // Objective
+    h += '<div class="is-section"><div class="is-section-label">Cel</div>';
+    h += '<p style="font-size:.78rem;color:#1e293b;line-height:1.5;margin:0">' + s.objective + '</p></div>';
+
+    // Show items
+    h += '<div class="is-section"><div class="is-section-label">Co pokazać</div>';
+    h += '<ul class="is-bullets">';
+    s.showItems.forEach(function(item) { h += '<li>' + item + '</li>'; });
+    h += '</ul></div>';
+
+    // Copy
+    h += '<div class="is-section"><div class="is-section-label">Sugerowany tekst / copy</div>';
+    h += '<div class="is-copy-box">' + s.copy + '</div></div>';
+
+    // Do / Don't
+    h += '<div class="is-do-dont">';
+    h += '<div class="is-do"><h5>\u2713 Tak</h5><ul class="is-bullets">';
+    s.doItems.forEach(function(item) { h += '<li>' + item + '</li>'; });
+    h += '</ul></div>';
+    h += '<div class="is-dont"><h5>\u2717 Nie</h5><ul class="is-bullets">';
+    s.dontItems.forEach(function(item) { h += '<li>' + item + '</li>'; });
+    h += '</ul></div></div>';
+
+    h += '</div>'; // end slot card
+  });
+
+  // ── Compliance ──
+  h += '<h2 style="margin-top:28px">' + D.complianceHeading + '</h2>';
+  h += '<div class="is-compliance-grid">';
+  D.complianceCards.forEach(function(c) {
+    h += '<div class="is-compliance-card" style="border-left:4px solid ' + c.color + '">';
+    h += '<h4>' + c.title + '</h4>';
+    h += '<ul class="is-bullets">';
+    c.items.forEach(function(item) { h += '<li>' + item + '</li>'; });
+    h += '</ul></div>';
+  });
+  h += '</div>';
+
+  // ── Methodology ──
+  h += '<div class="note" style="margin-top:22px">' + D.methodology + '</div>';
+
+  root.innerHTML = h;
 })();
 
 </script>
