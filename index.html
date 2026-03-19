@@ -93,6 +93,33 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 .sec-summary{font-size:.78rem;color:#64748b;line-height:1.55;margin-bottom:20px;max-width:900px}
 @media(max-width:900px){.cp-charts{grid-template-columns:1fr 1fr}}
 @media(max-width:550px){.cp-charts{grid-template-columns:1fr}}
+
+/* Tab 8 — Listing Communication */
+.lc-claim-dot{display:inline-block;width:22px;height:22px;border-radius:50%;line-height:22px;text-align:center;font-size:11px;font-weight:700}
+.lc-card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.07);margin-bottom:12px;border:1px solid #e2e8f0}
+.lc-card-hdr{display:flex;justify-content:space-between;align-items:flex-start;cursor:pointer}
+.lc-card-body{display:none;margin-top:14px;border-top:1px solid #f1f5f9;padding-top:14px}
+.lc-card.open .lc-card-body{display:block}
+.lc-card .chevron{transition:transform .2s;font-size:18px;color:#94a3b8}
+.lc-card.open .chevron{transform:rotate(180deg)}
+.ig{display:flex;gap:6px;flex-wrap:wrap}
+.ig-slot{width:80px;border:1px solid #e2e8f0;border-radius:6px;overflow:hidden;background:#f8fafc}
+.ig-slot img{width:100%;height:80px;object-fit:contain;display:block}
+.ig-var{font-size:.58rem;text-align:center;padding:2px;color:#94a3b8}
+.ig-badge{position:absolute;top:3px;left:3px;font-size:.55rem;font-weight:700;color:#fff;padding:1px 5px;border-radius:3px}
+.cc{background:#fff;border-radius:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);margin-bottom:12px;overflow:hidden}
+.cc-hdr{padding:14px 16px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;border-left:4px solid #2563eb;transition:background .15s}
+.cc-hdr:hover{background:#f8fafc}
+.cc-body{display:none;padding:0 16px 16px;border-top:1px solid #f1f5f9}
+.cc-body.open{display:block}
+.cc .ig{display:grid;grid-template-columns:repeat(auto-fill,minmax(120px,1fr));gap:8px;margin-top:10px}
+.cc .ig-slot{position:relative;background:#f8fafc;border:1px solid #e2e8f0;border-radius:6px;overflow:hidden;text-align:center;width:auto}
+.cc .ig-slot img{width:100%;aspect-ratio:1;object-fit:contain;display:block;height:auto}
+.cc .ig-badge{font-size:.58rem;padding:2px 5px;border-radius:3px;font-weight:600;color:#fff;text-transform:uppercase;letter-spacing:.3px}
+.cc .ig-var{font-size:.62rem;color:#94a3b8;padding:2px 0;text-align:center}
+.cl-badge{display:inline-block;font-size:.65rem;font-weight:500;padding:2px 7px;border-radius:10px;margin:2px;white-space:nowrap}
+.ts-tag{display:inline-block;font-size:.68rem;padding:2px 6px;border-radius:4px;margin:2px}
+
 </style>
 </head>
 <body>
@@ -111,6 +138,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   <div class="tab" onclick="show('t4rev',this)">5 — Reviews</div>
   <div class="tab" onclick="show('t6sv',this)">6 — Search Volume</div>
   <div class="tab" onclick="show('t7voc',this)">7 — Reviews VOC</div>
+  <div class="tab" onclick="show('tlc',this)">8 — Listing Communication</div>
 </div>
 
 <div class="content">
@@ -1149,6 +1177,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div class="voc-sub-tabs">
   <div class="voc-sub-tab active" onclick="showVocSub('voc-ci',this)">Customer Insights</div>
   <div class="voc-sub-tab" onclick="showVocSub('voc-ca',this)">Review Browser</div>
+  <div class="voc-sub-tab" onclick="showVocSub('voc-la',this)">Listing Audit</div>
 </div>
 
 <!-- SUB-PANEL: Customer Insights -->
@@ -1275,9 +1304,1516 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   </div>
 </div>
 
+<!-- SUB-PANEL: Listing Audit -->
+<div id="voc-la" class="voc-sub-panel">
+
+<div class="insight" style="margin-bottom:16px">
+  <strong>Audyt listing&#243;w konkurencji.</strong> Zdj&#281;cia i atrybuty pobrane z Amazon SP-API Catalog Items API (2026-03-19). Tematy claims i klasyfikacja obraz&#243;w na podstawie bullet points i tre&#347;ci listingu. 5 top konkurent&#243;w por&#243;wnanych.
+</div>
+
+<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
+  <h3 style="margin:0;font-size:.88rem;font-weight:700;color:#1e293b">Szczeg&#243;&#322;y listing&#243;w konkurencji</h3>
+  <div style="display:flex;gap:6px">
+    <button onclick="document.querySelectorAll('.cc-body').forEach(b=>b.classList.add('open'));document.querySelectorAll('[id^=comp_arrow_]').forEach(a=>a.textContent='&#9650;')" style="font-size:.68rem;padding:4px 10px;cursor:pointer;background:#fff;border:1px solid #cbd5e1;border-radius:5px;color:#475569">Rozwi&#324; wszystkie</button>
+    <button onclick="document.querySelectorAll('.cc-body').forEach(b=>b.classList.remove('open'));document.querySelectorAll('[id^=comp_arrow_]').forEach(a=>a.textContent='&#9660;')" style="font-size:.68rem;padding:4px 10px;cursor:pointer;background:#fff;border:1px solid #cbd5e1;border-radius:5px;color:#475569">Zwi&#324; wszystkie</button>
+  </div>
+</div>
+
+<!-- Card 1: RID (B0DTN81GNC) — Treatment -->
+<div class="cc"><div class="cc-hdr" onclick="toggleComp('B0DTN81GNC')" style="border-left-color:#dc2626">
+  <div style="flex:1;min-width:0">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+      <span style="font-weight:600;font-size:.88rem;color:#0f2942">RID</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #1 Lice Shampoos &amp; Rinses</span> <span style="border:1px solid #dc2626;color:#dc2626;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Treatment</span>
+    </div>
+    <p style="font-size:.73rem;color:#64748b;margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">RID One &amp; Done, Just One Application Head Lice Treatment, No Combing Required, Prescription Strength Ivermectin Lotion for Children &amp; Adults, Eliminates Super Lice &amp; Renders Eggs Non Viable</p>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <span style="color:#d97706;letter-spacing:1px">&#9733;&#9733;&#9733;&#9733;&#9734; <span style="color:#64748b;font-size:.75rem">4.4</span></span>
+      <span style="font-size:.73rem;color:#64748b">696 reviews</span>
+      <span style="font-size:.88rem;font-weight:600;color:#0f2942">$34.97</span>
+    </div>
+  </div>
+  <span id="comp_arrow_B0DTN81GNC" style="font-size:.85rem;color:#94a3b8;margin-left:8px;flex-shrink:0">&#9660;</span>
+</div><div id="comp_body_B0DTN81GNC" class="cc-body">
+  <!-- Title structure -->
+  <div style="margin-top:14px;margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+    <div style="display:flex;flex-wrap:wrap;gap:4px">
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>RID</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Head Lice Treatment</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>One Application, No Combing</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>Prescription Strength Ivermectin</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D85A3033;background:#D85A3011"><span style="color:#D85A30;font-weight:500;font-size:.62rem">Target: </span>Children &amp; Adults</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Claim: </span>Eliminates Super Lice</span>
+    </div>
+  </div>
+  <!-- Hero message -->
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Hero message</p>
+    <p style="font-size:.82rem;font-style:italic;color:#1e293b;margin:0;padding:8px 12px;background:#f8fafc;border-radius:6px;line-height:1.4">"Jednorazowe leczenie wszawicy si&#322;&#261; recepty &#8212; iwermektyna OTC, bez czesania, 10 minut"</p>
+  </div>
+  <!-- Key claims -->
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+    <div style="display:flex;flex-wrap:wrap;gap:2px">
+      <span class="cl-badge" style="border:1px solid #378ADD;color:#378ADD">One &amp; Done (1 application)</span>
+      <span class="cl-badge" style="border:1px solid #378ADD;color:#378ADD">No nit combing required</span>
+      <span class="cl-badge" style="border:1px solid #D4537E;color:#D4537E">Prescription strength ivermectin</span>
+      <span class="cl-badge" style="border:1px solid #1D9E75;color:#1D9E75">10 minute treatment</span>
+      <span class="cl-badge" style="border:1px solid #639922;color:#639922">Pediatrician recommended (AAP)</span>
+      <span class="cl-badge" style="border:1px solid #D85A30;color:#D85A30">Child-safe (6mo+)</span>
+    </div>
+  </div>
+  <!-- Bullet points -->
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; ONE &amp; DONE LICE TREATMENT: Effectively treats head lice, super lice &amp; eggs (nits) with just 1 application &#8212; No second application needed</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; NO NIT COMBING REQUIRED: Clinically proven without the hassle of combing out nits (eggs)</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; PRESCRIPTION STRENGTH: Powered by the original prescription strength ivermectin lotion 0.5, now available over-the-counter.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; 10 MINUTE TREATMENT: In just 10 minutes kills lice and leaves eggs (nits) non-viable with prescription-strength efficacy.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; PEDIATRICIAN RECOMMENDED: The active ingredient in this head lice treatment is endorsed by the American Academy of Pediatrics for treating super lice.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; CHILD-SAFE FORMULA: Approved for use on children 6 months and up</p>
+  </div>
+  <!-- Unmet needs + Well communicated -->
+  <div style="margin-bottom:14px;margin-top:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">&#9888; Unmet Customer Needs &#8212; tematy nieobecne w listingu</p>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#fef2f2;border-radius:6px;margin-bottom:4px;border-left:3px solid #dc2626">
+      <span style="font-size:.72rem;font-weight:700;color:#dc2626;white-space:nowrap;min-width:130px">Zapach / Tekstura</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Brak informacji o zapachu i teksturze produktu. 21.8% recenzji w niszy narzeka na zapach &#8212; okazja do wyr&#243;&#380;nienia si&#281;.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#fef2f2;border-radius:6px;margin-bottom:4px;border-left:3px solid #dc2626">
+      <span style="font-size:.72rem;font-weight:700;color:#dc2626;white-space:nowrap;min-width:130px">Instrukcje u&#380;ycia</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Brak szczeg&#243;&#322;owej instrukcji w listingu. Rodzice szukaj&#261; jasnych wskaz&#243;wek krok po kroku.</span>
+    </div>
+    <p style="font-size:.68rem;font-weight:600;color:#16a34a;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">&#10003; Dobrze komunikowane &#8212; potwierdzone przez klient&#243;w</p>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Skuteczno&#347;&#263;</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Mocno komunikowane: 1 aplikacja, 10 minut, bez czesania. Potwierdzone przez klient&#243;w jako g&#322;&#243;wna zaleta.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Bezpiecze&#324;stwo</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Pediatrician recommended + child-safe 6mo+ &#8212; silny claim bezpiecze&#324;stwa potwierdzony przez AAP.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Super Lice</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Jedyny listing w TOP 5 z wyra&#378;nym claimem na super wszy odporne na tradycyjne &#347;rodki.</span>
+    </div>
+  </div>
+  <!-- Image gallery -->
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin:0">Image gallery (7 slots)</p>
+      <span style="font-size:.62rem;color:#cbd5e1">Source: Amazon SP-API Catalog Items</span>
+    </div>
+    <div class="ig">
+      <div class="ig-slot"><span class="ig-badge" style="background:#378ADD">Hero</span><img src="https://m.media-amazon.com/images/I/71uYUR-d8WL.jpg" alt="MAIN" loading="lazy"><div class="ig-var">MAIN</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/814WHHK7mJL.jpg" alt="PT01" loading="lazy"><div class="ig-var">PT01</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/81BoxoMGkOL.jpg" alt="PT02" loading="lazy"><div class="ig-var">PT02</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/81jA7OQRToL.jpg" alt="PT03" loading="lazy"><div class="ig-var">PT03</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/81Ln1UF-D7L.jpg" alt="PT04" loading="lazy"><div class="ig-var">PT04</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/81ZqpxH3nRL.jpg" alt="PT05" loading="lazy"><div class="ig-var">PT05</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/91YalZmumAL.jpg" alt="PT06" loading="lazy"><div class="ig-var">PT06</div></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- Card 2: Fairy Tales (B000O7JK0A) — Prevention -->
+<div class="cc"><div class="cc-hdr" onclick="toggleComp('B000O7JK0A')" style="border-left-color:#16a34a">
+  <div style="flex:1;min-width:0">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Fairy Tales</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #1 Lice Treatment Sprays</span> <span style="border:1px solid #16a34a;color:#16a34a;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Prevention</span>
+    </div>
+    <p style="font-size:.73rem;color:#64748b;margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fairy Tales Rosemary Repel Daily Kids Conditioning Spray &#8211; Kids Like the Smell, Lice Do Not, 8 fl oz. (Pack of 1)</p>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <span style="color:#d97706;letter-spacing:1px">&#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:#64748b;font-size:.75rem">4.8</span></span>
+      <span style="font-size:.73rem;color:#64748b">18,017 reviews</span>
+      <span style="font-size:.88rem;font-weight:600;color:#0f2942">$12.48</span>
+    </div>
+  </div>
+  <span id="comp_arrow_B000O7JK0A" style="font-size:.85rem;color:#94a3b8;margin-left:8px;flex-shrink:0">&#9660;</span>
+</div><div id="comp_body_B000O7JK0A" class="cc-body">
+  <div style="margin-top:14px;margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+    <div style="display:flex;flex-wrap:wrap;gap:4px">
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Fairy Tales</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Kids Conditioning Spray</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>Lice Repel</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>Kids Like Smell, Lice Do Not</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #BA751733;background:#BA751711"><span style="color:#BA7517;font-weight:500;font-size:.62rem">Pack size: </span>1 Pack</span>
+    </div>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Hero message</p>
+    <p style="font-size:.82rem;font-style:italic;color:#1e293b;margin:0;padding:8px 12px;background:#f8fafc;border-radius:6px;line-height:1.4">"Codzienny spray do w&#322;os&#243;w dla dzieci &#8212; odstraszanie wszawicy olejkami eterycznymi, kt&#243;re dzieci lubi&#261;"</p>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+    <div style="display:flex;flex-wrap:wrap;gap:2px">
+      <span class="cl-badge" style="border:1px solid #639922;color:#639922">Essential oil blend (rosemary, citronella, tea tree)</span>
+      <span class="cl-badge" style="border:1px solid #378ADD;color:#378ADD">Detangling + conditioning</span>
+      <span class="cl-badge" style="border:1px solid #1D9E75;color:#1D9E75">Sulfate/paraben/phthalate free</span>
+      <span class="cl-badge" style="border:1px solid #1D9E75;color:#1D9E75">No harsh chemicals</span>
+      <span class="cl-badge" style="border:1px solid #639922;color:#639922">Aloe + Vitamin B5</span>
+    </div>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Rosemary Repel Conditioning Spray is used on dry or wet hair to detangle, the added bonus is that the formula contains essential oils that kids love the smell of, lice do not.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; In lab studies, our proprietary blend of rosemary, citronella, tea tree, geranium and peppermint oils also help defend against unwanted visitors.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Aloe, Vitamin B5 and Amaranth Protein hydrate and strengthen hair while also soothing the scalp.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Gentle enough for everyday use. No harsh chemicals or toxins.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Sulfate-free, paraben free, phthalate free, gluten free, soy free, dairy free and nut free.</p>
+  </div>
+  <div style="margin-bottom:14px;margin-top:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">&#9888; Unmet Customer Needs &#8212; tematy nieobecne w listingu</p>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#fef2f2;border-radius:6px;margin-bottom:4px;border-left:3px solid #dc2626">
+      <span style="font-size:.72rem;font-weight:700;color:#dc2626;white-space:nowrap;min-width:130px">Dowody skuteczno&#347;ci</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">35.2% recenzji w niszy kwestionuje skuteczno&#347;&#263; prewencji. Listing m&#243;wi 'in lab studies' ale brak konkretnych danych.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#fef2f2;border-radius:6px;margin-bottom:4px;border-left:3px solid #dc2626">
+      <span style="font-size:.72rem;font-weight:700;color:#dc2626;white-space:nowrap;min-width:130px">Zapach kontrowersyjny</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">21.8% narzeka na zapach vs 22.1% chwali. Listing stawia na 'kids like the smell' &#8212; ale brak wariantu dla wra&#380;liwych.</span>
+    </div>
+    <p style="font-size:.68rem;font-weight:600;color:#16a34a;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">&#10003; Dobrze komunikowane &#8212; potwierdzone przez klient&#243;w</p>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Naturalno&#347;&#263; / Bezpiecze&#324;stwo</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Sulfate-free, paraben-free, no toxins &#8212; idealnie trafia w 5.7% szukaj&#261;cych naturalnych produkt&#243;w.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Od&#380;ywianie w&#322;os&#243;w</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Aloe, Vitamin B5, conditioning &#8212; potwierdzone przez 17.6% klient&#243;w chwal&#261;cych efekt od&#380;ywczy.</span>
+    </div>
+  </div>
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin:0">Image gallery (5 slots)</p>
+      <span style="font-size:.62rem;color:#cbd5e1">Source: Amazon SP-API Catalog Items</span>
+    </div>
+    <div class="ig">
+      <div class="ig-slot"><span class="ig-badge" style="background:#378ADD">Hero</span><img src="https://m.media-amazon.com/images/I/61iyWLSkcJL.jpg" alt="MAIN" loading="lazy"><div class="ig-var">MAIN</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/71EEZOl2bOL.jpg" alt="PT01" loading="lazy"><div class="ig-var">PT01</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/61Ky-uxCfwL.jpg" alt="PT02" loading="lazy"><div class="ig-var">PT02</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/61+IXR7fZxL.jpg" alt="PT03" loading="lazy"><div class="ig-var">PT03</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/61rh3UylDUL.jpg" alt="PT04" loading="lazy"><div class="ig-var">PT04</div></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- Card 3: Fairy Tales Trio (B077KWFKZX) — Prevention -->
+<div class="cc"><div class="cc-hdr" onclick="toggleComp('B077KWFKZX')" style="border-left-color:#16a34a">
+  <div style="flex:1;min-width:0">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Fairy Tales</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #104 Shampoo Sets</span> <span style="border:1px solid #16a34a;color:#16a34a;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Prevention</span>
+    </div>
+    <p style="font-size:.73rem;color:#64748b;margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fairy Tales Rosemary Repel Daily Kids Shampoo, 12 fl oz., Conditioner, 8 fl oz. &amp; Conditioning Spray, 8 fl oz. Star Trio</p>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <span style="color:#d97706;letter-spacing:1px">&#9733;&#9733;&#9733;&#9733;&#9733; <span style="color:#64748b;font-size:.75rem">4.7</span></span>
+      <span style="font-size:.73rem;color:#64748b">2,752 reviews</span>
+      <span style="font-size:.88rem;font-weight:600;color:#0f2942">$32.95</span>
+    </div>
+  </div>
+  <span id="comp_arrow_B077KWFKZX" style="font-size:.85rem;color:#94a3b8;margin-left:8px;flex-shrink:0">&#9660;</span>
+</div><div id="comp_body_B077KWFKZX" class="cc-body">
+  <div style="margin-top:14px;margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+    <div style="display:flex;flex-wrap:wrap;gap:4px">
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Fairy Tales</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Shampoo + Conditioner + Spray Trio</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>Rosemary Repel</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #BA751733;background:#BA751711"><span style="color:#BA7517;font-weight:500;font-size:.62rem">Pack size: </span>Star Trio</span>
+    </div>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Hero message</p>
+    <p style="font-size:.82rem;font-style:italic;color:#1e293b;margin:0;padding:8px 12px;background:#f8fafc;border-radius:6px;line-height:1.4">"Kompletny system 3-w-1 &#8212; szampon, od&#380;ywka i spray do codziennej ochrony przed wszawic&#261;"</p>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+    <div style="display:flex;flex-wrap:wrap;gap:2px">
+      <span class="cl-badge" style="border:1px solid #BA7517;color:#BA7517">Complete 3-product system</span>
+      <span class="cl-badge" style="border:1px solid #639922;color:#639922">Essential oil blend</span>
+      <span class="cl-badge" style="border:1px solid #639922;color:#639922">Moisturizing (jojoba, chamomile, lavender)</span>
+      <span class="cl-badge" style="border:1px solid #378ADD;color:#378ADD">Everyday gentle use</span>
+      <span class="cl-badge" style="border:1px solid #1D9E75;color:#1D9E75">Free from 6 allergens</span>
+    </div>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Rosemary Repel Shampoo, Conditioner and Conditioning Spray is the perfect trio to cleanse, condition and detangle the hair the added bonus is that the formulas contain essential oils that kids love the smell of, lice do not.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; In lab studies, our proprietary blend of rosemary, citronella, tea tree, geranium and peppermint oils also help defend against unwanted visitors.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Jojoba, Chamomile and Lavender extracts hydrate, moisturize and soothe the scalp.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Gentle enough for everyday use. No harsh chemicals or toxins.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Sulfate-free, paraben free, phthalate free, gluten free, soy free, dairy free and nut free.</p>
+  </div>
+  <div style="margin-bottom:14px;margin-top:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">&#9888; Unmet Customer Needs &#8212; tematy nieobecne w listingu</p>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#fef2f2;border-radius:6px;margin-bottom:4px;border-left:3px solid #dc2626">
+      <span style="font-size:.72rem;font-weight:700;color:#dc2626;white-space:nowrap;min-width:130px">Warto&#347;&#263; zestawu</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">7.5% narzeka na cen&#281;. Przy $32.95 za trio brak kalkulacji oszcz&#281;dno&#347;ci vs zakup osobno.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#fef2f2;border-radius:6px;margin-bottom:4px;border-left:3px solid #dc2626">
+      <span style="font-size:.72rem;font-weight:700;color:#dc2626;white-space:nowrap;min-width:130px">Skuteczno&#347;&#263; systemu</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Czy ca&#322;y system dzia&#322;a lepiej ni&#380; sam spray? Brak por&#243;wnania efektywno&#347;ci.</span>
+    </div>
+    <p style="font-size:.68rem;font-weight:600;color:#16a34a;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">&#10003; Dobrze komunikowane &#8212; potwierdzone przez klient&#243;w</p>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Kompletno&#347;&#263;</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Trio = jedna decyzja zakupowa. 8.4% klient&#243;w u&#380;ywa pe&#322;nego systemu.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Delikatno&#347;&#263;</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Gentle everyday use &#8212; dobrze komunikowane dla rodzic&#243;w obawiaj&#261;cych si&#281; o wra&#380;liw&#261; sk&#243;r&#281; g&#322;owy dzieci.</span>
+    </div>
+  </div>
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin:0">Image gallery (5 slots)</p>
+      <span style="font-size:.62rem;color:#cbd5e1">Source: Amazon SP-API Catalog Items</span>
+    </div>
+    <div class="ig">
+      <div class="ig-slot"><span class="ig-badge" style="background:#378ADD">Hero</span><img src="https://m.media-amazon.com/images/I/81DLyfHLbqL.jpg" alt="MAIN" loading="lazy"><div class="ig-var">MAIN</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/81r4OhC2xKL.jpg" alt="PT01" loading="lazy"><div class="ig-var">PT01</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/81ryrN+afoL.jpg" alt="PT02" loading="lazy"><div class="ig-var">PT02</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/81TYZ2nRbLL.jpg" alt="PT03" loading="lazy"><div class="ig-var">PT03</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/81c6kh7C4QL.jpg" alt="PT04" loading="lazy"><div class="ig-var">PT04</div></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- Card 4: Lice Clinics of America (B073C2685B) — Treatment -->
+<div class="cc"><div class="cc-hdr" onclick="toggleComp('B073C2685B')" style="border-left-color:#dc2626">
+  <div style="flex:1;min-width:0">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Lice Clinics of America</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #2 Lice Shampoos</span> <span style="border:1px solid #dc2626;color:#dc2626;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Treatment</span>
+    </div>
+    <p style="font-size:.73rem;color:#64748b;margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Lice Treatment Kit by Lice Clinics-Guaranteed Cure for Super Lice-Safe, Non-Toxic</p>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <span style="color:#d97706;letter-spacing:1px">&#9733;&#9733;&#9733;&#9733;&#9734; <span style="color:#64748b;font-size:.75rem">4.4</span></span>
+      <span style="font-size:.73rem;color:#64748b">10,337 reviews</span>
+      <span style="font-size:.88rem;font-weight:600;color:#0f2942">$26.77</span>
+    </div>
+  </div>
+  <span id="comp_arrow_B073C2685B" style="font-size:.85rem;color:#94a3b8;margin-left:8px;flex-shrink:0">&#9660;</span>
+</div><div id="comp_body_B073C2685B" class="cc-body">
+  <div style="margin-top:14px;margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+    <div style="display:flex;flex-wrap:wrap;gap:4px">
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Lice Clinics of America</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Treatment Kit</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>Guaranteed Cure</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>Non-Toxic, Super Lice</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #63992233;background:#63992211"><span style="color:#639922;font-weight:500;font-size:.62rem">Trust signal: </span>By Lice Clinics</span>
+    </div>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Hero message</p>
+    <p style="font-size:.82rem;font-style:italic;color:#1e293b;margin:0;padding:8px 12px;background:#f8fafc;border-radius:6px;line-height:1.4">"Profesjonalny zestaw do leczenia &#8212; gwarancja skuteczno&#347;ci od ekspert&#243;w od wszawicy"</p>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+    <div style="display:flex;flex-wrap:wrap;gap:2px">
+      <span class="cl-badge" style="border:1px solid #1D9E75;color:#1D9E75">Guaranteed cure</span>
+      <span class="cl-badge" style="border:1px solid #D4537E;color:#D4537E">Effective against super lice</span>
+      <span class="cl-badge" style="border:1px solid #378ADD;color:#378ADD">Non-toxic formula</span>
+      <span class="cl-badge" style="border:1px solid #BA7517;color:#BA7517">Complete kit (gel + comb)</span>
+      <span class="cl-badge" style="border:1px solid #639922;color:#639922">Pleasant pear blossom scent</span>
+    </div>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; LICE FREE LICE TREATMENT GUARANTEE &#8212; We guarantee your satisfaction. Please contact Lice Clinics of America with any questions or concerns - or if we can help! We are head lice experts and care that you have a great experience.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; EFFECTIVE AGAINST LICE &amp; SUPER LICE &#8211; The included liquid gel eliminates lice AND super lice, and it&#8217;s more effective than traditional head lice shampoo treatments.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; NON-TOXIC FORMULA &#8212; Our liquid gel is harsh on head lice yet doesn&#8217;t contain any harmful chemicals so it&#8217;s a safe &amp; effective lice treatment for kids &amp; adults.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; COMPLETE KIT &#8212; Includes everything needed for effective head lice treatment and lice removal: easy-to-use no-mess applicator, 5.25 oz. liquid gel, and premium metal head lice comb.</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; PLEASANT SCENT &#8212; The included liquid gel has a great fresh pear blossom scent that mom and kids will love.</p>
+  </div>
+  <div style="margin-bottom:14px;margin-top:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">&#9888; Unmet Customer Needs &#8212; tematy nieobecne w listingu</p>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#fef2f2;border-radius:6px;margin-bottom:4px;border-left:3px solid #dc2626">
+      <span style="font-size:.72rem;font-weight:700;color:#dc2626;white-space:nowrap;min-width:130px">Czas dzia&#322;ania</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Brak informacji o czasie leczenia. Konkurent RID komunikuje '10 minut' &#8212; to silna przewaga.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#fef2f2;border-radius:6px;margin-bottom:4px;border-left:3px solid #dc2626">
+      <span style="font-size:.72rem;font-weight:700;color:#dc2626;white-space:nowrap;min-width:130px">Wiek dziecka</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Brak jasnej informacji od jakiego wieku bezpieczny. RID m&#243;wi '6 months+'</span>
+    </div>
+    <p style="font-size:.68rem;font-weight:600;color:#16a34a;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">&#10003; Dobrze komunikowane &#8212; potwierdzone przez klient&#243;w</p>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Gwarancja</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Jedyny listing z gwarancj&#261; satysfakcji + bezpo&#347;rednim kontaktem z ekspertami. Buduje zaufanie.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Non-toxic</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">5.7% klient&#243;w szuka naturalnych/bezpiecznych rozwi&#261;za&#324; &#8212; ten listing wyra&#378;nie to komunikuje.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Zapach</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Pleasant pear blossom scent &#8212; adresuje problem 21.8% negatywnych recenzji o zapachu.</span>
+    </div>
+  </div>
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin:0">Image gallery (7 slots)</p>
+      <span style="font-size:.62rem;color:#cbd5e1">Source: Amazon SP-API Catalog Items</span>
+    </div>
+    <div class="ig">
+      <div class="ig-slot"><span class="ig-badge" style="background:#378ADD">Hero</span><img src="https://m.media-amazon.com/images/I/61HZTNyqOQL.jpg" alt="MAIN" loading="lazy"><div class="ig-var">MAIN</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/61lAsJjqRoL.jpg" alt="PT01" loading="lazy"><div class="ig-var">PT01</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/61V2BhgjKCL.jpg" alt="PT02" loading="lazy"><div class="ig-var">PT02</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/61rDIgLBmzL.jpg" alt="PT03" loading="lazy"><div class="ig-var">PT03</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/61Fd82kTSyL.jpg" alt="PT04" loading="lazy"><div class="ig-var">PT04</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/617A54ilSTL.jpg" alt="PT05" loading="lazy"><div class="ig-var">PT05</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/616-DzkjJpL.jpg" alt="PT06" loading="lazy"><div class="ig-var">PT06</div></div>
+    </div>
+  </div>
+</div></div>
+
+<!-- Card 5: Nix (B07NLTJ7N8) — Treatment -->
+<div class="cc"><div class="cc-hdr" onclick="toggleComp('B07NLTJ7N8')" style="border-left-color:#dc2626">
+  <div style="flex:1;min-width:0">
+    <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:4px">
+      <span style="font-weight:600;font-size:.88rem;color:#0f2942">Nix</span> <span style="background:#16a34a;color:#fff;font-size:.65rem;padding:2px 8px;border-radius:10px;font-weight:600">BSR #1 Lice Treatment Kits</span> <span style="border:1px solid #dc2626;color:#dc2626;font-size:.65rem;padding:1px 6px;border-radius:10px;font-weight:500">Treatment</span>
+    </div>
+    <p style="font-size:.73rem;color:#64748b;margin:2px 0 4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Nix Ultra Superlice Treatment, All-in-One Shampoo, 4 Fl Oz &amp; Lice Removal Comb</p>
+    <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+      <span style="color:#d97706;letter-spacing:1px">&#9733;&#9733;&#9733;&#9733;&#9734; <span style="color:#64748b;font-size:.75rem">4.5</span></span>
+      <span style="font-size:.73rem;color:#64748b">3,423 reviews</span>
+      <span style="font-size:.88rem;font-weight:600;color:#0f2942">$18.88</span>
+    </div>
+  </div>
+  <span id="comp_arrow_B07NLTJ7N8" style="font-size:.85rem;color:#94a3b8;margin-left:8px;flex-shrink:0">&#9660;</span>
+</div><div id="comp_body_B07NLTJ7N8" class="cc-body">
+  <div style="margin-top:14px;margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+    <div style="display:flex;flex-wrap:wrap;gap:4px">
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Nix</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Superlice Treatment Shampoo</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>All-in-One</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>Kills Superlice</span>
+      <span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #BA751733;background:#BA751711"><span style="color:#BA7517;font-weight:500;font-size:.62rem">Pack size: </span>Lice Removal Comb included</span>
+    </div>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Hero message</p>
+    <p style="font-size:.82rem;font-style:italic;color:#1e293b;margin:0;padding:8px 12px;background:#f8fafc;border-radius:6px;line-height:1.4">"Lider kategorii leczenia &#8212; nr 1 rekomendacja pediatr&#243;w, bezpieczny i nietoksyczny"</p>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+    <div style="display:flex;flex-wrap:wrap;gap:2px">
+      <span class="cl-badge" style="border:1px solid #1D9E75;color:#1D9E75">Kills lice and eggs including superlice</span>
+      <span class="cl-badge" style="border:1px solid #D85A30;color:#D85A30">All-in-one shampoo (no additional needed)</span>
+      <span class="cl-badge" style="border:1px solid #378ADD;color:#378ADD">Hypoallergenic + pesticide-free</span>
+      <span class="cl-badge" style="border:1px solid #639922;color:#639922">#1 pediatrician recommended</span>
+      <span class="cl-badge" style="border:1px solid #D4537E;color:#D4537E">Safe for kids</span>
+    </div>
+  </div>
+  <div style="margin-bottom:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Nix Ultra All-in-One Shampoo kills head lice and eggs (nits), including hard-to-kill superlice</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Nix Ultra Lice Comb assists in removing lice and eggs (nits) from hair after lice treatment</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Nix Ultra All-in-One Shampoo gently treats and cleanses hair with one-step easy application; no additional shampoo needed</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Nix Ultra Shampoo is safe for kids and is hypoallergenic, pesticide-free, non-toxic and does not contain parabens, colorants or dyes</p>
+    <p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">&#8226; Nix is the number one pediatrician-recommended lice removal brand* * Based on Pediatrician Survey December 6, 2022</p>
+  </div>
+  <div style="margin-bottom:14px;margin-top:14px">
+    <p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">&#9888; Unmet Customer Needs &#8212; tematy nieobecne w listingu</p>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#fef2f2;border-radius:6px;margin-bottom:4px;border-left:3px solid #dc2626">
+      <span style="font-size:.72rem;font-weight:700;color:#dc2626;white-space:nowrap;min-width:130px">Czas dzia&#322;ania</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Brak informacji o czasie ekspozycji. RID komunikuje '10 minut' &#8212; Nix tego nie podaje.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#fef2f2;border-radius:6px;margin-bottom:4px;border-left:3px solid #dc2626">
+      <span style="font-size:.72rem;font-weight:700;color:#dc2626;white-space:nowrap;min-width:130px">Zapach</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Brak informacji o zapachu. Lice Clinics komunikuje 'pleasant scent' &#8212; Nix milczy na ten temat.</span>
+    </div>
+    <p style="font-size:.68rem;font-weight:600;color:#16a34a;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">&#10003; Dobrze komunikowane &#8212; potwierdzone przez klient&#243;w</p>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Pediatrzy</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">#1 pediatrician recommended z konkretnym &#378;r&#243;d&#322;em (Survey Dec 2022). Najsilniejszy claim eksperckiej rekomendacji w TOP 5.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">Hypoalergiczny</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Jedyny listing z claimem hypoallergenic &#8212; silne wyr&#243;&#380;nienie dla rodzic&#243;w dzieci z alergiami.</span>
+    </div>
+    <div style="display:flex;gap:8px;align-items:flex-start;padding:6px 10px;background:#f0fdf4;border-radius:6px;margin-bottom:4px;border-left:3px solid #16a34a">
+      <span style="font-size:.72rem;font-weight:700;color:#16a34a;white-space:nowrap;min-width:130px">All-in-one</span>
+      <span style="font-size:.72rem;color:#64748b;line-height:1.4">Jeden krok, bez dodatkowego szamponu &#8212; prostota u&#380;ycia ceniona przez 8% klient&#243;w.</span>
+    </div>
+  </div>
+  <div>
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+      <p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin:0">Image gallery (6 slots)</p>
+      <span style="font-size:.62rem;color:#cbd5e1">Source: Amazon SP-API Catalog Items</span>
+    </div>
+    <div class="ig">
+      <div class="ig-slot"><span class="ig-badge" style="background:#378ADD">Hero</span><img src="https://m.media-amazon.com/images/I/71bsPnjYkiL.jpg" alt="MAIN" loading="lazy"><div class="ig-var">MAIN</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/719X5j4osqL.jpg" alt="PT02" loading="lazy"><div class="ig-var">PT02</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/71iqAoxBA6L.jpg" alt="PT03" loading="lazy"><div class="ig-var">PT03</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/71tnV7v1NrL.jpg" alt="PT04" loading="lazy"><div class="ig-var">PT04</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/81b3w748+8L.jpg" alt="PT05" loading="lazy"><div class="ig-var">PT05</div></div>
+      <div class="ig-slot"><img src="https://m.media-amazon.com/images/I/61XMPYJ63mL.jpg" alt="PT06" loading="lazy"><div class="ig-var">PT06</div></div>
+    </div>
+  </div>
+</div></div>
+
+</div><!-- /voc-la -->
+
 </div><!-- END TAB 7 VOC -->
 
 </div><!-- /content -->
+
+
+<!-- ═══════════════════════════════════════ TAB LC — Listing Communication ═══════ -->
+<div id="tlc" class="panel">
+<h2>Listing Communication — Competitive Audit</h2>
+
+<div class="insight" style="background:#eff6ff;border-left-color:#2563eb;color:#1e40af">
+  <strong>Audyt listingów 12 konkurentów.</strong> Dane pobrane z Amazon SP-API (Catalog Items API): tytuły, bullet points, zdjęcia. Tematy komunikacyjne klasyfikowane automatycznie na podstawie słów kluczowych w treści listingu. Kategoria: Lice Treatment &amp; Prevention — US.
+</div>
+
+<div class="card" style="margin-bottom:20px">
+<h3 style="font-size:.9rem;font-weight:700;color:#1e293b;margin-bottom:12px">Claim Theme Coverage</h3>
+<div style="overflow-x:auto"><table style="width:100%;border-collapse:collapse;font-size:.75rem">
+<thead><tr><th style="text-align:left;padding:8px 10px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;min-width:120px">Temat</th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">Fairy Tales<br><span style="opacity:.5;font-size:.58rem">JK0A</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">Nix<br><span style="opacity:.5;font-size:.58rem">D8GN</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">Nix<br><span style="opacity:.5;font-size:.58rem">J7N8</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">RID<br><span style="opacity:.5;font-size:.58rem">1GNC</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">Nix<br><span style="opacity:.5;font-size:.58rem">9SYL</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">Nix<br><span style="opacity:.5;font-size:.58rem">E7G0</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">Lice Clinics of America<br><span style="opacity:.5;font-size:.58rem">685B</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">MAYDAY<br><span style="opacity:.5;font-size:.58rem">JQ76</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">Fairy Tales<br><span style="opacity:.5;font-size:.58rem">FKZX</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">Fairy Tales<br><span style="opacity:.5;font-size:.58rem">L4SW</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">RID<br><span style="opacity:.5;font-size:.58rem">K33Z</span></th>
+<th style="text-align:center;padding:8px 6px;border-bottom:2px solid #e2e8f0;color:#475569;font-weight:600;font-size:.68rem;min-width:70px">Fairy Tales<br><span style="opacity:.5;font-size:.58rem">U8QK</span></th>
+</tr></thead><tbody>
+<tr><td style="padding:7px 10px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#1D9E75">Effectiveness</td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#1D9E7522;border:2px solid #1D9E75;color:#1D9E75">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#1D9E7522;border:2px solid #1D9E75;color:#1D9E75">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#1D9E7522;border:2px solid #1D9E75;color:#1D9E75">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#1D9E7522;border:2px solid #1D9E75;color:#1D9E75">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#1D9E7522;border:2px solid #1D9E75;color:#1D9E75">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#1D9E7522;border:2px solid #1D9E75;color:#1D9E75">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#1D9E7522;border:2px solid #1D9E75;color:#1D9E75">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#1D9E7522;border:2px solid #1D9E75;color:#1D9E75">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+</tr>
+<tr><td style="padding:7px 10px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#378ADD">Safety / Gentle</td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#378ADD22;border:2px solid #378ADD;color:#378ADD">✓</span></td>
+</tr>
+<tr><td style="padding:7px 10px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#D85A30">Ease of use</td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D85A3022;border:2px solid #D85A30;color:#D85A30">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D85A3022;border:2px solid #D85A30;color:#D85A30">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D85A3022;border:2px solid #D85A30;color:#D85A30">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D85A3022;border:2px solid #D85A30;color:#D85A30">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D85A3022;border:2px solid #D85A30;color:#D85A30">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+</tr>
+<tr><td style="padding:7px 10px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#7F77DD">Prevention</td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#7F77DD22;border:2px solid #7F77DD;color:#7F77DD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#7F77DD22;border:2px solid #7F77DD;color:#7F77DD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#7F77DD22;border:2px solid #7F77DD;color:#7F77DD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#7F77DD22;border:2px solid #7F77DD;color:#7F77DD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#7F77DD22;border:2px solid #7F77DD;color:#7F77DD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#7F77DD22;border:2px solid #7F77DD;color:#7F77DD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#7F77DD22;border:2px solid #7F77DD;color:#7F77DD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#7F77DD22;border:2px solid #7F77DD;color:#7F77DD">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#7F77DD22;border:2px solid #7F77DD;color:#7F77DD">✓</span></td>
+</tr>
+<tr><td style="padding:7px 10px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#BA7517">Value / Kit</td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#BA751722;border:2px solid #BA7517;color:#BA7517">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#BA751722;border:2px solid #BA7517;color:#BA7517">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#BA751722;border:2px solid #BA7517;color:#BA7517">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#BA751722;border:2px solid #BA7517;color:#BA7517">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#BA751722;border:2px solid #BA7517;color:#BA7517">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#BA751722;border:2px solid #BA7517;color:#BA7517">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#BA751722;border:2px solid #BA7517;color:#BA7517">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#BA751722;border:2px solid #BA7517;color:#BA7517">✓</span></td>
+</tr>
+<tr><td style="padding:7px 10px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#D4537E">For Kids / Family</td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#D4537E22;border:2px solid #D4537E;color:#D4537E">✓</span></td>
+</tr>
+<tr><td style="padding:7px 10px;border-bottom:1px solid #f1f5f9;font-weight:600;color:#639922">Ingredients</td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#63992222;border:2px solid #639922;color:#639922">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#63992222;border:2px solid #639922;color:#639922">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#63992222;border:2px solid #639922;color:#639922">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span style="color:#d4d4d4;font-size:1rem">○</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#63992222;border:2px solid #639922;color:#639922">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#63992222;border:2px solid #639922;color:#639922">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#63992222;border:2px solid #639922;color:#639922">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#63992222;border:2px solid #639922;color:#639922">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#63992222;border:2px solid #639922;color:#639922">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#63992222;border:2px solid #639922;color:#639922">✓</span></td>
+<td style="text-align:center;padding:7px 6px;border-bottom:1px solid #f1f5f9"><span class="lc-claim-dot" style="background:#63992222;border:2px solid #639922;color:#639922">✓</span></td>
+</tr>
+</tbody></table></div>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:10px">
+<span style="font-size:.68rem;display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#1D9E75;display:inline-block"></span><span style="color:#64748b">Effectiveness</span></span>
+<span style="font-size:.68rem;display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#378ADD;display:inline-block"></span><span style="color:#64748b">Safety / Gentle</span></span>
+<span style="font-size:.68rem;display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#D85A30;display:inline-block"></span><span style="color:#64748b">Ease of use</span></span>
+<span style="font-size:.68rem;display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#7F77DD;display:inline-block"></span><span style="color:#64748b">Prevention</span></span>
+<span style="font-size:.68rem;display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#BA7517;display:inline-block"></span><span style="color:#64748b">Value / Kit</span></span>
+<span style="font-size:.68rem;display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#D4537E;display:inline-block"></span><span style="color:#64748b">For Kids / Family</span></span>
+<span style="font-size:.68rem;display:flex;align-items:center;gap:4px"><span style="width:10px;height:10px;border-radius:2px;background:#639922;display:inline-block"></span><span style="color:#64748b">Ingredients</span></span>
+</div>
+<div class="note" style="margin-top:10px"><strong>Metodologia:</strong> Tematy komunikacyjne zostały zidentyfikowane na podstawie analizy bullet points i tytułów pobbranych z Amazon SP-API (Catalog Items API). Każdy temat sprawdzany jest przez wyszukiwanie słów kluczowych w treści listingu. ✓ = temat poruszony, ○ = brak.</div>
+</div>
+
+<div class="sec-header" style="margin-bottom:12px"><div class="sec-title">Competitor Listing Details</div></div>
+<div class="lc-card" id="lc-card-0">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-0').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/61iyWLSkcJL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">Fairy Tales</span>
+<span style="font-size:.68rem;color:#94a3b8">(B000O7JK0A)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$12.48</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.8</span>
+<span style="font-size:.72rem;color:#64748b">18,017 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fairy Tales Rosemary Repel Daily Kids Conditioning Spray – Kids Like the Smell, Lice Do Not, 8 fl oz. (Pack of 1)</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Fairy Tales</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Rosemary Repel Daily Kids Conditioning Spray</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>Kids Like the Smell</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>Lice Do Not</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #BA751733;background:#BA751711"><span style="color:#BA7517;font-weight:500;font-size:.62rem">Pack/variant: </span>Pack of 1</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Rosemary Repel Conditioning Spray is used on dry or wet hair to detangle, the added bonus is that the formula contains essential oils that kids love the smell of, lice do not.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• In lab studies, our proprietary blend of rosemary, citronella, tea tree, geranium and peppermint oils also help defend against unwanted visitors.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Aloe, Vitamin B5 and Amaranth Protein hydrate and strengthen hair while also soothing the scalp.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Gentle enough for everyday use. No harsh chemicals or toxins.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Sulfate-free, paraben free, phthalate free, gluten free, soy free, dairy free and nut free.</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #7F77DD;color:#7F77DD;font-weight:500">Prevention</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #BA7517;color:#BA7517;font-weight:500">Value / Kit</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #639922;color:#639922;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Ease of use</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (5 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/61iyWLSkcJL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71EEZOl2bOL.jpg" alt="PT01" loading="lazy">
+<div class="ig-var">PT01</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81ryrN+afoL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81TYZ2nRbLL.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81h7rZ4FDtL.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-1">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-1').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/71GtAfdLqcL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">Nix</span>
+<span style="font-size:.68rem;color:#94a3b8">(B0BH8KD8GN)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$28.98</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.5</span>
+<span style="font-size:.72rem;color:#64748b">3,423 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Nix Lice Treatment &amp; Prevention Kit, All-in-One Shampoo, 4 fl oz, with Lice Removal Comb and Lice Prevention Daily Leave</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Nix</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Lice Treatment &amp; Prevention Kit</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>All</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>in</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• PESTICIDE-FREE TREAT &amp; PREVENT KIT: The Nix Ultra Lice Treatment &amp; Prevention Kit contains both the Nix Ultra All-in-One Shampoo that kills superlice, lice and eggs (also known as nits) and the Nix Li</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• TREATS &amp; CLEANS HAIR IN 10 MINUTES: The Nix Ultra All-in-One Shampoo gently treats and cleanses hair in only 10 minutes with a 1-step easy application, no additional shampoo required</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• KILLS LICE WITHOUT COMBING: Includes Lice Removal Comb for convenience to assist in removing superlice, lice and eggs (nits) from hair after lice treatment</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• DEFEND &amp; REPEL SUPERLICE: The Nix Lice Prevention Daily Leave-In Spray defends and repels superlice &amp; lice and provides long-lasting protection* to keep you and your family protected before, during an</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• #1 PEDIATRICIAN RECOMMENDED BRAND*: Nix is the number one pediatrician-recommended lice removal brand that offers both treatment and prevention products; *Based on Pediatrician Survey December 31, 202</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #1D9E75;color:#1D9E75;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D85A30;color:#D85A30;font-weight:500">Ease of use</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #7F77DD;color:#7F77DD;font-weight:500">Prevention</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #BA7517;color:#BA7517;font-weight:500">Value / Kit</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (7 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/71GtAfdLqcL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71hmmCAe3iL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71ROb7CWB+L.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71-OjepM7SL.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81eoivzm6JL.jpg" alt="PT05" loading="lazy">
+<div class="ig-var">PT05</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81KgeWu8G6L.jpg" alt="PT06" loading="lazy">
+<div class="ig-var">PT06</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/815OD0R1x2L.jpg" alt="PT07" loading="lazy">
+<div class="ig-var">PT07</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-2">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-2').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/71bsPnjYkiL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">Nix</span>
+<span style="font-size:.68rem;color:#94a3b8">(B07NLTJ7N8)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$18.88</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.5</span>
+<span style="font-size:.72rem;color:#64748b">3,423 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Nix Ultra Superlice Treatment, All-in-One Shampoo, 4 Fl Oz &amp; Lice Removal Comb</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Nix</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Ultra Superlice Treatment</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>All</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>in</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Nix Ultra All-in-One Shampoo kills head lice and eggs (nits), including hard-to-kill superlice</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Nix Ultra Lice Comb assists in removing lice and eggs (nits) from hair after lice treatment</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Nix Ultra All-in-One Shampoo gently treats and cleanses hair with one-step easy application; no additional shampoo needed</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Nix Ultra Shampoo is safe for kids and is hypoallergenic, pesticide-free, non-toxic and does not contain parabens, colorants or dyes</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Nix is the number one pediatrician-recommended lice removal brand* * Based on Pediatrician Survey December 6, 2022</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #1D9E75;color:#1D9E75;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D85A30;color:#D85A30;font-weight:500">Ease of use</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #BA7517;color:#BA7517;font-weight:500">Value / Kit</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #639922;color:#639922;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Prevention</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (6 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/71bsPnjYkiL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/719X5j4osqL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71iqAoxBA6L.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71tnV7v1NrL.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81b3w748+8L.jpg" alt="PT05" loading="lazy">
+<div class="ig-var">PT05</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/61XMPYJ63mL.jpg" alt="PT06" loading="lazy">
+<div class="ig-var">PT06</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-3">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-3').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/71uYUR-d8WL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">RID</span>
+<span style="font-size:.68rem;color:#94a3b8">(B0DTN81GNC)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$34.97</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.4</span>
+<span style="font-size:.72rem;color:#64748b">696 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">RID One &amp; Done, Just One Application Head Lice Treatment, No Combing Required, Prescription Strength Ivermectin Lotion f</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>RID</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>One &amp; Done</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>Just One Application Head Lice Treatment</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>No Combing Required</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• ONE &amp; DONE LICE TREATMENT: Effectively treats head lice, super lice &amp; eggs (nits) with just 1 application — No second application needed</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• NO NIT COMBING REQUIRED: Clinically proven without the hassle of combing out nits (eggs)</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• PRESCRIPTION STRENGTH: Powered by the original prescription strength ivermectin lotion 0.5, now available over-the-counter.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• 10 MINUTE TREATMENT: In just 10 minutes kills lice and leaves eggs (nits) non-viable with prescription-strength efficacy.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• PEDIATRICIAN RECOMMENDED: The active ingredient in this head lice treatment is endorsed by the American Academy of Pediatrics for treating super lice, which are tougher-to-kill lice that have built a </p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• CHILD-SAFE FORMULA: Approved for use on children 6 months and up</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #1D9E75;color:#1D9E75;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D85A30;color:#D85A30;font-weight:500">Ease of use</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #639922;color:#639922;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Prevention</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Value / Kit</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (7 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/71uYUR-d8WL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/814WHHK7mJL.jpg" alt="PT01" loading="lazy">
+<div class="ig-var">PT01</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81BoxoMGkOL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81jA7OQRToL.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81Ln1UF-D7L.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81ZqpxH3nRL.jpg" alt="PT05" loading="lazy">
+<div class="ig-var">PT05</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/91YalZmumAL.jpg" alt="PT06" loading="lazy">
+<div class="ig-var">PT06</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-4">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-4').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/71uTz9PwkoL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">Nix</span>
+<span style="font-size:.68rem;color:#94a3b8">(B06XGC9SYL)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$20.81</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.5</span>
+<span style="font-size:.72rem;color:#64748b">10,613 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Nix Lice Treatment Hair and Home Kit, Ultra Hair Solution (3.4 Fl Oz), Home Defense Bedbug and Lice Killing Spray (5 Fl </p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Nix</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Lice Treatment Hair and Home Kit</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>Ultra Hair Solution (3.4 Fl Oz)</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>Home Defense Bedbug and Lice Killing Spray (5 Fl Oz)</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #BA751733;background:#BA751711"><span style="color:#BA7517;font-weight:500;font-size:.62rem">Pack/variant: </span>3.4 Fl Oz</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• ALL-IN-ONE LICE REMOVAL KIT: The Nix Ultra Lice Removal Kit contains both the Nix Ultra Lice Treatment Solution to kill lice in hair and the Nix Lice Killing Spray to protect and kill the lice &amp; bedbu</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• 100% PESTICIDE-FREE SOLUTION: The Nix Ultra Lice Treatment Solution kills pesticide-resistant superlice, lice and eggs – one application is more effective at killing lice than Ivermectin Lotion*; *in </p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• REMOVES LICE WITHOUT COMBING: Includes Lice Removal Comb for convenience to assist in removing superlice, lice and eggs (nits) from hair after the lice treatment</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• LICE &amp; BEDBUGS HOME DEFENSE: The Nix Lice Killing Spray kills lice &amp; bedbugs on furniture and bedding; effective for up to 4 weeks</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• #1 PEDIATRICIAN RECOMMENDED BRAND*: Nix is the number one pediatrician-recommended lice removal brand that offers both treatment and prevention products *Based on Pediatrician Survey December 31, 2026</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #1D9E75;color:#1D9E75;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #7F77DD;color:#7F77DD;font-weight:500">Prevention</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #BA7517;color:#BA7517;font-weight:500">Value / Kit</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Ease of use</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (9 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/71uTz9PwkoL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71DcR7wOBrL.jpg" alt="PT01" loading="lazy">
+<div class="ig-var">PT01</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71Ze2xhv4UL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71YCAq7dYLL.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71oflfMyUEL.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81BWnpVvyvL.jpg" alt="PT05" loading="lazy">
+<div class="ig-var">PT05</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81QCkjh3sqL.jpg" alt="PT06" loading="lazy">
+<div class="ig-var">PT06</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81+-sVT2j4L.jpg" alt="PT07" loading="lazy">
+<div class="ig-var">PT07</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/819CWrslNpL.jpg" alt="PT08" loading="lazy">
+<div class="ig-var">PT08</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-5">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-5').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/71gWGKdlGML.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">Nix</span>
+<span style="font-size:.68rem;color:#94a3b8">(B01BU6E7G0)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$17.61</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.5</span>
+<span style="font-size:.72rem;color:#64748b">10,613 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Nix Ultra Lice Treatment Hair Solution &amp; Lice Comb, Kills Superlice &amp; Eggs, 3.4 Fl Oz</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Nix</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Ultra Lice Treatment Hair Solution &amp; Lice Comb</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>Kills Superlice &amp; Eggs</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>3.4 Fl Oz</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• 100% PESTICIDE-FREE FORMULA: The Nix Ultra Lice Treatment Solution kills pesticide-resistant superlice, lice and eggs – one application is more effective at killing lice than Ivermectin Lotion*; *in l</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• FAST &amp; EFFECTIVE APPLICATION: Gently treats hair with a one-step application; no waiting period to shampoo post-treatment vs. the Ivermectin Lotion 24-hour wait period</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• REMOVES LICE WITHOUT COMBING: Includes Lice Removal Comb for convenience to assist in removing superlice, lice &amp; eggs (nits) from hair after lice treatment</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• DESIGNED TO TREAT THE WHOLE FAMILY: ages 2+: The Nix Ultra Lice Treatment Solution is the ideal lice treatment for kids, the 100% pesticide-free formula kills lice without the use of harsh chemicals</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• #1 PEDIATRICIAN RECOMMENDED BRAND**; **Based on Pediatrician Survey December 31, 2024: Nix is the number one pediatrician-recommended lice removal brand that offers both treatment and prevention produ</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #1D9E75;color:#1D9E75;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D85A30;color:#D85A30;font-weight:500">Ease of use</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #7F77DD;color:#7F77DD;font-weight:500">Prevention</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #639922;color:#639922;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Value / Kit</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (6 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/71gWGKdlGML.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71XuRtHB+TL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71lvlZRkeCL.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71as-qcjzqL.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81TYSp3FkJL.jpg" alt="PT05" loading="lazy">
+<div class="ig-var">PT05</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71pCK-eUZOL.jpg" alt="PT06" loading="lazy">
+<div class="ig-var">PT06</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-6">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-6').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/61HZTNyqOQL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">Lice Clinics of America</span>
+<span style="font-size:.68rem;color:#94a3b8">(B073C2685B)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$26.77</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.4</span>
+<span style="font-size:.72rem;color:#64748b">10,337 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Lice Treatment Kit by Lice Clinics-Guaranteed Cure for Super Lice-Safe, Non-Toxic (Complete Kit with 5.25oz Shampoo, Met</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Lice Clinics of America</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Lice Treatment Kit by Lice Clinics</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>Guaranteed Cure for Super Lice</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>Safe</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #BA751733;background:#BA751711"><span style="color:#BA7517;font-weight:500;font-size:.62rem">Pack/variant: </span>Complete Kit with 5.25oz Shampoo, Metal Comb &amp; More</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• LICE FREE LICE TREATMENT GUARANTEE — We guarantee your satisfaction. Please contact Lice Clinics of America with any questions or concerns - or if we can help! We are head lice experts and care that y</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• EFFECTIVE AGAINST LICE &amp; SUPER LICE – The included liquid gel eliminates lice AND super lice, and it’s more effective than traditional head lice shampoo treatments.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• NON-TOXIC FORMULA — Our liquid gel is harsh on head lice yet doesn&#x27;t contain any harmful chemicals so it’s a safe &amp; effective lice treatment for kids &amp; adults.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• COMPLETE KIT — Includes everything needed for effective head lice treatment and lice removal: easy-to-use no-mess applicator, 5.25 oz. liquid gel, and premium metal head lice comb.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• PLEASANT SCENT — The included liquid gel has a great fresh pear blossom scent that mom and kids will love.</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #1D9E75;color:#1D9E75;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D85A30;color:#D85A30;font-weight:500">Ease of use</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #BA7517;color:#BA7517;font-weight:500">Value / Kit</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #639922;color:#639922;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Prevention</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (7 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/61HZTNyqOQL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/61lAsJjqRoL.jpg" alt="PT01" loading="lazy">
+<div class="ig-var">PT01</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/61V2BhgjKCL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/61rDIgLBmzL.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/61Fd82kTSyL.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/617A54ilSTL.jpg" alt="PT05" loading="lazy">
+<div class="ig-var">PT05</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/616-DzkjJpL.jpg" alt="PT06" loading="lazy">
+<div class="ig-var">PT06</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-7">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-7').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/71BEMajLfPL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">MAYDAY</span>
+<span style="font-size:.68rem;color:#94a3b8">(B0F86TJQ76)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$37.99</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.4</span>
+<span style="font-size:.72rem;color:#64748b">295 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">MAYDAY Daily Lice Routine Bundle – 12oz Shampoo &amp; 12oz Conditioner | Non-Toxic, Pesticide-Free, Scientifically Proven Li</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>MAYDAY</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Daily Lice Routine Bundle</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>12oz Shampoo &amp; 12oz Conditioner | Non</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>Toxic</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Complete Daily Lice Defense Routine: The Mayday Daily Lice Routine Bundle includes both 12oz Shampoo and 12oz Conditioner for a full lice prevention system.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Non-Toxic &amp; Chemical-Free: Free from harmful chemicals and pesticides, both products are made with natural ingredients like Sandalwood and Mint for safe lice protection.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Scientifically Proven: Scientifically Proven and effective in eliminating lice and preventing re-infestation, providing long-lasting protection for the whole family.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Hydrates &amp; Nourishes: The shampoo cleans and protects while the conditioner helps detangle, hydrate, and leave hair soft, smooth, and lice-free.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Family-Friendly: Safe for both children and adults, this bundle is ideal for daily lice defense and hair care, suitable for sensitive scalps.</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #1D9E75;color:#1D9E75;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #7F77DD;color:#7F77DD;font-weight:500">Prevention</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #BA7517;color:#BA7517;font-weight:500">Value / Kit</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #639922;color:#639922;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Ease of use</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (9 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/71BEMajLfPL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81Sg3fOSPaL.jpg" alt="PT01" loading="lazy">
+<div class="ig-var">PT01</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71cc3as5CPL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81MERzwYn7L.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81r0+oK-k6L.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81eRvRcyygL.jpg" alt="PT05" loading="lazy">
+<div class="ig-var">PT05</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81RYdpT7oML.jpg" alt="PT06" loading="lazy">
+<div class="ig-var">PT06</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81NC8Tvd1vL.jpg" alt="PT07" loading="lazy">
+<div class="ig-var">PT07</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81djG9IMDsL.jpg" alt="PT08" loading="lazy">
+<div class="ig-var">PT08</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-8">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-8').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/81DLyfHLbqL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">Fairy Tales</span>
+<span style="font-size:.68rem;color:#94a3b8">(B077KWFKZX)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$32.95</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.7</span>
+<span style="font-size:.72rem;color:#64748b">2,752 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fairy Tales Rosemary Repel Daily Kids Shampoo, 12 fl oz., Conditioner, 8 fl oz. &amp; Conditioning Spray, 8 fl oz. Star Trio</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Fairy Tales</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Rosemary Repel Daily Kids Shampoo</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>12 fl oz.</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>Conditioner</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Rosemary Repel Shampoo, Conditioner and Conditioning Spray is the perfect trio to cleanse, condition and detangle the hair the added bonus is that the formulas contain essential oils that kids love th</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• In lab studies, our proprietary blend of rosemary, citronella, tea tree, geranium and peppermint oils also help defend against unwanted visitors.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Jojoba, Chamomile and Lavender extracts hydrate, moisturize and soothe the scalp.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Gentle enough for everyday use. No harsh chemicals or toxins.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Sulfate-free, paraben free, phthalate free, gluten free, soy free, dairy free and nut free.</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #7F77DD;color:#7F77DD;font-weight:500">Prevention</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #639922;color:#639922;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Ease of use</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Value / Kit</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (5 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/81DLyfHLbqL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81r4OhC2xKL.jpg" alt="PT01" loading="lazy">
+<div class="ig-var">PT01</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81ryrN+afoL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81TYZ2nRbLL.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81h7rZ4FDtL.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-9">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-9').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/71uFZIOQ3dL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">Fairy Tales</span>
+<span style="font-size:.68rem;color:#94a3b8">(B0046KL4SW)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$23.95</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.7</span>
+<span style="font-size:.72rem;color:#64748b">3,531 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fairy Tales Rosemary Repel Daily Kids Shampoo, 12 fl oz. and Conditioner, 8 fl oz. Duo – Kids Like the Smell, Lice Do No</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Fairy Tales</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Rosemary Repel Daily Kids Shampoo</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>12 fl oz. and Conditioner</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>8 fl oz. Duo</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Rosemary Repel Shampoo and Conditioner is the perfect duo to cleanse and condition the hair, the added bonus is that the formulas contain essential oils that kids love the smell of, lice do not.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• In lab studies, our proprietary blend of rosemary, citronella, tea tree, geranium and peppermint oils also help defend against unwanted visitors.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Jojoba, Chamomile and Lavender extracts hydrate, moisturize and soothe the scalp.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Gentle enough for everyday use. No harsh chemicals or toxins.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Sulfate-free, paraben free, phthalate free, gluten free, soy free, dairy free and nut free.</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #7F77DD;color:#7F77DD;font-weight:500">Prevention</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #639922;color:#639922;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Ease of use</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Value / Kit</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (5 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/71uFZIOQ3dL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/814ebjGBJXL.jpg" alt="PT01" loading="lazy">
+<div class="ig-var">PT01</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81ryrN+afoL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81TYZ2nRbLL.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81h7rZ4FDtL.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-10">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-10').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/819nwYLmvAL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">RID</span>
+<span style="font-size:.68rem;color:#94a3b8">(B093P2K33Z)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$22.07</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.5</span>
+<span style="font-size:.72rem;color:#64748b">2,429 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">RID Super Max Lice Treatment Kit, Kills Lice &amp; Super Lice &amp; Eggs + 24/7 Lice Defense, Pesticide Free, 3.4 FL OZ Solution</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>RID</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Super Max Lice Treatment Kit</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>Kills Lice &amp; Super Lice &amp; Eggs + 24/7 Lice Defense</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>Pesticide Free</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• The Only 5 in 1 Lice Complete Lice Treatment Kit: 1) Kills Lice Fast 2) Even Kills Hard-to-Kill Super Lice 3) Kills Eggs 4) Blocks New Lice 5) Plus provides ongoing 24/7 lice defense upon return to sc</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Kills Lice Better than the Leading Pesticide: Clinical testing shows that Rid Super Max is more effective at killing head lice than the leading pesticide ingredient.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• The advanced treatment solution is enhanced with lice defense ingredients to not only kill super lice and eggs but also to help keep new lice away from treated hair.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Plus includes RID Daily Defense Shampoo &amp; Conditioner to help keep lice away 24/7 upon return to school or camp (with daily use).</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• 100% effective at keeping lice away when Daily Defense Shampoo &amp; Conditioner is used daily.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• No Harsh Chemicals &amp; No Pesticides: It is tough on lice but gentle on kids.</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #1D9E75;color:#1D9E75;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #7F77DD;color:#7F77DD;font-weight:500">Prevention</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #BA7517;color:#BA7517;font-weight:500">Value / Kit</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #639922;color:#639922;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Ease of use</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (6 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/819nwYLmvAL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81BWz9CSrcL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81+699Y6UxL.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81G-YcX4qfL.jpg" alt="PT05" loading="lazy">
+<div class="ig-var">PT05</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/71cROBFkghL.jpg" alt="PT06" loading="lazy">
+<div class="ig-var">PT06</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/61GJvPFkByL.jpg" alt="PT07" loading="lazy">
+<div class="ig-var">PT07</div>
+</div>
+</div>
+</div>
+</div>
+<div class="lc-card" id="lc-card-11">
+<div class="lc-card-hdr" onclick="document.getElementById('lc-card-11').classList.toggle('open')">
+<div style="flex:1;min-width:0">
+<div style="display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap">
+<img src="https://m.media-amazon.com/images/I/71hEq0J8tUL.jpg" style="width:40px;height:40px;object-fit:contain;border-radius:4px;border:1px solid #e2e8f0">
+<span style="font-weight:600;font-size:.9rem;color:#0f2942">Fairy Tales</span>
+<span style="font-size:.68rem;color:#94a3b8">(B00J8OU8QK)</span>
+<span style="font-size:.75rem;font-weight:600;color:#1e293b">$45.95</span>
+<span style="font-size:.72rem;color:#64748b">⭐ 4.8</span>
+<span style="font-size:.72rem;color:#64748b">1,859 reviews</span>
+</div>
+<p style="font-size:.72rem;color:#64748b;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis">Fairy Tales Rosemary Repel Daily Kids Shampoo, 32 fl oz. and Conditioner, 32 fl oz. Duo – Kids Like the Smell, Lice Do N</p>
+</div>
+<span class="chevron">▾</span>
+</div>
+<div class="lc-card-body">
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Title structure</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #7F77DD33;background:#7F77DD11"><span style="color:#7F77DD;font-weight:500;font-size:.62rem">Brand: </span>Fairy Tales</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #1D9E7533;background:#1D9E7511"><span style="color:#1D9E75;font-weight:500;font-size:.62rem">Product type: </span>Rosemary Repel Daily Kids Shampoo</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #378ADD33;background:#378ADD11"><span style="color:#378ADD;font-weight:500;font-size:.62rem">Key benefit: </span>32 fl oz. and Conditioner</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #D4537E33;background:#D4537E11"><span style="color:#D4537E;font-weight:500;font-size:.62rem">Differentiator: </span>32 fl oz. Duo</span>
+<span style="font-size:.68rem;padding:2px 6px;border-radius:4px;border:1px solid #BA751733;background:#BA751711"><span style="color:#BA7517;font-weight:500;font-size:.62rem">Pack/variant: </span>Pack of 2</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Bullet points</p>
+<div style="margin-bottom:14px">
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Rosemary Repel Shampoo and Conditioner is the perfect duo to cleanse and condition the hair, the added bonus is that the formulas contain essential oils that kids love the smell of, lice do not.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• In lab studies, our proprietary blend of rosemary, citronella, tea tree, geranium and peppermint oils also help defend against unwanted visitors.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Jojoba, Chamomile and Lavender extracts hydrate, moisturize and soothe the scalp.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Gentle enough for everyday use. No harsh chemicals or toxins.</p>
+<p style="font-size:.72rem;color:#1e293b;margin:2px 0;line-height:1.4">• Sulfate-free, paraben free, phthalate free, gluten free, soy free, dairy free and nut free.</p>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Key claims</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #378ADD;color:#378ADD;font-weight:500">Safety / Gentle</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #7F77DD;color:#7F77DD;font-weight:500">Prevention</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #BA7517;color:#BA7517;font-weight:500">Value / Kit</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #D4537E;color:#D4537E;font-weight:500">For Kids / Family</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;border:1px solid #639922;color:#639922;font-weight:500">Ingredients</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#dc2626;text-transform:uppercase;letter-spacing:.5px;margin-top:10px;margin-bottom:6px">✗ Niezaspokojone potrzeby klientów — tematy nieporuszane</p>
+<div style="display:flex;flex-wrap:wrap;gap:4px;margin-bottom:14px">
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Effectiveness</span>
+<span style="font-size:.68rem;padding:2px 8px;border-radius:12px;background:#fef2f2;border:1px solid #fca5a5;color:#dc2626;font-weight:500">Ease of use</span>
+</div>
+<p style="font-size:.68rem;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px">Image gallery (5 slots)</p>
+<div class="ig">
+<div class="ig-slot" style="position:relative">
+<span class="ig-badge" style="background:#378ADD">Hero</span>
+<img src="https://m.media-amazon.com/images/I/71hEq0J8tUL.jpg" alt="MAIN" loading="lazy">
+<div class="ig-var">MAIN</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/819xBZP6nHL.jpg" alt="PT01" loading="lazy">
+<div class="ig-var">PT01</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81ryrN+afoL.jpg" alt="PT02" loading="lazy">
+<div class="ig-var">PT02</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81TYZ2nRbLL.jpg" alt="PT03" loading="lazy">
+<div class="ig-var">PT03</div>
+</div>
+<div class="ig-slot" style="position:relative">
+<img src="https://m.media-amazon.com/images/I/81h7rZ4FDtL.jpg" alt="PT04" loading="lazy">
+<div class="ig-var">PT04</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- END TAB LC -->
 
 <script>
 // ── Tab switching ────────────────────────────────────────────────────────────
@@ -2850,6 +4386,18 @@ function vocClear() {
   vocFilter();
 }
 vocFilter();
+
+function toggleComp(asin) {
+  var body = document.getElementById('comp_body_' + asin);
+  var arrow = document.getElementById('comp_arrow_' + asin);
+  if (body.classList.contains('open')) {
+    body.classList.remove('open');
+    arrow.textContent = '\u25BC';
+  } else {
+    body.classList.add('open');
+    arrow.textContent = '\u25B2';
+  }
+}
 
 // ── Fix: hidden panels render at 0×0 ─────────────────────────────────────────
 window.addEventListener('load', function() {
