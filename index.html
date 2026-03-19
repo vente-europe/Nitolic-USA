@@ -124,6 +124,17 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 .cl-badge{display:inline-block;font-size:.65rem;font-weight:500;padding:2px 7px;border-radius:10px;margin:2px;white-space:nowrap}
 .ts-tag{display:inline-block;font-size:.68rem;padding:2px 6px;border-radius:4px;margin:2px}
 
+.kw-table{width:100%;border-collapse:collapse;font-size:.72rem}
+.kw-table th{position:sticky;top:0;background:#0f2942;color:#fff;padding:8px 6px;text-align:center;font-size:.62rem;font-weight:600;white-space:nowrap;z-index:2}
+.kw-table td{padding:5px 6px;border-bottom:1px solid #f1f5f9;text-align:center;font-size:.72rem}
+.kw-table tr:hover td{background:#f8fafc}
+.kw-sort{cursor:pointer;user-select:none}.kw-sort:hover{color:#93c5fd}
+.kw-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:8px;padding:8px 12px;font-size:.68rem;color:#64748b}
+.kw-legend span{display:inline-flex;align-items:center;gap:4px}
+.kw-legend i{display:inline-block;width:16px;height:12px;border-radius:2px}
+.sec-summary{font-size:.78rem;color:#64748b;line-height:1.55;margin-bottom:20px;max-width:900px}
+.sec-header{display:flex;align-items:center;gap:10px;margin-bottom:6px;padding-top:8px}
+.sec-title{font-size:1rem;font-weight:700;color:#1e293b}
 </style>
 </head>
 <body>
@@ -143,6 +154,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   <div class="tab" onclick="show('t6sv',this)">6 — Search Volume</div>
   <div class="tab" onclick="show('t7voc',this)">7 — Reviews VOC</div>
   <div class="tab" onclick="show('tlc',this)">8 — Listing Communication</div>
+  <div class="tab" onclick="show('t9kw',this)">9 — KW Analysis</div>
 </div>
 
 <div class="content">
@@ -1919,7 +1931,13 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 </div><!-- end la_bench -->
 
 
-</div><!-- END TAB LC -->
+</div><!-- END TAB LC --
+<!-- TAB 9 KW Analysis -->
+<div id="t9kw" class="panel">
+<h2>Keyword Analysis — Competitor Landscape</h2>
+<div id="kwa-root"></div>
+</div><!-- END TAB 9 -->
+>
 
 <script>
 // ── Tab switching ────────────────────────────────────────────────────────────
@@ -3523,6 +3541,491 @@ window.addEventListener('load', function() {
     buildSVCharts('treatment');
   }, 100);
 });
+
+
+// KW Analysis
+var KW_ANALYSIS_DATA = {
+  category: "Lice Treatment & Prevention",
+  market: "US",
+  source: "Helium 10 Niche Analysis (DataDive)",
+  nicheMedians: { price: "$24.29", rating: "4.5" },
+  competitors: [
+    { asin: "B000O7JK0A", brand: "Fairy Tales", asinShort: "JK0A", image: "https://m.media-amazon.com/images/I/31zHQ8Sxh6L.jpg", price: "$12.48", sales30d: "18,343", revenue30d: "$228,735", rating: 4.8, reviews: "18,017", kwsOnP1: 142 },
+    { asin: "B0BH8KD8GN", brand: "Nix", asinShort: "D8GN", image: "https://m.media-amazon.com/images/I/71GtAfdLqcL.jpg", price: "$28.98", sales30d: "1,549", revenue30d: "$40,962", rating: 4.5, reviews: "3,423", kwsOnP1: 173 },
+    { asin: "B07NLTJ7N8", brand: "Nix", asinShort: "J7N8", image: "https://m.media-amazon.com/images/I/71bsPnjYkiL.jpg", price: "$18.88", sales30d: "5,618", revenue30d: "$106,017", rating: 4.5, reviews: "3,423", kwsOnP1: 173 },
+    { asin: "B0DTN81GNC", brand: "RID", asinShort: "1GNC", image: "https://m.media-amazon.com/images/I/71uYUR-d8WL.jpg", price: "$34.97", sales30d: "9,474", revenue30d: "$288,077", rating: 4.4, reviews: "696", kwsOnP1: 139 },
+    { asin: "B06XGC9SYL", brand: "Nix", asinShort: "9SYL", image: "https://m.media-amazon.com/images/I/71uTz9PwkoL.jpg", price: "$20.81", sales30d: "1,373", revenue30d: "$25,274", rating: 4.5, reviews: "10,613", kwsOnP1: 119 },
+    { asin: "B01BU6E7G0", brand: "Nix", asinShort: "E7G0", image: "https://m.media-amazon.com/images/I/41Ro5WrAkLL.jpg", price: "$17.61", sales30d: "2,440", revenue30d: "$42,731", rating: 4.5, reviews: "10,613", kwsOnP1: 119 },
+    { asin: "B073C2685B", brand: "Lice Clinics", asinShort: "685B", image: "https://m.media-amazon.com/images/I/61HZTNyqOQL.jpg", price: "$26.77", sales30d: "4,915", revenue30d: "$131,565", rating: 4.4, reviews: "10,337", kwsOnP1: 128 },
+    { asin: "B0F86TJQ76", brand: "MAYDAY", asinShort: "JQ76", image: "https://m.media-amazon.com/images/I/71BEMajLfPL.jpg", price: "$37.99", sales30d: "2,086", revenue30d: "$76,904", rating: 4.4, reviews: "295", kwsOnP1: 68 },
+    { asin: "B077KWFKZX", brand: "Fairy Tales", asinShort: "FKZX", image: "https://m.media-amazon.com/images/I/81DLyfHLbqL.jpg", price: "$32.95", sales30d: "4,344", revenue30d: "$143,139", rating: 4.7, reviews: "2,752", kwsOnP1: 90 },
+    { asin: "B0046KL4SW", brand: "Fairy Tales", asinShort: "L4SW", image: "https://m.media-amazon.com/images/I/71uFZIOQ3dL.jpg", price: "$23.95", sales30d: "3,907", revenue30d: "$93,570", rating: 4.7, reviews: "3,531", kwsOnP1: 56 },
+    { asin: "B093P2K33Z", brand: "RID", asinShort: "K33Z", image: "https://m.media-amazon.com/images/I/819nwYLmvAL.jpg", price: "$22.07", sales30d: "4,004", revenue30d: "$90,118", rating: 4.5, reviews: "2,429", kwsOnP1: 116 },
+    { asin: "B00J8OU8QK", brand: "Fairy Tales", asinShort: "U8QK", image: "https://m.media-amazon.com/images/I/71hEq0J8tUL.jpg", price: "$45.95", sales30d: "1,613", revenue30d: "$74,119", rating: 4.8, reviews: "1,859", kwsOnP1: 44 }
+  ],
+  keywords: [
+    { t: "lice treatment for kids", sv: 17608, rl: 1.00, r: [7,2,2,1,10,10,4,21,19,28,3,33] },
+    { t: "lice shampoo for kids", sv: 4115, rl: 1.00, r: [22,2,2,8,24,24,5,12,4,1,16,19] },
+    { t: "lice prevention", sv: 2108, rl: 1.00, r: [1,3,3,30,9,9,36,7,4,5,32,28] },
+    { t: "shampoo para piojos", sv: 1450, rl: 1.00, r: [26,6,6,4,14,14,5,9,19,25,7,41] },
+    { t: "lice repellent", sv: 680, rl: 1.00, r: [1,6,6,39,11,11,20,8,3,7,19,34] },
+    { t: "fairy tales lice", sv: 460, rl: 1.00, r: [2,19,19,16,26,26,24,20,1,4,28,3] },
+    { t: "fairy tales lice treatment", sv: 250, rl: 1.00, r: [3,7,7,9,17,17,8,18,1,4,11,5] },
+    { t: "kids lice treatment", sv: 250, rl: 1.00, r: [6,3,3,2,11,11,1,13,7,35,9,42] },
+    { t: "lice shampoo", sv: 27093, rl: 0.92, r: [61,1,1,3,27,27,31,8,26,10,11,21] },
+    { t: "lice", sv: 11666, rl: 0.92, r: [4,5,5,1,8,8,6,12,15,28,2,95] },
+    { t: "lice shampoo that kills eggs and lice", sv: 5795, rl: 0.92, r: [0,2,2,1,13,13,7,3,14,29,4,19] },
+    { t: "fairytales lice prevention", sv: 4634, rl: 0.92, r: [1,17,17,26,16,16,24,18,6,5,0,2] },
+    { t: "lice treatment shampoo", sv: 1313, rl: 0.92, r: [132,1,1,2,15,15,12,5,34,28,3,29] },
+    { t: "fairy tails lice prevention", sv: 715, rl: 0.92, r: [2,27,27,45,28,28,33,25,1,5,0,3] },
+    { t: "shampoo for lice", sv: 493, rl: 0.92, r: [0,1,1,2,29,29,15,4,25,6,5,24] },
+    { t: "vamousse lice shampoo", sv: 250, rl: 0.92, r: [0,11,11,14,30,30,15,6,18,13,12,10] },
+    { t: "best shampoo to prevent lice", sv: 250, rl: 0.92, r: [10,13,13,0,34,34,18,1,2,3,17,14] },
+    { t: "lice treatment", sv: 45943, rl: 0.83, r: [18,3,3,1,5,5,4,21,43,53,2,0] },
+    { t: "fairy tales lice prevention", sv: 12176, rl: 0.83, r: [1,16,16,20,15,15,0,17,3,5,0,4] },
+    { t: "lice prevention spray", sv: 10366, rl: 0.83, r: [1,3,3,28,7,7,0,40,8,27,21,0] },
+    { t: "head lice treatment kit", sv: 2316, rl: 0.83, r: [20,4,4,2,5,5,3,32,19,0,1,0] },
+    { t: "rid lice treatment", sv: 2055, rl: 0.83, r: [26,8,8,1,9,9,14,23,0,0,2,22] },
+    { t: "head lice treatment", sv: 1797, rl: 0.83, r: [22,5,5,3,9,9,7,28,20,0,4,126] },
+    { t: "piojos y liendres tratamiento", sv: 1599, rl: 0.83, r: [5,11,11,3,14,14,1,21,15,0,9,0] },
+    { t: "lice shampoo and conditioner", sv: 987, rl: 0.83, r: [20,10,10,7,0,0,16,2,9,3,12,1] },
+    { t: "head lice", sv: 868, rl: 0.83, r: [6,3,3,1,8,8,4,23,25,0,2,0] },
+    { t: "head lice shampoo", sv: 864, rl: 0.83, r: [0,1,1,2,30,30,13,7,16,32,4,87] },
+    { t: "piojos", sv: 790, rl: 0.83, r: [7,11,11,9,12,12,5,20,25,0,3,0] },
+    { t: "hair lice treatment", sv: 776, rl: 0.83, r: [10,4,4,1,9,9,5,14,38,0,3,0] },
+    { t: "lice shampoo prevention", sv: 567, rl: 0.83, r: [10,11,11,30,140,140,25,5,2,1,14,8] },
+    { t: "lice removal kit", sv: 548, rl: 0.83, r: [12,5,5,4,3,3,2,31,43,0,1,0] },
+    { t: "kids lice shampoo", sv: 522, rl: 0.83, r: [24,5,5,7,65,65,6,9,3,1,25,11] },
+    { t: "lice hair treatment", sv: 250, rl: 0.83, r: [9,3,3,1,7,7,4,12,32,0,2,131] },
+    { t: "best hair lice treatment", sv: 250, rl: 0.83, r: [9,2,2,1,7,7,5,6,36,0,4,118] },
+    { t: "best lice treatment for kids", sv: 250, rl: 0.83, r: [7,5,5,1,9,9,2,10,12,0,3,0] },
+    { t: "champu para piojos", sv: 250, rl: 0.83, r: [0,8,8,10,25,25,4,6,18,19,5,0] },
+    { t: "head lice shampoo for kids", sv: 250, rl: 0.83, r: [20,8,8,3,0,0,4,9,2,5,19,37] },
+    { t: "ivermectin shampoo for lice", sv: 250, rl: 0.83, r: [0,8,8,1,21,21,14,17,41,35,0,38] },
+    { t: "lice shampoo treatment", sv: 250, rl: 0.83, r: [66,1,1,2,14,14,9,4,101,36,3,20] },
+    { t: "lice treatment products", sv: 250, rl: 0.83, r: [6,2,2,1,7,7,4,19,0,0,5,16] },
+    { t: "natural lice treatment", sv: 250, rl: 0.83, r: [5,16,16,19,23,23,1,3,25,0,14,103] },
+    { t: "shampoo para piojos kids", sv: 250, rl: 0.83, r: [23,8,8,15,0,0,1,10,20,6,13,26] },
+    { t: "nix lice treatment", sv: 7484, rl: 0.75, r: [17,1,1,6,3,3,14,30,0,0,8,0] },
+    { t: "nix", sv: 5111, rl: 0.75, r: [12,1,1,7,3,3,20,26,0,0,15,0] },
+    { t: "lice prevention shampoo", sv: 3536, rl: 0.75, r: [15,20,20,77,0,0,45,2,9,1,29,5] },
+    { t: "lice kit", sv: 1522, rl: 0.75, r: [23,5,5,7,3,3,2,27,0,0,1,0] },
+    { t: "lice shampoo for adults", sv: 1482, rl: 0.75, r: [0,2,2,1,19,19,10,5,129,16,4,0] },
+    { t: "nix ultra super lice treatment", sv: 1427, rl: 0.75, r: [19,1,1,5,2,2,12,23,0,0,9,90] },
+    { t: "rid one and done lice treatment", sv: 1337, rl: 0.75, r: [21,13,13,1,9,9,12,8,0,0,3,0] },
+    { t: "lice killer", sv: 1197, rl: 0.75, r: [25,6,6,1,3,3,9,13,66,0,2,0] },
+    { t: "one and done lice treatment", sv: 1173, rl: 0.75, r: [20,7,7,1,15,15,10,18,0,105,3,0] },
+    { t: "strongest lice killer", sv: 1056, rl: 0.75, r: [14,6,6,1,13,13,4,7,0,0,2,0] },
+    { t: "lice killing shampoo", sv: 957, rl: 0.75, r: [0,2,2,1,21,21,9,4,90,40,3,78] },
+    { t: "lice treatment for home", sv: 945, rl: 0.75, r: [10,16,16,3,1,1,11,13,0,0,9,0] },
+    { t: "vamousse lice treatment", sv: 906, rl: 0.75, r: [10,7,7,4,12,12,8,23,0,87,6,53] },
+    { t: "lice removal", sv: 893, rl: 0.75, r: [18,3,3,1,7,7,6,42,0,0,4,0] },
+    { t: "tratamiento para piojos y liendres", sv: 818, rl: 0.75, r: [14,7,7,4,13,13,1,23,0,0,3,0] },
+    { t: "best lice treatment", sv: 708, rl: 0.75, r: [19,3,3,1,6,6,4,10,0,77,2,0] },
+    { t: "lice treatment kit", sv: 704, rl: 0.75, r: [31,5,5,3,2,2,4,24,0,0,1,121] },
+    { t: "lice kits", sv: 699, rl: 0.75, r: [24,7,7,11,2,2,4,35,0,0,1,0] },
+    { t: "lice prevention shampoo and conditioner", sv: 659, rl: 0.75, r: [11,23,23,0,83,83,38,4,3,1,31,2] },
+    { t: "veneno para piojos y liendres efectivo para niñas", sv: 651, rl: 0.75, r: [22,9,9,2,19,19,3,25,0,0,6,0] },
+    { t: "lice clinics of america products", sv: 645, rl: 0.75, r: [6,18,18,8,9,9,1,13,0,90,17,0] },
+    { t: "rid super max lice treatment", sv: 594, rl: 0.75, r: [23,13,13,2,8,8,14,29,0,0,1,0] },
+    { t: "lice medicine for hair", sv: 588, rl: 0.75, r: [14,4,4,1,6,6,5,18,0,135,3,0] },
+    { t: "lice shampoos & rinses", sv: 573, rl: 0.75, r: [0,3,3,2,0,0,6,4,24,21,1,30] },
+    { t: "lice medicine", sv: 549, rl: 0.75, r: [20,6,6,1,5,5,4,22,0,0,3,0] },
+    { t: "lice free", sv: 538, rl: 0.75, r: [5,16,16,6,9,9,7,11,95,0,10,0] },
+    { t: "remedio para piojos y liendres", sv: 510, rl: 0.75, r: [16,8,8,5,11,11,1,24,0,0,4,0] },
+    { t: "lice treatment spray", sv: 502, rl: 0.75, r: [7,11,11,8,1,1,19,27,0,0,13,0] },
+    { t: "lice treatment kits", sv: 488, rl: 0.75, r: [22,4,4,5,2,2,3,21,0,0,1,0] },
+    { t: "super lice treatment extra strength", sv: 487, rl: 0.75, r: [21,3,3,2,5,5,4,9,0,0,1,0] },
+    { t: "rid lice", sv: 482, rl: 0.75, r: [27,8,8,1,10,10,14,15,0,0,2,0] },
+    { t: "lice killing spray", sv: 480, rl: 0.75, r: [7,12,12,15,1,1,33,30,0,0,21,0] },
+    { t: "piojos tratamiento", sv: 250, rl: 0.75, r: [13,9,9,3,11,11,2,16,0,0,5,0] },
+    { t: "fairytale lice prevention spray", sv: 250, rl: 0.75, r: [1,9,9,0,10,10,0,22,5,8,0,7] },
+    { t: "anti lice shampoo kids", sv: 250, rl: 0.75, r: [11,6,6,40,0,0,5,23,2,3,0,13] },
+    { t: "best lice killer", sv: 250, rl: 0.75, r: [15,5,5,1,6,6,4,3,0,0,2,0] },
+    { t: "best rated lice treatment", sv: 250, rl: 0.75, r: [7,3,3,1,11,11,2,5,35,104,0,0] },
+    { t: "body lice treatment", sv: 250, rl: 0.75, r: [34,10,10,1,4,4,9,8,0,0,3,0] },
+    { t: "cure lice treatment", sv: 250, rl: 0.75, r: [5,8,8,3,15,15,1,10,0,0,9,0] },
+    { t: "fairy tales lice spray", sv: 250, rl: 0.75, r: [1,15,15,0,18,18,43,47,4,7,0,19] },
+    { t: "fairy tales rosemary repel lice", sv: 250, rl: 0.75, r: [2,22,22,0,29,29,0,25,3,1,0,6] },
+    { t: "headlice treatment for the family", sv: 250, rl: 0.75, r: [16,6,6,1,3,3,4,11,0,0,2,0] },
+    { t: "herklin lice treatment", sv: 250, rl: 0.75, r: [4,5,5,3,25,25,6,27,0,0,9,0] },
+    { t: "how to get rid of lice overnight", sv: 250, rl: 0.75, r: [6,4,4,1,7,7,3,5,0,0,2,0] },
+    { t: "kill lice instantly", sv: 250, rl: 0.75, r: [11,6,6,1,5,5,2,8,134,0,3,0] },
+    { t: "lice and nit treatment", sv: 250, rl: 0.75, r: [18,4,4,2,10,10,8,22,0,0,1,0] },
+    { t: "lice conditioner", sv: 250, rl: 0.75, r: [4,30,30,0,0,0,28,2,11,8,31,6] },
+    { t: "lice egg remover", sv: 250, rl: 0.75, r: [21,8,8,2,15,15,4,19,0,0,3,0] },
+    { t: "lice killer for hair", sv: 250, rl: 0.75, r: [11,5,5,1,10,10,6,9,0,0,2,0] },
+    { t: "lice nit glue dissolver", sv: 250, rl: 0.75, r: [20,21,21,4,34,34,8,19,0,0,24,0] },
+    { t: "lice remover", sv: 250, rl: 0.75, r: [12,6,6,1,15,15,5,25,117,0,2,0] },
+    { t: "lice shield", sv: 250, rl: 0.75, r: [3,27,27,0,20,20,23,24,8,0,25,0] },
+    { t: "lice treatment extra strength family", sv: 250, rl: 0.75, r: [39,10,10,1,6,6,3,4,78,139,2,61] },
+    { t: "licefree", sv: 250, rl: 0.75, r: [6,20,20,5,11,11,8,14,0,0,16,0] },
+    { t: "licefreee", sv: 250, rl: 0.75, r: [5,22,22,6,11,11,10,13,0,0,16,0] },
+    { t: "live treatment", sv: 250, rl: 0.75, r: [12,5,5,1,4,4,3,19,0,0,2,0] },
+    { t: "preventative lice shampoo", sv: 250, rl: 0.75, r: [10,15,15,0,0,0,21,2,3,5,29,16] },
+    { t: "rid daily defense lice shampoo & conditioner 24/7 defense", sv: 250, rl: 0.75, r: [15,10,10,0,0,0,24,4,36,20,2,13] },
+    { t: "shampoo mata piojos y liendres", sv: 250, rl: 0.75, r: [0,8,8,0,27,27,4,14,0,35,3,33] },
+    { t: "shampoo para piojos y liendres kids", sv: 250, rl: 0.75, r: [47,2,2,7,0,0,4,19,13,5,6,22] },
+    { t: "tratamiento fuerte para piojos", sv: 250, rl: 0.75, r: [20,5,5,2,35,35,3,10,0,0,1,0] },
+    { t: "tratamiento para piojos", sv: 250, rl: 0.75, r: [20,8,8,5,9,9,3,15,0,0,2,0] },
+    { t: "vamoose lice treatment", sv: 250, rl: 0.75, r: [13,8,8,4,16,16,7,23,0,0,9,0] },
+    { t: "what kills head lice instantly", sv: 250, rl: 0.75, r: [12,6,6,1,7,7,2,5,0,0,3,0] },
+    { t: "what kills lice and eggs instantly", sv: 250, rl: 0.75, r: [12,6,6,1,5,5,3,10,0,0,2,0] },
+    { t: "lice nit dissolver", sv: 250, rl: 0.75, r: [9,7,7,1,13,13,6,31,123,0,10,0] },
+    { t: "nix lice", sv: 250, rl: 0.75, r: [18,1,1,8,3,3,13,33,0,117,10,0] },
+    { t: "permetrina para piojos", sv: 250, rl: 0.75, r: [16,5,5,1,15,15,7,19,0,0,6,0] },
+    { t: "lice treatment for adults", sv: 3875, rl: 0.67, r: [0,4,4,1,3,3,5,14,0,0,2,0] },
+    { t: "dimethicone lice treatment", sv: 1531, rl: 0.67, r: [18,13,13,12,10,10,9,21,0,0,47,129] },
+    { t: "fairytales lice prevention spray", sv: 1309, rl: 0.67, r: [1,11,11,0,15,15,75,54,4,12,0,8] },
+    { t: "lice spray for hair", sv: 986, rl: 0.67, r: [1,7,7,9,14,14,45,76,15,0,0,0] },
+    { t: "headlice treatment kit", sv: 955, rl: 0.67, r: [0,3,3,2,5,5,4,33,0,0,1,0] },
+    { t: "champu para piojos y liendres", sv: 947, rl: 0.67, r: [0,11,11,7,28,28,4,10,0,0,8,0] },
+    { t: "mata piojos y liendres para niñas", sv: 613, rl: 0.67, r: [16,8,8,9,14,14,4,94,0,0,12,0] },
+    { t: "pubic lice treatment for adults", sv: 601, rl: 0.67, r: [0,3,3,1,7,7,5,9,0,0,2,0] },
+    { t: "sklice lice treatment", sv: 600, rl: 0.67, r: [12,10,10,3,7,7,6,0,0,0,8,0] },
+    { t: "body lice treatment for adults", sv: 535, rl: 0.67, r: [0,8,8,1,3,3,7,26,0,0,2,0] },
+    { t: "spinosad lice treatment", sv: 504, rl: 0.67, r: [11,8,8,4,9,9,6,0,0,0,5,0] },
+    { t: "nix ultra lice treatment", sv: 489, rl: 0.67, r: [25,1,1,7,3,3,10,0,0,0,11,0] },
+    { t: "pubic lice treatment", sv: 465, rl: 0.67, r: [0,3,3,1,5,5,6,15,0,0,2,0] },
+    { t: "lice removal kits", sv: 250, rl: 0.67, r: [0,5,5,4,2,2,3,20,0,0,1,0] },
+    { t: "best head lice killer", sv: 250, rl: 0.67, r: [0,3,3,1,10,10,4,9,0,0,2,0] },
+    { t: "daily lice prevention spray", sv: 250, rl: 0.67, r: [1,2,2,0,11,11,34,10,13,0,0,0] },
+    { t: "fairy tales lice prevention spray", sv: 250, rl: 0.67, r: [1,10,10,0,11,11,0,0,4,18,0,17] },
+    { t: "head lice treatment for adults", sv: 250, rl: 0.67, r: [0,3,3,1,4,4,5,11,0,0,2,0] },
+    { t: "lice cream", sv: 250, rl: 0.67, r: [34,16,16,1,18,18,13,46,0,0,28,0] },
+    { t: "lice lotion", sv: 250, rl: 0.67, r: [0,36,36,1,29,29,21,37,100,137,8,0] },
+    { t: "lice oil", sv: 250, rl: 0.67, r: [7,28,28,10,29,29,9,0,38,136,0,138] },
+    { t: "lice prevention shampoo for kids", sv: 250, rl: 0.67, r: [13,16,16,0,0,0,27,9,2,1,0,6] },
+    { t: "lice treatment for furniture", sv: 250, rl: 0.67, r: [25,29,29,0,1,1,26,28,0,0,30,0] },
+    { t: "lice treatment nix", sv: 250, rl: 0.67, r: [30,1,1,8,2,2,10,0,0,0,9,0] },
+    { t: "licefreee shampoo", sv: 250, rl: 0.67, r: [84,10,10,0,28,28,9,7,69,58,13,18] },
+    { t: "nix complete lice treatment kit", sv: 250, rl: 0.67, r: [0,3,3,10,2,2,8,18,0,0,7,0] },
+    { t: "nix lice shampoo", sv: 250, rl: 0.67, r: [0,1,1,6,3,3,8,11,0,0,10,47] },
+    { t: "nix lice treatment family pack", sv: 250, rl: 0.67, r: [0,3,3,8,2,2,11,18,0,0,9,0] },
+    { t: "nix shampoo lice treatment", sv: 250, rl: 0.67, r: [0,1,1,5,4,4,7,10,0,0,6,0] },
+    { t: "permethrin lice treatment", sv: 250, rl: 0.67, r: [0,9,9,2,12,12,8,31,0,0,3,0] },
+    { t: "rid lice treatment complete kit", sv: 250, rl: 0.67, r: [0,6,6,2,5,5,8,17,0,0,1,0] },
+    { t: "whole house lice treatment", sv: 250, rl: 0.67, r: [4,10,10,2,5,5,9,8,0,0,0,0] },
+    { t: "best lice prevention spray", sv: 250, rl: 0.67, r: [1,3,3,0,7,7,0,0,6,31,0,38] },
+    { t: "lice spray", sv: 7964, rl: 0.58, r: [1,10,10,14,2,2,115,112,22,0,93,0] },
+    { t: "shampoo para piojos y liendres", sv: 4212, rl: 0.58, r: [0,7,7,6,0,0,1,9,0,12,5,0] },
+    { t: "lice repellent spray for kids", sv: 3965, rl: 0.58, r: [1,5,5,0,21,21,51,115,3,24,142,0] },
+    { t: "dimethicone oil for lice", sv: 1382, rl: 0.58, r: [15,12,12,7,0,0,9,14,0,0,36,0] },
+    { t: "lice repellent spray", sv: 1114, rl: 0.58, r: [1,4,4,23,5,5,94,85,7,0,0,0] },
+    { t: "lice repellent shampoo", sv: 1036, rl: 0.58, r: [12,18,18,0,71,71,53,6,5,1,50,7] },
+    { t: "lice free spray for hair", sv: 885, rl: 0.58, r: [4,15,15,5,12,12,22,0,79,0,0,0] },
+    { t: "fairy tales shampoo for lice", sv: 807, rl: 0.58, r: [8,36,36,0,0,0,0,34,2,1,0,3] },
+    { t: "anti lice spray for kids", sv: 792, rl: 0.58, r: [1,5,5,0,17,17,26,0,4,82,0,0] },
+    { t: "nix lice prevention spray", sv: 685, rl: 0.58, r: [4,1,1,0,2,2,27,65,0,0,21,0] },
+    { t: "nix ultra", sv: 654, rl: 0.58, r: [0,1,1,18,2,2,13,0,0,0,16,0] },
+    { t: "lice kit that kills eggs and lice", sv: 606, rl: 0.58, r: [0,3,3,7,8,8,2,0,0,0,1,0] },
+    { t: "head lice prevention spray", sv: 529, rl: 0.58, r: [1,4,4,61,8,8,44,70,3,143,93,0] },
+    { t: "sklice", sv: 525, rl: 0.58, r: [7,5,5,3,4,4,10,0,0,0,0,0] },
+    { t: "kids lice prevention spray", sv: 455, rl: 0.58, r: [1,4,4,0,10,10,77,26,5,98,0,86] },
+    { t: "fairy tale lice prevention", sv: 250, rl: 0.58, r: [2,0,0,0,26,26,0,22,1,4,0,3] },
+    { t: "lice treatment sprays", sv: 250, rl: 0.58, r: [1,8,8,0,3,3,16,0,91,0,11,0] },
+    { t: "benzyl alcohol lotion for lice", sv: 250, rl: 0.58, r: [0,18,18,1,17,17,4,8,0,0,0,0] },
+    { t: "dimethicone for lice", sv: 250, rl: 0.58, r: [0,19,19,13,8,8,4,15,0,0,0,0] },
+    { t: "fairy tales lice shampoo", sv: 250, rl: 0.58, r: [7,14,14,0,0,0,0,11,4,1,0,3] },
+    { t: "fairytales lice prevention shampoo", sv: 250, rl: 0.58, r: [8,17,17,0,0,0,46,9,6,5,0,2] },
+    { t: "instant lice killer", sv: 250, rl: 0.58, r: [0,6,6,1,5,5,3,0,0,0,2,0] },
+    { t: "ladibugs lice prevention", sv: 250, rl: 0.58, r: [10,19,19,0,31,31,0,20,15,0,0,0] },
+    { t: "lice home treatment spray", sv: 250, rl: 0.58, r: [9,15,15,13,1,1,22,0,0,0,0,0] },
+    { t: "lice repellent spray for hair", sv: 250, rl: 0.58, r: [1,4,4,0,17,17,0,14,18,96,0,0] },
+    { t: "lice treatment comb", sv: 250, rl: 0.58, r: [135,16,16,24,30,30,10,48,0,0,18,0] },
+    { t: "licefreee kit", sv: 250, rl: 0.58, r: [0,8,8,0,14,14,4,27,0,0,6,0] },
+    { t: "mata piojos y liendres efectivo", sv: 250, rl: 0.58, r: [0,9,9,5,15,15,3,125,0,0,4,0] },
+    { t: "nit free", sv: 250, rl: 0.58, r: [47,26,26,10,31,31,16,0,0,0,15,0] },
+    { t: "nitwits lice treatment", sv: 250, rl: 0.58, r: [0,4,4,2,6,6,5,10,0,0,0,0] },
+    { t: "repelente de piojos para niñas", sv: 250, rl: 0.58, r: [1,5,5,0,41,41,15,0,3,0,0,0] },
+    { t: "rid lice spray", sv: 250, rl: 0.58, r: [9,16,16,8,2,2,0,0,0,0,6,0] },
+    { t: "shampoo for lice and eggs", sv: 250, rl: 0.58, r: [0,3,3,1,0,0,6,5,11,0,2,0] },
+    { t: "spinosad for lice", sv: 250, rl: 0.58, r: [6,0,0,1,15,15,8,30,0,0,3,0] },
+    { t: "super lice treatment", sv: 250, rl: 0.58, r: [0,4,4,2,3,3,5,0,0,0,1,0] },
+    { t: "veneno para piojos", sv: 250, rl: 0.58, r: [0,9,9,3,13,13,4,63,0,0,6,0] },
+    { t: "rosemary lice spray", sv: 250, rl: 0.58, r: [1,25,25,0,15,15,0,0,3,28,0,0] },
+    { t: "mata piojos", sv: 1861, rl: 0.50, r: [0,11,11,0,9,9,8,0,0,0,6,0] },
+    { t: "licefreee spray", sv: 1246, rl: 0.50, r: [3,10,10,7,14,14,55,0,0,0,76,0] },
+    { t: "lice prevention spray for kids", sv: 1028, rl: 0.50, r: [1,3,3,61,14,14,85,60,6,141,135,0] },
+    { t: "fairy tales rosemary repel spray", sv: 794, rl: 0.50, r: [1,21,21,0,0,0,0,55,3,12,0,8] },
+    { t: "lice deterrent spray for hair", sv: 660, rl: 0.50, r: [1,6,6,0,13,13,0,0,14,0,0,0] },
+    { t: "lice hair spray", sv: 658, rl: 0.50, r: [1,5,5,21,10,10,59,66,139,115,73,0] },
+    { t: "lice egg dissolver", sv: 572, rl: 0.50, r: [0,9,9,1,47,47,3,4,0,0,7,0] },
+    { t: "rosemary spray for lice prevention", sv: 534, rl: 0.50, r: [1,13,13,0,15,15,0,0,3,0,0,0] },
+    { t: "boo shampoo for lice", sv: 250, rl: 0.50, r: [8,0,0,0,0,0,7,4,5,11,0,31] },
+    { t: "fairy spray for lice", sv: 250, rl: 0.50, r: [1,11,11,0,13,13,0,94,3,0,0,0] },
+    { t: "fairy tales rosemary repel lice prevention kids hair spray", sv: 250, rl: 0.50, r: [1,23,23,0,0,0,0,70,3,11,0,10] },
+    { t: "headlice prevention spray", sv: 250, rl: 0.50, r: [1,6,6,0,45,45,0,48,3,0,47,0] },
+    { t: "ivermectin lice killer", sv: 250, rl: 0.50, r: [0,26,26,1,10,10,17,0,0,0,0,0] },
+    { t: "ladibugs lice treatment", sv: 250, rl: 0.50, r: [9,0,0,15,23,23,12,14,0,0,0,0] },
+    { t: "lice angels products", sv: 250, rl: 0.50, r: [2,0,0,0,5,5,4,9,10,0,0,0] },
+    { t: "lice detangler spray for kids", sv: 250, rl: 0.50, r: [1,7,7,0,27,27,0,0,10,116,0,0] },
+    { t: "lice detector", sv: 250, rl: 0.50, r: [7,19,19,0,10,10,12,0,0,0,0,0] },
+    { t: "lice electric comb", sv: 250, rl: 0.50, r: [10,15,15,11,0,0,6,0,0,0,22,0] },
+    { t: "lice fabric spray", sv: 250, rl: 0.50, r: [7,14,14,0,1,1,0,0,0,0,37,0] },
+    { t: "lice fogger", sv: 250, rl: 0.50, r: [13,0,0,5,3,3,0,12,0,0,8,0] },
+    { t: "lice free spray", sv: 250, rl: 0.50, r: [5,36,36,0,8,8,81,0,20,0,0,0] },
+    { t: "lice hair spray prevention", sv: 250, rl: 0.50, r: [1,7,7,0,33,33,0,0,6,0,0,0] },
+    { t: "lice house spray", sv: 250, rl: 0.50, r: [7,11,11,0,1,1,0,46,0,0,15,0] },
+    { t: "lice prevention daily leave-in spray", sv: 250, rl: 0.50, r: [2,1,1,0,11,11,0,10,0,0,0,0] },
+    { t: "lice prevention spray for adults", sv: 250, rl: 0.50, r: [1,4,4,0,11,11,0,12,126,0,0,0] },
+    { t: "lice prevention spray for hair", sv: 250, rl: 0.50, r: [1,4,4,0,17,17,111,48,7,0,0,131] },
+    { t: "lice shield shampoo", sv: 250, rl: 0.50, r: [85,7,7,0,75,75,24,10,8,4,0,0] },
+    { t: "lice shield spray", sv: 250, rl: 0.50, r: [2,5,5,0,12,12,0,0,15,0,0,0] },
+    { t: "lice spray for hair prevention", sv: 250, rl: 0.50, r: [1,4,4,0,15,15,62,0,10,0,0,0] },
+    { t: "lice spray for home", sv: 250, rl: 0.50, r: [8,15,15,72,1,1,22,61,0,0,0,0] },
+    { t: "lice spray for kids", sv: 250, rl: 0.50, r: [1,6,6,0,17,17,18,102,128,0,0,0] },
+    { t: "natroba", sv: 250, rl: 0.50, r: [0,8,8,0,4,4,9,0,0,0,7,0] },
+    { t: "natural lice repellent spray", sv: 250, rl: 0.50, r: [1,7,7,0,15,15,0,52,8,0,0,0] },
+    { t: "nit", sv: 250, rl: 0.50, r: [0,2,2,0,7,7,11,0,0,0,5,0] },
+    { t: "rid shampoo", sv: 250, rl: 0.50, r: [0,6,6,2,0,0,26,29,0,0,3,0] },
+    { t: "rid shampoo lice treatment", sv: 250, rl: 0.50, r: [0,7,7,2,0,0,12,10,0,0,1,0] },
+    { t: "spray para piojos", sv: 250, rl: 0.50, r: [1,4,4,0,6,6,20,0,0,0,0,0] },
+    { t: "spray para piojos y liendres para niñas", sv: 250, rl: 0.50, r: [1,6,6,0,23,23,15,0,0,0,0,0] },
+    { t: "tea tree oil for lice", sv: 250, rl: 0.50, r: [3,69,69,0,12,12,27,0,0,34,41,0] },
+    { t: "rid lice shampoo", sv: 250, rl: 0.50, r: [0,6,6,2,0,0,23,12,0,0,3,0] },
+    { t: "nix shampoo", sv: 250, rl: 0.50, r: [0,1,1,0,4,4,11,75,0,87,5,0] },
+    { t: "anti lice spray", sv: 250, rl: 0.50, r: [1,7,7,0,4,4,86,99,9,0,0,0] },
+    { t: "head lice spray", sv: 250, rl: 0.50, r: [1,12,12,14,3,3,75,50,0,0,0,0] },
+    { t: "preventative lice spray", sv: 250, rl: 0.50, r: [1,3,3,0,15,15,0,0,10,0,0,0] },
+    { t: "ivermectin lice shampoo", sv: 250, rl: 0.50, r: [0,10,10,1,16,16,0,0,0,0,8,0] },
+    { t: "fairytales shampoo and conditioner", sv: 4560, rl: 0.42, r: [16,0,0,0,0,0,0,40,6,3,0,1] },
+    { t: "permethrin shampoo", sv: 871, rl: 0.42, r: [0,1,1,0,0,0,8,5,0,84,3,0] },
+    { t: "lice spray for furniture", sv: 624, rl: 0.42, r: [7,16,16,0,1,1,0,0,0,0,0,0] },
+    { t: "lice vacuum", sv: 600, rl: 0.42, r: [143,73,73,4,10,10,9,0,0,0,21,0] },
+    { t: "dog lice shampoo", sv: 250, rl: 0.42, r: [0,8,8,0,0,0,36,35,0,0,25,0] },
+    { t: "fairy lice spray", sv: 250, rl: 0.42, r: [1,0,0,0,15,15,73,94,4,47,0,33] },
+    { t: "fairy tale lice spray", sv: 250, rl: 0.42, r: [1,0,0,0,17,17,0,88,4,0,0,33] },
+    { t: "fairy tales lice prevention shampoo", sv: 250, rl: 0.42, r: [8,0,0,0,0,0,0,11,7,5,0,4] },
+    { t: "head lice vacuum", sv: 250, rl: 0.42, r: [0,28,28,6,0,0,7,26,0,0,56,0] },
+    { t: "ivermectin lotion for lice", sv: 250, rl: 0.42, r: [0,0,0,1,30,30,29,0,0,0,27,0] },
+    { t: "lice bedding spray", sv: 250, rl: 0.42, r: [13,8,8,0,1,1,0,69,0,0,0,0] },
+    { t: "lice clinics of america", sv: 250, rl: 0.42, r: [8,0,0,0,11,11,1,10,71,0,0,0] },
+    { t: "lice furniture spray that kills eggs and lice", sv: 250, rl: 0.42, r: [9,0,0,15,1,1,0,40,0,0,0,0] },
+    { t: "lice spray for helmets", sv: 250, rl: 0.42, r: [4,11,11,0,2,2,0,0,0,0,0,0] },
+    { t: "live prevention spray", sv: 250, rl: 0.42, r: [1,3,3,0,7,7,0,0,0,0,0,0] },
+    { t: "live shampoo", sv: 250, rl: 0.42, r: [0,4,4,0,0,0,12,5,3,0,0,0] },
+    { t: "mayday lice shampoo", sv: 250, rl: 0.42, r: [0,0,0,0,0,0,12,1,13,11,0,30] },
+    { t: "my hair helpers natural lice removal", sv: 250, rl: 0.42, r: [17,0,0,0,31,31,16,22,0,0,0,0] },
+    { t: "nix lice spray", sv: 250, rl: 0.42, r: [20,2,2,0,1,1,0,107,0,0,0,0] },
+    { t: "nix prevention spray", sv: 250, rl: 0.42, r: [3,1,1,0,4,4,0,0,0,0,0,0] },
+    { t: "nix spray", sv: 250, rl: 0.42, r: [32,2,2,0,1,1,0,0,0,0,0,0] },
+    { t: "nix ultra lice treatment kit", sv: 250, rl: 0.42, r: [0,2,2,0,1,1,0,23,0,0,0,0] },
+    { t: "repelente para piojos y liendres para niñas", sv: 250, rl: 0.42, r: [1,5,5,0,0,0,12,0,21,0,0,0] },
+    { t: "rosemary shampoo kids", sv: 250, rl: 0.42, r: [8,0,0,0,0,0,0,37,2,1,0,4] },
+    { t: "sklice ivermectin lotion head lice", sv: 250, rl: 0.42, r: [0,12,12,4,0,0,15,0,0,0,8,0] },
+    { t: "electronic lice removal comb", sv: 250, rl: 0.42, r: [0,24,24,18,0,0,9,12,0,0,0,0] },
+    { t: "lice comb electric", sv: 250, rl: 0.42, r: [16,23,23,0,141,141,14,135,0,0,9,0] },
+    { t: "boo spray for lice", sv: 250, rl: 0.42, r: [2,7,7,0,8,8,0,0,0,0,0,0] },
+    { t: "nix electronic lice comb", sv: 250, rl: 0.42, r: [0,7,7,0,4,4,12,0,0,0,0,0] },
+    { t: "lice comb", sv: 36713, rl: 0.33, r: [15,60,60,31,26,26,83,0,0,0,0,0] },
+    { t: "fairy tales shampoo and conditioner", sv: 27097, rl: 0.33, r: [13,87,87,0,0,0,0,69,7,4,0,2] },
+    { t: "tales", sv: 16802, rl: 0.33, r: [41,0,0,0,0,0,0,0,17,43,0,26] },
+    { t: "peine para piojos", sv: 7682, rl: 0.33, r: [40,43,43,64,0,0,29,0,0,0,0,0] },
+    { t: "fairy tales", sv: 6990, rl: 0.33, r: [1,0,0,0,0,0,0,0,4,10,0,7] },
+    { t: "lice comb for kids", sv: 3710, rl: 0.33, r: [0,6,6,0,0,0,15,0,8,0,90,0] },
+    { t: "fairy tales conditioner", sv: 3030, rl: 0.33, r: [10,0,0,0,0,0,0,81,21,14,0,9] },
+    { t: "fairy tale", sv: 2094, rl: 0.33, r: [2,0,0,0,0,0,0,0,11,8,0,7] },
+    { t: "fairy tales rosemary repel", sv: 1291, rl: 0.33, r: [1,0,0,0,0,0,0,0,2,5,0,3] },
+    { t: "rosemary repel", sv: 1169, rl: 0.33, r: [1,0,0,0,0,0,0,137,2,7,0,3] },
+    { t: "fairy tales spray", sv: 1113, rl: 0.33, r: [1,0,0,0,0,0,0,0,10,45,0,43] },
+    { t: "fairy tales hair care", sv: 1079, rl: 0.33, r: [1,0,0,0,0,0,0,0,3,17,0,9] },
+    { t: "terminator lice comb", sv: 1072, rl: 0.33, r: [0,13,13,0,0,0,25,0,0,0,14,0] },
+    { t: "rosemary lice prevention spray", sv: 1053, rl: 0.33, r: [1,28,28,0,46,46,0,88,3,66,0,78] },
+    { t: "boo lice scaring spray", sv: 891, rl: 0.33, r: [2,0,0,0,7,7,0,0,10,0,0,0] },
+    { t: "fairy tails shampoo and conditioner", sv: 718, rl: 0.33, r: [15,0,0,0,0,0,0,0,4,3,0,1] },
+    { t: "dog lice treatment", sv: 682, rl: 0.33, r: [0,28,28,0,47,47,24,0,0,0,17,0] },
+    { t: "fairy tales hair products", sv: 661, rl: 0.33, r: [3,0,0,0,0,0,0,0,7,14,0,23] },
+    { t: "fairytale shampoo", sv: 600, rl: 0.33, r: [23,0,0,0,0,0,0,0,12,3,0,2] },
+    { t: "electric lice comb", sv: 556, rl: 0.33, r: [13,94,94,8,0,0,10,0,0,0,11,0] },
+    { t: "fairy tales hair", sv: 509, rl: 0.33, r: [1,0,0,0,0,0,0,0,3,9,0,18] },
+    { t: "fairy tale shampoo and conditioner", sv: 250, rl: 0.33, r: [48,0,0,0,0,0,0,38,7,1,0,3] },
+    { t: "fairy tails", sv: 250, rl: 0.33, r: [1,0,0,0,0,0,0,0,3,6,0,2] },
+    { t: "fairytale shampoo and conditioner", sv: 250, rl: 0.33, r: [16,0,0,0,0,0,0,0,6,3,0,2] },
+    { t: "fairy tale rosemary repel", sv: 250, rl: 0.33, r: [1,0,0,0,0,0,0,0,3,5,0,2] },
+    { t: "best lice removal comb", sv: 250, rl: 0.33, r: [0,37,37,0,0,0,11,12,0,0,0,0] },
+    { t: "boo lice spray", sv: 250, rl: 0.33, r: [5,0,0,0,8,8,0,0,26,0,0,0] },
+    { t: "comb for lice", sv: 250, rl: 0.33, r: [21,0,0,0,31,31,38,0,0,0,0,0] },
+    { t: "dog lice killer", sv: 250, rl: 0.33, r: [0,26,26,0,0,0,36,0,0,0,17,0] },
+    { t: "electronic lice comb", sv: 250, rl: 0.33, r: [0,15,15,0,130,130,7,27,0,0,0,0] },
+    { t: "fairy tail shampoo", sv: 250, rl: 0.33, r: [21,0,0,0,0,0,0,0,3,6,0,1] },
+    { t: "fairy tails rosemary repel spray", sv: 250, rl: 0.33, r: [1,0,0,0,0,0,0,0,3,8,0,11] },
+    { t: "fairy tales curl", sv: 250, rl: 0.33, r: [16,0,0,0,0,0,0,0,20,36,0,24] },
+    { t: "fairy tales curly q conditioner", sv: 250, rl: 0.33, r: [44,0,0,0,0,0,0,0,42,36,0,41] },
+    { t: "fairy tales daily shampoo", sv: 250, rl: 0.33, r: [37,0,0,0,0,0,0,0,16,8,0,12] },
+    { t: "fairy tales detangler", sv: 250, rl: 0.33, r: [2,0,0,0,0,0,0,0,14,35,0,28] },
+    { t: "fairy tales rosemary", sv: 250, rl: 0.33, r: [1,0,0,0,0,0,0,0,2,4,0,3] },
+    { t: "fairy tales rosemary repel shampoo", sv: 250, rl: 0.33, r: [8,0,0,0,0,0,0,0,7,2,0,3] },
+    { t: "fairytales conditioner for kids", sv: 250, rl: 0.33, r: [9,0,0,0,0,0,0,0,17,7,0,12] },
+    { t: "fairytales hair products", sv: 250, rl: 0.33, r: [2,0,0,0,0,0,0,0,5,13,0,14] },
+    { t: "fairytales rosemary repel", sv: 250, rl: 0.33, r: [1,0,0,0,0,0,0,0,2,5,0,4] },
+    { t: "fairytales rosemary repel spray", sv: 250, rl: 0.33, r: [1,0,0,0,0,0,0,0,2,13,0,10] },
+    { t: "fairytale rosemary repel spray", sv: 250, rl: 0.33, r: [1,0,0,0,0,0,0,0,3,14,0,12] },
+    { t: "lice ivermectin", sv: 250, rl: 0.33, r: [0,0,0,1,11,11,6,0,0,0,0,0] },
+    { t: "lice laundry detergent", sv: 250, rl: 0.33, r: [100,0,0,0,4,4,15,44,0,0,79,0] },
+    { t: "lice prevention spray for kids hair", sv: 250, rl: 0.33, r: [1,4,4,0,0,0,0,0,7,0,0,0] },
+    { t: "lice shampoo for dogs", sv: 250, rl: 0.33, r: [0,17,17,0,0,0,0,23,0,142,42,0] },
+    { t: "lousebuster", sv: 250, rl: 0.33, r: [0,4,4,0,0,0,7,1,0,0,0,0] },
+    { t: "nix comb", sv: 250, rl: 0.33, r: [0,7,7,0,5,5,0,0,0,0,0,0] },
+    { t: "nix spray for furniture and bedding", sv: 250, rl: 0.33, r: [0,6,6,0,1,1,0,0,0,0,0,0] },
+    { t: "rosemary repel fairy tales spray", sv: 250, rl: 0.33, r: [1,0,0,0,0,0,0,0,6,14,0,18] },
+    { t: "saca piojos", sv: 250, rl: 0.33, r: [0,22,22,0,0,0,5,0,0,0,29,0] },
+    { t: "sea lice repellent", sv: 250, rl: 0.33, r: [20,0,0,0,23,23,0,0,45,0,0,0] },
+    { t: "shampoo that kills demodex mites", sv: 250, rl: 0.33, r: [0,14,14,31,0,0,38,0,0,0,0,0] },
+    { t: "fairy tales travel size", sv: 250, rl: 0.33, r: [6,0,0,0,0,0,0,51,8,7,0,30] },
+    { t: "fairy tales curly q shampoo and conditioner", sv: 250, rl: 0.33, r: [42,0,0,0,0,0,0,0,13,22,0,24] },
+    { t: "rosemary repel shampoo", sv: 250, rl: 0.33, r: [8,0,0,0,0,0,0,0,5,3,0,4] },
+    { t: "fairytale lice spray", sv: 250, rl: 0.33, r: [1,0,0,0,14,14,0,96,3,0,0,0] }
+  ]
+};
+
+(function() {
+  var D = KW_ANALYSIS_DATA;
+  var comps = D.competitors;
+  var root = document.getElementById('kwa-root');
+  var h = '';
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  // ── Description ──
+  h += '<p class="sec-summary" style="margin-bottom:16px">Competitive intelligence from ' + esc(D.source) + '. ' + comps.length + ' competitors ranked by 30-day sales. ' + D.keywords.length + ' tracked keywords with ranking positions.</p>';
+
+  // ── Niche Median KPIs ──
+  h += '<div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:20px">';
+  h += '  <div class="card" style="padding:10px 16px;border-left:4px solid #64748b;flex:1;min-width:140px">';
+  h += '    <div style="font-size:.68rem;font-weight:600;color:#64748b;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px">Niche Median</div>';
+  h += '    <div style="display:flex;gap:20px;flex-wrap:wrap;font-size:.75rem">';
+  h += '      <div><span style="font-weight:700">' + esc(D.nicheMedians.price) + '</span> <span style="color:#94a3b8">Price</span></div>';
+  h += '      <div><span style="font-weight:700">' + esc(D.nicheMedians.rating) + '</span> <span style="color:#94a3b8">Rating</span></div>';
+  h += '    </div></div></div>';
+
+  // ── Competitor table ──
+  h += '<div class="sec-header" style="margin-bottom:12px"><div class="sec-title">Competitor Details</div></div>';
+  h += '<div class="card" style="padding:0;overflow:hidden;margin-bottom:24px"><div style="overflow-x:auto">';
+  h += '<table style="width:100%;border-collapse:collapse;font-size:.72rem"><thead><tr>';
+  h += '<th style="position:sticky;left:0;background:#0f2942;color:#fff;padding:8px 10px;text-align:left;font-size:.68rem;font-weight:600;z-index:2;min-width:100px">Metric</th>';
+
+  comps.forEach(function(c) {
+    h += '<th style="background:#0f2942;color:#fff;padding:8px 6px;text-align:center;font-size:.62rem;font-weight:600;white-space:nowrap;min-width:80px">';
+    h += '<img src="' + c.image + '" alt="' + esc(c.brand) + '" style="width:36px;height:36px;object-fit:contain;border-radius:3px;background:#fff;display:block;margin:0 auto 3px">';
+    h += '<a href="https://www.amazon.com/dp/' + c.asin + '" target="_blank" style="color:#93c5fd;text-decoration:none;font-size:.55rem">' + esc(c.brand) + '</a>';
+    h += '<br><span style="opacity:.4;font-weight:400;font-size:.48rem">' + c.asinShort + '</span></th>';
+  });
+  h += '</tr></thead><tbody>';
+
+  // Metric rows
+  var metrics = [
+    { label: 'Price', key: 'price' },
+    { label: '30d Sales', key: 'sales30d' },
+    { label: '30d Revenue', key: 'revenue30d' },
+    { label: 'Rating', key: 'rating', format: 'star' },
+    { label: 'Reviews', key: 'reviews' },
+    { label: 'KWs on P1', key: 'kwsOnP1' }
+  ];
+  var tdStyle = 'text-align:center;padding:6px;border-bottom:1px solid #f1f5f9';
+  var stickyTd = 'position:sticky;left:0;background:#f8fafc;padding:6px 10px;font-weight:600;color:#475569;border-bottom:1px solid #f1f5f9;z-index:1';
+
+  metrics.forEach(function(m) {
+    h += '<tr><td style="' + stickyTd + '">' + m.label + '</td>';
+    comps.forEach(function(c) {
+      var val = c[m.key];
+      if (m.format === 'star') val = '\u2B50 ' + val;
+      h += '<td style="' + tdStyle + '">' + val + '</td>';
+    });
+    h += '</tr>';
+  });
+  h += '</tbody></table></div></div>';
+
+  // ── Master Keyword List header ──
+  h += '<div class="sec-header" style="margin-bottom:12px"><div class="sec-title">Master Keyword List</div></div>';
+  h += '<div class="card" style="padding:0;overflow:hidden"><div style="overflow-x:auto;max-height:650px;overflow-y:auto">';
+  h += '<table class="kw-table" id="kwTable"><thead><tr>';
+  h += '<th style="position:sticky;left:0;z-index:3;background:#0f2942;text-align:left;padding:8px 10px;min-width:220px;width:30%;cursor:pointer" onclick="kwSort(\'t\')" id="kwH_t">Keyword \u25B2\u25BC</th>';
+  h += '<th style="width:60px;cursor:pointer" onclick="kwSort(\'sv\')" id="kwH_sv">SV \u25B2\u25BC</th>';
+  h += '<th style="width:40px;cursor:pointer" onclick="kwSort(\'rl\')" id="kwH_rl">Rel. \u25B2\u25BC</th>';
+
+  comps.forEach(function(c) {
+    h += '<th style="min-width:44px;max-width:52px;cursor:pointer;padding:6px 2px" onclick="kwSort(\'r_' + c.asin + '\')">';
+    h += '<img src="' + c.image + '" alt="' + esc(c.brand) + '" style="width:30px;height:30px;object-fit:contain;border-radius:3px;background:#fff;display:block;margin:0 auto 2px">';
+    h += '<span style="font-size:.48rem;line-height:1.1;display:block">' + esc(c.brand) + '</span>';
+    h += '<span style="opacity:.4;font-size:.42rem">' + c.asinShort + '</span></th>';
+  });
+  h += '</tr></thead><tbody id="kwBody"></tbody></table></div>';
+
+  // Legend
+  h += '<div class="kw-legend">';
+  h += '<span><i style="background:#16a34a"></i> 1\u201310</span>';
+  h += '<span><i style="background:#22c55e"></i> 11\u201320</span>';
+  h += '<span><i style="background:#86efac"></i> 21\u201350</span>';
+  h += '<span><i style="background:#fde68a"></i> 51\u2013100</span>';
+  h += '<span><i style="background:#fca5a5"></i> 101\u2013200</span>';
+  h += '<span><i style="background:#ef4444"></i> 201\u2013306</span>';
+  h += '<span><i style="background:#f1f5f9;border:1px solid #e2e8f0"></i> Not ranked</span>';
+  h += '</div></div>';
+
+  root.innerHTML = h;
+
+  // ── Keyword sorting & rendering ──
+  var KW = D.keywords;
+  var sortCol = 'sv', sortDir = -1;
+
+  function rankColor(rank) {
+    if (!rank || rank <= 0 || rank > 305) return { bg: '#f8fafc', fg: '#cbd5e1' };
+    if (rank <= 10) return { bg: '#16a34a', fg: '#fff' };
+    if (rank <= 20) return { bg: '#22c55e', fg: '#fff' };
+    if (rank <= 50) return { bg: '#86efac', fg: '#064e3b' };
+    if (rank <= 100) return { bg: '#fde68a', fg: '#78350f' };
+    if (rank <= 200) return { bg: '#fca5a5', fg: '#7f1d1d' };
+    return { bg: '#ef4444', fg: '#fff' };
+  }
+
+  function renderKW() {
+    var sorted = KW.slice().sort(function(a, b) {
+      var va, vb;
+      if (sortCol === 't') { va = a.t.toLowerCase(); vb = b.t.toLowerCase(); }
+      else if (sortCol === 'sv') { va = a.sv; vb = b.sv; }
+      else if (sortCol === 'rl') { va = a.rl; vb = b.rl; }
+      else if (sortCol.indexOf('r_') === 0) {
+        var idx = 0;
+        for (var i = 0; i < comps.length; i++) { if ('r_' + comps[i].asin === sortCol) { idx = i; break; } }
+        va = a.r[idx] || 999; vb = b.r[idx] || 999;
+      } else { va = a.sv; vb = b.sv; }
+
+      if (typeof va === 'string') return sortDir * va.localeCompare(vb);
+      return sortDir * (va - vb);
+    });
+
+    var body = document.getElementById('kwBody');
+    if (!body) return;
+    var html = '';
+    sorted.forEach(function(kw) {
+      html += '<tr>';
+      html += '<td style="position:sticky;left:0;background:#fff;z-index:1;text-align:left;padding:6px 10px;font-weight:500;white-space:nowrap;border-bottom:1px solid #f1f5f9">' + kw.t + '</td>';
+      html += '<td style="font-weight:700;color:#0f2942;border-bottom:1px solid #f1f5f9">' + kw.sv.toLocaleString() + '</td>';
+      var relStyle = kw.rl >= 0.8 ? 'font-weight:700;color:#16a34a' : 'color:#64748b';
+      html += '<td style="border-bottom:1px solid #f1f5f9;' + relStyle + '">' + kw.rl.toFixed(2) + '</td>';
+      kw.r.forEach(function(rank) {
+        var c = rankColor(rank);
+        var label = (!rank || rank <= 0 || rank > 305) ? '–' : rank;
+        html += '<td style="border-bottom:1px solid #f1f5f9;padding:3px 1px"><span style="display:inline-block;min-width:22px;padding:1px 3px;border-radius:3px;font-weight:600;font-size:.6rem;background:' + c.bg + ';color:' + c.fg + '">' + label + '</span></td>';
+      });
+      html += '</tr>';
+    });
+    body.innerHTML = html;
+  }
+
+  window.kwSort = function(col) {
+    if (sortCol === col) sortDir *= -1;
+    else { sortCol = col; sortDir = col === 'sv' ? -1 : 1; }
+    renderKW();
+  };
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', renderKW);
+  } else {
+    setTimeout(renderKW, 50);
+  }
+})();
 
 </script>
 </body>
