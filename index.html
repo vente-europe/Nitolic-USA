@@ -94,7 +94,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 @media(max-width:900px){.cp-charts{grid-template-columns:1fr 1fr}}
 @media(max-width:550px){.cp-charts{grid-template-columns:1fr}}
 
-/* Tab 8 — Listing Communication */
+/* Tab 9 — Listing Communication */
 .lc-claim-dot{display:inline-block;width:22px;height:22px;border-radius:50%;line-height:22px;text-align:center;font-size:11px;font-weight:700}
 .lc-card{background:#fff;border-radius:10px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.07);margin-bottom:12px;border:1px solid #e2e8f0}
 .lc-card-hdr{display:flex;justify-content:space-between;align-items:flex-start;cursor:pointer}
@@ -159,6 +159,19 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 .is-compliance-card{background:#fff;border-radius:8px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
 .is-compliance-card h4{font-size:.85rem;font-weight:700;color:#0f2942;margin-bottom:8px}
 @media(max-width:700px){.is-do-dont,.is-compliance-grid{grid-template-columns:1fr}}
+
+/* Tab 0 — Global Market */
+.gm-kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:20px}
+.gm-kpi{background:#fff;border-radius:8px;padding:16px;box-shadow:0 1px 3px rgba(0,0,0,.07);text-align:center}
+.gm-kpi-v{font-size:1.5rem;font-weight:800;color:#0f2942;line-height:1}
+.gm-kpi-l{font-size:.72rem;color:#64748b;margin-top:6px;line-height:1.3}
+.gm-scope{width:100%;border-collapse:collapse;font-size:.78rem;margin-bottom:0}
+.gm-scope th{background:#0ea5e9;color:#fff;padding:8px 12px;text-align:left;font-weight:600}
+.gm-scope td{padding:7px 12px;border-bottom:1px solid #f1f5f9}
+.gm-scope tr:nth-child(even) td{background:#f8fafc}
+.gm-scope .hl{background:#e0f2fe;font-weight:700;color:#0369a1}
+@media(max-width:900px){.gm-kpi-grid{grid-template-columns:1fr 1fr}}
+
 </style>
 </head>
 <body>
@@ -170,23 +183,145 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 </header>
 
 <div class="tabs">
-  <div class="tab active" onclick="show('t1',this)">1 — Main Segments (Total Market)</div>
-  <div class="tab" onclick="show('t2',this)">2 — Market Structure (Prevention)</div>
-  <div class="tab" onclick="show('t3tx',this)">3 — Market Structure (Treatment)</div>
-  <div class="tab" onclick="show('t4meth',this)">4 — Treatment Method</div>
-  <div class="tab" onclick="show('t4rev',this)">5 — Reviews</div>
-  <div class="tab" onclick="show('t6sv',this)">6 — Search Volume</div>
-  <div class="tab" onclick="show('t7voc',this)">7 — Reviews VOC</div>
-  <div class="tab" onclick="show('tlc',this)">8 — Listing Communication</div>
-  <div class="tab" onclick="show('t9kw',this)">9 — KW Analysis</div>
-  <div class="tab" onclick="show('tis',this)">10 — Strategia Zdjęć</div>
-  <div class="tab" onclick="show('tcb',this)">11 — Copy Brief</div>
+  <div class="tab active" onclick="show('tgm',this)">1 — Global Market</div>
+  <div class="tab" onclick="show('t1',this)">2 — Main Segments (Total Market)</div>
+  <div class="tab" onclick="show('t2',this)">3 — Market Structure (Prevention)</div>
+  <div class="tab" onclick="show('t3tx',this)">4 — Market Structure (Treatment)</div>
+  <div class="tab" onclick="show('t4meth',this)">5 — Treatment Method</div>
+  <div class="tab" onclick="show('t4rev',this)">6 — Reviews</div>
+  <div class="tab" onclick="show('t6sv',this)">7 — Search Volume</div>
+  <div class="tab" onclick="show('t7voc',this)">8 — Reviews VOC</div>
+  <div class="tab" onclick="show('tlc',this)">9 — Listing Communication</div>
+  <div class="tab" onclick="show('t9kw',this)">10 — KW Analysis</div>
+  <div class="tab" onclick="show('tis',this)">11 — Strategia Zdjęć</div>
+  <div class="tab" onclick="show('tcb',this)">12 — Copy Brief</div>
 </div>
 
 <div class="content">
 
+<!-- ======================================= TAB GM — Global Market ========== -->
+<div id="tgm" class="panel active">
+
+<h2>Global Lice Treatment Market</h2>
+
+<div class="insight" style="background:#e0f2fe;border-left-color:#0ea5e9;color:#0369a1">
+  <strong>Źródło: Maximize Market Research (2023).</strong> Globalny rynek leczenia wszawicy — dane z raportu branżowego. Rok bazowy: 2023, prognoza: 2024–2030. Segmenty: Pediculosis Capitis (głowa), Corporis (ciało), Pubis. Leczenie: produkty OTC (permethrin, pyrethrin) i recepty (ivermectin, spinosad, malathion). Kanały: szpitale/kliniki, apteki detaliczne, platformy online.
+</div>
+
+<div class="card" style="margin-bottom:20px;border-left:4px solid #0ea5e9">
+  <h3 style="font-size:.85rem;font-weight:700;color:#1e293b;margin-bottom:10px">Kluczowe wnioski z raportu</h3>
+  <ul style="font-size:.78rem;color:#1e293b;line-height:1.7;padding-left:18px;margin:0">
+    <li><strong>Przegląd rynku:</strong> Globalny rynek leczenia wszawicy wyceniony na $423.65M (2023), prognoza $659.65M do 2030. Produkty OTC dominują z 62% udziałem, ale recepty rosną najszybciej.</li>
+    <li><strong>Drivers:</strong> Rosnąca oporność wszy na tradycyjne pestycydy, wysoka zapadność wśród dzieci szkolnych, łatwa dostępność produktów OTC, wzrost świadomości higieny.</li>
+    <li><strong>Bariery:</strong> Regulacje ograniczające neurotoksyczne substancje (UE), bariery dostępu do leków na receptę, oporność na tradycyjne terapie chemiczne.</li>
+    <li><strong>Szanse:</strong> Rosnący popyt na leczenie nichemiczne (CAGR 9.5%), ekspansja w Asia Pacific (CAGR 7.8–10.6%), adopcja zaawansowanych urządzeń (AI combs).</li>
+    <li><strong>Segmentacja:</strong> Pediculosis Capitis (wszy głowowe) — 61.5% rynku. Topical = 73.5% udziału, oral najszybciej rosnący. Szampony, lotiony, kremy, tabletki, spraye.</li>
+    <li><strong>Regiony:</strong> North America — 45.1% przychodów (2024). Asia Pacific najszybciej rosnący. Chiny = 33.4% regionalnego udziału.</li>
+    <li><strong>Konkurencja:</strong> Rynek zdominowany przez firmy farmaceutyczne z silnymi pipeline’ami i globalną dystrybucją.</li>
+  </ul>
+</div>
+
+<div class="card" style="margin-bottom:20px;border-left:4px solid #7c3aed">
+  <h3 style="font-size:.85rem;font-weight:700;color:#1e293b;margin-bottom:8px">Najwięksi gracze na rynku globalnym</h3>
+  <div style="display:flex;flex-wrap:wrap;gap:6px">
+    <span style="font-size:.72rem;padding:3px 10px;border-radius:12px;background:#ede9fe;color:#5b21b6;font-weight:600">GlaxoSmithKline</span>
+    <span style="font-size:.72rem;padding:3px 10px;border-radius:12px;background:#ede9fe;color:#5b21b6;font-weight:600">Johnson &amp; Johnson</span>
+    <span style="font-size:.72rem;padding:3px 10px;border-radius:12px;background:#ede9fe;color:#5b21b6;font-weight:600">Sanofi S.A.</span>
+    <span style="font-size:.72rem;padding:3px 10px;border-radius:12px;background:#ede9fe;color:#5b21b6;font-weight:600">Perrigo Company</span>
+    <span style="font-size:.72rem;padding:3px 10px;border-radius:12px;background:#ede9fe;color:#5b21b6;font-weight:600">Teva Pharmaceutical</span>
+    <span style="font-size:.72rem;padding:3px 10px;border-radius:12px;background:#ede9fe;color:#5b21b6;font-weight:600">Alliance Pharmaceuticals</span>
+    <span style="font-size:.72rem;padding:3px 10px;border-radius:12px;background:#ede9fe;color:#5b21b6;font-weight:600">Prestige Consumer Healthcare</span>
+    <span style="font-size:.72rem;padding:3px 10px;border-radius:12px;background:#ede9fe;color:#5b21b6;font-weight:600">Azurity Pharmaceuticals</span>
+    <span style="font-size:.72rem;padding:3px 10px;border-radius:12px;background:#ede9fe;color:#5b21b6;font-weight:600">Fleming Medical</span>
+    <span style="font-size:.72rem;padding:3px 10px;border-radius:12px;background:#ede9fe;color:#5b21b6;font-weight:600">Oystershell Consumer Health</span>
+  </div>
+</div>
+
+
+
+<!-- KPI ROW -->
+<div class="gm-kpi-grid">
+  <div class="gm-kpi" style="border-top:4px solid #0ea5e9">
+    <div class="gm-kpi-v">$423.65M</div>
+    <div class="gm-kpi-l">Market Size<br>2023</div>
+  </div>
+  <div class="gm-kpi" style="border-top:4px solid #16a34a">
+    <div class="gm-kpi-v">$659.65M</div>
+    <div class="gm-kpi-l">Projected Size<br>2030</div>
+  </div>
+  <div class="gm-kpi" style="border-top:4px solid #d97706">
+    <div class="gm-kpi-v">6.53%</div>
+    <div class="gm-kpi-l">CAGR<br>2024–2030</div>
+  </div>
+  <div class="gm-kpi" style="border-top:4px solid #7c3aed">
+    <div class="gm-kpi-v">North America</div>
+    <div class="gm-kpi-l">Largest Region<br>by market share</div>
+  </div>
+</div>
+
+<!-- MARKET SCOPE TABLE -->
+<div class="card" style="margin-bottom:20px">
+  <h3 style="font-size:.85rem;font-weight:700;color:#1e293b;margin-bottom:10px">Global Lice Treatment Market — Report Scope</h3>
+  <table class="gm-scope">
+    <thead><tr><th colspan="2">Report Coverage</th><th colspan="2">Details</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Base Year</strong></td><td>2023</td><td><strong>Forecast Period</strong></td><td>2024–2030</td></tr>
+      <tr><td><strong>Historical Data</strong></td><td>2018–2023</td><td class="hl"><strong>Market Size 2023</strong></td><td class="hl">US $423.65 Mn</td></tr>
+      <tr><td><strong>CAGR 2024–2030</strong></td><td>6.53%</td><td class="hl"><strong>Market Size 2030</strong></td><td class="hl">US $659.65 Mn</td></tr>
+      <tr><td><strong>by Type</strong></td><td colspan="3">Pediculosis Capitis, Pediculosis Corporis, Pediculosis Pubis</td></tr>
+      <tr><td><strong>by Treatment</strong></td><td colspan="3">OTC Products (Permethrin, Pyrethrin, Others), Prescription Medications (Ivermectin, Spinosad, Malathion, Others)</td></tr>
+      <tr><td><strong>by Distribution</strong></td><td colspan="3">Hospitals &amp; Clinics, Retail Pharmacies, Online Platforms</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- MARKET SIZE BAR CHART (2018-2030) -->
+<div class="card">
+  <h3 style="font-size:.85rem;font-weight:700;color:#1e293b;margin-bottom:10px">Global Lice Treatment Market Size — USD Million (2018–2030)</h3>
+  <p style="font-size:.72rem;color:#64748b;margin-bottom:10px">Wzrost napędzany rosnącą świadomością higieny, opornością wszy na tradycyjne pestycydy, oraz rozwojem nowych formuł OTC i Rx. Segment OTC dominuje, ale produkty Rx rosną najszybciej.</p>
+  <div class="cw" style="height:280px"><canvas id="gmLiceMarketSizeChart"></canvas></div>
+</div>
+
+<!-- PIE CHARTS ROW -->
+<div class="g2" style="align-items:start;margin-top:18px">
+  <!-- By Region -->
+  <div class="card">
+    <h3 style="font-size:.85rem;font-weight:700;color:#1e293b;margin-bottom:4px">Lice Treatment Market by Region (2023)</h3>
+    <p style="font-size:.72rem;color:#64748b;margin-bottom:10px">North America — najwyższy udział w rynku globalnym dzięki rozwiniętej infrastrukturze medycznej i wysokiej świadomości. Asia Pacific — najszybciej rosnący region.</p>
+    <div class="cw" style="height:260px"><canvas id="gmLiceRegionChart"></canvas></div>
+  </div>
+  <!-- By Distribution Channel -->
+  <div class="card">
+    <h3 style="font-size:.85rem;font-weight:700;color:#1e293b;margin-bottom:4px">Distribution Channel (2023)</h3>
+    <p style="font-size:.72rem;color:#64748b;margin-bottom:10px">Szpitale i kliniki — wiodący kanał. Platformy online rosną najszybciej dzięki wygodzie i dyskrecji zakupu produktów na wszawicę.</p>
+    <div class="cw" style="height:240px"><canvas id="gmLiceDistChart"></canvas></div>
+  </div>
+</div>
+
+<div class="g2" style="align-items:start;margin-top:18px">
+  <!-- By Type -->
+  <div class="card">
+    <h3 style="font-size:.85rem;font-weight:700;color:#1e293b;margin-bottom:4px">Market by Type (2023)</h3>
+    <p style="font-size:.72rem;color:#64748b;margin-bottom:10px">Pediculosis Capitis (wszy głowowe) dominują rynek z ~75% udziału — najczęstsza forma wszawicy, szczególnie u dzieci w wieku szkolnym.</p>
+    <div class="cw" style="height:260px"><canvas id="gmLiceTypePieChart"></canvas></div>
+  </div>
+  <!-- By Treatment -->
+  <div class="card">
+    <h3 style="font-size:.85rem;font-weight:700;color:#1e293b;margin-bottom:4px">Market by Treatment (2023)</h3>
+    <p style="font-size:.72rem;color:#64748b;margin-bottom:10px">Produkty OTC (permethrin, pyrethrin) stanowią ~65% rynku. Recepty (ivermectin, spinosad) rosną najszybciej z powodu rosnącej oporności wszy na tradycyjne środki.</p>
+    <div class="cw" style="height:260px"><canvas id="gmLiceTreatPieChart"></canvas></div>
+  </div>
+</div>
+
+<div class="note" style="margin-top:18px">
+  <strong>Źródło:</strong> Maximize Market Research — Global Lice Treatment Market Report (2023). Dane globalne, nie ograniczone do Amazon. Wykresy odtworzone na podstawie publicznej wersji raportu. Wartości procentowe w podziale regionalnym i kanałowym są przybliżone na podstawie wizualizacji z raportu.
+</div>
+
+</div><!-- END TAB GM -->
+
+
 <!-- ═══════════════════════════════════════════════ TAB 1: Main Segments (Total Market) -->
-<div id="t1" class="panel active">
+<div id="t1" class="panel">
 <h2>Main Segments — Total Market (12M)</h2>
 
 <!-- Total category KPI -->
@@ -4733,6 +4868,112 @@ var COPY_BRIEF_DATA = {
   h += '<div class="note" style="margin-top:22px">' + D.methodology + '</div>';
 
   root.innerHTML = h;
+})();
+
+
+
+// ── Tab 0: Global Lice Treatment Market charts ──────────────────────────────
+(function() {
+  // Market Size bar chart (2018-2030)
+  const years = ['2018','2019','2020','2021','2022','2023','2024','2025','2026','2027','2028','2029','2030'];
+  const sizes = [280,295,275,310,360,423.65,451,480,512,545,581,619,659.65];
+  const barColors = sizes.map((_,i) => i <= 5 ? '#0ea5e9' : '#1d4ed8');
+
+  const elMS = document.getElementById('gmLiceMarketSizeChart');
+  if (elMS) new Chart(elMS, {
+    type: 'bar', plugins: [ChartDataLabels],
+    data: { labels: years, datasets: [{ data: sizes, backgroundColor: barColors, borderRadius: 4 }] },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: {
+          display: function(ctx) { return ctx.dataIndex === 5 || ctx.dataIndex === 12; },
+          anchor: 'end', align: 'top', color: '#0f2942', font: { weight: 'bold', size: 11 },
+          formatter: function(v) { return '$' + v.toFixed(v % 1 ? 2 : 0) + 'M'; }
+        }
+      },
+      scales: {
+        y: { beginAtZero: true, grid: { color: '#f1f5f9' }, ticks: { callback: function(v) { return '$' + v + 'M'; }, font: { size: 10 } } },
+        x: { grid: { display: false }, ticks: { font: { size: 10 } } }
+      }
+    }
+  });
+
+  // By Region — stacked horizontal bar (like the screenshot)
+  const elReg = document.getElementById('gmLiceRegionChart');
+  if (elReg) new Chart(elReg, {
+    type: 'pie', plugins: [ChartDataLabels],
+    data: {
+      labels: ['North America','Asia Pacific','Europe','MEA','South America'],
+      datasets: [{ data: [32,28,22,10,8], backgroundColor: ['#f59e0b','#0ea5e9','#94a3b8','#f59e0b','#1d4ed8'], borderWidth: 2, borderColor: '#fff' }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 10, padding: 8 } },
+        datalabels: { color: '#fff', font: { weight: 'bold', size: 12 }, formatter: function(v) { return v + '%'; } }
+      }
+    }
+  });
+
+  // Distribution Channel bar
+  const elDist = document.getElementById('gmLiceDistChart');
+  if (elDist) new Chart(elDist, {
+    type: 'bar', plugins: [ChartDataLabels],
+    data: {
+      labels: ['Hospitals & Clinics','Retail Pharmacies','Online Platforms'],
+      datasets: [{ data: [38,32,30], backgroundColor: ['#0ea5e9','#0ea5e9','#0ea5e9'], borderRadius: 4 }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: { anchor: 'end', align: 'top', color: '#0f2942', font: { weight: 'bold', size: 12 }, formatter: function(v) { return v + '%'; } }
+      },
+      scales: {
+        y: { beginAtZero: true, max: 50, grid: { color: '#f1f5f9' }, ticks: { callback: function(v) { return v + '%'; }, font: { size: 10 } } },
+        x: { grid: { display: false }, ticks: { font: { size: 11, weight: 600 } } }
+      }
+    }
+  });
+
+  // By Type pie
+  const elType = document.getElementById('gmLiceTypePieChart');
+  if (elType) new Chart(elType, {
+    type: 'pie', plugins: [ChartDataLabels],
+    data: {
+      labels: ['Pediculosis Capitis','Pediculosis Corporis','Pediculosis Pubis'],
+      datasets: [{ data: [75,15,10], backgroundColor: ['#0ea5e9','#f59e0b','#10b981'], borderWidth: 2, borderColor: '#fff' }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 10 }, boxWidth: 10, padding: 8 } },
+        datalabels: { color: '#fff', font: { weight: 'bold', size: 12 }, formatter: function(v) { return v + '%'; } }
+      }
+    }
+  });
+
+  // By Treatment pie
+  const elTreat = document.getElementById('gmLiceTreatPieChart');
+  if (elTreat) new Chart(elTreat, {
+    type: 'pie', plugins: [ChartDataLabels],
+    data: {
+      labels: ['OTC — Permethrin','OTC — Pyrethrin','OTC — Others','Rx — Ivermectin','Rx — Spinosad','Rx — Malathion','Rx — Others'],
+      datasets: [{ data: [30,20,15,15,10,5,5], backgroundColor: ['#0ea5e9','#38bdf8','#7dd3fc','#8b5cf6','#a78bfa','#c4b5fd','#94a3b8'], borderWidth: 2, borderColor: '#fff' }]
+    },
+    options: {
+      maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { size: 9 }, boxWidth: 10, padding: 6 } },
+        datalabels: {
+          display: function(ctx) { return ctx.dataset.data[ctx.dataIndex] >= 10; },
+          color: '#fff', font: { weight: 'bold', size: 11 }, formatter: function(v) { return v + '%'; }
+        }
+      }
+    }
+  });
 })();
 
 </script>
