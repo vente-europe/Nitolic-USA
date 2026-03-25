@@ -328,11 +328,11 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <div class="card" style="border-left:4px solid #1e293b;padding:14px 20px;display:flex;align-items:center;gap:36px;flex-wrap:wrap;margin-bottom:14px">
   <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#64748b;min-width:120px">Total Category</div>
   <div>
-    <div style="font-size:1.6rem;font-weight:700;color:#1e293b;line-height:1">$21.3M</div>
+    <div style="font-size:1.6rem;font-weight:700;color:#1e293b;line-height:1">$22.3M</div>
     <div style="font-size:.75rem;color:#64748b;margin-top:3px">Revenue · Last 12M (Mar 2025 – Feb 2026)</div>
   </div>
   <div>
-    <div style="font-size:1.6rem;font-weight:700;color:#1e293b;line-height:1">1,128,287</div>
+    <div style="font-size:1.6rem;font-weight:700;color:#1e293b;line-height:1">1,197,858</div>
     <div style="font-size:.75rem;color:#64748b;margin-top:3px">Units Sold · Last 12M</div>
   </div>
 </div>
@@ -343,11 +343,11 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
     <div style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:#16a34a;margin-bottom:10px">Prevention</div>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:7px">
       <div class="kpi" style="box-shadow:none;background:#f8fafc;padding:8px 10px">
-        <div class="kpi-v" style="font-size:.95rem">626K</div>
+        <div class="kpi-v" style="font-size:.95rem">696K</div>
         <div class="kpi-l">Units sold (12M)</div>
       </div>
       <div class="kpi" style="box-shadow:none;background:#f8fafc;padding:8px 10px">
-        <div class="kpi-v" style="font-size:.95rem">$9.6M</div>
+        <div class="kpi-v" style="font-size:.95rem">$10.6M</div>
         <div class="kpi-l">Segment Value (12M)</div>
       </div>
     </div>
@@ -368,19 +368,19 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 </div>
 
 <div class="insight">
-  Treatment dominates: <strong>54.9% of revenue ($11.7M) and 44.5% of units (502K)</strong>. Treatment commands a 52% price premium ($23.30 vs $15.37). Fairy Tales and RID lead revenue ($4.7M vs $4.2M).
+  Prevention leads units: <strong>58.1% of units (696K)</strong>, while Treatment leads revenue: <strong>52.5% of revenue ($11.7M) vs 47.5% ($10.6M)</strong>. Treatment commands a higher avg price ($23.30 vs $15.21). Fairy Tales and RID lead revenue ($4.7M vs $4.2M).
 </div>
 
 <div class="g2" style="align-items:start">
   <div class="card">
     <h3>Revenue by Segment (12M)</h3>
     <div class="cw" style="height:280px"><canvas id="focusRevPie"></canvas></div>
-    <div class="note">Prevention $9.6M (45.1%) · Treatment $11.7M (54.9%). Revenue figures = 12M units × listed ASIN price. Source: per-ASIN sales CSVs + seasonality projection.</div>
+    <div class="note">Prevention $10.6M (47.5%) · Treatment $11.7M (52.5%). Revenue figures = 12M units × listed ASIN price. Source: per-ASIN sales CSVs + seasonality projection.</div>
   </div>
   <div class="card">
     <h3>Units by Segment (12M)</h3>
     <div class="cw" style="height:280px"><canvas id="focusUnitsPie"></canvas></div>
-    <div class="note">Prevention 626,276 units (55.5%) · Treatment 502,011 units (44.5%). Prevention dominates units, Treatment dominates value.</div>
+    <div class="note">Prevention 695,847 units (58.1%) · Treatment 502,011 units (41.9%). Prevention dominates units, Treatment dominates value.</div>
   </div>
 </div>
 
@@ -397,17 +397,17 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
     <tbody>
       <tr>
         <td><span class="badge badge-prev">Prevention</span></td>
-        <td data-val="626276">626,276</td>
-        <td data-val="9626549">$9,626,549</td>
-        <td data-val="55.5">55.5%</td>
-        <td data-val="45.1">45.1%</td>
+        <td data-val="695847">695,847</td>
+        <td data-val="10579672">$10,579,672</td>
+        <td data-val="58.1">58.1%</td>
+        <td data-val="47.5">47.5%</td>
       </tr>
       <tr>
         <td><span class="badge badge-tx">Treatment</span></td>
         <td data-val="502011">502,011</td>
         <td data-val="11694864">$11,694,864</td>
-        <td data-val="44.5">44.5%</td>
-        <td data-val="54.9">54.9%</td>
+        <td data-val="41.9">41.9%</td>
+        <td data-val="52.5">52.5%</td>
       </tr>
     </tbody>
   </table></div>
@@ -424,7 +424,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   <div class="card">
     <h3>Brand Share by Segment — Prevention (Units, 12M)</h3>
     <div class="cw" style="height:340px"><canvas id="prevBrandUnitPie"></canvas></div>
-    <div class="note">Brand unit share within Prevention segment. 626,276 total units (12M).</div>
+    <div class="note">Brand unit share within Prevention segment. 695,847 total units (12M).</div>
   </div>
 </div>
 
@@ -438,7 +438,7 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
   <div class="card">
     <h3>Brand Share by Segment — Prevention (Revenue, 12M)</h3>
     <div class="cw" style="height:340px"><canvas id="prevBrandRevPie"></canvas></div>
-    <div class="note">Brand revenue share within Prevention segment. $9.6M total revenue (12M).</div>
+    <div class="note">Brand revenue share within Prevention segment. $10.6M total revenue (12M).</div>
   </div>
 </div>
 
@@ -488,23 +488,23 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
 <h2>Market Structure — Prevention Segment (12M)</h2>
 
 <div class="kpis" style="grid-template-columns:repeat(auto-fill,minmax(160px,1fr))">
-  <div class="kpi"><div class="kpi-v">28.9%</div><div class="kpi-l">Top 1 ASIN Revenue Share</div></div>
-  <div class="kpi"><div class="kpi-v">64.0%</div><div class="kpi-l">Top 3 ASINs Share</div></div>
-  <div class="kpi"><div class="kpi-v">74.7%</div><div class="kpi-l">Top 5 ASINs Share</div></div>
-  <div class="kpi"><div class="kpi-v">87.9%</div><div class="kpi-l">Top 10 ASINs Share</div></div>
-  <div class="kpi"><div class="kpi-v">48.8%</div><div class="kpi-l">Top Brand Share (Fairy Tales)</div></div>
+  <div class="kpi"><div class="kpi-v">26.3%</div><div class="kpi-l">Top 1 ASIN Revenue Share</div></div>
+  <div class="kpi"><div class="kpi-v">58.2%</div><div class="kpi-l">Top 3 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">72.2%</div><div class="kpi-l">Top 5 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">88.1%</div><div class="kpi-l">Top 10 ASINs Share</div></div>
+  <div class="kpi"><div class="kpi-v">35.6%</div><div class="kpi-l">Top Brand Share (Fairy Tales)</div></div>
 </div>
 
 <div class="g2" style="align-items:start">
   <div class="card">
     <h3>Type — Unit Share (12M) — Prevention</h3>
     <div class="cw" style="height:280px"><canvas id="txTypeUnitPie"></canvas></div>
-    <div class="note">Prevention spray 443,462 (70.8%) · Prevention shampoo 105,700 (16.9%) · Treatment + Prevention kit/set 28,478 (4.5%) · Prevention conditioner 26,990 (4.3%) · Prevention kit/set 19,352 (3.1%) · Treatment spray with comb 2,294 (0.4%). Total: 626,276 units.</div>
+    <div class="note">Prevention spray 443,462 (63.7%) · Prevention shampoo 105,700 (15.2%) · Prevention 69,571 (10.0%) · Treatment + Prevention kit/set 28,478 (4.1%) · Prevention conditioner 26,990 (3.9%) · Prevention kit/set 19,352 (2.8%) · Treatment spray with comb 2,294 (0.3%). Total: 695,847 units.</div>
   </div>
   <div class="card">
     <h3>Type — Revenue Share (12M) — Prevention</h3>
     <div class="cw" style="height:280px"><canvas id="txTypeRevPie"></canvas></div>
-    <div class="note">Prevention spray $6.2M (64.0%) · Prevention shampoo $1.5M (15.3%) · Treatment + Prevention kit/set $0.9M (9.4%) · Prevention conditioner $0.5M (5.6%) · Prevention kit/set $0.5M (5.5%) · Treatment spray with comb $0.0M (0.2%). Total: $9.6M.</div>
+    <div class="note">Prevention spray $6.2M (58.2%) · Prevention shampoo $1.5M (13.9%) · Prevention $1.0M (9.0%) · Treatment + Prevention kit/set $0.9M (8.5%) · Prevention conditioner $0.5M (5.1%) · Prevention kit/set $0.5M (5.0%) · Treatment spray with comb $0.0M (0.2%). Total: $10.6M.</div>
   </div>
 </div>
 
@@ -522,15 +522,16 @@ h2{font-size:1rem;margin-bottom:16px;color:#1e293b;font-weight:700}
       <th style="cursor:pointer;user-select:none" onclick="sortTbl('typeSummaryTable',7,this)">Avg Rating ▽</th>
     </tr></thead>
     <tbody>
-      <tr><td>Prevention spray</td><td data-val="3">3</td><td data-val="443462">443,462</td><td data-val="70.8">70.8%</td><td data-val="6157882">$6,157,882</td><td data-val="64.0">64.0%</td><td data-val="13.89">$13.89</td><td data-val="4.73">4.73</td></tr>
-      <tr><td>Prevention shampoo</td><td data-val="7">7</td><td data-val="105700">105,700</td><td data-val="16.9">16.9%</td><td data-val="1475362">$1,475,362</td><td data-val="15.3">15.3%</td><td data-val="13.96">$13.96</td><td data-val="4.53">4.53</td></tr>
-      <tr><td>Treatment + Prevention kit/set</td><td data-val="4">4</td><td data-val="28478">28,478</td><td data-val="4.5">4.5%</td><td data-val="903273">$903,273</td><td data-val="9.4">9.4%</td><td data-val="31.72">$31.72</td><td data-val="4.40">4.40</td></tr>
-      <tr><td>Prevention conditioner</td><td data-val="3">3</td><td data-val="26990">26,990</td><td data-val="4.3">4.3%</td><td data-val="534473">$534,473</td><td data-val="5.6">5.6%</td><td data-val="19.80">$19.80</td><td data-val="4.67">4.67</td></tr>
-      <tr><td>Prevention kit/set</td><td data-val="4">4</td><td data-val="19352">19,352</td><td data-val="3.1">3.1%</td><td data-val="532689">$532,689</td><td data-val="5.5">5.5%</td><td data-val="27.53">$27.53</td><td data-val="4.70">4.70</td></tr>
-      <tr><td>Treatment spray with comb</td><td data-val="1">1</td><td data-val="2294">2,294</td><td data-val="0.4">0.4%</td><td data-val="22870">$22,870</td><td data-val="0.2">0.2%</td><td data-val="9.97">$9.97</td><td data-val="4.50">4.50</td></tr>
+      <tr><td>Prevention spray</td><td data-val="3">3</td><td data-val="443462">443,462</td><td data-val="63.7">63.7%</td><td data-val="6157882">$6,157,882</td><td data-val="58.2">58.2%</td><td data-val="13.89">$13.89</td><td data-val="4.73">4.73</td></tr>
+      <tr><td>Prevention shampoo</td><td data-val="7">7</td><td data-val="105700">105,700</td><td data-val="15.2">15.2%</td><td data-val="1475362">$1,475,362</td><td data-val="13.9">13.9%</td><td data-val="13.96">$13.96</td><td data-val="4.53">4.53</td></tr>
+      <tr><td>Prevention</td><td data-val="1">1</td><td data-val="69571">69,571</td><td data-val="10.0">10.0%</td><td data-val="953123">$953,123</td><td data-val="9.0">9.0%</td><td data-val="13.70">$13.70</td><td data-val="4.30">4.30</td></tr>
+      <tr><td>Treatment + Prevention kit/set</td><td data-val="4">4</td><td data-val="28478">28,478</td><td data-val="4.1">4.1%</td><td data-val="903273">$903,273</td><td data-val="8.5">8.5%</td><td data-val="31.72">$31.72</td><td data-val="4.40">4.40</td></tr>
+      <tr><td>Prevention conditioner</td><td data-val="3">3</td><td data-val="26990">26,990</td><td data-val="3.9">3.9%</td><td data-val="534473">$534,473</td><td data-val="5.1">5.1%</td><td data-val="19.80">$19.80</td><td data-val="4.67">4.67</td></tr>
+      <tr><td>Prevention kit/set</td><td data-val="4">4</td><td data-val="19352">19,352</td><td data-val="2.8">2.8%</td><td data-val="532689">$532,689</td><td data-val="5.0">5.0%</td><td data-val="27.53">$27.53</td><td data-val="4.70">4.70</td></tr>
+      <tr><td>Treatment spray with comb</td><td data-val="1">1</td><td data-val="2294">2,294</td><td data-val="0.3">0.3%</td><td data-val="22870">$22,870</td><td data-val="0.2">0.2%</td><td data-val="9.97">$9.97</td><td data-val="4.50">4.50</td></tr>
     </tbody>
   </table></div>
-  <div class="note">Prevention segment only — 22 ASINs across 6 product types. Revenue = 12M units × listed price. (Mar 2025 – Feb 2026).</div>
+  <div class="note">Prevention segment only — 23 ASINs across 7 product types. Revenue = 12M units × listed price. (Mar 2025 – Feb 2026).</div>
 </div>
 
 <!-- ── S2: Brand Share by Type — Units — Prevention ─────────────────────────── -->
@@ -2290,21 +2291,22 @@ const ALL_PRODUCTS = [
   ['B0FQYZFWWQ','100% Dimethicone Oil for Lice – Safe for Kids &...','Treatment lotion','Treatment','Nit Free',74.75,222,16611,0,4.3,23,6],
   ['B093NTGW9H','RID Daily Defense Lice Shampoo & Conditioner, U...','Prevention shampoo','Prevention','RID',12.98,835,10839,0,4.4,1759,59],
   ['B0FM64BJZT','Lice Killing Shampoo 4 FL OZ - Maximum Stregth ...','Treatment shampoo with comb','Treatment','Lice No More',9.99,980,9789,0,4.3,58,7],
-  ['B002OHE7YW','Nix Lice Treatment Killing Creme Rinse & Remova...','Treatment lotion','Treatment','Nix',11.7,663,7756,0,4.4,3712,214]
+  ['B002OHE7YW','Nix Lice Treatment Killing Creme Rinse & Remova...','Treatment lotion','Treatment','Nix',11.7,663,7756,0,4.4,3712,214],
+  ['B0B7K8Q8ZN','Nix Lice Prevention Daily Leave-In Spray for K...','Prevention','Prevention','Nix',13.7,69571,953123,0,4.3,23,6]
 ];
 
 // ── TAB 1 Charts ─────────────────────────────────────────────────────────────
-makePie('focusRevPie', ['Prevention','Treatment'], [9626549, 11694864], FOC_CLR,
+makePie('focusRevPie', ['Prevention','Treatment'], [10579672, 11694864], FOC_CLR,
   v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
 
-makePie('focusUnitsPie', ['Prevention','Treatment'], [626276, 502011], FOC_CLR,
+makePie('focusUnitsPie', ['Prevention','Treatment'], [695847, 502011], FOC_CLR,
   v => v.toLocaleString(), v => v.toLocaleString() + ' units');
 
 // ── TAB 2 Prevention type pies ──────────────────────────────────────────────
-makePie('txTypeUnitPie', ['Prevention spray','Prevention shampoo','Treatment + Prevention kit/set','Prevention conditioner','Prevention kit/set','Treatment spray with comb'], [443462,105700,28478,26990,19352,2294], ['#16a34a','#86efac','#7c3aed','#15803d','#22c55e','#ea580c'],
+makePie('txTypeUnitPie', ['Prevention spray','Prevention shampoo','Prevention','Treatment + Prevention kit/set','Prevention conditioner','Prevention kit/set','Treatment spray with comb'], [443462,105700,69571,28478,26990,19352,2294], ['#16a34a','#86efac','#2563eb','#7c3aed','#15803d','#22c55e','#ea580c'],
   v => v.toLocaleString(), v => v.toLocaleString() + ' units');
 
-makePie('txTypeRevPie', ['Prevention spray','Prevention shampoo','Treatment + Prevention kit/set','Prevention conditioner','Prevention kit/set','Treatment spray with comb'], [6157882,1475362,903273,534473,532689,22870], ['#16a34a','#86efac','#7c3aed','#15803d','#22c55e','#ea580c'],
+makePie('txTypeRevPie', ['Prevention spray','Prevention shampoo','Prevention','Treatment + Prevention kit/set','Prevention conditioner','Prevention kit/set','Treatment spray with comb'], [6157882,1475362,953123,903273,534473,532689,22870], ['#16a34a','#86efac','#2563eb','#7c3aed','#15803d','#22c55e','#ea580c'],
   v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
 
 
@@ -2379,9 +2381,9 @@ makePie('txBrandUnitPie',
   v => v.toLocaleString(), v => v.toLocaleString() + ' units');
 
 makePie('prevBrandUnitPie',
-  ['Fairy Tales','SO COZY','MAYDAY','Vamousse','Lice Shield','First Botany','Lice Clinics of America','Others'],
-  [277529,254177,38762,30356,12367,5433,4523,3129],
-  ['#16a34a','#f97316','#d97706','#0891b2','#94a3b8','#7c3aed','#7c3aed','#94a3b8'],
+  ['Fairy Tales','SO COZY','Nix','MAYDAY','Vamousse','Lice Shield','First Botany','Lice Clinics of America','Others'],
+  [277529,254177,69571,38762,30356,12367,5433,4523,3129],
+  ['#16a34a','#f97316','#2563eb','#d97706','#0891b2','#94a3b8','#7c3aed','#7c3aed','#94a3b8'],
   v => v.toLocaleString(), v => v.toLocaleString() + ' units');
 
 makePie('txBrandRevPie',
@@ -2391,9 +2393,9 @@ makePie('txBrandRevPie',
   v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
 
 makePie('prevBrandRevPie',
-  ['Fairy Tales','SO COZY','MAYDAY','Vamousse','Lice Clinics of America','Lice Shield','First Botany','Others'],
-  [4694664,2959094,1033286,500577,180787,121321,103111,33709],
-  ['#16a34a','#f97316','#d97706','#0891b2','#7c3aed','#94a3b8','#7c3aed','#94a3b8'],
+  ['Fairy Tales','SO COZY','MAYDAY','Nix','Vamousse','Lice Clinics of America','Lice Shield','First Botany','Others'],
+  [4694664,2959094,1033286,953123,500577,180787,121321,103111,33709],
+  ['#16a34a','#f97316','#d97706','#2563eb','#0891b2','#7c3aed','#94a3b8','#7c3aed','#94a3b8'],
   v => '$' + (v/1e6).toFixed(2) + 'M', v => '$' + v.toLocaleString());
 
 
@@ -2575,7 +2577,7 @@ makePie('txShampBrandRevPie',
 })();
 
 (function() {
-  const TOTAL_TX_REV = 9626549;
+  const TOTAL_TX_REV = 10579672;
   const map = {};
   ALL_PRODUCTS.filter(p => p[3] === 'Prevention').forEach(p => {
     const [,,,, brand, price, units, rev,, rating, reviews] = p;
@@ -2606,7 +2608,7 @@ makePie('txShampBrandRevPie',
 
 // ── Prevention ASINs Top 15 ─────────────────────────────────────────────────
 (function() {
-  const TOTAL_PREV_REV = 9626549;
+  const TOTAL_PREV_REV = 10579672;
   const rows = ALL_PRODUCTS.filter(p => p[3] === 'Prevention').sort((a, b) => b[7] - a[7]).slice(0, 15);
   const tbody = document.getElementById('prevTop20Tbody');
   rows.forEach(p => {
